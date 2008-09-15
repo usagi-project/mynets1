@@ -1,11 +1,13 @@
 //InPlaceEditorのgetTextをオーバーライド
-Ajax.InPlaceEditor.prototype.getText = function() {
-    var text = this.element.innerHTML;
-    var loc = location.href.split('?');
-    var locExp = new RegExp(loc[0], "ig");
-    text = text.replace(locExp, "").replace(/\salt="絵文字"/gi, "").replace(/\salt=絵文字/gi, "").replace(/\/>/gi, ">");
-    text = text.replace(/<img\ssrc="img\/moji\/x_([0-9A-F][0-9A-F][0-9A-F][0-9A-F])\.gif">/gi, "&#x$1;");
-    return text;
+if(Ajax.InPlaceEditor != null) {
+    Ajax.InPlaceEditor.prototype.getText = function() {
+        var text = this.element.innerHTML;
+        var loc = location.href.split('?');
+        var locExp = new RegExp(loc[0], "ig");
+        text = text.replace(locExp, "").replace(/\salt="絵文字"/gi, "").replace(/\salt=絵文字/gi, "").replace(/\/>/gi, ">");
+        text = text.replace(/<img\ssrc="img\/moji\/x_([0-9A-F][0-9A-F][0-9A-F][0-9A-F])\.gif">/gi, "&#x$1;");
+        return text;
+    }
 }
 
 function makeoneword() {
