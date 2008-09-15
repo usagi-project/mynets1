@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>MyNETS1.1.0 UPGRADEコンバータについて</title>
+<link href="css/import.css" rel="stylesheet" type="text/css" media="screen,projection" />
+<script type="text/javascript" src="js/js.js"></script>
+</head>
+<body>
+<div id="wrap">
+  <div id="head-convert">
+    <h1>MyNETS1.1.0 Usagiコンバータについて</h1>
+    <div id="head-menu">
+      <ul class="menu">
+        <li><a href="http://usagi.mynets.jp">UsagiProject公式サイト</a></li>
+        <li><a href="http://usagi.mynets.jp/SBBS/">サポート掲示板</a></li>
+        <li><a href="http://usagi.mynets.jp/SNS100/">デモサイトSNS</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="content">
+    <div id="main-body">
+      <div class="entry-box">
+        <div id="step0" class="entry-tag">さあ、あなたものSNSもMyNETSへグレードアップしよう！</div>
+        <h2>MyNETSへようこそ！</h2>
+        <div class="entry-category">Step0</div>
+        <div class="entry-body">
+          <p>UsagiProjectへようこそ</p>
+          <p>UsagiProjectのSNSエンジン「MyNETS」を導入するためのツールがUsagiコンバーターです。このツールはOpenPNE2.4.X系や2.6.X系からMyNETS1.1.0へ移行するためのツールです。</p>
+          <p>新規でMyNETSを導入する場合は、「<a href="./" alt="インストーラー"  onmouseout="hideTooltip()" onmouseover="showTooltip(event,'新規でMyNETSを導入するときに使います。');return false">インストーラー</a>」をご利用ください。</p>
+          <p>すでにMyNETSをお使いの場合は、「<a href="./versionup.html" alt="バージョンアップツール" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'MyNETS1.0.1や1.0.0をご利用の場合に使います。');return false">バージョンアップツール</a>」をご利用ください。</p>
+          <br />
+          <p align="center"><img src="./images/back_img.jpg" alt="UsagiProject"  /></p>
+        </div>
+      </div>
+      <div class="entry-box">
+        <div id="step1" class="entry-tag">導入前の確認を！</div>
+        <h2>Usagiコンバーターの対象について</h2>
+        <div class="entry-category">Step1</div>
+        <div class="entry-body">
+          <p>当 UPGRADE TOOL は、OpenPNE2.4.X、OpenPNE2.6.XからのMyNETSへのコンバートを対象としています。</p>
+          <p>OpenPNE2.2.X以下のバージョンの場合は、暗号化処理方法が2.4.X以降と違うため、あらかじめ2.4.Xへとバージョンアップしてから当ツールを利用するようにしてください。</p>
+          <br />
+          <p>処理の流れは次のようになります。</p>
+          <ul>
+            <li><a href="#" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'まずは公式サイトからMyNETS1.1.0をDLして自分のマシンで展開しておきましょう。OpenPNEからコンバートするためには、MyNETSのファイルすべてが必要となります。');return false">MyNETS1.1.0 アプリケーションファイルの準備</a></li>
+            <li><a href="#" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'MyNETSのファイルがすべて転送されているかどうかを確認してください。問題なければ、ページの通りに進むことでコンバートプログラムが動きます。');return false">コンバートプログラムの起動</a></li>
+            <li><a href="#" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'コンバートが完了すると、管理画面へのリンクがでてきます。管理画面へは、installフォルダーがのこっている場合はログインすることができません。必ずinstallフォルダーを削除するか別の名前に変えてからログインしてください。');return false">設定の確認</a></li>
+          </ul>
+          <p>OpenPNEからコンバートする場合は、MyNETSのアプリケーションファイルへすべて切り替えます。</p>
+          <p>個人的にファイルのカスタマイズ等を行っている場合は、カスタマイズを行ったファイルをインストール後適用するようにしてください。</p>
+          <p>当ツールは、アプリケーションをそのまま移行するためのツールです。</p>
+        </div>
+      </div>
+      <div class="entry-box">
+        <div id="step2" class="entry-tag">サーバーへのファイルの転送</div>
+        <h2>ファイルの転送</h2>
+        <div class="entry-category">Step2</div>
+        <div class="entry-body">
+          <p>MyNETS1.1.0のファイルをダウンロードし、FTPクライアントまたはSSH等でご利用になるサーバーへアップロードしてください。</p>
+          <p>※確実にすべてのファイルがアップロードできるようにしてください。（FTP転送の場合、転送ミスで一部ファイルが正常にアップロードできないことがあります。その場合動作上不具合が出る可能性がありますので、ご注意ください。</p>
+          <p>ファイルが正常にアップロードできたかどうかを確認するためのツールを別途ご用意しています。</p>
+          <p>スクリプトチェックツールを UsagiProject 公式サイト、またはソースフォージからダウンロードして、サーバーに転送します。</p>
+          <p>すべてのファイルが正しくアップロードできたか確認してください。</p>
+          <br />
+          <br />
+        </div>
+      </div>
+      <div class="entry-box">
+        <div id="step3" class="entry-tag">データベースの調整</div>
+        <h2>MySQLデータベースの追加処理</h2>
+        <div class="entry-category">Step3</div>
+        <div class="entry-body">
+          <p>MyNETS1.1.0とOpenPNE2.4.X、2.6.X系ではOpenPNEで利用しているMySQLのデータベースをそのまま利用し、MyNETSで追加管理されているテーブルのみを追加することで移行を行うことが可能です。</p>
+          <p>MyNETS1.1.0では互換性を維持しながら、独自のテーブル拡張を行っています。MyNETSでグレードアップされた新しい機能を利用するためのテーブル等が追加されています。</p>
+          <p>追加されたテーブルの作成と、新たに追加されたテーブル内の項目を作成します。</p>
+          <p>MyNETSで追加されたテーブルおよび追加された項目の一覧はこちら</p>
+          <br />
+          <br />
+        </div>
+      </div>
+      <div class="entry-box">
+        <div id="step4" class="entry-tag">最終移行処理</div>
+        <h2>あしあと数、コメント数の調整</h2>
+        <div class="entry-category">Step4</div>
+        <div class="entry-body">
+          <p>MyNETSでは足あとのカウント方法を変更しました。累計のカウント数字を会員テーブルに保持。あしあと一覧を見るときにカウントせず、訪問時に数字をカウントアップする方法をとりました。</p>
+          <p>MyNETSではコメント数のカウント方法も変更しております。コメントが投稿された時点で、日記そのものに累計のカウント数字をもち、そこに保存されている数値を表示しております。これにより、日記一覧表示の際にコメントテーブルを集計することはなくなりました。</p>
+          <p>あしあと調整のためのスクリプトと、コメント集計のスクリプトを動かします。</p>
+          <p>※あしあと保存のテーブルのレコード数、日記のコメントテーブルの数が大きいと、処理に時間がかかります。ご注意ください。</p>
+          <br />
+          <br />
+        </div>
+      </div>
+      <div class="entry-box">
+        <div id="step5" class="entry-tag">コンバート開始</div>
+        <h2>ウィザードを使って作業</h2>
+        <div class="entry-category">Step5</div>
+        <div class="entry-body">
+          <br />
+          <p>さあ、あなたもUsagiコンバーターを使ってOpenPNE2.4.X、2.6.XからMyNETSへブレードアップしましょう！</p>
+          <br />
+           <p align="center"><img src="./images/back_img.jpg" alt="UsagiProject"  /></p>
+          <br />
+          <br />
+          <form action="index.php">
+          <p align="center"id="articleList" class="articleList"><input type="submit" value="コンバート開始" /></p>
+          </form>
+          <br />
+        </div>
+      </div>
+    </div>
+    <div id="side-menu">
+      <div id="category">
+        <h3>CATEGORY</h3>
+        <ul class="link-list">
+          <li><a href="#step1" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'導入前の確認を行います');return false">導入前の確認</a></li>
+          <li><a href="#step2" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'ダウンロードしたファイルをサーバーへアップします。');return false">サーバーへのファイルの転送</a></li>
+          <li><a href="#step3" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'コンバートするためのDBの確認を行います。');return false">データベースの調整</a></li>
+          <li><a href="#step4" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'あしあとカウント数と日記コメント数を集計してMyNETS用に調整します。');return false">あしあと数コメント数の調整</a></li>
+          <li><a href="#step5" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'コンバートプログラムの開始です。');return false">コンバート開始</a></li>
+        </ul>
+      </div>
+      <div id="search-box">
+        <h3>CHECK</h3>
+        <ul class="link-list">
+          <li><a href="http://usagi.mynets.jp/SBBS/" target="_blank">サポート掲示板</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="foot">
+    <ul class="menu">
+      <li><a href="http://usagi.mynets.jp">UsagiProject公式サイト</a></li>
+      <li><a href="http://usagi.mynets.jp/SBBS/">サポート掲示板</a></li>
+      <li><a href="http://usagi.mynets.jp/SNS100/">デモサイトSNS</a></li>
+      <li><a href="#">ページTOP</a></li>
+    </ul>
+    <div id="copyright">
+      <p>COPYRIGHT Usagi Project All Rights reserved. -2007</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

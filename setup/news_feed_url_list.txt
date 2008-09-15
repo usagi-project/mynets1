@@ -1,0 +1,238 @@
+-------------------------------------------------------------------------------
+■ニュースフィードのURLリストサンプル
+-------------------------------------------------------------------------------
+
+// ニュースフィードのURLリストサンプル
+// 使えそうなものを集めてみましたので、必要に応じてご利用ください。
+// ニュースだけでなく、RSS/Atomフィードであれば何でもOKなので、使い方によっては強力（凶悪？）です。
+$GLOBALS['NEWS_FEED_URL_LIST'] = array(
+    'GoogleNews-Top'  => 'http://news.google.com/news?hl=ja&ned=ja&ie=UTF-8&oe=UTF-8&output=atom&topic=h',
+    'GoogleNews-Popular' => 'http://news.google.com/news?hl=ja&ned=ja&ie=UTF-8&oe=UTF-8&output=atom&topic=po',
+    'GoogleNews-Public' => 'http://news.google.com/news?hl=ja&ned=ja&ie=UTF-8&oe=UTF-8&output=atom&topic=y',
+    'GoogleNews-World' => 'http://news.google.com/news?hl=ja&ned=ja&ie=UTF-8&oe=UTF-8&output=atom&topic=w',
+    'GoogleNews-Business' => 'http://news.google.com/news?hl=ja&ned=ja&ie=UTF-8&oe=UTF-8&output=atom&topic=b',
+    'GoogleNews-Politics' => 'http://news.google.com/news?hl=ja&ned=ja&ie=UTF-8&oe=UTF-8&output=atom&topic=p',
+    'GoogleNews-Sports' => 'http://news.google.com/news?hl=ja&ned=ja&ie=UTF-8&oe=UTF-8&output=atom&topic=s',
+    'GoogleNews-Entertainment' => 'http://news.google.com/news?hl=ja&ned=ja&ie=UTF-8&oe=UTF-8&output=atom&topic=e',
+    'GoogleNews-Technology' => 'http://news.google.com/news?hl=ja&ned=ja&ie=UTF-8&oe=UTF-8&output=atom&topic=t',
+    'GoogleNews-Search-OpenSource' => 'http://news.google.com/news?hl=ja&ned=us&ie=UTF-8&oe=UTF-8&output=atom&q=%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E3%82%BD%E3%83%BC%E3%82%B9',
+    'EnterpriseWatch' => 'http://enterprise.watch.impress.co.jp/cda/rss/enterprise.rdf',
+    'PCWatch' => 'http://pc.watch.impress.co.jp/sublink/pc.rdf',
+    'DigicameWatch' => 'http://dc.watch.impress.co.jp/cda/rss/digicame.rdf',
+    'AVWatch' => 'http://www.watch.impress.co.jp/av/sublink/av.rdf',
+    'GAMEWatch' => 'http://rss.rssad.jp/rss/gamewatch/index.rdf',
+    'KeitaiWatch' => 'http://k-tai.impress.co.jp/cda/rss/ktai.rdf',
+    'INTERNETWatch' => 'http://internet.watch.impress.co.jp/cda/rss/internet.rdf',
+    'BroadbandWatch' => 'http://bb.watch.impress.co.jp/cda/rss/broadband.rdf',
+    'RobotWatch' => 'http://robot.watch.impress.co.jp/cda/rss/robot.rdf',
+    'KadenWatch' => 'http://kaden.watch.impress.co.jp/cda/rss/kaden.rdf',
+    'Yahoo!News-Top' => 'http://dailynews.yahoo.co.jp/fc/rss.xml',
+    'Yahoo!News-World' => 'http://dailynews.yahoo.co.jp/fc/world/rss.xml',
+    'Yahoo!News-Domestic' => 'http://dailynews.yahoo.co.jp/fc/domestic/rss.xml',
+    'Yahoo!News-Computer' => 'http://dailynews.yahoo.co.jp/fc/computer/rss.xml',
+    'Yahoo!News-Economy' => 'http://dailynews.yahoo.co.jp/fc/economy/rss.xml',
+    'Yahoo!News-Sports' => 'http://dailynews.yahoo.co.jp/fc/sports/rss.xml',
+    'Yahoo!News-Science' => 'http://dailynews.yahoo.co.jp/fc/science/rss.xml',
+    'Yahoo!News-Local' => 'http://dailynews.yahoo.co.jp/fc/local/rss.xml',
+    'Yahoo!News-Entertainment' => 'http://dailynews.yahoo.co.jp/fc/entertainment/rss.xml',
+    'livedoorNews-Topics' => 'http://news.livedoor.com/topics/rss.xml',
+    'livedoorNews-Domestic' => 'http://news.livedoor.com/topics/rss/dom.xml',
+    'livedoorNews-International' => 'http://news.livedoor.com/topics/rss/int.xml',
+    'livedoorNews-Economy' => 'http://news.livedoor.com/topics/rss/eco.xml',
+    'livedoorNews-Entertainment' => 'http://news.livedoor.com/topics/rss/ent.xml',
+    'livedoorNews-Music' => 'http://news.livedoor.com/topics/rss/mus.xml',
+    'livedoorNews-Movie' => 'http://news.livedoor.com/topics/rss/mov.xml',
+    'livedoorNews-Sports' => 'http://news.livedoor.com/topics/rss/spo.xml',
+    'livedoorNews-Computer' => 'http://news.livedoor.com/topics/rss/com.xml',
+    'livedoor_Sports_All' => 'http://sports.livedoor.com/user_rss/article',
+    'livedoor_Sports' => 'http://sports.livedoor.com/user_rss/article',
+    'Akahi.com-NewsFlash' => 'http://www3.asahi.com/rss/index.rdf',
+    'MSN_Sankei_News-Point' => 'http://sankei.jp.msn.com/rss/news/points.xml',
+    'MSN_Sankei_News-Affairs' => 'http://sankei.jp.msn.com/rss/news/affairs.xml',
+    'MSN_Sankei_News-Politics' => 'http://sankei.jp.msn.com/rss/news/politics.xml',
+    'MSN_Sankei_News-Economy' => 'http://sankei.jp.msn.com/rss/news/economy.xml',
+    'MSN_Sankei_News-World' => 'http://sankei.jp.msn.com/rss/news/world.xml',
+    'MSN_Sankei_News-Sports' => 'http://sankei.jp.msn.com/rss/news/sports.xml',
+    'MSN_Sankei_News-Entertainments' => 'http://sankei.jp.msn.com/rss/news/entertainments.xml',
+    'MSN_Sankei_News-Life' => 'http://sankei.jp.msn.com/rss/news/life.xml',
+    'MSN_Sankei_News-Culture' => 'http://sankei.jp.msn.com/rss/news/culture.xml',
+    'MSN_Sankei_News-Release' => 'http://sankei.jp.msn.com/rss/news/release.xml',
+    'MSN_Sankei_News-Region' => 'http://sankei.jp.msn.com/rss/news/region.xml',
+    'MSN_Sankei_News-USA_TODAY' => 'http://sankei.jp.msn.com/rss/news/usatoday.xml',
+    'iza-Top' => 'http://www.iza.ne.jp/top/NwEntTopRSS.rdf',
+    'iza-Event' => 'http://www.iza.ne.jp/news/event/NwCateRSS.rdf',
+    'iza-Sports' => 'http://www.iza.ne.jp/news/sports/NwCateRSS.rdf',
+    'iza-Entertainment' => 'http://www.iza.ne.jp/news/entertainment/NwCateRSS.rdf',
+    'iza-NATNEWS' => 'http://www.iza.ne.jp/news/natnews/NwCateRSS.rdf',
+    'iza-Column' => 'http://www.iza.ne.jp/news/column/NwCateRSS.rdf',
+    'iza-World' => 'http://www.iza.ne.jp/news/world/NwCateRSS.rdf',
+    'iza-Economy' => 'http://www.iza.ne.jp/news/economy/NwCateRSS.rdf',
+    'iza-Business' => 'http://www.iza.ne.jp/news/business/NwCateRSS.rdf',
+    'iza-IT' => 'http://www.iza.ne.jp/news/it/NwCateRSS.rdf',
+    'iza-Politics' => 'http://www.iza.ne.jp/news/politics/NwCateRSS.rdf',
+    'iza-Books' => 'http://www.iza.ne.jp/news/books/NwCateRSS.rdf',
+    'iza-Living' => 'http://www.iza.ne.jp/news/living/NwCateRSS.rdf',
+    'J-CASTNews' => 'http://www.j-cast.com/index.xml',
+    'J-CASTTVWatch' => 'http://www.j-cast.com/tv/index.xml',
+    'J-CASTMonoWatch' => 'http://www.j-cast.com/mono/index.xml',
+    '@IT-Forum' => 'http://www.atmarkit.co.jp/rss/rss.xml',
+    '@IT-NewsInsight' => 'http://www.atmarkit.co.jp/rss/news/rss.xml',
+    '@IT-WindowsServerInsider' => 'http://www.atmarkit.co.jp/rss/fwin2k/rss.xml',
+    '@IT-Insider.NET' => 'http://www.atmarkit.co.jp/rss/fdotnet/rss.xml',
+    '@IT-SystemInsider' => 'http://www.atmarkit.co.jp/rss/fsys/rss.xml',
+    '@IT-XML&SOA' => 'http://www.atmarkit.co.jp/rss/fxml/rss.xml',
+    '@IT-DatabaseExpert' => 'http://www.atmarkit.co.jp/rss/fdb/rss.xml',
+    '@IT-LinuxSquare' => 'http://www.atmarkit.co.jp/rss/flinux/rss.xml',
+    '@IT-MasterOfIPNetwork' => 'http://www.atmarkit.co.jp/rss/fnetwork/rss.xml',
+    '@IT-JavaSolution' => 'http://www.atmarkit.co.jp/rss/fjava/rss.xml',
+    '@IT-Security&Trust' => 'http://www.atmarkit.co.jp/rss/fsecurity/rss.xml',
+    '@IT-RichClient' => 'http://www.atmarkit.co.jp/rss/fwcr/rss.xml',
+    '@IT-Embedded' => 'http://www.atmarkit.co.jp/rss/fembedded/rss.xml',
+    '@IT-RFID+IC' => 'http://www.atmarkit.co.jp/rss/frfid/rss.xml',
+    '@IT-Jibun' => 'http://jibun.atmarkit.co.jp/rss/rss.xml',
+    '@IT-IM-CITS' => 'http://www.atmarkit.co.jp/rss/im/cits/rss.xml',
+    '@IT-IM-CBP' => 'http://www.atmarkit.co.jp/rss/im/cbp/rss.xml',
+    '@IT-IM-CARC' => 'http://www.atmarkit.co.jp/rss/im/carc/rss.xml',
+    '@IT-IM-CPM' => 'http://www.atmarkit.co.jp/rss/im/cpm/rss.xml',
+    '@IT-IM-COP' => 'http://www.atmarkit.co.jp/rss/im/cop/rss.xml',
+    '@IT-IM-CAE' => 'http://www.atmarkit.co.jp/rss/im/cae/rss.xml',
+    '@IT-IM-COP' => 'http://www.atmarkit.co.jp/rss/im/cop/rss.xml',
+    'CodeZine' => 'http://codezine.jp/rss/new/20/index.xml',
+    'ThinkIT' => 'http://www.thinkit.co.jp/rss.xml',
+    'MYCOM-Journal-ALL' => 'http://journal.mycom.co.jp/haishin/rss/index.rdf',
+    'MYCOM-Journal-NET' => 'http://journal.mycom.co.jp/haishin/rss/net.rdf',
+    'MYCOM-Journal-KEIEI' => 'http://journal.mycom.co.jp/haishin/rss/keiei.rdf',
+    'MYCOM-Journal-ENTERPRISE' => 'http://journal.mycom.co.jp/haishin/rss/enterprise.rdf',
+    'MYCOM-Journal-CREATIVE' => 'http://journal.mycom.co.jp/haishin/rss/creative.rdf',
+    'MYCOM-Journal-PC' => 'http://journal.mycom.co.jp/haishin/rss/pc.rdf',
+    'MYCOM-Journal-KEITAI' => 'http://journal.mycom.co.jp/haishin/rss/keitai.rdf',
+    'MYCOM-Journal-KADEN' => 'http://journal.mycom.co.jp/haishin/rss/kaden.rdf',
+    'MYCOM-Journal-HOBBY' => 'http://journal.mycom.co.jp/haishin/rss/hobby.rdf',
+    'MYCOM-Journal-ENTERTAINMENT' => 'http://journal.mycom.co.jp/haishin/rss/entertainment.rdf',
+    'MYCOM-Journal-LIFE' => 'http://journal.mycom.co.jp/haishin/rss/life.rdf',
+    'ITmedia-News' => 'http://rss.itmedia.co.jp/rss/1.0/news_bursts.xml',
+    'ITmedia-News-Domestic' => 'http://rss.itmedia.co.jp/rss/1.0/news_domestic.xml',
+    'ITmedia-News-Foreign' => 'http://rss.itmedia.co.jp/rss/1.0/news_foreign.xml',
+    'ITmedia-News-Web2.0' => 'http://rss.itmedia.co.jp/rss/1.0/news_web20.xml',
+    'ITmedia-News-NetTopic' => 'http://rss.itmedia.co.jp/rss/1.0/news_nettopics.xml',
+    'ITmedia-News-Industry' => 'http://rss.itmedia.co.jp/rss/1.0/news_industry.xml',
+    'ITmedia-Biz.ID' => 'http://rss.itmedia.co.jp/rss/1.0/bizid.xml',
+    'ITmedia-Enterprise' => 'http://rss.itmedia.co.jp/rss/1.0/enterprise.xml',
+    'ITmedia-Excecutive' => 'http://rss.itmedia.co.jp/rss/1.0/executive.xml',
+    'ITmedia-PlusD' => 'http://rss.itmedia.co.jp/rss/1.0/plusd.xml',
+    'TechTarget' => 'http://rss.itmedia.co.jp/rss/1.0/techtarget.xml',
+    'BussinessMedia' => 'http://rss.itmedia.co.jp/rss/1.0/makoto.xml',
+    '4Gamer.net' => 'http://www.4gamer.net/rss/index.xml',
+    'goo-Ranking' => 'http://ranking.goo.ne.jp/rss/index.rdf',
+    'goo-New-Keyword' => 'http://kwsearch.goo.ne.jp/kc_rssdata.php?NW=Y&ST=1&ED=10&NP=1',
+    'goo-keyrank_all' => 'http://ranking.goo.ne.jp/rss/keyword/keyrank_all1/index.rdf',
+    'Yahoo!CarNews' => 'http://rss.autos.yahoo.co.jp/rss/ncar/ncar.xml?tp=all',
+    'Yahoo!GurmetRanking' => 'http://api.gourmet.yahoo.co.jp/rss/RankRss.php?conditionidx=4&conditionquery=1&conditionbl=a&sortc_or_i=i,i,i&sortindex=8,22,23&sortdirect=-1,-1,-1&getnum=20&rankid=0&per=1&url=typ%3D0%26md%3D0',
+    'Yahoo!LunchRanking-Tokyo' => 'http://api.gourmet.yahoo.co.jp/rss/RankRss.php?conditionidx=1&conditionquery=13&conditionbl=a&sortc_or_i=i,i,i&sortindex=11,22,23&sortdirect=-1,-1,-1&getnum=20&rankid=4&per=1&url=typ%3D0%26md%3D4%26td%3D13%26kn%3D3',
+    'Yahoo!AkamaruRanking-Tokyo' => 'http://api.gourmet.yahoo.co.jp/rss/RankRss.php?conditionidx=1&conditionquery=13&conditionbl=a&sortc_or_i=i,i,i&sortindex=16,22,23&sortdirect=-1,-1,-1&getnum=20&rankid=3&per=1&url=typ%3D0%26md%3D3%26td%3D13%26kn%3D3',
+    'Yahoo!Streaming' => 'http://streaming.yahoo.co.jp/rss/newly/all/',
+    'Yahoo!KenteiWeeklyRanking' => 'http://minna.cert.yahoo.co.jp/rss.xml?mode=ranking&ptn=1',
+    'Yahoo!BuzzWordsRanking' => 'http://picks.dir.yahoo.co.jp/buzzwords/rss/',
+    'Yahoo!MusicMagazine' => 'http://magazine.music.yahoo.co.jp/rss/ALL/rss.xml',
+    'YukanFuji-BLOG' => 'http://rss.rssad.jp/rss/yukanfujicom/index.rdf',
+    'RBB_TODAY' => 'http://rss.rssad.jp/rss/irict/rbb.rdf',
+    'japan.internet.com' => 'http://japan.internet.com/rss/rdf/index.rdf',
+    'japan.internet.com-DailyResearch' => 'http://japan.internet.com/rss/rdf/research.rdf'
+    'CNET_Japan' => 'http://feed.japan.cnet.com/rss/index.rdf',
+    'SeiyuNews.com' => 'http://seiyunews.com/backend.php',
+);
+
+-------------------------------------------------------------------------------
+★キーワードで絞り込む
+-------------------------------------------------------------------------------
+
+ニュースモジュールには、キーワードで絞り込む機能はありませんが、
+Googleニュースでは、キーワードを指定して、該当するニュースを
+取得し、RSS/Atomフィードとして返す機能がありますので、それを利用
+することで、キーワードで絞り込む機能を実現できます。
+
+上記リストに
+
+'GoogleNews-Search-Wii' => 'http://news.google.com/news?hl=ja&ned=us&ie=UTF-8&oe=UTF-8&output=atom&q=Wii',
+
+という「Google Newsで Wii をキーワードに検索する」URL
+
+http://news.google.com/news?hl=ja&ned=us&ie=UTF-8&oe=UTF-8&output=atom&q=Wii
+
+を記述してあります。
+
+これが、Googleニュースから特定のキーワードでニュースを絞り込む
+ためのRSSフィードを取得するためのURLです。
+
+「q=」の後に続くのが検索キーワードです。
+上記の場合は「Wii」をキーワードとして、ニュースを検索し、RSS2.0
+形式で結果を取得しています。
+
+「output=」の後の文字列が、結果の形式で、上記では「rss」なので、
+RSS2.0の形式で結果が取得できます。
+これを「atom」と変えるとAtom1.0で取得できます。
+
+また、「scoring=」の後は、並べ替えについての記述です。
+「scoring」を指定しないと、検索にヒットした順に取得されます。
+「scoring=n」と指定すると、検索結果が日付順（新しい記事順）に並べ
+られて取得されます。
+「scoring=d」と指定すると、重複する記事も表示されます。
+
+日本語などの２バイト文字の場合は、URLエンコードされている必要がある
+ので注意が必要ですが、運営しているSNSに応じたニュースを検索して表示
+させるのに有効でしょう。
+
+例えば、「オープンソース」をキーワードとして、Googleニュースから
+結果を得たい場合には、「オープンソース」をURLエンコードします。
+
+「オープンソース」をURLエンコードすると、
+%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E3%82%BD%E3%83%BC%E3%82%B9
+ですので、これを「q=」の後に記述します。
+以下のようになります。
+
+http://news.google.com/news?hl=ja&ned=us&ie=UTF-8&oe=UTF-8&output=atom&q=%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E3%82%BD%E3%83%BC%E3%82%B9
+
+URLエンコードするサービスやツールは、ネット上に転がっているので、
+検索エンジンで探してみてください。:-)
+
+
+■Googleニュースを使用する場合の注意事項
+
+2008年7月下旬に仕様変更があったらしく、Googleニュースの取得がうまく
+いかなくなっています。
+検索の場合はhl=jaでned=usにしないとダメとか、scrolling指定があると
+Atom/RSSフィードの場合検索結果が空っぽになるとか、キーワードが半角
+英数字だと結果も英語サイトの方が引っかかってくるとかいう細かな仕様
+変更（改悪かしら？）から、そもそもフィードを取得できなくなった
+カテゴリがあるとか・・・
+
+例えば、以下のフィードを使用しても、検索結果は空です。
+
+    'GoogleNews-Top'  => 'http://news.google.com/news?hl=ja&ned=ja&ie=UTF-8&oe=UTF-8&output=atom&topic=h',
+    'GoogleNews-Public' => 'http://news.google.com/news?hl=ja&ned=ja&ie=UTF-8&oe=UTF-8&output=atom&topic=y',
+    'GoogleNews-World' => 'http://news.google.com/news?hl=ja&ned=ja&ie=UTF-8&oe=UTF-8&output=atom&topic=w',
+    'GoogleNews-Business' => 'http://news.google.com/news?hl=ja&ned=ja&ie=UTF-8&oe=UTF-8&output=atom&topic=b',
+    'GoogleNews-Politics' => 'http://news.google.com/news?hl=ja&ned=ja&ie=UTF-8&oe=UTF-8&output=atom&topic=p',
+    'GoogleNews-Sports' => 'http://news.google.com/news?hl=ja&ned=ja&ie=UTF-8&oe=UTF-8&output=atom&topic=s',
+    'GoogleNews-Entertainment' => 'http://news.google.com/news?hl=ja&ned=ja&ie=UTF-8&oe=UTF-8&output=atom&topic=e',
+    'GoogleNews-Technology' => 'http://news.google.com/news?hl=ja&ned=ja&ie=UTF-8&oe=UTF-8&output=atom&topic=t',
+
+ned=usとかにしても、同じです。
+ただし、「&output=atom」を削除すると取得できるようになります。
+
+日本のニュースサイトからクレームが入ったんでしょうか？？
+
+しかし、以下は結果がとれます。
+
+    'GoogleNews-Popular' => 'http://news.google.com/news?hl=ja&ned=ja&ie=UTF-8&oe=UTF-8&output=atom&topic=po',
+
+謎です。
+
+半角英数字＆ned=usの例だと、以下になります。
+
+    'GoogleNews-Search-Wii' => 'http://news.google.com/news?hl=ja&ned=us&ie=UTF-8&oe=UTF-8&output=atom&q=Wii',
+
+日本語のニュースはあまり引っかかりません。(^_^;
+ned=jaにすると、何も引っかかりませんし・・・
+
+今後、仕様が戻ったりとかすると思うので、この情報はメモ書き程度まで。

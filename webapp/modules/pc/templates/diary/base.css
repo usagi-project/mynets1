@@ -1,0 +1,358 @@
+@charset "UTF-8";
+
+/* 全体構造 */
+ul.menu,ul.link-list {
+  margin: 0px;
+  padding: 0px;
+}
+
+ul.menu li,ul.link-list li {
+  list-style-type: none;
+}
+
+body {
+  color: #333333;
+  font-size: small;
+  font-family: "ＭＳ Ｐゴシック", Osaka, "ヒラギノ角ゴ Pro W3";
+  line-height: 1.6;
+  text-align: center;
+  font-weight: normal;
+  background: #F1F1F1 url(../images/bg-body.jpg) repeat-y center top;
+}
+
+#wrap {
+  width: 772px;
+  margin-right: auto;
+  margin-left: auto;
+}
+/* 全体構造 END */
+
+
+/* ヘッダ */
+#head {
+  width: 742px;
+  height: 109px;
+  background-image: url(../images/bg-head.jpg);
+  margin-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#head h1 {
+  width: 282px;
+  height: 43px;
+  font-size: medium;
+  text-indent: -700em;
+  background: #000000 url(../images/logo.jpg) no-repeat;
+  margin-top: 55px;
+  float: left;
+}
+
+/* ヘッダメニュー */
+#head-menu {
+  float: right;
+}
+
+#head ul.menu {
+  margin-top: 70px;
+}
+
+#head ul.menu li {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  float: left;
+  margin-left: 15px;
+
+}
+
+#head ul.menu li a {
+  color: #FFFFFF;
+}
+
+#head ul.menu li a:hover {
+  color: #FFFF00;
+}
+/* ヘッダメニュー END */
+/* ヘッダ END */
+
+
+/* フッタ */
+#foot {
+  width: 742px;
+  height: 78px;
+  color: #FFFFFF;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #858A9C url(../images/bg-foot.jpg) no-repeat;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  clear: both;
+}
+
+/* フッタメニュー */
+#foot ul.menu {
+  width: 742px;
+}
+
+#foot ul.menu li {
+  font-weight: bold;
+  margin-right: 10px;
+  float: left;
+}
+
+#foot ul.menu li a {
+  color: #FFFFFF;
+}
+
+#foot ul.menu li a:hover {
+  color: #FFFF00;
+}
+/* フッタメニュー END */
+
+#copyright {
+  font-size: xx-small;
+  text-align: right;
+  padding-top: 30px;
+  clear: both;
+}
+/* フッタ END */
+
+
+/* コンテンツ */
+#content {
+  width: 752px;
+  text-align: left;
+  background-color: #FFFFFF;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  clear: both;
+}
+
+#main-body {
+  width: 541px;
+  float: left;
+}
+
+#side-menu {
+  width: 192px;
+  float: right;
+}
+
+/* サイドメニュー */
+#side-menu h3 {
+  height: 28px;
+  color: #FFFFFF;
+  font-size: small;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  background: #FFFFFF url(../images/bg-subtitle.jpg) no-repeat;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+#side-menu ul.link-list {
+  margin-bottom: 30px;
+}
+
+#side-menu ul.link-list li {
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
+  border-bottom-color: #CCCCCC;
+}
+
+#side-menu ul.link-list li a {
+  color: #666666;
+  background: #FFFFFF url(../images/btn-allow.jpg) no-repeat 0px 8px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 17px;
+  display: block;
+}
+
+#side-menu ul.link-list li a:hover {
+  color: #000000;
+  background: #FFFFCC url(../images/btn-allow-over.jpg) no-repeat 0px 8px;
+}
+
+/* 検索ボックス */
+/*#search-box {
+  width: 192px;
+}*/
+
+#search-box p {
+  padding-bottom: 5px;
+}
+
+#search-box input {
+  float: left;
+  width: 125px;
+}
+
+#search-box .btn-search {
+  width: 60px;
+  height: 20px;
+  text-indent: -700em;
+  background-image: url(../images/btn-search.jpg);
+  background-repeat: no-repeat;
+  display: block;
+  float: right;
+}
+/* 検索ボックス END */
+
+/* ログインボックス */
+/*#login-box {
+  width: 192px;
+}*/
+
+#login-box p {
+  padding-bottom: 5px;
+}
+
+#login-box idinput {
+  float: left;
+  width: 125px;
+}
+#login-box passinput {
+  float: left;
+  width: 125px;
+}
+
+#login-box .login-btn {
+  width: 60px;
+  height: 20px;
+  text-indent: -700em;
+  background-image: url(../images/btn-login.jpg);
+  background-repeat: no-repeat;
+  display: block;
+  float: left;
+}
+/* ログインボックス END */
+/* サイドメニュー END */
+
+/* ブログ */
+.entry-box {
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
+  border-bottom-color: #CCCCCC;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+
+.entry-date {
+  height: 32px;
+  color: #FFFFFF;
+  font-size: small;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  background-image: url(../images/bg-date.jpg);
+  background-repeat: no-repeat;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+#content h2 {
+  color: #333333;
+  font-size: 110%;
+  line-height: 110%;
+  background-color: #FFFFFF;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: #CCCCCC;
+  padding-bottom: 5px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.entry-category {
+  color: #144D60;
+  font-size: 110%;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 110%;
+  font-weight: bold;
+}
+
+.entry-body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.entry-foot {
+  border-top-width: 2px;
+  border-top-style: solid;
+  border-top-color: #CCCCCC;
+  padding-top: 3px;
+}
+
+.link-community {
+  font-size: 85%;
+  float: left;
+}
+
+.link-more {
+  font-size: 85%;
+  float: right;
+}
+
+.link-more a {
+  color: #666666;
+  background: #FFFFFF url(../images/btn-allow.jpg) no-repeat 0px 1px;
+  padding-left: 17px;
+  display: block;
+}
+
+.link-more a:hover {
+  color: #000000;
+  background: #FFFFCC url(../images/btn-allow-over.jpg) no-repeat 0px 1px;
+}
+
+.entry-list {
+  margin-bottom: 30px;
+}
+
+.entry-list li {
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
+  border-bottom-color: #CCCCCC;
+}
+
+
+.entry-list li a {
+  color: #666666;
+  /*background: #FFFFFF url(../images/btn-allow.jpg) no-repeat 0px 8px;*/
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 17px;
+  display: block;
+}
+
+.entry-list li a:hover {
+  color: #000000;
+  background: #FFFFCC ;
+}
+#dhtmlgoodies_tooltip{
+        background-color:#EEE;
+        border:1px solid #000;
+        position:absolute;
+        display:none;
+        z-index:20000;
+        padding:2px;
+        font-size:0.9em;
+        -moz-border-radius:6px; /* 角丸の半径（Firefoxのみ） */
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", Arial, sans-serif;
+        
+    }
+    #dhtmlgoodies_tooltipShadow{
+        position:absolute;
+        background-color:#555;
+        display:none;
+        z-index:10000;
+        opacity:0.7;
+        filter:alpha(opacity=70);
+        -khtml-opacity: 0.7;
+        -moz-opacity: 0.7;
+        -moz-border-radius:6px; /* 角丸の半径（Firefoxのみ） */
+    }
+/* ブログ END */
+/* コンテンツ END */

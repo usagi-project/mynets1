@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+#header {
+ position: relative;
+ background: url(./img/skin_after_header.jpg) no-repeat;
+ width: 720px;
+ height: 96px;
+}
+/******* バナーの位置情報 *******/
+
+#banner h1{
+  font-size: 13px;
+}
+#banner {
+        display: block ;
+        position: absolute ;
+        left: 247px ;
+        top: 5px ;
+        width: 468px ;
+        height: 60px ;
+        z-index: 200 ;
+}
+

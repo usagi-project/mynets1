@@ -1,0 +1,40 @@
+<?php include_once $header; ?>
+<!-- header ends-->
+
+<!-- content-wrap starts here -->
+<div id="content-wrap">
+    <div id="content">
+        <div id="sidebar" >
+            <?php //include_once 'common/sidebar.html'; ?>
+        </div>
+        <div id="main">
+            <a name="top"></a>
+            <h2>MyNETSへようこそ</h2>
+            <p>DB調整作業が終了しました。
+            </p>
+            <a name="modules-check"></a>
+            <h2>設定ファイルを確認してください。</h2>
+            <h3>バージョンアップ、コンバートを完了するには</h3>
+            <ul>
+                <li>パッケージファイルを入れ替える</li>
+                <li>config.phpを新しいもので作成する</li>
+            </ul>
+            上記を確認してコンバート・バージョンアップ作業を終了してください。
+            <p><span style="color:red">にコンバータディレクトリは削除するか、別名に変更してください。</span>
+</p>
+
+            <div style="text-align:center">
+
+            <?php echo form_open('');?>
+            <?php echo form_submit('submit', 'TOPへ'); ?>
+            <?php echo form_close();?>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- content-wrap ends here -->
+
+<!-- footer starts here-->
+<?php include_once $footer; ?>
+<!-- footer ends-->
+

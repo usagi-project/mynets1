@@ -1,0 +1,381 @@
+@charset "UTF-8";
+
+/* ボタンのスタイル */
+@import url(./bbcode_buttons.css);
+/* BBCodeタグのスタイル */
+@import url(./bbcode_tags.css);
+
+/* BBCodeタグ入力支援用スタイル */
+
+.bbcode-insert {
+	padding: 0px;
+}
+
+.bbcode-content {
+	padding: 3px;
+}
+
+.bbcode-items {
+	padding: 3px;
+	white-space: nowrap;
+}
+
+span.bbcode { }
+
+/* ボタンなどを見えなくする */
+.bbcode-invisible {
+	display: none;
+	visibility: hidden;
+	width: 0px;
+	padding: 0px;
+	margin: 0px;
+}
+
+/* BBCodeのヘルプ */
+.bbcode-helplines {
+	background-color: #ffffff;
+	border-style: none;
+	text-align: left;
+	font-size: 12px;
+	font-family: "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", Osaka, sans-serif ;
+	padding-top: 4px;
+	margin-top: 4px;
+	height : 30px;
+}
+.bbcode-help-popup {
+	visibility: hidden;
+	position: absolute;
+	display: block;
+	background-color: #ccffcc;
+	border: 1px solid #000000;
+	padding:3px;
+	width: 200px;
+	z-index: 1000;
+}
+
+/* BBCode用カラーピッカー */
+.bbcode-color-picker {
+	visibility: hidden;
+	position: absolute;
+	display: block;
+	background-color: #ffffff;
+	border: 1px solid #000000;
+	padding:3px;
+	z-index: 1000;
+}
+#pallet-simple-table {
+	width:160px;
+	background-color:#ffffff;
+}
+#pallet-simple {
+	width:135px;
+	font-size:12px;
+	font-weight:bold;
+	font-family:Verdana,Arial,sans-serif;
+	color:#000000;
+	text-align:left;
+}
+#pallet-simple-color {
+	font-size:12px;
+	font-weight:bold;
+	font-family:Verdana,Arial,sans-serif;
+	color:#000000;
+}
+
+/* IMG Version */
+#pallet-simple-close-x {
+	display: block;
+	width:16px;
+	height:16px;
+	color:#ffffff;
+	text-decoration:none;
+	text-align:center;
+	background: #efefef url(../../skin/bbcode/bbcode_closex.gif) no-repeat 0 0;
+}
+
+/* No IMG Version */
+.pallet-simple-close-x {
+	width:15px;
+	height:12px;
+	padding:1px;
+	border:#999999 2px outset;
+	cursor:pointer;
+	color:#ffffff;
+	background-color:#ff6666;
+	font-size:10px;
+	font-weight:bold;
+	font-family:Verdana,Arial,sans-serif;
+	text-align:left;
+}
+
+#pallet-simple-color-table {
+	width:160px;
+	background-color:#ffffff;
+}
+/* .pallet-simple-color-cell { */
+.p-s-c-c {
+	width:12px;
+	height:12px;
+	cursor:pointer;
+	border:1px solid #999999;
+	font-size:1px;
+}
+/* .pallet-simple-color-cell-tight { */
+.p-s-c-c-t {
+	width:8px;
+	height:10px;
+	cursor:pointer;
+	border:0px;
+	font-size:1px;
+}
+/* .pallet-simple-color-cell-order { */
+.p-s-c-c-o {
+	width:10px;
+	height:10px;
+	cursor:pointer;
+	border:0px;
+	font-size:1px;
+}
+#pallet-onmouse-color {
+	width:50px;
+	font-size:10px;
+	font-family:Verdana,Arial,Serif;
+}
+#pallet-onmouse-bgcolor {
+	width:50px;
+	font-size:10px;
+	color:#ffffff;
+	background-color:#ffffff;
+	font-family:Verdana,Arial,Serif;
+}
+/* IMG Version */
+#pallet-simple-close {
+	display: block;
+	width:36px;
+	height:16px;
+	color:#ffffff;
+	text-decoration:none;
+	text-align:center;
+	background: #efefef url(../../skin/bbcode/bbcode_close.gif) no-repeat 0 0;
+}
+/* No IMG Version */
+pallet-simple-close {
+	width:42px;
+	height:15px;
+	padding:1px;
+	border:#999999 2px outset;
+	cursor:pointer;
+	background-color:#cccccc;
+	font-size:8px;
+	font-weight:bold;
+	font-family:Verdana,Arial,sans-serif;
+}
+
+/* 文字色 */
+.bb-font-color {
+	font-size: 12px;
+	font-family: "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", Osaka, sans-serif ;
+	padding:1px;
+	margin:1px;
+	height: 20px;
+	width: 60px;
+}
+.bb-font-color-options {
+	font-size: 11px;
+	font-family: "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", Osaka, sans-serif ;
+}
+
+/* BBCode用セレクタ */
+.bbcode-size-selector {
+	visibility: hidden;
+	position: absolute;
+	display: block;
+	background-color: #ffffff;
+	border: 1px solid #000000;
+	padding:1px 3px 3px 3px;
+	z-index: 1000;
+	/* width:70px; */
+}
+#simple-fontsize-table {
+	background-color:#ffffff;
+	margin:0 1px 0 1px;
+	padding:0 1px 0 1px;
+	width:64px;
+}
+.simple-size-cell {
+	font-size:12px;
+	font-family: "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", Osaka, sans-serif ;
+	color:#000000;
+	background-color:#ffffff;
+	border:1px solid #999999;
+	text-align:left;
+	margin:2px 0px 0px 0px;
+	padding:1px;
+	cursor: default;
+	white-space: nowrap;
+	width:62px;
+}
+.simple-size-cell-over {
+	font-size:12px;
+	font-family: "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", Osaka, sans-serif ;
+	color:#000000;
+	background-color:#ccffff;
+	border:1px solid #0066ff;
+	text-align:left;
+	margin:2px 0px 0px 0px;
+	padding:1px;
+	cursor: default;
+	white-space: nowrap;
+	width:62px;
+}
+#simple-fontname-table {
+	background-color:#ffffff;
+	margin:0 1px 0 1px;
+	padding:0 1px 0 1px;
+	width:122px;
+}
+.simple-font-cell {
+	font-size:12px;
+	color:#000000;
+	background-color:#ffffff;
+	border:1px solid #999999;
+	text-align:left;
+	margin:2px 0px 0px 0px;
+	padding:1px;
+	cursor: default;
+	white-space: nowrap;
+	width:120px;
+}
+.simple-font-cell-over {
+	font-size:12px;
+	color:#000000;
+	background-color:#ccffff;
+	border:1px solid #0066ff;
+	text-align:left;
+	margin:2px 0px 0px 0px;
+	padding:1px;
+	cursor: default;
+	white-space: nowrap;
+	width:120px;
+}
+#simple-marquee-table {
+	background-color:#ffffff;
+	margin:0 1px 0 1px;
+	padding:0 1px 0 1px;
+	width:64px;
+}
+.simple-marquee-cell {
+	font-size:12px;
+	font-family: "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", Osaka, sans-serif ;
+	color:#000000;
+	background-color:#ffffff;
+	border:1px solid #999999;
+	text-align:left;
+	margin:2px 0px 0px 0px;
+	padding:1px;
+	cursor: default;
+	white-space: nowrap;
+	width:62px;
+}
+.simple-marquee-cell-over {
+	font-size:12px;
+	font-family: "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", Osaka, sans-serif ;
+	color:#000000;
+	background-color:#ccffff;
+	border:1px solid #0066ff;
+	text-align:left;
+	margin:2px 0px 0px 0px;
+	padding:1px;
+	cursor: default;
+	white-space: nowrap;
+	width:62px;
+}
+
+/* 文字サイズ */
+.bb-font-size {
+	font-size: 12px;
+	font-family: "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", Osaka, sans-serif ;
+	padding:1px;
+	margin:1px;
+	height: 20px;
+	width: 60px;
+}
+.bb-font-size-options {
+	font-size: 12px;
+	font-family: "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", Osaka, sans-serif ;
+}
+
+/* フォント */
+.bb-font-name {
+	font-size: 12px;
+	font-family: "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", Osaka, sans-serif ;
+	padding:1px;
+	margin:1px;
+	height: 20px;
+	width: 60px;
+}
+.bb-font-name-options {
+	font-size: 12px;
+	font-family: "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", Osaka, sans-serif ;
+}
+
+/* MARQUEE */
+.bb-marquee {
+	font-size: 12px;
+	font-family: "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", Osaka, sans-serif ;
+	padding:1px;
+	margin:1px;
+	height: 20px;
+	width: 48px;
+}
+.bb-marquee-options {
+	font-size: 12px;
+	font-family: "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", Osaka, sans-serif ;
+}
+
+/* プレビュー画面用のスタイル */
+#bbcode_preview_body {
+	position:absolute;
+	overflow:hidden;
+	background:#ffffff;
+	margin:0;
+	padding:0;
+	border:1px dashed #000000;
+	height:0px;
+	visibility:hidden;
+}
+#bbcode_preview_loading {
+	visibility:hidden;
+	margin:0;
+	padding:25% 0 0 40%;
+}
+#bbcode_preview_frame {
+	margin:0;
+	padding:0;
+	width:100%;
+	height:100%;
+	display:block;
+}
+#bbcode_preview_title {
+	width:410px;
+	height:20px;
+	padding:1px 2px;
+	background:#ADD8E6;
+	border:1px solid #87CEFA;
+	font-weight:bold;
+	font-size:10pt;
+}
+#bbcode_preview_title span.title {
+	padding:1px 0px 0px 1px;
+	position:absolute;
+}
+#bbcode_preview_title a.close {
+	position:absolute;
+	margin:0px 0px 0px 388px;
+}
+#bbcode_preview_title img.close {
+	width:16px;
+	height:16px;
+	padding:1px;
+	vertical-align:middle;
+}

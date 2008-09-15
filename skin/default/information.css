@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+#information {
+margin: 4px 5px 4px 5px;
+display: block;
+text-align: left;
+background-color:#ffffff;
+}
+.info_right {
+padding: 0.2em;
+}
+#information img {
+margin-top: 2px;
+}
+#information a:link,#information a:visited{
+color:red;
+}
+

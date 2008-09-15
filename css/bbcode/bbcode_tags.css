@@ -1,0 +1,433 @@
+@charset "UTF-8";
+
+/* BBCodeタグのスタイル */
+
+/* OpenPNE 2.12以降のスタイル合わせ */
+#LayoutA .bb-body-text,
+#LayoutB .bb-body-text,
+#LayoutC .bb-body-text {
+	padding: 4px 3px;
+	border:none;
+}
+
+/* コード表示 */
+#LayoutA .bb-body-text .bb-code,
+#LayoutB .bb-body-text .bb-code,
+#LayoutC .bb-body-text .bb-code,
+#LayoutA .bb-body-text .bb-php,
+#LayoutB .bb-body-text .bb-php,
+#LayoutC .bb-body-text .bb-php,
+#LayoutA .bb-body-text .bb-bbcode,
+#LayoutB .bb-body-text .bb-bbcode,
+#LayoutC .bb-body-text .bb-bbcode,
+.bb-code,.bb-php,.bb-bbcode {
+	font-family: 'Courier New';
+	font-size: 12px;
+	/*white-space: pre;*/
+	/*white-space: nowrap;*/
+	margin: 3px;
+	padding: 3px;
+	background-color: #f5f5f5;
+	border: 1px solid #d3d3d3;
+}
+
+/* 行の高さ */
+.bb-height {
+	font-family:inherit;
+	font-weight:inherit;
+	font-size:inherit;
+	font-style:inherit;
+	line-height:1.2em;
+	color:inherit;
+	background-color:inherit;
+	text-decoration:inherit;
+}
+
+/* 太字 */
+.bb-bold {
+	font-family:inherit;
+	font-weight:bold;
+	font-size:inherit;
+	font-style:inherit;
+	line-height:inherit;
+	color:inherit;
+	background-color:inherit;
+	text-decoration:inherit;
+}
+
+/* 斜体 */
+.bb-italic {
+	font-family:inherit;
+	font-weight:inherit;
+	font-style:italic;
+	font-size:inherit;
+	line-height:inherit;
+	color:inherit;
+	background-color:inherit;
+	text-decoration:inherit;
+}
+
+/* 下線 */
+.bb-underline {
+	font-family:inherit;
+	font-weight:inherit;
+	font-style:inherit;
+	font-size:inherit;
+	line-height:inherit;
+	color:inherit;
+	background-color:inherit;
+	text-decoration:underline;
+}
+
+/* 中央寄せ */
+#LayoutA .bb-body-text .bb-center,
+#LayoutB .bb-body-text .bb-center,
+#LayoutC .bb-body-text .bb-center,
+.bb-center {
+	font-family:inherit;
+	font-weight:inherit;
+	font-size:inherit;
+	font-style:inherit;
+	line-height:inherit;
+	color:inherit;
+	background-color:inherit;
+	text-decoration:inherit;
+	text-align:center;
+	border:none;
+}
+
+/* 左寄せ */
+#LayoutA .bb-body-text .bb-left,
+#LayoutB .bb-body-text .bb-left,
+#LayoutC .bb-body-text .bb-left,
+.bb-left {
+	font-family:inherit;
+	font-weight:inherit;
+	font-size:inherit;
+	font-style:inherit;
+	line-height:inherit;
+	color:inherit;
+	background-color:inherit;
+	text-decoration:inherit;
+	text-align:left;
+	border:none;
+}
+
+/* 右寄せ */
+#LayoutA .bb-body-text .bb-right,
+#LayoutB .bb-body-text .bb-right,
+#LayoutC .bb-body-text .bb-right,
+.bb-right {
+	font-family:inherit;
+	font-weight:inherit;
+	font-size:inherit;
+	font-style:inherit;
+	line-height:inherit;
+	color:inherit;
+	background-color:inherit;
+	text-decoration:inherit;
+	text-align:right;
+	border:none;
+}
+
+/* 訂正 */
+.bb-through {
+	font-family:inherit;
+	font-weight:inherit;
+	font-size:inherit;
+	font-style:inherit;
+	line-height:inherit;
+	color:inherit;
+	background-color:inherit;
+	text-decoration:line-through;
+}
+
+/* 等幅 */
+.bb-tt {
+	font-family:monospace;
+	font-weight:inherit;
+	font-size:inherit;
+	font-style:inherit;
+	line-height:inherit;
+	color:inherit;
+	background-color:inherit;
+	text-decoration:inherit;
+}
+
+/* e-mail */
+.bb-email {
+	font-family:inherit;
+	font-weight:inherit;
+	font-size:inherit;
+	font-style:inherit;
+	line-height:inherit;
+	color:inherit;
+	background-color:inherit;
+}
+
+/* インデント（デフォルト） */
+#LayoutA .bb-body-text .bb-indent,
+#LayoutB .bb-body-text .bb-indent,
+#LayoutC .bb-body-text .bb-indent,
+.bb-indent {
+	font-family:inherit;
+	font-weight:inherit;
+	font-size:inherit;
+	font-style:inherit;
+	line-height:inherit;
+	color:inherit;
+	background-color:inherit;
+	text-decoration:inherit;
+	text-indent:1.5em;
+	border:none;
+}
+
+/* ハイライト（デフォルト） */
+.bb-highlight {
+	font-family:inherit;
+	font-weight:inherit;
+	font-style:inherit;
+	font-size:inherit;
+	line-height:inherit;
+	color:inherit;
+	background-color:#ffff00;
+	text-decoration:inherit;
+}
+
+/* 引用 */
+#LayoutA .bb-body-text .bb-blockquote,
+#LayoutB .bb-body-text .bb-blockquote,
+#LayoutC .bb-body-text .bb-blockquote,
+.bb-blockquote {
+	border:none;
+	padding: 1px;
+	margin: 3px;
+}
+#LayoutA .bb-body-text .bb-quote-marks,
+#LayoutB .bb-body-text .bb-quote-marks,
+#LayoutC .bb-body-text .bb-quote-marks,
+.bb-quote-marks {
+	border:none;
+	padding: 3px;
+	text-align:left;
+	/* float: left; */
+}
+#LayoutA .bb-body-text .bb-quote,
+#LayoutB .bb-body-text .bb-quote,
+#LayoutC .bb-body-text .bb-quote,
+.bb-quote {
+	border: 1px solid #d3d3d3;
+	border-left: 3px solid #6180a3;
+	padding: 8px;
+	text-align:left;
+	/* font-size:80%; */
+	background-color:#fffacd;
+	/* float: left; */
+}
+#LayoutA .bb-body-text .bb-float-clear,
+#LayoutB .bb-body-text .bb-float-clear,
+#LayoutC .bb-body-text .bb-float-clear,
+.bb-float-clear {
+  clear: both;
+  border:none;
+}
+
+/* リスト */
+#LayoutA .bb-body-text .bb-list,
+#LayoutB .bb-body-text .bb-list,
+#LayoutC .bb-body-text .bb-list,
+.bb-list {
+	padding: 0;
+	border:none;
+}
+ul.bb-list-unordered {
+	margin: 0 0 0 1.5em;
+	padding: 0;
+}
+ul.bb-list-ordered {
+	margin: 0 0 0 2em;
+	padding: 0;
+}
+ul.bb-list-unordered-d { list-style-type:disc; }
+ul.bb-list-unordered-c { list-style-type:circle; }
+ul.bb-list-unordered-s { list-style-type:square; }
+ul.bb-list-ordered-dc  { list-style-type:decimal; }
+ul.bb-list-ordered-lr  { list-style-type:lower-roman; margin-left: 2.5em; }
+ul.bb-list-ordered-ur  { list-style-type:upper-roman; margin-left: 2.5em; }
+ul.bb-list-ordered-la  { list-style-type:lower-alpha; }
+ul.bb-list-ordered-ua  { list-style-type:upper-alpha; }
+/* ul.bb-listitem { } */
+
+ol.bb-list-ordered {
+	margin: 0 0 0 2em;
+	padding: 0;
+}
+ol.bb-list-ordered-dc { list-style-type:decimal; }
+ol.bb-list-ordered-lr { list-style-type:lower-roman; }
+ol.bb-list-ordered-ur { list-style-type:upper-roman; }
+ol.bb-list-ordered-la { list-style-type:lower-alpha; }
+ol.bb-list-ordered-ua { list-style-type:upper-alpha; }
+/* ol.bb-listitem { } */
+
+/* URL */
+.bb-url {
+	font-family:inherit;
+	font-weight:inherit;
+	font-size:inherit;
+	font-style:inherit;
+	line-height:inherit;
+	background-color:inherit;
+}
+
+/* 画像 */
+.bb-image {
+	border-width: 0;
+	border-style: none;
+}
+
+/* サイズ(CSS2.1) */
+.bb-size-xx-small {
+	font-family:inherit;
+	font-weight:inherit;
+	font-size: 60%;
+	font-style:inherit;
+	line-height:120%;
+	color:inherit;
+	background-color:inherit;
+	text-decoration:inherit;
+}
+.bb-size-x-small {
+	font-family:inherit;
+	font-weight:inherit;
+	font-size: 75%;
+	font-style:inherit;
+	line-height:120%;
+	color:inherit;
+	background-color:inherit;
+	text-decoration:inherit;
+}
+.bb-size-small {
+	font-family:inherit;
+	font-weight:inherit;
+	font-size: 88.8%;
+	font-style:inherit;
+	line-height:120%;
+	color:inherit;
+	background-color:inherit;
+	text-decoration:inherit;
+}
+.bb-size-medium {
+	font-family:inherit;
+	font-weight:inherit;
+	font-size: 100%;
+	font-style:inherit;
+	line-height:120%;
+	color:inherit;
+	background-color:inherit;
+	text-decoration:inherit;
+}
+.bb-size-large {
+	font-family:inherit;
+	font-weight:inherit;
+	font-size: 120%;
+	font-style:inherit;
+	line-height:120%;
+	color:inherit;
+	background-color:inherit;
+	text-decoration:inherit;
+}
+.bb-size-x-large {
+	font-family:inherit;
+	font-weight:inherit;
+	font-size: 150%;
+	font-style:inherit;
+	line-height:120%;
+	color:inherit;
+	background-color:inherit;
+	text-decoration:inherit;
+}
+.bb-size-xx-large {
+	font-family:inherit;
+	font-weight:inherit;
+	font-size: 200%;
+	font-style:inherit;
+	line-height:120%;
+	color:inherit;
+	background-color:inherit;
+	text-decoration:inherit;
+}
+
+/* sup,sub - 徒書 */
+/* http://www.akatsukinishisu.net/itazuragaki/id/sup_sub */
+/* より引用 */
+sup {
+	font-family:inherit;
+	font-weight:inherit;
+	font-size:60%;
+	font-style:inherit;
+	line-height:inherit;
+	color:inherit;
+	background-color:inherit;
+	vertical-align:80%;
+}
+
+sub {
+	font-family:inherit;
+	font-weight:inherit;
+	font-size:60%;
+	font-style:inherit;
+	line-height:inherit;
+	color:inherit;
+	background-color:inherit;
+	vertical-align:-30%;
+}
+
+sup>sup {
+	font-family:inherit;
+	font-weight:inherit;
+	font-size:100%;
+	font-style:inherit;
+	line-height:inherit;
+	color:inherit;
+	background-color:inherit;
+	vertical-align:40%;
+}
+
+sub>sub {
+	font-family:inherit;
+	font-weight:inherit;
+	font-size:100%;
+	font-style:inherit;
+	line-height:inherit;
+	color:inherit;
+	background-color:inherit;
+	vertical-align:-30%;
+}
+
+/* marquee */
+#LayoutA .bb-body-text .bb-marq,
+#LayoutB .bb-body-text .bb-marq,
+#LayoutC .bb-body-text .bb-marq,
+.bb-marq {
+	border:none;
+}
+
+/* align */
+#LayoutA .bb-body-text .bb-align,
+#LayoutB .bb-body-text .bb-align,
+#LayoutC .bb-body-text .bb-align,
+.bb-align {
+	border:none;
+}
+
+.bb-red {
+	font-family:inherit;
+	font-weight:inherit;
+	font-size:inherit;
+	font-style:inherit;
+	line-height:inherit;
+	color:#ff0000;
+	background-color:inherit;
+	text-decoration:inherit;
+}
+

@@ -1,0 +1,124 @@
+@charset"UTF-8";
+
+/*フレンドのひとことのバルーン*/
+
+#wedge {
+    position:absolute;
+}
+
+.balloon {
+    width: 200px;
+    color:#000;
+    text-decoration:none;
+    text-align:center;
+}
+
+.balloon span.text {
+    padding: 10px 5px 5px 5px;
+    background:url(../../skin/default/img/balloon.gif) no-repeat top;
+}
+
+.balloon b.bottom {
+    padding:20px 5px 5px 5px;
+    background:url(../../skin/default/img/balloon.gif) no-repeat bottom;
+}
+
+.cmntballoon b.cmnttop {
+    padding:5px;
+    background:url(../../skin/default/img/cmntballoon.gif) no-repeat top;
+}
+
+.cmntballoon {
+    width: 400px;
+    text-align:left;
+    background:url(./skin/default/img/dummy.gif);
+}
+
+.cmntballoon b div.close {
+    text-align:right;
+    padding:5px 5px 0 0;
+}
+
+.cmntballoon span.cmnttextcell {
+    background:url(../../skin/default/img/cmntballoon_middle.gif) repeat-y;
+    padding:0 10px;
+}
+.cmntballoon span.cmnttext {
+    max-height:200px;
+    min-height:0;
+    overflow:auto;
+    padding:5px;
+}
+
+.cmntballoon b.cmntbottom {
+    padding:25px 5px 5px 5px;
+    background:url(../../skin/default/img/cmntballoon.gif) no-repeat bottom;
+}
+
+.inplaceeditor-form {
+    padding:5px;
+}
+
+.editor_field {
+    overflow: hidden;
+    margin:5px;
+    padding:3px;
+}
+
+.editor_ok_button {
+    background:#DADCE6 url(../../skin/default/img/bg_button.gif) 50% 0 repeat-x;
+    margin:3px;
+    padding:2px;
+}
+
+#oneword {
+    width:220px;
+    line-height:150%;
+    padding:5px;
+}
+
+#oneword_back {
+    width:240px;
+    background:url(../../skin/default/img/oneword_back.gif) repeat-y;
+}
+
+/*ひとことタブインターフェース用*/
+
+.panel {
+    clear:left;
+	display:none;
+	background:#FFFFFF;
+	padding:5px;
+}
+
+.panel.active-tab-body {
+	display:block;
+}
+
+#tabs {
+	position:absolute;
+	top:2px;
+	list-style:none;
+}
+
+#tabs li {
+	float:left;
+}
+
+#tabs a {
+	float:left;
+	padding:4px 8px 6px 8px;
+	margin-left:4px;
+    border:#DDDDDD 1px solid;
+	background:#FFFFFF url(../../skin/default/img/view_cell.gif) left bottom repeat-x;
+	text-decoration:none;
+	color:#666666;
+	outline: none;
+}
+
+#tabs a.active-tab {
+    border:#CCCCCC 1px solid;
+	background:#FFFFFF url(../../skin/default/img/view_cell_current.gif) left top repeat-x;
+	color:#666666;
+	font-weight:bold;
+}

@@ -1,0 +1,62 @@
+img {
+    border:none;
+}
+select {
+    background-color:#ffffff;
+}
+.menu {
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px;
+}
+.menu a {
+    background:#ffffff url('../skin/default/img/bg_button.gif') bottom left no-repeat;
+    display: block;
+    margin: 0px;
+    padding: 3px;
+    border-top: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
+    border-bottom: 1px solid #444444;
+    border-right: 1px solid #444444;
+    text-decoration: none;
+    color: #993333;
+    width: 170px;
+}
+.menu a:hover {
+    text-decoration: none;
+    color: #FF6600;
+}
+
+.submenu {
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px;
+}
+.submenu ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+.submenu li a {
+    background: #007AC3;
+    display: block;
+    margin: 0px;
+    padding: 3px 3px 3px 10px;
+    border-top: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
+    border-bottom: 1px solid #444444;
+    border-right: 1px solid #444444;
+    text-decoration: none;
+    color: #FFFFFF;
+    width: 163px;
+}
+.submenu li a:hover {
+    background: #FF6600;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+.imgtitle{
+vertical-align: middle;
+margin-right:3px;
+}
+

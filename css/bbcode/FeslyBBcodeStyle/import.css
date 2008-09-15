@@ -1,0 +1,269 @@
+@charset"UTF-8";
+
+/* ----------------------------------------------------
+
+    BBCodeエディターのスタイル
+
+---------------------------------------------------- */
+/*ナビゲーション*/
+div#BBcode_Editor {
+    margin: 0;
+    padding: 0;
+    width:417px;
+    height:22px;
+    display:block;
+}
+div#BBcode_Editor p{
+    margin: 0;
+    padding: 0;
+    height:22px;
+    float:left;
+    list-style-type:none;
+}
+div#BBcode_Editor p a{
+    display:block;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    height:22px;
+    background-position:left top;
+    background-repeat:no-repeat;
+}
+div#BBcode_Editor a span {
+    display:none;
+}
+div#BBcode_Editor p img{
+    display:block;
+    margin: 0;
+    padding: 0;
+    width:7px;
+    height:22px;
+    background-position:left top;
+    background-repeat:no-repeat;
+}
+/* 太字 */
+p.code_b {          width:23px; background-image:url(./img/01.gif); background-position:left bottom;}
+a#code_b:link {     width:23px; background-image:url(./img/01.gif); background-position:left top; display:block;}
+a#code_b:visited {  width:23px; background-image:url(./img/01.gif); background-position:left top; display:block;}
+a#code_b:hover {    width:23px; background-image:url(./img/01.gif); background-position:left bottom; display:block;}
+a#code_b:active {   width:23px; background-image:url(./img/01.gif); background-position:left bottom; display:block;}
+/* 斜体 */
+p.code_i {          width:22px; background-image:url(./img/02.gif); background-position:left bottom;}
+a#code_i:link {     width:22px; background-image:url(./img/02.gif); background-position:left top; display:block;}
+a#code_i:visited {  width:22px; background-image:url(./img/02.gif); background-position:left top; display:block;}
+a#code_i:hover {    width:22px; background-image:url(./img/02.gif); background-position:left bottom; display:block;}
+a#code_i:active {   width:22px; background-image:url(./img/02.gif); background-position:left bottom; display:block;}
+/* 下線 */
+p.code_u {          width:22px; background-image:url(./img/03.gif); background-position:left bottom;}
+a#code_u:link {     width:22px; background-image:url(./img/03.gif); background-position:left top; display:block;}
+a#code_u:visited {  width:22px; background-image:url(./img/03.gif); background-position:left top; display:block;}
+a#code_u:hover {    width:22px; background-image:url(./img/03.gif); background-position:left bottom; display:block;}
+a#code_u:active {   width:22px; background-image:url(./img/03.gif); background-position:left bottom; display:block;}
+/* 打消線 */
+p.code_d {          width:21px; background-image:url(./img/04.gif); background-position:left bottom;}
+a#code_d:link {     width:21px; background-image:url(./img/04.gif); background-position:left top; display:block;}
+a#code_d:visited {  width:21px; background-image:url(./img/04.gif); background-position:left top; display:block;}
+a#code_d:hover {    width:21px; background-image:url(./img/04.gif); background-position:left bottom; display:block;}
+a#code_d:active {   width:21px; background-image:url(./img/04.gif); background-position:left bottom; display:block;}
+
+/* フォントサイズ 大 */
+p.code_size1 {          width:23px; background-image:url(./img/05.gif); background-position:left bottom;}
+a#code_size1:link {     width:23px; background-image:url(./img/05.gif); background-position:left top; display:block;}
+a#code_size1:visited {  width:23px; background-image:url(./img/05.gif); background-position:left top; display:block;}
+a#code_size1:hover {    width:23px; background-image:url(./img/05.gif); background-position:left bottom; display:block;}
+a#code_size1:active {   width:23px; background-image:url(./img/05.gif); background-position:left bottom; display:block;}
+/* フォントサイズ 小 */
+p.code_size2 {          width:22px; background-image:url(./img/06.gif); background-position:left bottom;}
+a#code_size2:link {     width:22px; background-image:url(./img/06.gif); background-position:left top; display:block;}
+a#code_size2:visited {  width:22px; background-image:url(./img/06.gif); background-position:left top; display:block;}
+a#code_size2:hover {    width:22px; background-image:url(./img/06.gif); background-position:left bottom; display:block;}
+a#code_size2:active {   width:22px; background-image:url(./img/06.gif); background-position:left bottom; display:block;}
+/* フォントカラー */
+p.code_color {          width:22px; background-image:url(./img/07.gif); background-position:left bottom;}
+a#code_color:link {     width:22px; background-image:url(./img/07.gif); background-position:left top; display:block;}
+a#code_color:visited {  width:22px; background-image:url(./img/07.gif); background-position:left top; display:block;}
+a#code_color:hover {    width:22px; background-image:url(./img/07.gif); background-position:left bottom; display:block;}
+a#code_color:active {   width:22px; background-image:url(./img/07.gif); background-position:left bottom; display:block;}
+/* マーカー */
+p.code_marker {         width:21px; background-image:url(./img/08.gif); background-position:left bottom;}
+a#code_marker:link {    width:21px; background-image:url(./img/08.gif); background-position:left top; display:block;}
+a#code_marker:visited { width:21px; background-image:url(./img/08.gif); background-position:left top; display:block;}
+a#code_marker:hover {   width:21px; background-image:url(./img/08.gif); background-position:left bottom; display:block;}
+a#code_marker:active {  width:21px; background-image:url(./img/08.gif); background-position:left bottom; display:block;}
+
+/* 位置（左） */
+p.code_left {           width:23px; background-image:url(./img/09.gif); background-position:left bottom;}
+a#code_left:link {      width:23px; background-image:url(./img/09.gif); background-position:left top; display:block;}
+a#code_left:visited {   width:23px; background-image:url(./img/09.gif); background-position:left top; display:block;}
+a#code_left:hover {     width:23px; background-image:url(./img/09.gif); background-position:left bottom; display:block;}
+a#code_left:active {    width:23px; background-image:url(./img/09.gif); background-position:left bottom; display:block;}
+/* 位置（中） */
+p.code_center {         width:22px; background-image:url(./img/10.gif); background-position:left bottom;}
+a#code_center:link {    width:22px; background-image:url(./img/10.gif); background-position:left top; display:block;}
+a#code_center:visited { width:22px; background-image:url(./img/10.gif); background-position:left top; display:block;}
+a#code_center:hover {   width:22px; background-image:url(./img/10.gif); background-position:left bottom; display:block;}
+a#code_center:active {  width:22px; background-image:url(./img/10.gif); background-position:left bottom; display:block;}
+/* 位置（右） */
+p.code_right {          width:22px; background-image:url(./img/11.gif); background-position:left bottom;}
+a#code_right:link {     width:22px; background-image:url(./img/11.gif); background-position:left top; display:block;}
+a#code_right:visited {  width:22px; background-image:url(./img/11.gif); background-position:left top; display:block;}
+a#code_right:hover {    width:22px; background-image:url(./img/11.gif); background-position:left bottom; display:block;}
+a#code_right:active {   width:22px; background-image:url(./img/11.gif); background-position:left bottom; display:block;}
+/* 均等割付 */
+p.code_justify {            width:21px; background-image:url(./img/12.gif); background-position:left bottom;}
+a#code_justify:link {       width:21px; background-image:url(./img/12.gif); background-position:left top; display:block;}
+a#code_justify:visited {    width:21px; background-image:url(./img/12.gif); background-position:left top; display:block;}
+a#code_justify:hover {      width:21px; background-image:url(./img/12.gif); background-position:left bottom; display:block;}
+a#code_justify:active {     width:21px; background-image:url(./img/12.gif); background-position:left bottom; display:block;}
+
+/* 引用文 */
+p.code_quote {          width:23px; background-image:url(./img/13.gif); background-position:left bottom;}
+a#code_quote:link {     width:23px; background-image:url(./img/13.gif); background-position:left top; display:block;}
+a#code_quote:visited {  width:23px; background-image:url(./img/13.gif); background-position:left top; display:block;}
+a#code_quote:hover {    width:23px; background-image:url(./img/13.gif); background-position:left bottom; display:block;}
+a#code_quote:active {   width:23px; background-image:url(./img/13.gif); background-position:left bottom; display:block;}
+/* コード */
+p.code_code {           width:22px; background-image:url(./img/14_0.gif); background-position:left bottom;}
+a#code_code:link {      width:22px; background-image:url(./img/14_0.gif); background-position:left top; display:block;}
+a#code_code:visited {   width:22px; background-image:url(./img/14_0.gif); background-position:left top; display:block;}
+a#code_code:hover {     width:22px; background-image:url(./img/14_0.gif); background-position:left bottom; display:block;}
+a#code_code:active {    width:22px; background-image:url(./img/14_0.gif); background-position:left bottom; display:block;}
+/* ビービーコード */
+p.code_noparse {            width:22px; background-image:url(./img/15.gif); background-position:left bottom;}
+a#code_noparse:link {       width:22px; background-image:url(./img/15.gif); background-position:left top; display:block;}
+a#code_noparse:visited {    width:22px; background-image:url(./img/15.gif); background-position:left top; display:block;}
+a#code_noparse:hover {      width:22px; background-image:url(./img/15.gif); background-position:left bottom; display:block;}
+a#code_noparse:active {     width:22px; background-image:url(./img/15.gif); background-position:left bottom; display:block;}
+/* リンク */
+p.code_url {           width:22px; background-image:url(./img/16.gif); background-position:left bottom;}
+a#code_url:link {      width:22px; background-image:url(./img/16.gif); background-position:left top; display:block;}
+a#code_url:visited {   width:22px; background-image:url(./img/16.gif); background-position:left top; display:block;}
+a#code_url:hover {     width:22px; background-image:url(./img/16.gif); background-position:left bottom; display:block;}
+a#code_url:active {    width:22px; background-image:url(./img/16.gif); background-position:left bottom; display:block;}
+/*.code_url {         width:22px; height:22px; border:0; background-image:url(./img/16_a.gif); cursor:pointer; display:block;}
+.code_url:hover {   width:22px; height:22px; border:0; background-image:url(./img/16_b.gif); cursor:pointer; display:block;}*/
+/* ウィキペディア */
+p.code_wiki {           width:22px; background-image:url(./img/20.gif); background-position:left bottom;}
+a#code_wiki:link {      width:22px; background-image:url(./img/20.gif); background-position:left top; display:block;}
+a#code_wiki:visited {   width:22px; background-image:url(./img/20.gif); background-position:left top; display:block;}
+a#code_wiki:hover {     width:22px; background-image:url(./img/20.gif); background-position:left bottom; display:block;}
+a#code_wiki:active {    width:22px; background-image:url(./img/20.gif); background-position:left bottom; display:block;}
+/* マーキー 右流れ */
+p.code_marquee {            width:21px; background-image:url(./img/19.gif); background-position:left bottom;}
+a#code_marquee:link {       width:21px; background-image:url(./img/19.gif); background-position:left top; display:block;}
+a#code_marquee:visited {    width:21px; background-image:url(./img/19.gif); background-position:left top; display:block;}
+a#code_marquee:hover {      width:21px; background-image:url(./img/19.gif); background-position:left bottom; display:block;}
+a#code_marquee:active {     width:21px; background-image:url(./img/19.gif); background-position:left bottom; display:block;}
+
+/* ポップヘルプ */
+.pophelp {
+    display: none;
+    visibility: hidden;
+    padding:0 5px 5px 5px;
+    position: absolute;
+    font-size: 12px;
+    width: 220px;
+    height:55px;
+    border: 2px solid #CCE4F5;
+    background: #F8FCFF;
+    line-height: 160%;
+    text-align:left;
+}
+.helpcursor {
+    cursor:help;
+}
+
+/* カラーパレット */
+.palette_pop {
+    position: absolute;
+    display: none;
+    width: 99px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-width: 1px;
+    line-height: 18px;
+    border-style: solid;
+    background-color: #ffffff;
+    border: 2px solid #CCE4F5;
+    overflow: hidden;
+    margin:2px 0 0 100px;
+    padding:0;
+}
+.palette_title {
+    width: 99px;
+    margin: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 0px;
+    background-color:#F8FCFF;
+    font-size: 12px;
+    line-height: 14px;
+    vertical-align: middle;
+}
+.palette_title_left {
+    float: left;
+    width: 79px;
+    height: 16px;
+    vertical-align: middle;
+    background-color: #F8FCFF;
+}
+.palette_title_right {
+    float: left;
+    width: 20px;
+    height: 16px;
+    text-align: right;
+    vertical-align: middle;
+    background-color:#F8FCFF;
+}
+.image_close {
+    margin: 2px;
+}
+a.image_close:hover {
+    background-color: transparent;
+}
+.palette_body {
+    clear: both;
+    text-align: left;
+    background-color: #ffffff;
+    word-break: break-all;
+}
+
+
+/* ----------------------------------------------------
+
+    BBCodeタグのスタイル
+
+---------------------------------------------------- */
+/* コード */
+div.BBcode_Code p {
+    overflow:hidden;
+    *word-break:break-all;
+    font-family: 'Courier New';
+    /*white-space: pre;*/
+    /*white-space: nowrap;*/
+    margin: 3px;
+    padding: 3px;
+    background-color: #f5f5f5;
+    border: 1px solid #666666;
+}
+
+/* 引用 */
+div.BBcode_Quote {
+    border: 1px solid #666666;
+    background:#f5f5f5 url(./img/quotes1.gif) no-repeat scroll top left;
+    margin: 3px;
+    padding: 3px;
+}
+div.BBcode_Quote blockquote {
+    overflow:hidden;
+    *word-break:break-all;
+    background: url(./img/quotes2.gif) no-repeat scroll bottom right;
+    padding-top: 9px;
+    padding-right: 30px;
+    padding-bottom: 3px;
+    padding-left: 30px;
+    margin: 0px;
+    font-style:italic;
+    color:#0000ff;
+}

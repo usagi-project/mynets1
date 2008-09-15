@@ -1,0 +1,62 @@
+<?php include_once $header; ?>
+<!-- header ends-->
+
+<!-- content-wrap starts here -->
+<div id="content-wrap">
+    <div id="content">
+        <div id="sidebar" >
+            <?php //include_once 'common/sidebar.html'; ?>
+        </div>
+        <div id="main">
+            <a name="top"></a>
+            <h2>処理の結果</h2>
+            <p>コンバータでは、次の処理を実施しました。
+            </p>
+            <ul>
+                <li>不要なテーブル削除の実施</li>
+                <li>新規テーブルの追加の実施</li>
+                <li>テーブルカラムの修正の実施</li>
+                <li>テーブルカラムの追加の実施</li>
+                <li>インデックスの追加等の実施</li>
+                <li>テーブルデータ追加の実施</li>
+                <li>テーブルデータ変更の実施</li>
+                <li>バージョン管理テーブルへのバージョン番号の追記</li>
+            </ul>
+            <?php
+            if ($errmsg)
+            {
+            ?>
+            <div style="height:280px; overflow:auto;">
+                <?php foreach ($errmsg as $value) {
+                    ?>
+                    <span style="color:red"><strong><?php echo $value; ?></strong></span><br />
+                    <?php
+                }
+                ?>
+            </div>
+            <?php
+            }
+            else
+            {
+                echo form_open('Convertnext');
+                if ($is_pne)
+                {
+                    echo form_checkbox('view_count', '1', false);
+                    echo "あしあとを集計する（※1度しか実行しないでください。)<br />";
+                    echo form_dropdown('pne_ver', $options, 'PNE2.8');
+                    echo "OpenPNEからのコンバートの場合どのバージョンかを選択してください。<br />";
+                }
+                echo form_hidden('is_pne', $is_pne);
+                echo form_submit('submit', 'next');
+                echo form_close();
+            }
+            ?>
+        </div>
+    </div>
+</div>
+<!-- content-wrap ends here -->
+
+<!-- footer starts here-->
+<?php include_once $footer; ?>
+<!-- footer ends-->
+

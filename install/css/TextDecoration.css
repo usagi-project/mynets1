@@ -1,0 +1,5272 @@
+@charset "utf-8";
+
+
+
+/* ========================================================================
+	Designated the decoration element to texts.	「テキスト要素に対する装飾」
+======================================================================== */
+
+
+
+/* ========================================================================
+	Letter color and also back view.	「文字色及び背景色」
+======================================================================== */
+
+
+.cBlack, /* Letter color ：Black 文字色：黒 */
+.BLACK,
+.black,
+.c000,
+.c000000,
+.c000000 {
+	color: #000000;
+}
+
+
+.bgcBlack, /* Back view : Black  背景色：黒 */
+.BGCBLACK,
+.BgCBlack,
+.bgc000,
+.bgc000,
+.bgc000000,
+.bgc000000 {
+	background-color: #000000;
+}
+
+
+.cSliver, /* Letter color ：Sliver 文字色：銀 */
+.Sliver,
+.sliver,
+.cC0C0C0,
+.cc0c0c0 {
+	color: #c0c0c0;
+}
+
+
+.bgcSliver, /* Back view : Sliver  背景色：銀 */
+.BGCSLIVER,
+.BgCSliver,
+.bgcC0C0C0,
+.bgcc0c0c0 {
+	background-color: #c0c0c0;
+}
+
+
+.cGray, /* Letter color ：Gray 文字色：灰 */
+.GRAY,
+.gray,
+.c808080 {
+	color: #808080;
+}
+
+
+.bgcGray, /* Back view : Gray  背景色：灰 */
+.BGCGRAY,
+.BgCGray,
+.bgc808080 {
+	background-color: #808080;
+}
+
+
+.cWhite, /* Letter color ：White 文字色：白 */
+.WHITE,
+.white,
+.cF00,
+.cf00,
+.cFF0000,
+.cff0000 {
+	color: #ff0000;
+}
+
+
+.bgcWhite, /* Back view : White  背景色：白 */
+.BGCWHITE,
+.BgCwhite,
+.bgcFFF,
+.bgcfff,
+.bgcFFFFFF,
+.bgcffffff {
+	background-color: #ffffff;
+}
+
+
+.cMaroon, /* Letter color ：Maroon 文字色：栗 */
+.MAROON,
+.maroon,
+.c800000 {
+	color: #800000;
+}
+
+
+.bgcMaroon, /* Back view : Maroon  背景色：栗 */
+.BGCMAROON,
+.BgCMaroon,
+.bgc800000 {
+	background-color: #800000;
+}
+
+
+.cRed, /* Letter color ：Red 文字色：赤 */
+.RED,
+.red,
+.cF00,
+.cf00,
+.cFF0000,
+.cff0000 {
+	color: #ff0000;
+}
+
+
+.bgcRed, /* Back view : Red  背景色：赤 */
+.BGCRED,
+.BgCred,
+.bgcF00,
+.bgcf00,
+.bgcFF0000,
+.bgcff0000 {
+	background-color: #ff0000;
+}
+
+
+.cPurple, /* Letter color ：Purple 文字色：紫 */
+.PURPLE,
+.purple,
+.c800080 {
+	color: #800080;
+}
+
+
+.bgcPurple, /* Back view : Purple  背景色：紫 */
+.BGCPRUPLE,
+.BgCpurple,
+.bgc800080 {
+	background-color: #800080;
+}
+
+
+.cFuchsia, /* Letter color ：Fuchsia 文字色：フュージア */
+.FUCHSIA,
+.fuchsia,
+.cF0F,
+.cf0f,
+.cFF00FF,
+.cff00ff {
+	color: #ff00ff;
+}
+
+
+.bgcFuchsia, /* Back view : Fuchsia  背景色：フュージア */
+.BGCFUCHSIA,
+.BgCfuchsia,
+.bgcF0F,
+.bgcf0f,
+.bgcFF00FF,
+.bgcff00ff {
+	background-color: #ff00ff;
+}
+
+
+.cGreen, /* Letter color ：Green 文字色：緑 */
+.GREEN,
+.green,
+.c008000 {
+	color: #008000;
+}
+
+
+.bgcGreen, /* Back view : Green  背景色：緑 */
+.BGCGREEN,
+.BgCgreen,
+.bgc008000 {
+	background-color: #008000;
+}
+
+
+.cLime, /* Letter color ：Lime 文字色：ライム */
+.LIME,
+.lime,
+.c0F0,
+.c0f0,
+.c00FF00,
+.c00ff00 {
+	color: #00ff00;
+}
+
+
+.bgcLime, /* Back view : Lime  背景色：ライム */
+.BGCLIME,
+.BgClime,
+.bgc0F0,
+.bgc0f0,
+.bgc00FF00,
+.bgc00ff00 {
+	background-color: #00ff00;
+}
+
+
+.cOlive, /* Letter color ：Olive 文字色：オリーブ */
+.OLIVE,
+.olive,
+.c808000 {
+	color: #808000;
+}
+
+
+.bgcOlive, /* Back view : Olive  背景色：オリーブ */
+.BGCOLIVE,
+.BgColive,
+.bgc808000 {
+	background-color: #808000;
+}
+
+
+.cYellow, /* Letter color ：Yellow 文字色：黄 */
+.YELLOW,
+.yellow,
+.cFF0,
+.cff0,
+.cFFFF00,
+.cffff00 {
+	color: #ffff00;
+}
+
+
+.bgcYellow, /* Back view : Yellow  背景色：黄 */
+.BGCYELLOW,
+.BgCyellow,
+.bgcFF0,
+.bgcff0,
+.bgcFFFF00,
+.bgcffff00 {
+	background-color: #ffff00;
+}
+
+
+.cNavy, /* Letter color ：Navy 文字色：ネイヴィ */
+.NAVY,
+.nevy,
+.c000080 {
+	color: #000080;
+}
+
+
+.bgcNavy, /* Back view : Navy  背景色：ネイヴィ */
+.BGCNAVY,
+.BgCnavy,
+.bgc000080 {
+	background-color: #000080;
+}
+
+
+.cBlue, /* Letter color ：Blue 文字色：青 */
+.BLUE,
+.blue,
+.c00F,
+.c00f,
+.c0000FF,
+.c0000ff {
+	color: #0000ff;
+}
+
+
+.bgcBlue, /* Back view : Blue  背景色：青 */
+.BGCBLUE,
+.BgCblue,
+.bgc00F,
+.bgc00f,
+.bgc0000FF,
+.bgc0000ff {
+	background-color: #0000ff;
+}
+
+
+.cteal, /* Letter color ：Teal 文字色： */
+.TEAL,
+.teal,
+.c008080 {
+	color: #008080;
+}
+
+
+.bgcTeal, /* Back view : Teal  背景色： */
+.BGCTEAL,
+.BgCteal,
+.bgc008080 {
+	background-color: #008080;
+}
+
+
+.cAqua, /* Letter color ：Aqua 文字色：アクア */
+.AQUA,
+.aqua,
+.c0FF,
+.c0ff,
+.c00FFFF,
+.c00ffff {
+	color: #00ffff;
+}
+
+
+.bgcAqua, /* Back view : Red  背景色：アクア */
+.BGCAQUA,
+.BgCaqua,
+.bgc0FF,
+.bgc0ff,
+.bgc00FFFF,
+.bgc00ffff {
+	background-color: #00ffff;
+}
+
+
+.cOrange, /* Letter color ：Orange 文字色：オレンヂ */
+.ORANGE,
+.orange,
+.cFFA500,
+.cffa500 {
+	color: #ffa500;
+}
+
+
+.bgcOrange, /* Back view : Orange  背景色：オレンヂ */
+.BGCORANGE,
+.BgCorange,
+.bgcFFA500,
+.bgcffa500 {
+	background-color: #ffa500;
+}
+
+
+.c900, /* Letter color  文字色 */
+.c990000 {
+	color: #990000;
+}
+
+
+.bgc900, /* Back view  背景色 */
+.bgc990000 {
+	background-color: #990000;
+}
+
+
+.c9ff, /* Letter color  文字色 */
+.c9FF,
+.c99ffff,
+.c99FFFF {
+	color: #99ffff;
+}
+
+
+.bgc9ff, /* Back view  背景色 */
+.bgc9FF,
+.bgc99ffff,
+.bgc99FFFF {
+	background-color: #99ffff;
+}
+
+
+.c090, /* Letter color  文字色 */
+.c009900 {
+	color: #009900;
+}
+
+
+.bgc090, /* Back view  背景色 */
+.bgc009900 {
+	background-color: #009900;
+}
+
+
+.cf9f, /* Letter color  文字色 */
+.cF9F,
+.cff99ff,
+.cFF99FF {
+	color: #ff99ff;
+}
+
+
+.bgcf9f, /* Back view  背景色 */
+.bgcF9F,
+.bgcff99ff,
+.bgcFF99FF {
+	background-color: #ff99ff;
+}
+
+
+.c009, /* Letter color  文字色 */
+.c000099 {
+	color: #000099;
+}
+
+
+.bgc009, /* Back view  背景色 */
+.bgc000099 {
+	background-color: #000099;
+}
+
+
+.cff9, /* Letter color  文字色 */
+.cFF9,
+.cffff99,
+.cFFFF99 {
+	color: #ffff99;
+}
+
+
+.bgcff9, /* Back view  背景色 */
+.bgcFF9,
+.bgcffff99,
+.bgcFFFF99 {
+	background-color: #ffff99;
+}
+
+
+.c990, /* Letter color  文字色 */
+.c999900 {
+	color: #999900;
+}
+
+
+.bgc990, /* Back view  背景色 */
+.bgc999900 {
+	background-color: #999900;
+}
+
+
+.c99f, /* Letter color  文字色 */
+.c99F,
+.c9999ff,
+.c9999FF {
+	color: #9999ff;
+}
+
+
+.bgc99f, /* Back view  背景色 */
+.bgc99F,
+.bgc9999ff,
+.bgc9999FF {
+	background-color: #9999ff;
+}
+
+
+.c909, /* Letter color  文字色 */
+.c990099 {
+	color: #990099;
+}
+
+
+.bgc909, /* Back view  背景色 */
+.bgc990099 {
+	background-color: #990099;
+}
+
+
+.c9f9, /* Letter color  文字色 */
+.c9F9,
+.c99ff99,
+.c99FF99 {
+	color: #ffffff;
+}
+
+
+.bgc9f9, /* Back view  背景色 */
+.bgc9F9,
+.bgc99ff99,
+.bgc99FF99 {
+	background-color: #99ff99;
+}
+
+
+.c099, /* Letter color  文字色 */
+.c009999 {
+	color: #009999;
+}
+
+
+.bgc099, /* Back view  背景色 */
+.bgc009999 {
+	background-color: #009999;
+}
+
+
+.cf99, /* Letter color  文字色 */
+.cF99,
+.cff9999,
+.cFF9999 {
+	color: #ff9999;
+}
+
+
+.bgcf99, /* Back view  背景色 */
+.bgcF99,
+.bgcff9999,
+.bgcFF9999 {
+	background-color: #ff9999;
+}
+
+
+.c999, /* Letter color  文字色 */
+.c999999 {
+	color: #999999;
+}
+
+
+.bgc9999, /* Back view  背景色 */
+.bgc999999 {
+	background-color: #999999;
+}
+
+
+
+
+/* ========================================================================
+	Font, Character type .	「字体」
+======================================================================== */
+
+.Bold, /* Bold 太字*/
+.BOLD,
+.bold,
+.B,
+.b {
+	font-weight: bold;
+}
+
+
+.Italic, /* Italic type 斜体 */
+.ITALIC,
+.italic,
+.I,
+.i {
+	font-style: italic;
+}
+
+
+.Serif, /* Ming type 明朝体 */
+.serif,
+.SERIF,
+.Mincho,
+.mincho,
+.MINCHO {
+	font-family: serif;
+}
+
+
+.SanasSerif, /* Gothic ゴシック体 */
+.sansserif,
+.SANSSERIF,
+.Gothic,
+.gothic,
+.GOTHIC {
+	font-family: sans-serif;
+}
+
+
+.Cursive, /* Taking notes Type 筆記体・草書体 */
+.cursive,
+.CURSIVE {
+	font-family: cursive;
+}
+
+
+.Fantasy, /* Decoration 装飾体 */
+.fantasy,
+.FANTASY {
+	font-family: fantasy;
+}
+
+
+.MonoSpase, /* Regular width 等幅フォント */
+.monospace,
+.MONOSPACE,
+.tt,
+.TT {
+	font-family: monospace;
+}
+
+
+.FontVariantSmallCaps, /* Small Caps スモールキャップ */
+.SmallCaps,
+.smallcaps {
+	font-variant: small-caps;
+}
+
+
+
+/* ========================================================================
+	Font, Size .	「文字のサイズ」
+======================================================================== */
+
+
+.FontSizeXXXLarge, /* It makes the size of a letter 2.1 times.  文字の大きさを、1.2^4倍にする。*/
+.fsXXXLarge,
+.fsXXXL,
+.fsxxxl,
+.fsl4,
+.fsL4 {
+	font-size: 2.1em
+}
+
+
+.FontSizeXXLarge, /* It makes the size of a letter 1.7 times.  文字の大きさを、1.2^3倍にする。*/
+.fsXXLarge,
+.fsXXL,
+.fsxxl,
+.fsl3,
+.fsL3 {
+	font-size: 1.7em
+}
+
+
+.FontSizeXLarge, /* It makes the size of a letter 1.4 times.  文字の大きさを、1.2^2倍にする。*/
+.fsXLarge,
+.fsXL,
+.fsxl,
+.fsl2,
+.fsL2 {
+	font-size: 1.45em
+}
+
+
+.FontSizeLarge, /* It makes the size of a letter 1.2 times.  文字の大きさを、1.2倍にする。*/
+.fsLarge,
+.fsL,
+.fsl,
+.fsl1,
+.fsL1,
+.big {
+	font-size: 1.2em
+}
+
+
+.FontSizeMedium, /* It makes the size of a letter 1.0 times.  文字の大きさを、標準にする。*/
+.fsMedium,
+.fsM,
+.fsm,
+.fs0 {
+	font-size: 1em
+}
+
+
+.FontSizeSmall, /* It makes 1/1.2 letter. 文字の大きさを、1/1.2倍にする。*/
+.fsSmall,
+.fsS,
+.fss,
+.fss1,
+.fsS1,
+.small {
+	font-size: .8em
+}
+
+
+.FontSizeXSmall, /* It makes 1/1.45 letter. 文字の大きさを、1/1.2~2倍にする。*/
+.fsXSmall,
+.fsXS,
+.fsxs,
+.fss2,
+.fsS2 {
+	font-size: .7em
+}
+
+
+.FontSizeXXSmall, /* It makes 1/1.7 letter. 文字の大きさを、1/1.2~3倍にする。*/
+.fsXXSmall,
+.fsXXS,
+.fsxxs,
+.fss3,
+.fsS3 {
+	font-size: .6em
+}
+
+
+.FontSizeXXXSmall, /* It makes 1/2.1 letter. 文字の大きさを、1/1.2~4倍にする。*/
+.fsXXXSmall,
+.fsXXXS,
+.fsxxxs,
+.fss4,
+.fsS4 {
+	font-size: .5em
+}
+
+
+
+
+/* ========================================================================
+	Text Decoration .	「文字への線装飾」
+======================================================================== */
+
+
+.TextDecorationUnderline, /* Underline 下線 */
+.tdUnderline,
+.tdUl,
+.tdul,
+.Underline,
+.underline,
+.uline,
+.u {
+	text-decoration: underline;
+}
+
+
+.TextDecorationOverline, /* Overline 上線 */
+.tdOverline,
+.tdOl,
+.tdol,
+.Overline,
+.overline,
+.oline {
+	text-decoration: overline;
+}
+
+
+.TextDecorationLineThrough, /* Cancellation line  取消線 */
+.tdLineThrough,
+.tdLT,
+.tdlt,
+.LineThrough,
+.linethrough,
+.LT,
+.lt,
+.strike,
+.s {
+	text-decoration: underline;
+}
+
+
+.TextDecorationBlink, /* It flashes it. 点滅 */
+.tdBlink,
+.tdB,
+.tdb,
+.Blink,
+.blink {
+	text-decoration: blink;
+}
+
+
+
+
+/* ========================================================================
+	Small Caps .	「スモールキャップ」
+======================================================================== */
+
+
+.fvSmallCaps, /* Small Caps スモールキャップ */
+.fvsmallcaps,
+.fvSC,
+.fvsc {
+	font-variant: small-caps;
+}
+
+
+
+
+/* ========================================================================
+	Text Align. Line arrangement. 	「行揃え」
+======================================================================== */
+
+
+.taLeft, /* Bringing a text the left it does. ブロック内で左寄せ */
+.taleft,
+.Left,
+.left {
+	display: block;
+	text-align: left;
+}
+
+
+.taRight, /* Bringing a text the right it does. ブロック内で右寄せ */
+.taright,
+.Right,
+.right {
+	display: block;
+	text-align: right;
+}
+
+
+.taCenter, /* I arrange a text in the center.  ブロック内で中央揃え */
+.tacenter,
+.Center,
+.center{
+	display: block;
+	text-align: center;
+}
+
+
+.taJustify, /* I arrange a text in both ends.  ブロック内で両端揃え */
+.tajustify,
+.Justify,
+.justify {
+	display: block;
+	text-align: justify
+}
+
+
+
+
+/* ========================================================================
+	Line arrangement of length direction. 	「行揃え(縦)」
+======================================================================== */
+
+
+.verticalAlignBaseline, /* I combine the base line of oneself with the base line of a parents element. 親要素のベースラインに自身のベースラインを合せる */
+.verticalalignbaseline,
+.vaBaseline,
+.vabaseline,
+.vabl {
+	display: inline;
+	vertical-align: baseline
+}
+
+
+.verticlAlignTop, /* I combine a parents element and top position. 親要素とTop位置を合せる */
+.verticalaligntop,
+.vaTop,
+.vatop,
+.vat {
+	display: inline;
+	vertical-align: top;
+}
+
+
+.verticalAlignMiddle, /* I combine it with the center position of top and bottom to a parents element.  親ブロック要素に対して上下が中心位置になるように合せる */
+.verticalalignmiddle,
+.vaMiddle,
+.vamiddle,
+.vam {
+ display: inline;
+ vertical-align: middle;
+}
+
+
+.verticalAlignBottom, /* I arrange the lower end. 下端を揃える。 */
+.verticalalignbottom,
+.vaBottom,
+.vabottom,
+.vab {
+	display: inline;
+	vertical-align: bottom;
+}
+
+
+.verticalAlignTextTop, /* I combine the upper end on the font of a parents element. 親要素のフォントの上に上端を合せる。 */
+.verticalaligntexttop,
+.vaTextTop,
+.vatexttop,
+.vatt {
+	display: inline;
+	vertical-align: text-top;
+}
+
+
+.verticalAlignTextBottom, /* I combine the lower end under the font of a parents element. 親要素のフォントの下に、下端を合せる。 */
+.verticalaligntextbottom,
+.vaTextBottom,
+.vatextbottom,
+.vatb {
+	display: inline;
+	vertical-align: text-bottom;
+}
+
+
+.verticalAlignSuper, /* It makes the letter with the top. 上付文字にする */
+.verticalalignsuper,
+.vaSuper,
+.vasuper,
+.sup {
+	display: inline;
+	vertical-align: super;
+}
+
+
+.verticalAlignSub, /* It makes the letter with under. 下付き文字にする */
+.verticalalignsub,
+.vaSub,
+.vasub,
+.sub {
+	display: inline;
+	vertical-align: sub;
+}
+
+
+
+
+/* ========================================================================
+	Interval of letter  	「文字間の間隔」
+======================================================================== */
+
+
+
+
+.letterSpacing05, /* It makes letter period 0.5 times. 文字の間を、0.5(半角文字1つ分)にする */
+.letterspacing05,
+.lsHalf,
+.lshalf,
+.ls05 {
+	letter-spacing: 0.5em;
+}
+
+
+.letterSpacing1,
+.letterspacing1,
+.ls1 {
+	letter-spacing: 1em;
+}
+
+
+.letterSpacing15,
+.letterspacing15,
+.ls1Half,
+.ls1half,
+.ls15 {
+	letter-spacing: 1.5em;
+}
+
+
+.letterSpacing2,
+.letterspacing2,
+.ls2 {
+	letter-spacing: 2em;
+}
+
+
+.letterSpacing25,
+.letterspacing25,
+.ls2Half,
+.ls2half,
+.ls25 {
+	letter-spacing: 2.5em;
+}
+
+
+.letterSpacing3,
+.letterspacing3,
+.ls3 {
+	letter-spacing: 3em;
+}
+
+
+.letterSpacing35,
+.letterspacing35,
+.ls3Half,
+.ls3half,
+.ls35 {
+	letter-spacing: 3.5em;
+}
+
+
+.letterSpacing4,
+.letterspacing4,
+.ls4 {
+	letter-spacing: 4em;
+}
+
+
+.letterSpacing45,
+.letterspacing45,
+.ls4Half,
+.ls4half,
+.ls45 {
+	letter-spacing: 4.5em;
+}
+
+
+.letterSpacing5,
+.letterspacing5,
+.ls5 {
+	letter-spacing: 5em;
+}
+
+
+.letterSpacing55,
+.letterspacing55,
+.ls5Half,
+.ls5half,
+.ls55 {
+	letter-spacing: 5.5em;
+}
+
+
+.letterSpacing6,
+.letterspacing6,
+.ls6 {
+	letter-spacing: 6em;
+}
+
+
+
+
+/* ========================================================================
+	Capital letter and small letter   	「大文字・小文字」
+======================================================================== */
+
+
+.textTransformCapitalize, /* It makes the first letter of each word a capital letter. 各単語の最初の文字を大文字にする */
+.trantransformcapitalize,
+.ttCapitalize,
+.ttcapitalize,
+.ttC,
+.ttc,
+.capitalize {
+	text-transform: capitalize;
+}
+
+
+.textTrancformLowercase, /* It makes all the letters a small letter. 全ての文字を小文字にする */
+.texttrancformlowercase,
+.ttLowercase,
+.ttlowercase,
+.ttL,
+.ttl,
+.lowercase {
+	text-transform: lowercase;
+}
+
+
+.textTrancformUppercase, /* It makes all the letters a capital letter. 全ての文字を大文字にする */
+.texttrancformuppercase,
+.ttUppercase,
+.ttuppercase,
+.ttu,
+.uppercase {
+	text-transform: uppercase;
+}
+
+
+
+
+/* ========================================================================
+	Indent    	「インデント」
+======================================================================== */
+
+
+.textIndent1, /* Left it indents it 1 letter minute. 右へ一文字分、字下げする */
+.textindent1,
+.ti1 {
+	display: block;
+	text-indent: 1em;
+}
+
+
+.textIndentL1, /* It indents it to the right 1 letter minute.  左へ一文字分、字上げする */
+.textindentl1,
+.tiL1,
+.til1 {
+	display: block;
+	text-indent: -1em;
+}
+
+
+.textIndent1, /* Left it indents it 1 letter minute. 右へ二文字分、字下げする */
+.textindent1,
+.ti1 {
+	display: block;
+	text-indent: 1em;
+}
+
+
+.textIndentL1, /* It indents it to the right 1 letter minute.  左へ二文字分、字上げする */
+.textindentl1,
+.tiL1,
+.til1 {
+	display: block;
+	text-indent: -1em;
+}
+
+
+.textIndent1, /* Left it indents it 1 letter minute. 右へ三文字分、字下げする */
+.textindent1,
+.ti1 {
+	display: block;
+	text-indent: 1em;
+}
+
+
+.textIndentL1, /* It indents it to the right 1 letter minute.  左へ三文字分、字上げする */
+.textindentl1,
+.tiL1,
+.til1 {
+	display: block;
+	text-indent: -1em;
+}
+
+
+.textIndent1, /* Left it indents it 1 letter minute. 右へ四文字分、字下げする */
+.textindent1,
+.ti1 {
+	display: block;
+	text-indent: 1em;
+}
+
+
+.textIndentL1, /* It indents it to the right 1 letter minute.  左へ四文字分、字上げする */
+.textindentl1,
+.tiL1,
+.til1 {
+	display: block;
+	text-indent: -1em;
+}
+
+
+.textIndent1, /* Left it indents it 1 letter minute. 右へ五文字分、字下げする */
+.textindent1,
+.ti1 {
+	display: block;
+	text-indent: 1em;
+}
+
+
+.textIndentL1, /* It indents it to the right 1 letter minute.  左へ五文字分、字上げする */
+.textindentl1,
+.tiL1,
+.til1 {
+	display: block;
+	text-indent: -1em;
+}
+
+
+
+
+/* ========================================================================
+	Indent    	「インデント」
+======================================================================== */
+
+
+.whiteSpacePreserve, /* It displays it as input. 入力通りに表示する */
+.whiteSpacePre,
+.whitespasepreserve,
+.whitespasepre,
+.wsPre,
+.wspre,
+.preserve,
+.pre {
+	white-space: pre;
+}
+
+
+.whiteSpaseNowrap, /* Without doing the turn of line it displays it. 行の折り返しをしないで表示する。 */
+.whitespasenowrap,
+.wsNowrap,
+.wsnowrap,
+.nowrap {
+	white-space: nowrap;
+}
+
+
+
+
+
+
+/* ========================================================================
+	Border Color.	「ボーダーカラー」
+======================================================================== */
+
+
+.borderColorBlack, /* All the border color ：Black 全ボーダー色：黒 */
+.bordercolorblack,
+.bcBlack,
+.bcblack,
+.bc000,
+.bc000,
+.bc000000,
+.bc000000 {
+	border-color: #000000;
+}
+
+
+.borderTopColorBlack, /* Top border color ：Black 上ボーダー色：黒 */
+.bordertopcolorblack,
+.btcBlack,
+.btcblack,
+.btc000,
+.btc000,
+.btc000000,
+.btc000000 {
+	border-top-color: #000000;
+}
+
+
+.borderBottomColorBlack, /* Bottom border color ：Black 下ボーダー色：黒 */
+.borderbottomcolorblack,
+.bbcBlack,
+.bbcblack,
+.bbc000,
+.bbc000,
+.bbc000000,
+.bbc000000 {
+	border-bottom-color: #000000;
+}
+
+
+.borderLeftColorBlack, /* Left border color ：Black 左ボーダー色：黒 */
+.borderleftcolorblack,
+.blcBlack,
+.blcblack,
+.blc000,
+.blc000,
+.blc000000,
+.blc000000 {
+	border-left-color: #000000;
+}
+
+
+.borderRightColorBlack, /* Right border color ：Black 右ボーダー色：黒 */
+.borderrightcolorblack,
+.brcBlack,
+.brcblack,
+.brc000,
+.brc000,
+.brc000000,
+.brc000000 {
+	border-right-color: #000000;
+}
+
+
+.borderColorSliver, /* All the border color ：Sliver 全ボーダー色：銀 */
+.bordercolorsliver,
+.bcSliver,
+.bcsliver,
+.bcC0C0C0,
+.bcc0c0c0 {
+	border-color: #c0c0c0;
+}
+
+
+.borderTopColorSliverk, /* Top border color ：Sliver 上ボーダー色：銀 */
+.bordertopcolorsliver,
+.btcSliver,
+.btcsliver,
+.btcC0C0C0,
+.btcc0c0c0 {
+	border-top-color: #c0c0c0;
+}
+
+
+.borderBottomColorSliver, /* Bottom border color ：Sliver 下ボーダー色：銀 */
+.borderbottomcolorsliver,
+.bbcSliver,
+.bbcsliver,
+.bbcC0C0C0,
+.bbcc0c0c0 {
+	border-bottom-color: #c0c0c0;
+}
+
+
+.borderLeftColorSliver, /* Left border color ：Sliver 左ボーダー色：銀 */
+.borderleftcolorsliver,
+.blcSliver,
+.blcsliver,
+.blcC0C0C0,
+.blcc0c0c0 {
+	border-left-color: #c0c0c0;
+}
+
+
+.borderRightColorSliver, /* Right border color ：Sliver 右ボーダー色：銀 */
+.borderrightcolorsliver,
+.brcSliver,
+.brcsliver,
+.brcC0C0C0,
+.brcc0c0c0 {
+	border-right-color: #c0c0c0;
+}
+
+
+
+
+.borderColorGray, /* All the border color ：Gray 全ボーダー色：灰 */
+.bordercolorgray,
+.bcGray,
+.bcgray,
+.bc808080 {
+	border-color: #808080;
+}
+
+
+.borderTopColorGray, /* Top border color ：Gray 上ボーダー色：灰 */
+.bordertopcolorgray,
+.btcGray,
+.btcgray,
+.btc808080 {
+	border-top-color: #808080;
+}
+
+
+.borderBottomColorGray, /* Bottom border color ：Gray 下ボーダー色：灰 */
+.borderbottomcolorgray,
+.bbcGray,
+.bbcgray,
+.bbc808080 {
+	border-bottom-color: #808080;
+}
+
+
+.borderLeftColorGray, /* Left border color ：Gray 左ボーダー色：灰 */
+.borderleftcolorgray,
+.blcGray,
+.blcgray,
+.blc808080 {
+	border-left-color: #808080;
+}
+
+
+.borderRightColorGray, /* Right border color ：Gray 右ボーダー色：灰 */
+.borderrightcolorgray,
+.brcGray,
+.brcgray,
+.brc808080 {
+	border-right-color: #808080;
+}
+
+
+.borderColorWhite, /* All the border color ：White 全ボーダー色：白 */
+.bordercolorwhite,
+.bcWhite,
+.bcwhite,
+.bcFFF,
+.bcfff,
+.bcFFFFFF,
+.bcffffff {
+	border-color: #ffffff;
+}
+
+
+.borderTopColorWhite, /* Top border color ：White 上ボーダー色：白 */
+.bordertopcolorwhite,
+.btcWhite,
+.btcwhite,
+.btcFFF,
+.btcfff,
+.btcFFFFFF,
+.btcffffff {
+	border-top-color: #ffffff;
+}
+
+
+.borderBottomColorWhite, /* Bottom border color ：White 下ボーダー色：白 */
+.borderbottomcolorwhite,
+.bbcWhite,
+.bbcwhite,
+.bbcFFF,
+.bbcfff,
+.bbcFFFFFF,
+.bbcffffff {
+	border-bottom-color: #ffffff;
+}
+
+
+.borderLeftColorWhite, /* Left border color ：White 左ボーダー色：白 */
+.borderleftcolorwhite,
+.blcWhite,
+.blcwhite,
+.blcFFF,
+.blcfff,
+.blcFFFFFF,
+.blcffffff {
+	border-left-color: #ffffff;
+}
+
+
+.borderRightColorWhite, /* Right border color ：White 右ボーダー色：白 */
+.borderrightcolorwhite,
+.brcWhite,
+.brcwhite,
+.brcFFF,
+.brcfff,
+.brcFFFFFF,
+.brcffffff {
+	border-right-color: #ffffff;
+}
+
+
+.borderColorMaroon, /* All the border color ：Maroon 全ボーダー色：栗 */
+.bordercolormaroon,
+.bcMaroon,
+.bcmaroon,
+.bc800000 {
+	border-color: #800000;
+}
+
+
+.borderTopColorMaroon, /* Top border color ：Maroon 上ボーダー色：栗 */
+.bordertopcolormaroon,
+.btcMaroon,
+.btcmaroon,
+.btc800000 {
+	border-top-color: #800000;
+}
+
+
+.borderBottomColorMaroon, /* Bottom border color ：Maroon 下ボーダー色：栗 */
+.borderbottomcolormaroon,
+.bbcMaroon,
+.bbcmaroon,
+.bbc800000 {
+	border-bottom-color: #800000;
+}
+
+
+.borderLeftColorMaroon, /* Left border color ：Maroon 左ボーダー色：栗 */
+.borderleftcolormaroon,
+.blcMaroon,
+.blcmaroon,
+.blc800000 {
+	border-left-color: #800000;
+}
+
+
+.borderRightColorMaroon, /* Right border color ：Maroon 右ボーダー色：栗 */
+.borderrightcolormaroon,
+.brcMaroon,
+.brcmaroon,
+.brc800000 {
+	border-right-color: #800000;
+}
+
+
+.borderColorRed, /* All the border color ：Red 全ボーダー色：赤 */
+.bordercolorred,
+.bcRed,
+.bcred,
+.bcF00,
+.bcf00,
+.bcFF0000,
+.bcff0000 {
+	border-color: #ff0000;
+}
+
+
+.borderTopColorRed, /* Top border color ：Red 上ボーダー色：赤 */
+.bordertopcolorred,
+.btcRed,
+.btcred,
+.btcF00,
+.btcf00,
+.btcFF0000,
+.btcff0000 {
+	border-top-color: #ff0000;
+}
+
+
+.borderBottomColorRed, /* Bottom border color ：Red 下ボーダー色：赤 */
+.borderbottomcolorred,
+.bbcRed,
+.bbcred,
+.bbcF00,
+.bbcf00,
+.bbcFF0000,
+.bbcff0000 {
+	border-bottom-color: #ff0000;
+}
+
+
+.borderLeftColorRed, /* Left border color ：Red 左ボーダー色：赤 */
+.borderleftcolorred,
+.blcRed,
+.blcred,
+.blcF00,
+.blcf00,
+.blcFF0000,
+.blcff0000 {
+	border-left-color: #ff0000;
+}
+
+
+.borderRightColorRed, /* Right border color ：Red 右ボーダー色：赤 */
+.borderrightcolorred,
+.brcRed,
+.brcred,
+.brcF00,
+.brcf00,
+.brcFF0000,
+.brcff0000 {
+	border-right-color: #ff0000;
+}
+
+
+.borderColorPurple, /* All the border color ：Purple 全ボーダー色：紫 */
+.bordercolorpurple,
+.bcPurple,
+.bcpurple,
+.bc800080 {
+	border-color: #800080;
+}
+
+
+.borderTopColorPurple, /* Top border color ：Purple 上ボーダー色：紫 */
+.bordertopcolorpurple,
+.btcPurple,
+.btcpurple,
+.btc800080 {
+	border-top-color: #800080;
+}
+
+
+.borderBottomColorPurple, /* Bottom border color ：Purple 下ボーダー色：紫 */
+.borderbottomcolorpurple,
+.bbcPurple,
+.bbcpurple,
+.bbc800080 {
+	border-bottom-color: #800080;
+}
+
+
+.borderLeftColorPurple, /* Left border color ：Purple 左ボーダー色：紫 */
+.borderleftcolorpurple,
+.blcPurple,
+.blcpurple,
+.blc800080 {
+	border-left-color: #800080;
+}
+
+
+.borderRightColorPurple, /* Right border color ：Purple 右ボーダー色：紫 */
+.borderrightcolorpurple,
+.brcPurple,
+.brcpurple,
+.brc800080 {
+	border-right-color: #800080;
+}
+
+
+.borderColorFuchsia, /* All the border color ：Fuchsia 全ボーダー色：フュージア */
+.bordercolorfuchsia,
+.bcFuchsia,
+.bcfuchsia,
+.bcF0F,
+.bcf0f,
+.bcFF00FF,
+.bcff00ff {
+	border-color: #ff00ff;
+}
+
+
+.borderTopColorFuchsia, /* Top border color ：Fuchsia 上ボーダー色：フュージア */
+.bordertopcolorfuchsia,
+.btcFuchsia,
+.btcfuchsia,
+.btcF0F,
+.btcf0f,
+.btcFF00FF,
+.btcff00ff {
+	border-top-color: #ff00ff;
+}
+
+
+.borderBottomColorFuchsia, /* Bottom border color ：Fuchsia 下ボーダー色：フュージア */
+.borderbottomcolorfuchsia,
+.bbcFuchsia,
+.bbcfuchsia,
+.bbcF0F,
+.bbcf0f,
+.bbcFF00FF,
+.bbcff00ff {
+	border-bottom-color: #ff00ff;
+}
+
+
+.borderLeftColorFuchsia, /* Left border color ：Fuchsia 左ボーダー色：フュージア */
+.borderleftcolorfuchsia,
+.blcFuchsia,
+.blcfuchsia,
+.blcF0F,
+.blcf0f,
+.blcFF00FF,
+.blcff00ff {
+	border-left-color: #ff00ff;
+}
+
+
+.borderRightColorFuchsia, /* Right border color ：Fuchsia 右ボーダー色：フュージア */
+.borderrightcolorfuchsia,
+.brcFuchsia,
+.brcfuchsia,
+.brcF0F,
+.brcf0f,
+.brcFF00FF,
+.brcff00ff {
+	border-right-color: #ff00ff;
+}
+
+
+.borderColorGreen, /* All the border color ：Green 全ボーダー色：緑 */
+.bordercolorgreen,
+.bcGreen,
+.bcgreen,
+.bc008000 {
+	border-color: #008000;
+}
+
+
+.borderTopColorGreen, /* Top border color ：Green 上ボーダー色：緑 */
+.bordertopcolorgreen,
+.btcGreen,
+.btcgreen,
+.btc008000 {
+	border-top-color: #008000;
+}
+
+
+.borderBottomColorGreen, /* Bottom border color ：Green 下ボーダー色：緑 */
+.borderbottomcolorgreen,
+.bbcGreen,
+.bbcgreen,
+.bbc008000 {
+	border-bottom-color: #008000;
+}
+
+
+.borderLeftColorGreen, /* Left border color ：Green 左ボーダー色：緑 */
+.borderleftcolorgreen,
+.blcGreen,
+.blcgreen,
+.blc008000 {
+	border-left-color: #008000;
+}
+
+
+.borderRightColorGreen, /* Right border color ：Green 右ボーダー色：緑 */
+.borderrightcolorgreen,
+.brcGreen,
+.brcgreen,
+.brc008000 {
+	border-right-color: #008000;
+}
+
+
+.borderColorLime, /* All the border color ：Lime 全ボーダー色：ライム */
+.bordercolorlime,
+.bcLime,
+.bclime,
+.bc0F0,
+.bc0f0,
+.bc00FF00,
+.bc00ff00 {
+	border-color: #00ff00;
+}
+
+
+.borderTopColorLime, /* Top border color ：Lime 上ボーダー色：ライム */
+.bordertopcolorlime,
+.btcLime,
+.btclime,
+.btc0F0,
+.btc0f0,
+.btc00FF00,
+.btc00ff00 {
+	border-top-color: #00ff00;
+}
+
+
+.borderBottomColorLime, /* Bottom border color ：Lime 下ボーダー色：ライム */
+.borderbottomcolorlime,
+.bbcLime,
+.bbclime,
+.bbc0F0,
+.bbc0f0,
+.bbc00FF00,
+.bbc00ff00 {
+	border-bottom-color: #00ff00;
+}
+
+
+.borderLeftColorLime, /* Left border color ：Lime 左ボーダー色：ライム */
+.borderleftcolorlime,
+.blcLime,
+.blclime,
+.blc0F0,
+.blc0f0,
+.blc00FF00,
+.blc00ff00 {
+	border-left-color: #00ff00;
+}
+
+
+.borderRightColorLime, /* Right border color ：Lime 右ボーダー色：ライム */
+.borderrightcolorlime,
+.brcLime,
+.brclime,
+.brc0F0,
+.brc0f0,
+.brc00FF00,
+.brc00ff00 {
+	border-right-color: #00ff00;
+}
+
+
+.borderColorOlive, /* All the border color ：Olive 全ボーダー色：オリーブ */
+.bordercolorolive,
+.bcOlive,
+.bcolive,
+.bc808000 {
+	border-color: #808000;
+}
+
+
+.borderTopColorOlive, /* Top border color ：Olive 上ボーダー色：オリーブ */
+.bordertopcolorolive,
+.btcOlive,
+.btcolive,
+.btc808000 {
+	border-top-color: #808000;
+}
+
+
+.borderBottomColorOlive, /* Bottom border color ：Olive 下ボーダー色：オリーブ */
+.borderbottomcolorolive,
+.bbcOlive,
+.bbcolive,
+.bbc808000 {
+	border-bottom-color: #808000;
+}
+
+
+.borderLeftColorOlive, /* Left border color ：Olive 左ボーダー色：オリーブ */
+.borderleftcolorolive,
+.blcOlive,
+.blcolive,
+.blc808000 {
+	border-left-color: #808000;
+}
+
+
+.borderRightColorOlive, /* Right border color ：Olive 右ボーダー色：オリーブ */
+.borderrightcolorolive,
+.brcOlive,
+.brcolive,
+.brc808000 {
+	border-right-color: #808000;
+}
+
+
+.borderColorYellow, /* All the border color ：Yellow 全ボーダー色：黄 */
+.bordercoloryellow,
+.bcYellow,
+.bcyellow,
+.bcFF0,
+.bcff0,
+.bcFFFF00,
+.bcffff00 {
+	border-color: #ffff00;
+}
+
+
+.borderTopColorYellow, /* Top border color ：Yellow 上ボーダー色：黄 */
+.bordertopcoloryellow,
+.btcYellow,
+.btcyellow,
+.btcFF0,
+.btcff0,
+.btcFFFF00,
+.btcffff00 {
+	border-top-color: #ffff00;
+}
+
+
+.borderBottomColorYellow, /* Bottom border color ：Yellow 下ボーダー色：黄 */
+.borderbottomcoloryellow,
+.bbcYellow,
+.bbcyellow,
+.bbcFF0,
+.bbcff0,
+.bbcFFFF00,
+.bbcffff00 {
+	border-bottom-color: #ffff00;
+}
+
+
+.borderLeftColorYellow, /* Left border color ：Yellow 左ボーダー色：黄 */
+.borderleftcoloryellow,
+.blcYellow,
+.blcyellow,
+.blcFF0,
+.blcff0,
+.blcFFFF00,
+.blcffff00 {
+	border-left-color: #ffff00;
+}
+
+
+.borderRightColorYellow, /* Right border color ：Yellow 右ボーダー色：黄 */
+.borderrightcoloryellow,
+.brcYellow,
+.brcyellow,
+.brcFF0,
+.brcff0,
+.brcFFFF00,
+.brcffff00 {
+	border-right-color: #ffff00;
+}
+
+
+.borderColorNavy, /* All the border color ：Navy 全ボーダー色：ネイヴィ */
+.bordercolornavy,
+.bcNavy,
+.bcnavy,
+.bc000080 {
+	border-color: #000080;
+}
+
+
+.borderTopColorNavy, /* Top border color ：Navy 上ボーダー色：ネイヴィ */
+.bordertopcolornavy,
+.btcNavy,
+.btcnavy,
+.btc000080 {
+	border-top-color: #000080;
+}
+
+
+.borderBottomColorNavy, /* Bottom border color ：Navy 下ボーダー色：ネイヴィ */
+.borderbottomcolornavy,
+.bbcNavy,
+.bbcnavy,
+.bbc000080 {
+	border-bottom-color: #000080;
+}
+
+
+.borderLeftColorNavy, /* Left border color ：Navy 左ボーダー色：ネイヴィ */
+.borderleftcolornavy,
+.blcNavy,
+.blcnavy,
+.blc000080 {
+	border-left-color: #000080;
+}
+
+
+.borderRightColorNavy, /* Right border color ：Navy 右ボーダー色：ネイヴィ */
+.borderrightcolornavy,
+.brcNavy,
+.brcnavy,
+.brc000080 {
+	border-right-color: #000080;
+}
+
+
+.borderColorBlue, /* All the border color ：Blue 全ボーダー色：青 */
+.bordercolorblue,
+.bcBlue,
+.bcblue,
+.bc00F,
+.bc00f,
+.bc0000FF,
+.bc0000ff {
+	border-color: #0000ff;
+}
+
+
+.borderTopColorBlue, /* Top border color ：Blue 上ボーダー色：青 */
+.bordertopcolorblue,
+.btcBlue,
+.btcblue,
+.btc00F,
+.btc00f,
+.btc0000FF,
+.btc0000ff {
+	border-top-color: #0000ff;
+}
+
+
+.borderBottomColorBlue, /* Bottom border color ：Blue 下ボーダー色：青 */
+.borderbottomcolorblue,
+.bbcBlue,
+.bbcblue,
+.bbc00F,
+.bbc00f,
+.bbc0000FF,
+.bbc0000ff {
+	border-bottom-color: #0000ff;
+}
+
+
+.borderLeftColorBlue, /* Left border color ：Blue 左ボーダー色：青 */
+.borderleftcolorblue,
+.blcBlue,
+.blcblue,
+.blc00F,
+.blc00f,
+.blc0000FF,
+.blc0000ff {
+	border-left-color: #0000ff;
+}
+
+
+.borderRightColorBlue, /* Right border color ：Blue 右ボーダー色：青 */
+.borderrightcolorblue,
+.brcBlue,
+.brcblue,
+.brc00F,
+.brc00f,
+.brc0000FF,
+.brc0000ff {
+	border-right-color: #0000ff;
+}
+
+
+.borderColorTeal, /* All the border color ：Teal 全ボーダー色： */
+.bordercolorteal,
+.bcTeal,
+.bcteal,
+.bc008080 {
+	border-color: #008080;
+}
+
+
+.borderTopColorTeal, /* Top border color ：Teal 上ボーダー色： */
+.bordertopcolorteal,
+.btcTeal,
+.btcteal,
+.btc008080 {
+	border-top-color: #008080;
+}
+
+
+.borderBottomColorTeal, /* Bottom border color ：Teal 下ボーダー色： */
+.borderbottomcolorteal,
+.bbcTeal,
+.bbcteal,
+.bbc008080 {
+	border-bottom-color: #008080;
+}
+
+
+.borderLeftColorTeal, /* Left border color ：Teal 左ボーダー色： */
+.borderleftcolorteal,
+.blcTeal,
+.blcteal,
+.blc008080 {
+	border-left-color: #008080;
+}
+
+
+.borderRightColorTeal, /* Right border color ：Teal 右ボーダー色： */
+.borderrightcolorteal,
+.brcTeal,
+.brcteal,
+.brc008080 {
+	border-right-color: #008080;
+}
+
+
+.borderColorAqua, /* All the border color ：Aqua 全ボーダー色：アクア */
+.bordercoloraqua,
+.bcAqua,
+.bcaqua,
+.bc0FF,
+.bc0ff,
+.bc00FFFF,
+.bc00ffff {
+	border-color: #00ffff;
+}
+
+
+.borderTopColorAqua, /* Top border color ：Aqua 上ボーダー色：アクア */
+.bordertopcoloraqua,
+.btcAqua,
+.btcaqua,
+.btc0FF,
+.btc0ff,
+.btc00FFFF,
+.btc00ffff {
+	border-top-color: #00ffff;
+}
+
+
+.borderBottomColorAqua, /* Bottom border color ：Aqua 下ボーダー色：アクア */
+.borderbottomcoloraqua,
+.bbcAqua,
+.bbcaqua,
+.bbc0FF,
+.bbc0ff,
+.bbc00FFFF,
+.bbc00ffff {
+	border-bottom-color: #00ffff;
+}
+
+
+.borderLeftColorAqua, /* Left border color ：Aqua 左ボーダー色：アクア */
+.borderleftcoloraqua,
+.blcAqua,
+.blcaqua,
+.blc0FF,
+.blc0ff,
+.blc00FFFF,
+.blc00ffff {
+	border-left-color: #00ffff;
+}
+
+
+.borderRightColorAqua, /* Right border color ：Aqua 右ボーダー色：アクア */
+.borderrightcoloraqua,
+.brcAqua,
+.brcaqua,
+.brc0FF,
+.brc0ff,
+.brc00FFFF,
+.brc00ffff {
+	border-right-color: #00ffff;
+}
+
+
+.borderColorOrange, /* All the border color ：Orange 全ボーダー色：オレンヂ */
+.bordercolororange,
+.bcOrange,
+.bcorange,
+.bcFFA500,
+.bcffa500 {
+	border-color: #ffa500;
+}
+
+
+.borderTopColorOrange, /* Top border color ：Orange 上ボーダー色：オレンヂ */
+.bordertopcolororange,
+.btcOrange,
+.btcorange,
+.btcFFA500,
+.btcffa500 {
+	border-top-color: #ffa500;
+}
+
+
+.borderBottomColorOrange, /* Bottom border color ：Orange 下ボーダー色：オレンヂ */
+.borderbottomcolororange,
+.bbcOrange,
+.bbcorange,
+.bbcFFA500,
+.bbcffa500 {
+	border-bottom-color: #ffa500;
+}
+
+
+.borderLeftColorOrange, /* Left border color ：Orange 左ボーダー色：オレンヂ */
+.borderleftcolororange,
+.blcOrange,
+.blcorange,
+.blcFFA500,
+.blcffa500 {
+	border-left-color: #ffa500;
+}
+
+
+.borderRightColorOrange, /* Right border color ：Orange 右ボーダー色：オレンヂ */
+.borderrightcolororange,
+.brcOrange,
+.brcorange,
+.brcFFA500,
+.brcffa500 {
+	border-right-color: #ffa500;
+}
+
+
+.bc900, /* All the border color  全ボーダー色 */
+.bc990000 {
+	border-color: #990000;
+}
+
+
+.btc900,/* Top border color  上ボーダー色 */
+.btc990000 {
+	border-top-color: #990000;
+}
+
+
+.bbc900,/* Bottom border color  下ボーダー色 */
+.bbc990000 {
+	border-bottom-color: #990000;
+}
+
+
+.blc900,/* Left border color  左ボーダー色 */
+.blc990000 {
+	border-left-color: #990000;
+}
+
+
+.brc900,/* Right border color  右ボーダー色 */
+.brc990000 {
+	border-right-color: #990000;
+}
+
+
+.bc9ff, /* All the border color  全ボーダー色 */
+.bc9FF,
+.bc99FFFF,
+.bc99ffff {
+	border-color: #99ffff;
+}
+
+
+.btc9ff,/* Top border color  上ボーダー色 */
+.btc9FF,
+.btc99FFFF,
+.btc99ffff {
+	border-top-color: #99ffff;
+}
+
+
+.bbc9ff,/* Bottom border color  下ボーダー色 */
+.bbc9FF,
+.bbc99FFFF,
+.bbc99ffff {
+	border-bottom-color: #99ffff;
+}
+
+
+.blc9ff,/* Left border color  左ボーダー色 */
+.blc9FF,
+.blc99FFFF,
+.blc99ffff {
+	border-left-color: #99ffff;
+}
+
+
+.brc9ff,/* Right border color  右ボーダー色 */
+.brc9FF,
+.brc99FFFF,
+.brc99ffff {
+	border-right-color: #99ffff;
+}
+
+
+.bc090, /* All the border color  全ボーダー色 */
+.bc009900 {
+	border-color: #009900;
+}
+
+
+.btc090,/* Top border color  上ボーダー色 */
+.btc009900 {
+	border-top-color: #009900;
+}
+
+
+.bbc090,/* Bottom border color  下ボーダー色 */
+.bbc009900 {
+	border-bottom-color: #009900;
+}
+
+
+.blc090,/* Left border color  左ボーダー色 */
+.blc009900 {
+	border-left-color: #009900;
+}
+
+
+.brc090,/* Right border color  右ボーダー色 */
+.brc009900 {
+	border-right-color: #009900;
+}
+
+
+.bcf9f, /* All the border color  全ボーダー色 */
+.bcF9F,
+.bcFF99FF,
+.bcff99ff {
+	border-color: #ff99ff;
+}
+
+
+.btcf9f,/* Top border color  上ボーダー色 */
+.btcF9F,
+.btcFF99FF,
+.btcff99ff {
+	border-top-color: #ff99ff;
+}
+
+
+.bbcf9f,/* Bottom border color  下ボーダー色 */
+.bbcF9F,
+.bbcFF99FF,
+.bbcff99ff {
+	border-bottom-color: #ff99ff;
+}
+
+
+.blcf9f,/* Left border color  左ボーダー色 */
+.blcF9F,
+.blcFF99FF,
+.blcff99ff {
+	border-left-color: #ff99ff;
+}
+
+
+.brcf9f,/* Right border color  右ボーダー色 */
+.brcF9F,
+.brcFF99FF,
+.brcff99ff {
+	border-right-color: #ff99ff;
+}
+
+
+.bc009, /* All the border color  全ボーダー色 */
+.bc000099 {
+	border-color: #000099;
+}
+
+
+.btc009,/* Top border color  上ボーダー色 */
+.btc000099 {
+	border-top-color: #000099;
+}
+
+
+.bbc009,/* Bottom border color  下ボーダー色 */
+.bbc000099 {
+	border-bottom-color: #000099;
+}
+
+
+.blc009,/* Left border color  左ボーダー色 */
+.blc000099 {
+	border-left-color: #000099;
+}
+
+
+.brc009,/* Right border color  右ボーダー色 */
+.brc000099 {
+	border-right-color: #000099;
+}
+
+
+.bcFF9, /* All the border color  全ボーダー色 */
+.bcff9,
+.bcFFFF99,
+.bcffff99 {
+	border-color: #ffff99;
+}
+
+
+.btcFF9,/* Top border color  上ボーダー色 */
+.btcff9,
+.btcFFFF99,
+.btcffff99 {
+	border-top-color: #ffff99;
+}
+
+
+.bbcFF9,/* Bottom border color  下ボーダー色 */
+.bbcff9,
+.bbcFFFF99,
+.bbcffff99 {
+	border-bottom-color: #ffff99;
+}
+
+
+.blcFF9,/* Left border color  左ボーダー色 */
+.blcff9,
+.blcFFFF99,
+.blcffff99 {
+	border-left-color: #ffff99;
+}
+
+
+.brcFF9,/* Right border color  右ボーダー色 */
+.brcff9,
+.brcFFFF99,
+.brcffff99 {
+	border-right-color: #ffff99;
+}
+
+
+.bc990, /* All the border color  全ボーダー色 */
+.bc999900 {
+	border-color: #999900;
+}
+
+
+.btc990,/* Top border color  上ボーダー色 */
+.btc999900 {
+	border-top-color: #999900;
+}
+
+
+.bbc990,/* Bottom border color  下ボーダー色 */
+.bbc999900 {
+	border-bottom-color: #999900;
+}
+
+
+.blc990,/* Left border color  左ボーダー色 */
+.blc999900 {
+	border-left-color: #999900;
+}
+
+
+.brc990,/* Right border color  右ボーダー色 */
+.brc999900 {
+	border-right-color: #999900;
+}
+
+
+.bc99F, /* All the border color  全ボーダー色 */
+.bc99f,
+.bc9999FF,
+.bc9999ff {
+	border-color: #9999ff;
+}
+
+
+.btc99F,/* Top border color  上ボーダー色 */
+.btc99f,
+.btc9999FF,
+.btc9999ff {
+	border-top-color: #9999ff;
+}
+
+
+.bbc99F,/* Bottom border color  下ボーダー色 */
+.bbc99f,
+.bbc9999FF,
+.bbc9999ff {
+	border-bottom-color: #9999ff;
+}
+
+
+.blc99F,/* Left border color  左ボーダー色 */
+.blc99f,
+.blc9999FF,
+.blc9999ff {
+	border-left-color: #9999ff;
+}
+
+
+.brc99F,/* Right border color  右ボーダー色 */
+.brc99f,
+.brc9999FF,
+.brc9999ff {
+	border-right-color: #9999ff;
+}
+
+
+.bc909, /* All the border color  全ボーダー色 */
+.bc990099 {
+	border-color: #990099;
+}
+
+
+.btc909,/* Top border color  上ボーダー色 */
+.btc990099 {
+	border-top-color: #990099;
+}
+
+
+.bbc909,/* Bottom border color  下ボーダー色 */
+.bbc990099 {
+	border-bottom-color: #990099;
+}
+
+
+.blc909,/* Left border color  左ボーダー色 */
+.blc990099 {
+	border-left-color: #990099;
+}
+
+
+.brc909,/* Right border color  右ボーダー色 */
+.brc990099 {
+	border-right-color: #990099;
+}
+
+
+.bc9F9, /* All the border color  全ボーダー色 */
+.bc9f9,
+.bc99FF99,
+.bc99ff99 {
+	border-color: #99ff99;
+}
+
+
+.btc9F9,/* Top border color  上ボーダー色 */
+.btc9f9,
+.btc99FF99,
+.btc99ff99 {
+	border-top-color: #99ff99;
+}
+
+
+.bbc9F9,/* Bottom border color  下ボーダー色 */
+.bbc9f9,
+.bbc99FF99,
+.bbc99ff99 {
+	border-bottom-color: #99ff99;
+}
+
+
+.blc9F9,/* Left border color  左ボーダー色 */
+.blc9f9,
+.blc99FF99,
+.blc99ff99 {
+	border-left-color: #99ff99;
+}
+
+
+.brc9F9,/* Right border color  右ボーダー色 */
+.brc9f9,
+.brc99FF99,
+.brc99ff99 {
+	border-right-color: #99ff99;
+}
+
+
+.bc099, /* All the border color  全ボーダー色 */
+.bc009999 {
+	border-color: #009999;
+}
+
+
+.btc099,/* Top border color  上ボーダー色 */
+.btc009999 {
+	border-top-color: #009999;
+}
+
+
+.bbc099,/* Bottom border color  下ボーダー色 */
+.bbc009999 {
+	border-bottom-color: #009999;
+}
+
+
+.blc099,/* Left border color  左ボーダー色 */
+.blc009999 {
+	border-left-color: #009999;
+}
+
+
+.brc099,/* Right border color  右ボーダー色 */
+.brc009999 {
+	border-right-color: #009999;
+}
+
+
+.bcF99, /* All the border color  全ボーダー色 */
+.bcf99,
+.bcFF9999,
+.bcff9999 {
+	border-color: #ff9999;
+}
+
+
+.btcF99,/* Top border color  上ボーダー色 */
+.btcf99,
+.btcFF9999,
+.btcff9999 {
+	border-top-color: #ff9999;
+}
+
+
+.bbcF99,/* Bottom border color  下ボーダー色 */
+.bbcf99,
+.bbcFF9999,
+.bbcff9999 {
+	border-bottom-color: #ff9999;
+}
+
+
+.blcF99,/* Left border color  左ボーダー色 */
+.blcf99,
+.blcFF9999,
+.blcff9999 {
+	border-left-color: #ff9999;
+}
+
+
+.brcF99,/* Right border color  右ボーダー色 */
+.brcf99,
+.brcFF9999,
+.brcff9999 {
+	border-right-color: #ff9999;
+}
+
+
+.bc999, /* All the border color  全ボーダー色 */
+.bc999999 {
+	border-color: #999999;
+}
+
+
+.btc999,/* Top border color  上ボーダー色 */
+.btc999999 {
+	border-top-color: #999999;
+}
+
+
+.bbc999,/* Bottom border color  下ボーダー色 */
+.bbc999999 {
+	border-bottom-color: #999999;
+}
+
+
+.blc999,/* Left border color  左ボーダー色 */
+.blc999999 {
+	border-left-color: #999999;
+}
+
+
+.brc999,/* Right border color  右ボーダー色 */
+.brc999999 {
+	border-right-color: #999999;
+}
+
+
+
+
+/* ========================================================================
+	Border Width.	「ボーダーの太さ」
+======================================================================== */
+
+
+.borderWidth1px, /* Border Width :1px 全ボーダーの太さ 1px */
+.borderwidth1px,
+.bw1px,
+.bw1 {
+	border-width: 1px;
+}
+
+
+.borderTopWidth1px, /* Border Top Width :1px 上ボーダーの太さ 1px */
+.bordertopwidth1px,
+.btw1px,
+.btw1 {
+	border-top-width: 1px;
+}
+
+
+.borderBottomWidth1px, /* Border Bottom Width :1px 下ボーダーの太さ 1px */
+.borderbottomwidth1px,
+.bbw1px,
+.bbw1 {
+	border-top-width: 1px;
+}
+
+
+.borderLeftWidth1px, /* Border Left Width :1px 左ボーダーの太さ 1px */
+.borderleftwidth1px,
+.blw1px,
+.blw1 {
+	border-left-width: 1px;
+}
+
+
+.borderRightWidth1px, /* Border Right Width :1px 右ボーダーの太さ 1px */
+.borderrightwidth1px,
+.brw1px,
+.brw1 {
+	border-right-width: 1px;
+}
+
+
+
+
+.borderWidth2px, /* Border Width :2px 全ボーダーの太さ 2px */
+.borderwidth2px,
+.bw2px,
+.bw2 {
+	border-width: 2px;
+}
+
+
+.borderTopWidth2px, /* Border Top Width :2px 上ボーダーの太さ 2px */
+.bordertopwidth2px,
+.btw2px,
+.btw2 {
+	border-top-width: 2px;
+}
+
+
+.borderBottomWidth2px, /* Border Bottom Width :2px 下ボーダーの太さ 2px */
+.borderbottomwidth2px,
+.bbw2px,
+.bbw2 {
+	border-top-width: 2px;
+}
+
+
+.borderLeftWidth2px, /* Border Left Width :2px 左ボーダーの太さ 2px */
+.borderleftwidth2px,
+.blw2px,
+.blw2 {
+	border-left-width: 2px;
+}
+
+
+.borderRightWidth2px, /* Border Right Width :2px 右ボーダーの太さ 2px */
+.borderrightwidth2px,
+.brw2px,
+.brw2 {
+	border-right-width: 2px;
+}
+
+
+
+
+.borderWidth4px, /* Border Width :4px 全ボーダーの太さ 4px */
+.borderwidth4px,
+.bw4px,
+.bw4 {
+	border-width: 4px;
+}
+
+
+.borderTopWidth4px, /* Border Top Width :4px 上ボーダーの太さ 4px */
+.bordertopwidth4px,
+.btw4px,
+.btw4 {
+	border-top-width: 4px;
+}
+
+
+.borderBottomWidth4px, /* Border Bottom Width :4px 下ボーダーの太さ 4px */
+.borderbottomwidth4px,
+.bbw4px,
+.bbw4 {
+	border-top-width: 4px;
+}
+
+
+.borderLeftWidth4px, /* Border Left Width :4px 左ボーダーの太さ 4px */
+.borderleftwidth4px,
+.blw4px,
+.blw4 {
+	border-left-width: 4px;
+}
+
+
+.borderRightWidth4px, /* Border Right Width :4px 右ボーダーの太さ 4px */
+.borderrightwidth4px,
+.brw4px,
+.brw4 {
+	border-right-width: 4px;
+}
+
+
+
+
+.borderWidth8px, /* Border Width :8px 全ボーダーの太さ 8px */
+.borderwidth8px,
+.bw8px,
+.bw8 {
+	border-width: 8px;
+}
+
+
+.borderTopWidth8px, /* Border Top Width :8px 上ボーダーの太さ 8px */
+.bordertopwidth8px,
+.btw8px,
+.btw8 {
+	border-top-width: 8px;
+}
+
+
+.borderBottomWidth8px, /* Border Bottom Width :8px 下ボーダーの太さ 8px */
+.borderbottomwidth8px,
+.bbw8px,
+.bbw8 {
+	border-top-width: 8px;
+}
+
+
+.borderLeftWidth8px, /* Border Left Width :8px 左ボーダーの太さ 8px */
+.borderleftwidth8px,
+.blw8px,
+.blw8 {
+	border-left-width: 8px;
+}
+
+
+.borderRightWidth8px, /* Border Right Width :8px 右ボーダーの太さ 8px */
+.borderrightwidth8px,
+.brw8px,
+.brw8 {
+	border-right-width: 8px;
+}
+
+
+
+
+.borderWidth1em, /* Border Width :1em 全ボーダーの太さ 1em */
+.borderwidth1em,
+.bw1em {
+	border-width: 1em;
+}
+
+
+.borderTopWidth1em, /* Border Top Width :1em 上ボーダーの太さ 1em */
+.bordertopwidth1em,
+.btw1em {
+	border-top-width: 1em;
+}
+
+
+.borderBottomWidth1em, /* Border Bottom Width :1em 下ボーダーの太さ 1em */
+.borderbottomwidth1em,
+.bbw1em {
+	border-top-width: 1em;
+}
+
+
+.borderLeftWidth1em, /* Border Left Width :1em 左ボーダーの太さ 1em */
+.borderleftwidth1em,
+.blw1em {
+	border-left-width: 1em;
+}
+
+
+.borderRightWidth1em, /* Border Right Width :1em 右ボーダーの太さ 1em */
+.borderrightwidth1em,
+.brw1em {
+	border-right-width: 1em;
+}
+
+
+
+
+.borderWidth2em, /* Border Width :2em 全ボーダーの太さ 2em */
+.borderwidth2em,
+.bw2em {
+	border-width: 2em;
+}
+
+
+.borderTopWidth2em, /* Border Top Width :2em 上ボーダーの太さ 2em */
+.bordertopwidth2em,
+.btw2em {
+	border-top-width: 2em;
+}
+
+
+.borderBottomWidth2em, /* Border Bottom Width :2em 下ボーダーの太さ 2em */
+.borderbottomwidth2em,
+.bbw2em {
+	border-top-width: 2em;
+}
+
+
+.borderLeftWidth2em, /* Border Left Width :2em 左ボーダーの太さ 2em */
+.borderleftwidth2em,
+.blw2em {
+	border-left-width: 2em;
+}
+
+
+.borderRightWidth2em, /* Border Right Width :2em 右ボーダーの太さ 2em */
+.borderrightwidth2em,
+.brw2em {
+	border-right-width: 2em;
+}
+
+
+
+
+.borderWidth3em, /* Border Width :3em 全ボーダーの太さ 3em */
+.borderwidth3em,
+.bw3em {
+	border-width: 3em;
+}
+
+
+.borderTopWidth3em, /* Border Top Width :3em 上ボーダーの太さ 3em */
+.bordertopwidth3em,
+.btw3em {
+	border-top-width: 3em;
+}
+
+
+.borderBottomWidth3em, /* Border Bottom Width :3em 下ボーダーの太さ 3em */
+.borderbottomwidth3em,
+.bbw3em {
+	border-top-width: 3em;
+}
+
+
+.borderLeftWidth3em, /* Border Left Width :3em 左ボーダーの太さ 3em */
+.borderleftwidth3em,
+.blw3em {
+	border-left-width: 3em;
+}
+
+
+.borderRightWidth3em, /* Border Right Width :3em 右ボーダーの太さ 3em */
+.borderrightwidth3em,
+.brw3em {
+	border-right-width: 3em;
+}
+
+
+
+
+.borderWidth4em, /* Border Width :4em 全ボーダーの太さ 4em */
+.borderwidth4em,
+.bw4em {
+	border-width: 4em;
+}
+
+
+.borderTopWidth4em, /* Border Top Width :4em 上ボーダーの太さ 4em */
+.bordertopwidth4em,
+.btw4em {
+	border-top-width: 4em;
+}
+
+
+.borderBottomWidth4em, /* Border Bottom Width :4em 下ボーダーの太さ 4em */
+.borderbottomwidth4em,
+.bbw4em {
+	border-top-width: 4em;
+}
+
+
+.borderLeftWidth4em, /* Border Left Width :4em 左ボーダーの太さ 4em */
+.borderleftwidth4em,
+.blw4em {
+	border-left-width: 4em;
+}
+
+
+.borderRightWidth4em, /* Border Right Width :4em 右ボーダーの太さ 4em */
+.borderrightwidth4em,
+.brw4em {
+	border-right-width: 4em;
+}
+
+
+
+
+/* ========================================================================
+	Border Style.	「ボーダーの形式」
+======================================================================== */
+
+
+.borderStyleHidden, /* Border Stule Hidden 全ボーダー優先非表示 */
+.borderstylehidden,
+.bsHidden,
+.bshidden {
+	border-style: hidden;
+}
+
+
+.borderTopStyleHidden, /* Border Top Stule Hidden 上ボーダー優先非表示 */
+.bordertopstylehidden,
+.btsHidden,
+.btshidden {
+	border-top-style: hidden;
+}
+
+
+.borderBottomStyleHidden, /* Border Bottom Stule Hidden 下ボーダー優先非表示 */
+.borderbottomstylehidden,
+.bbsHidden,
+.bbshidden {
+	border-bottom-style: hidden;
+}
+
+
+.borderLeftStyleHidden, /* Border Left Stule Hidden 左ボーダー優先非表示 */
+.borderleftstylehidden,
+.blsHidden,
+.blshidden {
+	border-left-style: hidden;
+}
+
+
+.borderRightStyleHidden, /* Border Right Stule Hidden 右ボーダー優先非表示 */
+.borderrightstylehidden,
+.brsHidden,
+.brshidden {
+	border-right-style: hidden;
+}
+
+
+
+
+.borderStyleSolid, /* Border Stule Solid 全ボーダー線 */
+.borderstylesolid,
+.bsSolid,
+.bssolid {
+	border-style: solid;
+}
+
+
+.borderTopStyleSolid, /* Border Top Stule Solid 上ボーダー線 */
+.bordertopstylesolid,
+.btsSolid,
+.btssolid {
+	border-top-style: solid;
+}
+
+
+.borderBottomStyleSolid, /* Border Bottom Stule Solid 下ボーダー線 */
+.borderbottomstylesolid,
+.bbsSolid,
+.bbssolid {
+	border-bottom-style: solid;
+}
+
+
+.borderLeftStyleSolid, /* Border Left Stule Solid 左ボーダー線 */
+.borderleftstylesolid,
+.blsSolid,
+.blssolid {
+	border-left-style: solid;
+}
+
+
+.borderRightStyleSolid, /* Border Right Stule Solid 右ボーダー線 */
+.borderrightstylesolid,
+.brsSolid,
+.brssolid {
+	border-right-style: solid;
+}
+
+
+
+
+.borderStyleDouble, /* Border Stule Double 全ボーダー二重線 */
+.borderstyledouble,
+.bsDouble,
+.bsdouble {
+	border-style: double;
+}
+
+
+.borderTopStyleDouble, /* Border Top Stule Double 上ボーダー二重線 */
+.bordertopstyledouble,
+.btsDouble,
+.btsdouble {
+	border-top-style: double;
+}
+
+
+.borderBottomStyleDouble, /* Border Bottom Stule Double 下ボーダー二重線 */
+.borderbottomstyledouble,
+.bbsDouble,
+.bbsdouble {
+	border-bottom-style: double;
+}
+
+
+.borderLeftStyleDouble, /* Border Left Stule Double 左ボーダー二重線 */
+.borderleftstyledouble,
+.blsDouble,
+.blsdouble {
+	border-left-style: double;
+}
+
+
+.borderRightStyleDouble, /* Border Right Stule Double 右ボーダー二重線 */
+.borderrightstyledouble,
+.brsDouble,
+.brsdouble {
+	border-right-style: double;
+}
+
+
+
+
+.borderStyleGroove, /* Border Stule Groove 全ボーダー凹状表示 */
+.borderstylegroove,
+.bsGroove,
+.bsgroove {
+	border-style: groove;
+}
+
+
+.borderTopStyleGroove, /* Border Top Stule Groove 上ボーダー凹状表示 */
+.bordertopstylegroove,
+.btsGroove,
+.btsgroove {
+	border-top-style: groove;
+}
+
+
+.borderBottomStyleGroove, /* Border Bottom Stule Groove 下ボーダー凹状表示 */
+.borderbottomstylegroove,
+.bbsGroove,
+.bbsgroove {
+	border-bottom-style: groove;
+}
+
+
+.borderLeftStyleGroove, /* Border Left Stule Groove 左ボーダー凹状表示 */
+.borderleftstylegroove,
+.blsGroove,
+.blsgroove {
+	border-left-style: groove;
+}
+
+
+.borderRightStyleGroove, /* Border Right Stule Groove 右ボーダー凹状表示 */
+.borderrightstylegroove,
+.brsGroove,
+.brsgroove {
+	border-right-style: groove;
+}
+
+
+
+
+.borderStyleRidge, /* Border Stule Ridge 全ボーダー凸状表示 */
+.borderstyleridge,
+.bsRidge,
+.bsridge {
+	border-style: ridge;
+}
+
+
+.borderTopStyleRidge, /* Border Top Stule Ridge 上ボーダー凸状表示 */
+.bordertopstyleridge,
+.btsRidge,
+.btsridge {
+	border-top-style: ridge;
+}
+
+
+.borderBottomStyleRidge, /* Border Bottom Stule Ridge 下ボーダー凸状表示 */
+.borderbottomstyleridge,
+.bbsRidge,
+.bbsridge {
+	border-bottom-style: ridge;
+}
+
+
+.borderLeftStyleRidge, /* Border Left Stule Ridge 左ボーダー凸状表示 */
+.borderleftstyleridge,
+.blsRidge,
+.blsridge {
+	border-left-style: ridge;
+}
+
+
+.borderRightStyleRidge, /* Border Right Stule Ridge 右ボーダー凸状表示 */
+.borderrightstyleridge,
+.brsRidge,
+.brsridge {
+	border-right-style: ridge;
+}
+
+
+
+
+.borderStyleInset, /* Border Stule Inset 全ボーダー落ち込み表示 */
+.borderstyleinset,
+.bsInset,
+.bsinset {
+	border-style: inset;
+}
+
+
+.borderTopStyleInset, /* Border Top Stule Inset 上ボーダー落ち込み表示 */
+.bordertopstyleinset,
+.btsInset,
+.btsinset {
+	border-top-style: inset;
+}
+
+
+.borderBottomStyleInset, /* Border Bottom Stule Inset 下ボーダー落ち込み表示 */
+.borderbottomstyleinset,
+.bbsInset,
+.bbsinset {
+	border-bottom-style: inset;
+}
+
+
+.borderLeftStyleInset, /* Border Left Stule Inset 左ボーダー落ち込み表示 */
+.borderleftstyleinset,
+.blsInset,
+.blsinset {
+	border-left-style: inset;
+}
+
+
+.borderRightStyleInset, /* Border Right Stule Inset 右ボーダー落ち込み表示 */
+.borderrightstyleinset,
+.brsInset,
+.brsinset {
+	border-right-style: inset;
+}
+
+
+
+
+.borderStyleOutset, /* Border Stule Outset 全ボーダー突き出し表示 */
+.borderstyleoutset,
+.bsOutset,
+.bsoutset {
+	border-style: outset;
+}
+
+
+.borderTopStyleOutset, /* Border Top Stule Outset 上ボーダー突き出し表示 */
+.bordertopstyleoutset,
+.btsOutset,
+.btsoutset {
+	border-top-style: outset;
+}
+
+
+.borderBottomStyleOutset, /* Border Bottom Stule Outset 下ボーダー突き出し表示 */
+.borderbottomstyleoutset,
+.bbsOutset,
+.bbsoutset {
+	border-bottom-style: outset;
+}
+
+
+.borderLeftStyleOutset, /* Border Left Stule Outset 左ボーダー突き出し表示 */
+.borderleftstyleoutset,
+.blsOutset,
+.blsoutset {
+	border-left-style: outset;
+}
+
+
+.borderRightStyleOutset, /* Border Right Stule Outset 右ボーダー突き出し表示 */
+.borderrightstyleoutset,
+.brsOutset,
+.brsoutset {
+	border-right-style: outset;
+}
+
+
+
+
+.borderStyleDashed, /* Border Stule Dashed 全ボーダー破線表示 */
+.borderstyledashed,
+.bsDashed,
+.bsdashed {
+	border-style: dashed;
+}
+
+
+.borderTopStyleDashed, /* Border Top Stule Dashed 上ボーダー破線表示 */
+.bordertopstyledashed,
+.btsDashed,
+.btsdashed {
+	border-top-style: dashed;
+}
+
+
+.borderBottomStyleDashed, /* Border Bottom Stule Dashed 下ボーダー破線表示 */
+.borderbottomstyledashed,
+.bbsDashed,
+.bbsdashed {
+	border-bottom-style: dashed;
+}
+
+
+.borderLeftStyleDashed, /* Border Left Stule Dashed 左ボーダー破線表示 */
+.borderleftstyledashed,
+.blsDashed,
+.blsdashed {
+	border-left-style: dashed;
+}
+
+
+.borderRightStyleDashed, /* Border Right Stule Dashed 右ボーダー破線表示 */
+.borderrightstyledashed,
+.brsDashed,
+.brsdashed {
+	border-right-style: dashed;
+}
+
+
+
+
+.borderStyleDotted, /* Border Stule Dotted 全ボーダー点線表示 */
+.borderstyledotted,
+.bsDotted,
+.bsdotted {
+	border-style: dotted;
+}
+
+
+.borderTopStyleDotted, /* Border Top Stule Dotted 上ボーダー点線表示 */
+.bordertopstyledotted,
+.btsDotted,
+.btsdotted {
+	border-top-style: dotted;
+}
+
+
+.borderBottomStyleDotted, /* Border Bottom Stule Dotted 下ボーダー点線表示 */
+.borderbottomstyledotted,
+.bbsDotted,
+.bbsdotted {
+	border-bottom-style: dotted;
+}
+
+
+.borderLeftStyleDotted, /* Border Left Stule Dotted 左ボーダー点線表示 */
+.borderleftstyledotted,
+.blsDotted,
+.blsdotted {
+	border-left-style: dotted;
+}
+
+
+.borderRightStyleDotted, /* Border Right Stule Dotted 右ボーダー点線表示 */
+.borderrightstyledotted,
+.brsDotted,
+.brsdotted {
+	border-right-style: dotted;
+}
+
+
+
+
+
+
+/* ========================================================================
+	Outline Color.	「アウトラインカラー」
+======================================================================== */
+
+
+.outlineColorBlack, /* All the outline color ：Black 全アウトライン色：黒 */
+.outlinecolorblack,
+.ocBlack,
+.ocblack,
+.oc000,
+.oc000,
+.oc000000,
+.oc000000 {
+	outline-color: #000000;
+}
+
+
+.outlineTopColorBlack, /* Top outline color ：Black 上アウトライン色：黒 */
+.outlinetopcolorblack,
+.otcBlack,
+.otcblack,
+.otc000,
+.otc000,
+.otc000000,
+.otc000000 {
+	outline-top-color: #000000;
+}
+
+
+.outlineBottomColorBlack, /* Bottom outline color ：Black 下アウトライン色：黒 */
+.outlinebottomcolorblack,
+.obcBlack,
+.obcblack,
+.obc000,
+.obc000,
+.obc000000,
+.obc000000 {
+	outline-bottom-color: #000000;
+}
+
+
+.outlineLeftColorBlack, /* Left outline color ：Black 左アウトライン色：黒 */
+.outlineleftcolorblack,
+.olcBlack,
+.olcblack,
+.olc000,
+.olc000,
+.olc000000,
+.olc000000 {
+	outline-left-color: #000000;
+}
+
+
+.outlineRightColorBlack, /* Right outline color ：Black 右アウトライン色：黒 */
+.outlinerightcolorblack,
+.orcBlack,
+.orcblack,
+.orc000,
+.orc000,
+.orc000000,
+.orc000000 {
+	outline-right-color: #000000;
+}
+
+
+.outlineColorSliver, /* All the outline color ：Sliver 全アウトライン色：銀 */
+.outlinecolorsliver,
+.ocSliver,
+.ocsliver,
+.ocC0C0C0,
+.occ0c0c0 {
+	outline-color: #c0c0c0;
+}
+
+
+.outlineTopColorSliverk, /* Top outline color ：Sliver 上アウトライン色：銀 */
+.outlinetopcolorsliver,
+.otcSliver,
+.otcsliver,
+.otcC0C0C0,
+.otcc0c0c0 {
+	outline-top-color: #c0c0c0;
+}
+
+
+.outlineBottomColorSliver, /* Bottom outline color ：Sliver 下アウトライン色：銀 */
+.outlinebottomcolorsliver,
+.obcSliver,
+.obcsliver,
+.obcC0C0C0,
+.obcc0c0c0 {
+	outline-bottom-color: #c0c0c0;
+}
+
+
+.outlineLeftColorSliver, /* Left outline color ：Sliver 左アウトライン色：銀 */
+.outlineleftcolorsliver,
+.olcSliver,
+.olcsliver,
+.olcC0C0C0,
+.olcc0c0c0 {
+	outline-left-color: #c0c0c0;
+}
+
+
+.outlineRightColorSliver, /* Right outline color ：Sliver 右アウトライン色：銀 */
+.outlinerightcolorsliver,
+.orcSliver,
+.orcsliver,
+.orcC0C0C0,
+.orcc0c0c0 {
+	outline-right-color: #c0c0c0;
+}
+
+
+
+
+.outlineColorGray, /* All the outline color ：Gray 全アウトライン色：灰 */
+.outlinecolorgray,
+.ocGray,
+.ocgray,
+.oc808080 {
+	outline-color: #808080;
+}
+
+
+.outlineTopColorGray, /* Top outline color ：Gray 上アウトライン色：灰 */
+.outlinetopcolorgray,
+.otcGray,
+.otcgray,
+.otc808080 {
+	outline-top-color: #808080;
+}
+
+
+.outlineBottomColorGray, /* Bottom outline color ：Gray 下アウトライン色：灰 */
+.outlinebottomcolorgray,
+.obcGray,
+.obcgray,
+.obc808080 {
+	outline-bottom-color: #808080;
+}
+
+
+.outlineLeftColorGray, /* Left outline color ：Gray 左アウトライン色：灰 */
+.outlineleftcolorgray,
+.olcGray,
+.olcgray,
+.olc808080 {
+	outline-left-color: #808080;
+}
+
+
+.outlineRightColorGray, /* Right outline color ：Gray 右アウトライン色：灰 */
+.outlinerightcolorgray,
+.orcGray,
+.orcgray,
+.orc808080 {
+	outline-right-color: #808080;
+}
+
+
+.outlineColorWhite, /* All the outline color ：White 全アウトライン色：白 */
+.outlinecolorwhite,
+.ocWhite,
+.ocwhite,
+.ocFFF,
+.ocfff,
+.ocFFFFFF,
+.ocffffff {
+	outline-color: #ffffff;
+}
+
+
+.outlineTopColorWhite, /* Top outline color ：White 上アウトライン色：白 */
+.outlinetopcolorwhite,
+.otcWhite,
+.otcwhite,
+.otcFFF,
+.otcfff,
+.otcFFFFFF,
+.otcffffff {
+	outline-top-color: #ffffff;
+}
+
+
+.outlineBottomColorWhite, /* Bottom outline color ：White 下アウトライン色：白 */
+.outlinebottomcolorwhite,
+.obcWhite,
+.obcwhite,
+.obcFFF,
+.obcfff,
+.obcFFFFFF,
+.obcffffff {
+	outline-bottom-color: #ffffff;
+}
+
+
+.outlineLeftColorWhite, /* Left outline color ：White 左アウトライン色：白 */
+.outlineleftcolorwhite,
+.olcWhite,
+.olcwhite,
+.olcFFF,
+.olcfff,
+.olcFFFFFF,
+.olcffffff {
+	outline-left-color: #ffffff;
+}
+
+
+.outlineRightColorWhite, /* Right outline color ：White 右アウトライン色：白 */
+.outlinerightcolorwhite,
+.orcWhite,
+.orcwhite,
+.orcFFF,
+.orcfff,
+.orcFFFFFF,
+.orcffffff {
+	outline-right-color: #ffffff;
+}
+
+
+.outlineColorMaroon, /* All the outline color ：Maroon 全アウトライン色：栗 */
+.outlinecolormaroon,
+.ocMaroon,
+.ocmaroon,
+.oc800000 {
+	outline-color: #800000;
+}
+
+
+.outlineTopColorMaroon, /* Top outline color ：Maroon 上アウトライン色：栗 */
+.outlinetopcolormaroon,
+.otcMaroon,
+.otcmaroon,
+.otc800000 {
+	outline-top-color: #800000;
+}
+
+
+.outlineBottomColorMaroon, /* Bottom outline color ：Maroon 下アウトライン色：栗 */
+.outlinebottomcolormaroon,
+.obcMaroon,
+.obcmaroon,
+.obc800000 {
+	outline-bottom-color: #800000;
+}
+
+
+.outlineLeftColorMaroon, /* Left outline color ：Maroon 左アウトライン色：栗 */
+.outlineleftcolormaroon,
+.olcMaroon,
+.olcmaroon,
+.olc800000 {
+	outline-left-color: #800000;
+}
+
+
+.outlineRightColorMaroon, /* Right outline color ：Maroon 右アウトライン色：栗 */
+.outlinerightcolormaroon,
+.orcMaroon,
+.orcmaroon,
+.orc800000 {
+	outline-right-color: #800000;
+}
+
+
+.outlineColorRed, /* All the outline color ：Red 全アウトライン色：赤 */
+.outlinecolorred,
+.ocRed,
+.ocred,
+.ocF00,
+.ocf00,
+.ocFF0000,
+.ocff0000 {
+	outline-color: #ff0000;
+}
+
+
+.outlineTopColorRed, /* Top outline color ：Red 上アウトライン色：赤 */
+.outlinetopcolorred,
+.otcRed,
+.otcred,
+.otcF00,
+.otcf00,
+.otcFF0000,
+.otcff0000 {
+	outline-top-color: #ff0000;
+}
+
+
+.outlineBottomColorRed, /* Bottom outline color ：Red 下アウトライン色：赤 */
+.outlinebottomcolorred,
+.obcRed,
+.obcred,
+.obcF00,
+.obcf00,
+.obcFF0000,
+.obcff0000 {
+	outline-bottom-color: #ff0000;
+}
+
+
+.outlineLeftColorRed, /* Left outline color ：Red 左アウトライン色：赤 */
+.outlineleftcolorred,
+.olcRed,
+.olcred,
+.olcF00,
+.olcf00,
+.olcFF0000,
+.olcff0000 {
+	outline-left-color: #ff0000;
+}
+
+
+.outlineRightColorRed, /* Right outline color ：Red 右アウトライン色：赤 */
+.outlinerightcolorred,
+.orcRed,
+.orcred,
+.orcF00,
+.orcf00,
+.orcFF0000,
+.orcff0000 {
+	outline-right-color: #ff0000;
+}
+
+
+.outlineColorPurple, /* All the outline color ：Purple 全アウトライン色：紫 */
+.outlinecolorpurple,
+.ocPurple,
+.ocpurple,
+.oc800080 {
+	outline-color: #800080;
+}
+
+
+.outlineTopColorPurple, /* Top outline color ：Purple 上アウトライン色：紫 */
+.outlinetopcolorpurple,
+.otcPurple,
+.otcpurple,
+.otc800080 {
+	outline-top-color: #800080;
+}
+
+
+.outlineBottomColorPurple, /* Bottom outline color ：Purple 下アウトライン色：紫 */
+.outlinebottomcolorpurple,
+.obcPurple,
+.obcpurple,
+.obc800080 {
+	outline-bottom-color: #800080;
+}
+
+
+.outlineLeftColorPurple, /* Left outline color ：Purple 左アウトライン色：紫 */
+.outlineleftcolorpurple,
+.olcPurple,
+.olcpurple,
+.olc800080 {
+	outline-left-color: #800080;
+}
+
+
+.outlineRightColorPurple, /* Right outline color ：Purple 右アウトライン色：紫 */
+.outlinerightcolorpurple,
+.orcPurple,
+.orcpurple,
+.orc800080 {
+	outline-right-color: #800080;
+}
+
+
+.outlineColorFuchsia, /* All the outline color ：Fuchsia 全アウトライン色：フュージア */
+.outlinecolorfuchsia,
+.ocFuchsia,
+.ocfuchsia,
+.ocF0F,
+.ocf0f,
+.ocFF00FF,
+.ocff00ff {
+	outline-color: #ff00ff;
+}
+
+
+.outlineTopColorFuchsia, /* Top outline color ：Fuchsia 上アウトライン色：フュージア */
+.outlinetopcolorfuchsia,
+.otcFuchsia,
+.otcfuchsia,
+.otcF0F,
+.otcf0f,
+.otcFF00FF,
+.otcff00ff {
+	outline-top-color: #ff00ff;
+}
+
+
+.outlineBottomColorFuchsia, /* Bottom outline color ：Fuchsia 下アウトライン色：フュージア */
+.outlinebottomcolorfuchsia,
+.obcFuchsia,
+.obcfuchsia,
+.obcF0F,
+.obcf0f,
+.obcFF00FF,
+.obcff00ff {
+	outline-bottom-color: #ff00ff;
+}
+
+
+.outlineLeftColorFuchsia, /* Left outline color ：Fuchsia 左アウトライン色：フュージア */
+.outlineleftcolorfuchsia,
+.olcFuchsia,
+.olcfuchsia,
+.olcF0F,
+.olcf0f,
+.olcFF00FF,
+.olcff00ff {
+	outline-left-color: #ff00ff;
+}
+
+
+.outlineRightColorFuchsia, /* Right outline color ：Fuchsia 右アウトライン色：フュージア */
+.outlinerightcolorfuchsia,
+.orcFuchsia,
+.orcfuchsia,
+.orcF0F,
+.orcf0f,
+.orcFF00FF,
+.orcff00ff {
+	outline-right-color: #ff00ff;
+}
+
+
+.outlineColorGreen, /* All the outline color ：Green 全アウトライン色：緑 */
+.outlinecolorgreen,
+.ocGreen,
+.ocgreen,
+.oc008000 {
+	outline-color: #008000;
+}
+
+
+.outlineTopColorGreen, /* Top outline color ：Green 上アウトライン色：緑 */
+.outlinetopcolorgreen,
+.otcGreen,
+.otcgreen,
+.otc008000 {
+	outline-top-color: #008000;
+}
+
+
+.outlineBottomColorGreen, /* Bottom outline color ：Green 下アウトライン色：緑 */
+.outlinebottomcolorgreen,
+.obcGreen,
+.obcgreen,
+.obc008000 {
+	outline-bottom-color: #008000;
+}
+
+
+.outlineLeftColorGreen, /* Left outline color ：Green 左アウトライン色：緑 */
+.outlineleftcolorgreen,
+.olcGreen,
+.olcgreen,
+.olc008000 {
+	outline-left-color: #008000;
+}
+
+
+.outlineRightColorGreen, /* Right outline color ：Green 右アウトライン色：緑 */
+.outlinerightcolorgreen,
+.orcGreen,
+.orcgreen,
+.orc008000 {
+	outline-right-color: #008000;
+}
+
+
+.outlineColorLime, /* All the outline color ：Lime 全アウトライン色：ライム */
+.outlinecolorlime,
+.ocLime,
+.oclime,
+.oc0F0,
+.oc0f0,
+.oc00FF00,
+.oc00ff00 {
+	outline-color: #00ff00;
+}
+
+
+.outlineTopColorLime, /* Top outline color ：Lime 上アウトライン色：ライム */
+.outlinetopcolorlime,
+.otcLime,
+.otclime,
+.otc0F0,
+.otc0f0,
+.otc00FF00,
+.otc00ff00 {
+	outline-top-color: #00ff00;
+}
+
+
+.outlineBottomColorLime, /* Bottom outline color ：Lime 下アウトライン色：ライム */
+.outlinebottomcolorlime,
+.obcLime,
+.obclime,
+.obc0F0,
+.obc0f0,
+.obc00FF00,
+.obc00ff00 {
+	outline-bottom-color: #00ff00;
+}
+
+
+.outlineLeftColorLime, /* Left outline color ：Lime 左アウトライン色：ライム */
+.outlineleftcolorlime,
+.olcLime,
+.olclime,
+.olc0F0,
+.olc0f0,
+.olc00FF00,
+.olc00ff00 {
+	outline-left-color: #00ff00;
+}
+
+
+.outlineRightColorLime, /* Right outline color ：Lime 右アウトライン色：ライム */
+.outlinerightcolorlime,
+.orcLime,
+.orclime,
+.orc0F0,
+.orc0f0,
+.orc00FF00,
+.orc00ff00 {
+	outline-right-color: #00ff00;
+}
+
+
+.outlineColorOlive, /* All the outline color ：Olive 全アウトライン色：オリーブ */
+.outlinecolorolive,
+.ocOlive,
+.ocolive,
+.oc808000 {
+	outline-color: #808000;
+}
+
+
+.outlineTopColorOlive, /* Top outline color ：Olive 上アウトライン色：オリーブ */
+.outlinetopcolorolive,
+.otcOlive,
+.otcolive,
+.otc808000 {
+	outline-top-color: #808000;
+}
+
+
+.outlineBottomColorOlive, /* Bottom outline color ：Olive 下アウトライン色：オリーブ */
+.outlinebottomcolorolive,
+.obcOlive,
+.obcolive,
+.obc808000 {
+	outline-bottom-color: #808000;
+}
+
+
+.outlineLeftColorOlive, /* Left outline color ：Olive 左アウトライン色：オリーブ */
+.outlineleftcolorolive,
+.olcOlive,
+.olcolive,
+.olc808000 {
+	outline-left-color: #808000;
+}
+
+
+.outlineRightColorOlive, /* Right outline color ：Olive 右アウトライン色：オリーブ */
+.outlinerightcolorolive,
+.orcOlive,
+.orcolive,
+.orc808000 {
+	outline-right-color: #808000;
+}
+
+
+.outlineColorYellow, /* All the outline color ：Yellow 全アウトライン色：黄 */
+.outlinecoloryellow,
+.ocYellow,
+.ocyellow,
+.ocFF0,
+.ocff0,
+.ocFFFF00,
+.ocffff00 {
+	outline-color: #ffff00;
+}
+
+
+.outlineTopColorYellow, /* Top outline color ：Yellow 上アウトライン色：黄 */
+.outlinetopcoloryellow,
+.otcYellow,
+.otcyellow,
+.otcFF0,
+.otcff0,
+.otcFFFF00,
+.otcffff00 {
+	outline-top-color: #ffff00;
+}
+
+
+.outlineBottomColorYellow, /* Bottom outline color ：Yellow 下アウトライン色：黄 */
+.outlinebottomcoloryellow,
+.obcYellow,
+.obcyellow,
+.obcFF0,
+.obcff0,
+.obcFFFF00,
+.obcffff00 {
+	outline-bottom-color: #ffff00;
+}
+
+
+.outlineLeftColorYellow, /* Left outline color ：Yellow 左アウトライン色：黄 */
+.outlineleftcoloryellow,
+.olcYellow,
+.olcyellow,
+.olcFF0,
+.olcff0,
+.olcFFFF00,
+.olcffff00 {
+	outline-left-color: #ffff00;
+}
+
+
+.outlineRightColorYellow, /* Right outline color ：Yellow 右アウトライン色：黄 */
+.outlinerightcoloryellow,
+.orcYellow,
+.orcyellow,
+.orcFF0,
+.orcff0,
+.orcFFFF00,
+.orcffff00 {
+	outline-right-color: #ffff00;
+}
+
+
+.outlineColorNavy, /* All the outline color ：Navy 全アウトライン色：ネイヴィ */
+.outlinecolornavy,
+.ocNavy,
+.ocnavy,
+.oc000080 {
+	outline-color: #000080;
+}
+
+
+.outlineTopColorNavy, /* Top outline color ：Navy 上アウトライン色：ネイヴィ */
+.outlinetopcolornavy,
+.otcNavy,
+.otcnavy,
+.otc000080 {
+	outline-top-color: #000080;
+}
+
+
+.outlineBottomColorNavy, /* Bottom outline color ：Navy 下アウトライン色：ネイヴィ */
+.outlinebottomcolornavy,
+.obcNavy,
+.obcnavy,
+.obc000080 {
+	outline-bottom-color: #000080;
+}
+
+
+.outlineLeftColorNavy, /* Left outline color ：Navy 左アウトライン色：ネイヴィ */
+.outlineleftcolornavy,
+.olcNavy,
+.olcnavy,
+.olc000080 {
+	outline-left-color: #000080;
+}
+
+
+.outlineRightColorNavy, /* Right outline color ：Navy 右アウトライン色：ネイヴィ */
+.outlinerightcolornavy,
+.orcNavy,
+.orcnavy,
+.orc000080 {
+	outline-right-color: #000080;
+}
+
+
+.outlineColorBlue, /* All the outline color ：Blue 全アウトライン色：青 */
+.outlinecolorblue,
+.ocBlue,
+.ocblue,
+.oc00F,
+.oc00f,
+.oc0000FF,
+.oc0000ff {
+	outline-color: #0000ff;
+}
+
+
+.outlineTopColorBlue, /* Top outline color ：Blue 上アウトライン色：青 */
+.outlinetopcolorblue,
+.otcBlue,
+.otcblue,
+.otc00F,
+.otc00f,
+.otc0000FF,
+.otc0000ff {
+	outline-top-color: #0000ff;
+}
+
+
+.outlineBottomColorBlue, /* Bottom outline color ：Blue 下アウトライン色：青 */
+.outlinebottomcolorblue,
+.obcBlue,
+.obcblue,
+.obc00F,
+.obc00f,
+.obc0000FF,
+.obc0000ff {
+	outline-bottom-color: #0000ff;
+}
+
+
+.outlineLeftColorBlue, /* Left outline color ：Blue 左アウトライン色：青 */
+.outlineleftcolorblue,
+.olcBlue,
+.olcblue,
+.olc00F,
+.olc00f,
+.olc0000FF,
+.olc0000ff {
+	outline-left-color: #0000ff;
+}
+
+
+.outlineRightColorBlue, /* Right outline color ：Blue 右アウトライン色：青 */
+.outlinerightcolorblue,
+.orcBlue,
+.orcblue,
+.orc00F,
+.orc00f,
+.orc0000FF,
+.orc0000ff {
+	outline-right-color: #0000ff;
+}
+
+
+.outlineColorTeal, /* All the outline color ：Teal 全アウトライン色： */
+.outlinecolorteal,
+.ocTeal,
+.octeal,
+.oc008080 {
+	outline-color: #008080;
+}
+
+
+.outlineTopColorTeal, /* Top outline color ：Teal 上アウトライン色： */
+.outlinetopcolorteal,
+.otcTeal,
+.otcteal,
+.otc008080 {
+	outline-top-color: #008080;
+}
+
+
+.outlineBottomColorTeal, /* Bottom outline color ：Teal 下アウトライン色： */
+.outlinebottomcolorteal,
+.obcTeal,
+.obcteal,
+.obc008080 {
+	outline-bottom-color: #008080;
+}
+
+
+.outlineLeftColorTeal, /* Left outline color ：Teal 左アウトライン色： */
+.outlineleftcolorteal,
+.olcTeal,
+.olcteal,
+.olc008080 {
+	outline-left-color: #008080;
+}
+
+
+.outlineRightColorTeal, /* Right outline color ：Teal 右アウトライン色： */
+.outlinerightcolorteal,
+.orcTeal,
+.orcteal,
+.orc008080 {
+	outline-right-color: #008080;
+}
+
+
+.outlineColorAqua, /* All the outline color ：Aqua 全アウトライン色：アクア */
+.outlinecoloraqua,
+.ocAqua,
+.ocaqua,
+.oc0FF,
+.oc0ff,
+.oc00FFFF,
+.oc00ffff {
+	outline-color: #00ffff;
+}
+
+
+.outlineTopColorAqua, /* Top outline color ：Aqua 上アウトライン色：アクア */
+.outlinetopcoloraqua,
+.otcAqua,
+.otcaqua,
+.otc0FF,
+.otc0ff,
+.otc00FFFF,
+.otc00ffff {
+	outline-top-color: #00ffff;
+}
+
+
+.outlineBottomColorAqua, /* Bottom outline color ：Aqua 下アウトライン色：アクア */
+.outlinebottomcoloraqua,
+.obcAqua,
+.obcaqua,
+.obc0FF,
+.obc0ff,
+.obc00FFFF,
+.obc00ffff {
+	outline-bottom-color: #00ffff;
+}
+
+
+.outlineLeftColorAqua, /* Left outline color ：Aqua 左アウトライン色：アクア */
+.outlineleftcoloraqua,
+.olcAqua,
+.olcaqua,
+.olc0FF,
+.olc0ff,
+.olc00FFFF,
+.olc00ffff {
+	outline-left-color: #00ffff;
+}
+
+
+.outlineRightColorAqua, /* Right outline color ：Aqua 右アウトライン色：アクア */
+.outlinerightcoloraqua,
+.orcAqua,
+.orcaqua,
+.orc0FF,
+.orc0ff,
+.orc00FFFF,
+.orc00ffff {
+	outline-right-color: #00ffff;
+}
+
+
+.outlineColorOrange, /* All the outline color ：Orange 全アウトライン色：オレンヂ */
+.outlinecolororange,
+.ocOrange,
+.ocorange,
+.ocFFA500,
+.ocffa500 {
+	outline-color: #ffa500;
+}
+
+
+.outlineTopColorOrange, /* Top outline color ：Orange 上アウトライン色：オレンヂ */
+.outlinetopcolororange,
+.otcOrange,
+.otcorange,
+.otcFFA500,
+.otcffa500 {
+	outline-top-color: #ffa500;
+}
+
+
+.outlineBottomColorOrange, /* Bottom outline color ：Orange 下アウトライン色：オレンヂ */
+.outlinebottomcolororange,
+.obcOrange,
+.obcorange,
+.obcFFA500,
+.obcffa500 {
+	outline-bottom-color: #ffa500;
+}
+
+
+.outlineLeftColorOrange, /* Left outline color ：Orange 左アウトライン色：オレンヂ */
+.outlineleftcolororange,
+.olcOrange,
+.olcorange,
+.olcFFA500,
+.olcffa500 {
+	outline-left-color: #ffa500;
+}
+
+
+.outlineRightColorOrange, /* Right outline color ：Orange 右アウトライン色：オレンヂ */
+.outlinerightcolororange,
+.orcOrange,
+.orcorange,
+.orcFFA500,
+.orcffa500 {
+	outline-right-color: #ffa500;
+}
+
+
+.oc900, /* All the outline color  全アウトライン色 */
+.oc990000 {
+	outline-color: #990000;
+}
+
+
+.otc900,/* Top outline color  上アウトライン色 */
+.otc990000 {
+	outline-top-color: #990000;
+}
+
+
+.obc900,/* Bottom outline color  下アウトライン色 */
+.obc990000 {
+	outline-bottom-color: #990000;
+}
+
+
+.olc900,/* Left outline color  左アウトライン色 */
+.olc990000 {
+	outline-left-color: #990000;
+}
+
+
+.orc900,/* Right outline color  右アウトライン色 */
+.orc990000 {
+	outline-right-color: #990000;
+}
+
+
+.oc9ff, /* All the outline color  全アウトライン色 */
+.oc9FF,
+.oc99FFFF,
+.oc99ffff {
+	outline-color: #99ffff;
+}
+
+
+.otc9ff,/* Top outline color  上アウトライン色 */
+.otc9FF,
+.otc99FFFF,
+.otc99ffff {
+	outline-top-color: #99ffff;
+}
+
+
+.obc9ff,/* Bottom outline color  下アウトライン色 */
+.obc9FF,
+.obc99FFFF,
+.obc99ffff {
+	outline-bottom-color: #99ffff;
+}
+
+
+.olc9ff,/* Left outline color  左アウトライン色 */
+.olc9FF,
+.olc99FFFF,
+.olc99ffff {
+	outline-left-color: #99ffff;
+}
+
+
+.orc9ff,/* Right outline color  右アウトライン色 */
+.orc9FF,
+.orc99FFFF,
+.orc99ffff {
+	outline-right-color: #99ffff;
+}
+
+
+.oc090, /* All the outline color  全アウトライン色 */
+.oc009900 {
+	outline-color: #009900;
+}
+
+
+.otc090,/* Top outline color  上アウトライン色 */
+.otc009900 {
+	outline-top-color: #009900;
+}
+
+
+.obc090,/* Bottom outline color  下アウトライン色 */
+.obc009900 {
+	outline-bottom-color: #009900;
+}
+
+
+.olc090,/* Left outline color  左アウトライン色 */
+.olc009900 {
+	outline-left-color: #009900;
+}
+
+
+.orc090,/* Right outline color  右アウトライン色 */
+.orc009900 {
+	outline-right-color: #009900;
+}
+
+
+.ocf9f, /* All the outline color  全アウトライン色 */
+.ocF9F,
+.ocFF99FF,
+.ocff99ff {
+	outline-color: #ff99ff;
+}
+
+
+.otcf9f,/* Top outline color  上アウトライン色 */
+.otcF9F,
+.otcFF99FF,
+.otcff99ff {
+	outline-top-color: #ff99ff;
+}
+
+
+.obcf9f,/* Bottom outline color  下アウトライン色 */
+.obcF9F,
+.obcFF99FF,
+.obcff99ff {
+	outline-bottom-color: #ff99ff;
+}
+
+
+.olcf9f,/* Left outline color  左アウトライン色 */
+.olcF9F,
+.olcFF99FF,
+.olcff99ff {
+	outline-left-color: #ff99ff;
+}
+
+
+.orcf9f,/* Right outline color  右アウトライン色 */
+.orcF9F,
+.orcFF99FF,
+.orcff99ff {
+	outline-right-color: #ff99ff;
+}
+
+
+.oc009, /* All the outline color  全アウトライン色 */
+.oc000099 {
+	outline-color: #000099;
+}
+
+
+.otc009,/* Top outline color  上アウトライン色 */
+.otc000099 {
+	outline-top-color: #000099;
+}
+
+
+.obc009,/* Bottom outline color  下アウトライン色 */
+.obc000099 {
+	outline-bottom-color: #000099;
+}
+
+
+.olc009,/* Left outline color  左アウトライン色 */
+.olc000099 {
+	outline-left-color: #000099;
+}
+
+
+.orc009,/* Right outline color  右アウトライン色 */
+.orc000099 {
+	outline-right-color: #000099;
+}
+
+
+.ocFF9, /* All the outline color  全アウトライン色 */
+.ocff9,
+.ocFFFF99,
+.ocffff99 {
+	outline-color: #ffff99;
+}
+
+
+.otcFF9,/* Top outline color  上アウトライン色 */
+.otcff9,
+.otcFFFF99,
+.otcffff99 {
+	outline-top-color: #ffff99;
+}
+
+
+.obcFF9,/* Bottom outline color  下アウトライン色 */
+.obcff9,
+.obcFFFF99,
+.obcffff99 {
+	outline-bottom-color: #ffff99;
+}
+
+
+.olcFF9,/* Left outline color  左アウトライン色 */
+.olcff9,
+.olcFFFF99,
+.olcffff99 {
+	outline-left-color: #ffff99;
+}
+
+
+.orcFF9,/* Right outline color  右アウトライン色 */
+.orcff9,
+.orcFFFF99,
+.orcffff99 {
+	outline-right-color: #ffff99;
+}
+
+
+.oc990, /* All the outline color  全アウトライン色 */
+.oc999900 {
+	outline-color: #999900;
+}
+
+
+.otc990,/* Top outline color  上アウトライン色 */
+.otc999900 {
+	outline-top-color: #999900;
+}
+
+
+.obc990,/* Bottom outline color  下アウトライン色 */
+.obc999900 {
+	outline-bottom-color: #999900;
+}
+
+
+.olc990,/* Left outline color  左アウトライン色 */
+.olc999900 {
+	outline-left-color: #999900;
+}
+
+
+.orc990,/* Right outline color  右アウトライン色 */
+.orc999900 {
+	outline-right-color: #999900;
+}
+
+
+.oc99F, /* All the outline color  全アウトライン色 */
+.oc99f,
+.oc9999FF,
+.oc9999ff {
+	outline-color: #9999ff;
+}
+
+
+.otc99F,/* Top outline color  上アウトライン色 */
+.otc99f,
+.otc9999FF,
+.otc9999ff {
+	outline-top-color: #9999ff;
+}
+
+
+.obc99F,/* Bottom outline color  下アウトライン色 */
+.obc99f,
+.obc9999FF,
+.obc9999ff {
+	outline-bottom-color: #9999ff;
+}
+
+
+.olc99F,/* Left outline color  左アウトライン色 */
+.olc99f,
+.olc9999FF,
+.olc9999ff {
+	outline-left-color: #9999ff;
+}
+
+
+.orc99F,/* Right outline color  右アウトライン色 */
+.orc99f,
+.orc9999FF,
+.orc9999ff {
+	outline-right-color: #9999ff;
+}
+
+
+.oc909, /* All the outline color  全アウトライン色 */
+.oc990099 {
+	outline-color: #990099;
+}
+
+
+.otc909,/* Top outline color  上アウトライン色 */
+.otc990099 {
+	outline-top-color: #990099;
+}
+
+
+.obc909,/* Bottom outline color  下アウトライン色 */
+.obc990099 {
+	outline-bottom-color: #990099;
+}
+
+
+.olc909,/* Left outline color  左アウトライン色 */
+.olc990099 {
+	outline-left-color: #990099;
+}
+
+
+.orc909,/* Right outline color  右アウトライン色 */
+.orc990099 {
+	outline-right-color: #990099;
+}
+
+
+.oc9F9, /* All the outline color  全アウトライン色 */
+.oc9f9,
+.oc99FF99,
+.oc99ff99 {
+	outline-color: #99ff99;
+}
+
+
+.otc9F9,/* Top outline color  上アウトライン色 */
+.otc9f9,
+.otc99FF99,
+.otc99ff99 {
+	outline-top-color: #99ff99;
+}
+
+
+.obc9F9,/* Bottom outline color  下アウトライン色 */
+.obc9f9,
+.obc99FF99,
+.obc99ff99 {
+	outline-bottom-color: #99ff99;
+}
+
+
+.olc9F9,/* Left outline color  左アウトライン色 */
+.olc9f9,
+.olc99FF99,
+.olc99ff99 {
+	outline-left-color: #99ff99;
+}
+
+
+.orc9F9,/* Right outline color  右アウトライン色 */
+.orc9f9,
+.orc99FF99,
+.orc99ff99 {
+	outline-right-color: #99ff99;
+}
+
+
+.oc099, /* All the outline color  全アウトライン色 */
+.oc009999 {
+	outline-color: #009999;
+}
+
+
+.otc099,/* Top outline color  上アウトライン色 */
+.otc009999 {
+	outline-top-color: #009999;
+}
+
+
+.obc099,/* Bottom outline color  下アウトライン色 */
+.obc009999 {
+	outline-bottom-color: #009999;
+}
+
+
+.olc099,/* Left outline color  左アウトライン色 */
+.olc009999 {
+	outline-left-color: #009999;
+}
+
+
+.orc099,/* Right outline color  右アウトライン色 */
+.orc009999 {
+	outline-right-color: #009999;
+}
+
+
+.ocF99, /* All the outline color  全アウトライン色 */
+.ocf99,
+.ocFF9999,
+.ocff9999 {
+	outline-color: #ff9999;
+}
+
+
+.otcF99,/* Top outline color  上アウトライン色 */
+.otcf99,
+.otcFF9999,
+.otcff9999 {
+	outline-top-color: #ff9999;
+}
+
+
+.obcF99,/* Bottom outline color  下アウトライン色 */
+.obcf99,
+.obcFF9999,
+.obcff9999 {
+	outline-bottom-color: #ff9999;
+}
+
+
+.olcF99,/* Left outline color  左アウトライン色 */
+.olcf99,
+.olcFF9999,
+.olcff9999 {
+	outline-left-color: #ff9999;
+}
+
+
+.orcF99,/* Right outline color  右アウトライン色 */
+.orcf99,
+.orcFF9999,
+.orcff9999 {
+	outline-right-color: #ff9999;
+}
+
+
+.oc999, /* All the outline color  全アウトライン色 */
+.oc999999 {
+	outline-color: #999999;
+}
+
+
+.otc999,/* Top outline color  上アウトライン色 */
+.otc999999 {
+	outline-top-color: #999999;
+}
+
+
+.obc999,/* Bottom outline color  下アウトライン色 */
+.obc999999 {
+	outline-bottom-color: #999999;
+}
+
+
+.olc999,/* Left outline color  左アウトライン色 */
+.olc999999 {
+	outline-left-color: #999999;
+}
+
+
+.orc999,/* Right outline color  右アウトライン色 */
+.orc999999 {
+	outline-right-color: #999999;
+}
+
+
+
+
+/* ========================================================================
+	Outline Width.	「アウトラインの太さ」
+======================================================================== */
+
+
+.outlineWidth1px, /* Outline Width :1px 全アウトラインの太さ 1px */
+.outlinewidth1px,
+.ow1px,
+.ow1 {
+	outline-width: 1px;
+}
+
+
+.outlineTopWidth1px, /* Outline Top Width :1px 上アウトラインの太さ 1px */
+.outlinetopwidth1px,
+.otw1px,
+.otw1 {
+	outline-top-width: 1px;
+}
+
+
+.outlineBottomWidth1px, /* Outline Bottom Width :1px 下アウトラインの太さ 1px */
+.outlinebottomwidth1px,
+.obw1px,
+.obw1 {
+	outline-top-width: 1px;
+}
+
+
+.outlineLeftWidth1px, /* Outline Left Width :1px 左アウトラインの太さ 1px */
+.outlineleftwidth1px,
+.blw1px,
+.blw1 {
+	outline-left-width: 1px;
+}
+
+
+.outlineRightWidth1px, /* Outline Right Width :1px 右アウトラインの太さ 1px */
+.outlinerightwidth1px,
+.orw1px,
+.orw1 {
+	outline-right-width: 1px;
+}
+
+
+
+
+.outlineWidth2px, /* Outline Width :2px 全アウトラインの太さ 2px */
+.outlinewidth2px,
+.ow2px,
+.ow2 {
+	outline-width: 2px;
+}
+
+
+.outlineTopWidth2px, /* Outline Top Width :2px 上アウトラインの太さ 2px */
+.outlinetopwidth2px,
+.otw2px,
+.otw2 {
+	outline-top-width: 2px;
+}
+
+
+.outlineBottomWidth2px, /* Outline Bottom Width :2px 下アウトラインの太さ 2px */
+.outlinebottomwidth2px,
+.obw2px,
+.obw2 {
+	outline-top-width: 2px;
+}
+
+
+.outlineLeftWidth2px, /* Outline Left Width :2px 左アウトラインの太さ 2px */
+.outlineleftwidth2px,
+.blw2px,
+.blw2 {
+	outline-left-width: 2px;
+}
+
+
+.outlineRightWidth2px, /* Outline Right Width :2px 右アウトラインの太さ 2px */
+.outlinerightwidth2px,
+.orw2px,
+.orw2 {
+	outline-right-width: 2px;
+}
+
+
+
+
+.outlineWidth4px, /* Outline Width :4px 全アウトラインの太さ 4px */
+.outlinewidth4px,
+.ow4px,
+.ow4 {
+	outline-width: 4px;
+}
+
+
+.outlineTopWidth4px, /* Outline Top Width :4px 上アウトラインの太さ 4px */
+.outlinetopwidth4px,
+.otw4px,
+.otw4 {
+	outline-top-width: 4px;
+}
+
+
+.outlineBottomWidth4px, /* Outline Bottom Width :4px 下アウトラインの太さ 4px */
+.outlinebottomwidth4px,
+.obw4px,
+.obw4 {
+	outline-top-width: 4px;
+}
+
+
+.outlineLeftWidth4px, /* Outline Left Width :4px 左アウトラインの太さ 4px */
+.outlineleftwidth4px,
+.blw4px,
+.blw4 {
+	outline-left-width: 4px;
+}
+
+
+.outlineRightWidth4px, /* Outline Right Width :4px 右アウトラインの太さ 4px */
+.outlinerightwidth4px,
+.orw4px,
+.orw4 {
+	outline-right-width: 4px;
+}
+
+
+
+
+.outlineWidth8px, /* Outline Width :8px 全アウトラインの太さ 8px */
+.outlinewidth8px,
+.ow8px,
+.ow8 {
+	outline-width: 8px;
+}
+
+
+.outlineTopWidth8px, /* Outline Top Width :8px 上アウトラインの太さ 8px */
+.outlinetopwidth8px,
+.otw8px,
+.otw8 {
+	outline-top-width: 8px;
+}
+
+
+.outlineBottomWidth8px, /* Outline Bottom Width :8px 下アウトラインの太さ 8px */
+.outlinebottomwidth8px,
+.obw8px,
+.obw8 {
+	outline-top-width: 8px;
+}
+
+
+.outlineLeftWidth8px, /* Outline Left Width :8px 左アウトラインの太さ 8px */
+.outlineleftwidth8px,
+.blw8px,
+.blw8 {
+	outline-left-width: 8px;
+}
+
+
+.outlineRightWidth8px, /* Outline Right Width :8px 右アウトラインの太さ 8px */
+.outlinerightwidth8px,
+.orw8px,
+.orw8 {
+	outline-right-width: 8px;
+}
+
+
+
+
+.outlineWidth1em, /* Outline Width :1em 全アウトラインの太さ 1em */
+.outlinewidth1em,
+.ow1em {
+	outline-width: 1em;
+}
+
+
+.outlineTopWidth1em, /* Outline Top Width :1em 上アウトラインの太さ 1em */
+.outlinetopwidth1em,
+.otw1em {
+	outline-top-width: 1em;
+}
+
+
+.outlineBottomWidth1em, /* Outline Bottom Width :1em 下アウトラインの太さ 1em */
+.outlinebottomwidth1em,
+.obw1em {
+	outline-top-width: 1em;
+}
+
+
+.outlineLeftWidth1em, /* Outline Left Width :1em 左アウトラインの太さ 1em */
+.outlineleftwidth1em,
+.blw1em {
+	outline-left-width: 1em;
+}
+
+
+.outlineRightWidth1em, /* Outline Right Width :1em 右アウトラインの太さ 1em */
+.outlinerightwidth1em,
+.orw1em {
+	outline-right-width: 1em;
+}
+
+
+
+
+.outlineWidth2em, /* Outline Width :2em 全アウトラインの太さ 2em */
+.outlinewidth2em,
+.ow2em {
+	outline-width: 2em;
+}
+
+
+.outlineTopWidth2em, /* Outline Top Width :2em 上アウトラインの太さ 2em */
+.outlinetopwidth2em,
+.otw2em {
+	outline-top-width: 2em;
+}
+
+
+.outlineBottomWidth2em, /* Outline Bottom Width :2em 下アウトラインの太さ 2em */
+.outlinebottomwidth2em,
+.obw2em {
+	outline-top-width: 2em;
+}
+
+
+.outlineLeftWidth2em, /* Outline Left Width :2em 左アウトラインの太さ 2em */
+.outlineleftwidth2em,
+.blw2em {
+	outline-left-width: 2em;
+}
+
+
+.outlineRightWidth2em, /* Outline Right Width :2em 右アウトラインの太さ 2em */
+.outlinerightwidth2em,
+.orw2em {
+	outline-right-width: 2em;
+}
+
+
+
+
+.outlineWidth3em, /* Outline Width :3em 全アウトラインの太さ 3em */
+.outlinewidth3em,
+.ow3em {
+	outline-width: 3em;
+}
+
+
+.outlineTopWidth3em, /* Outline Top Width :3em 上アウトラインの太さ 3em */
+.outlinetopwidth3em,
+.otw3em {
+	outline-top-width: 3em;
+}
+
+
+.outlineBottomWidth3em, /* Outline Bottom Width :3em 下アウトラインの太さ 3em */
+.outlinebottomwidth3em,
+.obw3em {
+	outline-top-width: 3em;
+}
+
+
+.outlineLeftWidth3em, /* Outline Left Width :3em 左アウトラインの太さ 3em */
+.outlineleftwidth3em,
+.blw3em {
+	outline-left-width: 3em;
+}
+
+
+.outlineRightWidth3em, /* Outline Right Width :3em 右アウトラインの太さ 3em */
+.outlinerightwidth3em,
+.orw3em {
+	outline-right-width: 3em;
+}
+
+
+
+
+.outlineWidth4em, /* Outline Width :4em 全アウトラインの太さ 4em */
+.outlinewidth4em,
+.ow4em {
+	outline-width: 4em;
+}
+
+
+.outlineTopWidth4em, /* Outline Top Width :4em 上アウトラインの太さ 4em */
+.outlinetopwidth4em,
+.otw4em {
+	outline-top-width: 4em;
+}
+
+
+.outlineBottomWidth4em, /* Outline Bottom Width :4em 下アウトラインの太さ 4em */
+.outlinebottomwidth4em,
+.obw4em {
+	outline-top-width: 4em;
+}
+
+
+.outlineLeftWidth4em, /* Outline Left Width :4em 左アウトラインの太さ 4em */
+.outlineleftwidth4em,
+.blw4em {
+	outline-left-width: 4em;
+}
+
+
+.outlineRightWidth4em, /* Outline Right Width :4em 右アウトラインの太さ 4em */
+.outlinerightwidth4em,
+.orw4em {
+	outline-right-width: 4em;
+}
+
+
+
+
+/* ========================================================================
+	Outline Style.	「アウトラインの形式」
+======================================================================== */
+
+
+.outlineStyleHidden, /* Outline Stule Hidden 全アウトライン優先非表示 */
+.outlinestylehidden,
+.osHidden,
+.oshidden {
+	outline-style: hidden;
+}
+
+
+.outlineTopStyleHidden, /* Outline Top Stule Hidden 上アウトライン優先非表示 */
+.outlinetopstylehidden,
+.otsHidden,
+.otshidden {
+	outline-top-style: hidden;
+}
+
+
+.outlineBottomStyleHidden, /* Outline Bottom Stule Hidden 下アウトライン優先非表示 */
+.outlinebottomstylehidden,
+.obsHidden,
+.obshidden {
+	outline-bottom-style: hidden;
+}
+
+
+.outlineLeftStyleHidden, /* Outline Left Stule Hidden 左アウトライン優先非表示 */
+.outlineleftstylehidden,
+.olsHidden,
+.olshidden {
+	outline-left-style: hidden;
+}
+
+
+.outlineRightStyleHidden, /* Outline Right Stule Hidden 右アウトライン優先非表示 */
+.outlinerightstylehidden,
+.orsHidden,
+.orshidden {
+	outline-right-style: hidden;
+}
+
+
+
+
+.outlineStyleSolid, /* Outline Stule Solid 全アウトライン線 */
+.outlinestylesolid,
+.osSolid,
+.ossolid {
+	outline-style: solid;
+}
+
+
+.outlineTopStyleSolid, /* Outline Top Stule Solid 上アウトライン線 */
+.outlinetopstylesolid,
+.otsSolid,
+.otssolid {
+	outline-top-style: solid;
+}
+
+
+.outlineBottomStyleSolid, /* Outline Bottom Stule Solid 下アウトライン線 */
+.outlinebottomstylesolid,
+.obsSolid,
+.obssolid {
+	outline-bottom-style: solid;
+}
+
+
+.outlineLeftStyleSolid, /* Outline Left Stule Solid 左アウトライン線 */
+.outlineleftstylesolid,
+.olsSolid,
+.olssolid {
+	outline-left-style: solid;
+}
+
+
+.outlineRightStyleSolid, /* Outline Right Stule Solid 右アウトライン線 */
+.outlinerightstylesolid,
+.orsSolid,
+.orssolid {
+	outline-right-style: solid;
+}
+
+
+
+
+.outlineStyleDouble, /* Outline Stule Double 全アウトライン二重線 */
+.outlinestyledouble,
+.osDouble,
+.osdouble {
+	outline-style: double;
+}
+
+
+.outlineTopStyleDouble, /* Outline Top Stule Double 上アウトライン二重線 */
+.outlinetopstyledouble,
+.otsDouble,
+.otsdouble {
+	outline-top-style: double;
+}
+
+
+.outlineBottomStyleDouble, /* Outline Bottom Stule Double 下アウトライン二重線 */
+.outlinebottomstyledouble,
+.obsDouble,
+.obsdouble {
+	outline-bottom-style: double;
+}
+
+
+.outlineLeftStyleDouble, /* Outline Left Stule Double 左アウトライン二重線 */
+.outlineleftstyledouble,
+.olsDouble,
+.olsdouble {
+	outline-left-style: double;
+}
+
+
+.outlineRightStyleDouble, /* Outline Right Stule Double 右アウトライン二重線 */
+.outlinerightstyledouble,
+.orsDouble,
+.orsdouble {
+	outline-right-style: double;
+}
+
+
+
+
+.outlineStyleGroove, /* Outline Stule Groove 全アウトライン凹状表示 */
+.outlinestylegroove,
+.osGroove,
+.osgroove {
+	outline-style: groove;
+}
+
+
+.outlineTopStyleGroove, /* Outline Top Stule Groove 上アウトライン凹状表示 */
+.outlinetopstylegroove,
+.otsGroove,
+.otsgroove {
+	outline-top-style: groove;
+}
+
+
+.outlineBottomStyleGroove, /* Outline Bottom Stule Groove 下アウトライン凹状表示 */
+.outlinebottomstylegroove,
+.obsGroove,
+.obsgroove {
+	outline-bottom-style: groove;
+}
+
+
+.outlineLeftStyleGroove, /* Outline Left Stule Groove 左アウトライン凹状表示 */
+.outlineleftstylegroove,
+.olsGroove,
+.olsgroove {
+	outline-left-style: groove;
+}
+
+
+.outlineRightStyleGroove, /* Outline Right Stule Groove 右アウトライン凹状表示 */
+.outlinerightstylegroove,
+.orsGroove,
+.orsgroove {
+	outline-right-style: groove;
+}
+
+
+
+
+.outlineStyleRidge, /* Outline Stule Ridge 全アウトライン凸状表示 */
+.outlinestyleridge,
+.osRidge,
+.osridge {
+	outline-style: ridge;
+}
+
+
+.outlineTopStyleRidge, /* Outline Top Stule Ridge 上アウトライン凸状表示 */
+.outlinetopstyleridge,
+.otsRidge,
+.otsridge {
+	outline-top-style: ridge;
+}
+
+
+.outlineBottomStyleRidge, /* Outline Bottom Stule Ridge 下アウトライン凸状表示 */
+.outlinebottomstyleridge,
+.obsRidge,
+.obsridge {
+	outline-bottom-style: ridge;
+}
+
+
+.outlineLeftStyleRidge, /* Outline Left Stule Ridge 左アウトライン凸状表示 */
+.outlineleftstyleridge,
+.olsRidge,
+.olsridge {
+	outline-left-style: ridge;
+}
+
+
+.outlineRightStyleRidge, /* Outline Right Stule Ridge 右アウトライン凸状表示 */
+.outlinerightstyleridge,
+.orsRidge,
+.orsridge {
+	outline-right-style: ridge;
+}
+
+
+
+
+.outlineStyleInset, /* Outline Stule Inset 全アウトライン落ち込み表示 */
+.outlinestyleinset,
+.osInset,
+.osinset {
+	outline-style: inset;
+}
+
+
+.outlineTopStyleInset, /* Outline Top Stule Inset 上アウトライン落ち込み表示 */
+.outlinetopstyleinset,
+.otsInset,
+.otsinset {
+	outline-top-style: inset;
+}
+
+
+.outlineBottomStyleInset, /* Outline Bottom Stule Inset 下アウトライン落ち込み表示 */
+.outlinebottomstyleinset,
+.obsInset,
+.obsinset {
+	outline-bottom-style: inset;
+}
+
+
+.outlineLeftStyleInset, /* Outline Left Stule Inset 左アウトライン落ち込み表示 */
+.outlineleftstyleinset,
+.olsInset,
+.olsinset {
+	outline-left-style: inset;
+}
+
+
+.outlineRightStyleInset, /* Outline Right Stule Inset 右アウトライン落ち込み表示 */
+.outlinerightstyleinset,
+.orsInset,
+.orsinset {
+	outline-right-style: inset;
+}
+
+
+
+
+.outlineStyleOutset, /* Outline Stule Outset 全アウトライン突き出し表示 */
+.outlinestyleoutset,
+.osOutset,
+.osoutset {
+	outline-style: outset;
+}
+
+
+.outlineTopStyleOutset, /* Outline Top Stule Outset 上アウトライン突き出し表示 */
+.outlinetopstyleoutset,
+.otsOutset,
+.otsoutset {
+	outline-top-style: outset;
+}
+
+
+.outlineBottomStyleOutset, /* Outline Bottom Stule Outset 下アウトライン突き出し表示 */
+.outlinebottomstyleoutset,
+.obsOutset,
+.obsoutset {
+	outline-bottom-style: outset;
+}
+
+
+.outlineLeftStyleOutset, /* Outline Left Stule Outset 左アウトライン突き出し表示 */
+.outlineleftstyleoutset,
+.olsOutset,
+.olsoutset {
+	outline-left-style: outset;
+}
+
+
+.outlineRightStyleOutset, /* Outline Right Stule Outset 右アウトライン突き出し表示 */
+.outlinerightstyleoutset,
+.orsOutset,
+.orsoutset {
+	outline-right-style: outset;
+}
+
+
+
+
+.outlineStyleDashed, /* Outline Stule Dashed 全アウトライン破線表示 */
+.outlinestyledashed,
+.osDashed,
+.osdashed {
+	outline-style: dashed;
+}
+
+
+.outlineTopStyleDashed, /* Outline Top Stule Dashed 上アウトライン破線表示 */
+.outlinetopstyledashed,
+.otsDashed,
+.otsdashed {
+	outline-top-style: dashed;
+}
+
+
+.outlineBottomStyleDashed, /* Outline Bottom Stule Dashed 下アウトライン破線表示 */
+.outlinebottomstyledashed,
+.obsDashed,
+.obsdashed {
+	outline-bottom-style: dashed;
+}
+
+
+.outlineLeftStyleDashed, /* Outline Left Stule Dashed 左アウトライン破線表示 */
+.outlineleftstyledashed,
+.olsDashed,
+.olsdashed {
+	outline-left-style: dashed;
+}
+
+
+.outlineRightStyleDashed, /* Outline Right Stule Dashed 右アウトライン破線表示 */
+.outlinerightstyledashed,
+.orsDashed,
+.orsdashed {
+	outline-right-style: dashed;
+}
+
+
+
+
+.outlineStyleDotted, /* Outline Stule Dotted 全アウトライン点線表示 */
+.outlinestyledotted,
+.osDotted,
+.osdotted {
+	outline-style: dotted;
+}
+
+
+.outlineTopStyleDotted, /* Outline Top Stule Dotted 上アウトライン点線表示 */
+.outlinetopstyledotted,
+.otsDotted,
+.otsdotted {
+	outline-top-style: dotted;
+}
+
+
+.outlineBottomStyleDotted, /* Outline Bottom Stule Dotted 下アウトライン点線表示 */
+.outlinebottomstyledotted,
+.obsDotted,
+.obsdotted {
+	outline-bottom-style: dotted;
+}
+
+
+.outlineLeftStyleDotted, /* Outline Left Stule Dotted 左アウトライン点線表示 */
+.outlineleftstyledotted,
+.olsDotted,
+.olsdotted {
+	outline-left-style: dotted;
+}
+
+
+.outlineRightStyleDotted, /* Outline Right Stule Dotted 右アウトライン点線表示 */
+.outlinerightstyledotted,
+.orsDotted,
+.orsdotted {
+	outline-right-style: dotted;
+}
+
+

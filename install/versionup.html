@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>MyNETS1.1.0 バージョンアップについて</title>
+<link href="css/import.css" rel="stylesheet" type="text/css" media="screen,projection" />
+<script type="text/javascript" src="js/js.js"></script>
+</head>
+<body>
+<div id="wrap">
+  <div id="head-versionup">
+    <h1>MyNETS1.1.0 へのバージョンアップ</h1>
+    <div id="head-menu">
+      <ul class="menu">
+        <li><a href="http://usagi.mynets.jp">UsagiProject公式サイト</a></li>
+        <li><a href="http://usagi.mynets.jp/SBBS/">サポート掲示板</a></li>
+        <li><a href="http://usagi.mynets.jp/SNS100/">デモサイトSNS</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="content">
+    <div id="main-body">
+      <div class="entry-box">
+        <div id="step0" class="entry-tag">さあ、あなたもMyNETSVersion 1.1.0へバージョンアップしよう！</div>
+        <h2>MyNETSVersion1.1.0へバージョンアップしよう！</h2>
+        <div class="entry-category">Step0</div>
+        <div class="entry-body">
+          <p>UsagiProjectへようこそ</p>
+          <p>UsagiProjectのSNSエンジン「MyNETS Version1.1.0」へバージョンアップするためのツールがバージョンアップツールです。このツールは既存のMyNETS　Version1.0.0やVersion1.0.1からMyNETS Version1.1.0へバージョンアップするためのツールです。</p>
+          <p>新規でMyNETSを導入する場合は、「<a href="./" alt="インストーラー" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'新規でMyNETSを導入するときに使います。');return false">インストーラー</a>」をご利用ください。</p>
+          <!--<p>また、OpenPNE2.4.Xや2.6.xからのコンバートは「<a href="./upgrade.html" alt="Usagiコンバータ" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'OpenPNE系SNSからMyNETSを導入するときに使います。');return false">Usagiコンバーター</a>」をお使いください。</p>-->
+          <br />
+          <br />
+          <p align="center"><img src="./images/back_img.jpg" alt="UsagiProject"  /></p>
+        </div>
+      </div>
+      <div class="entry-box">
+        <div id="step1" class="entry-tag">導入前の確認を！</div>
+        <h2>アップグレードの対象について</h2>
+        <div class="entry-category">Step1</div>
+        <div class="entry-body">
+          <p>当 UPGRADE TOOL は、MyNETS1.0.0、1.0.1からのバージョンアップを対象としています。</p>
+          <!--<p>特にカスタマイズを施していない場合は、画面の指示通りボタンを押していくだけでバージョンアップすることができます。</p>-->
+          <p>特にカスタマイズを施していない場合は、画面の指示通りすすめていくだけでバージョンアップすることができます。</p>
+          <br />
+          <p>処理の流れは次のようになります。</p>
+          <ul>
+            <li><a href="#" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'まずは公式サイトからMyNETS1.1.0をDLして自分のマシンで展開しておきましょう。今回のバージョンアップはフォルダーの構成等が変わっていますので、すべてのファイルを用意してください。');return false">MyNETS1.1.0 アプリケーションファイルの準備</a></li>
+            <li><a href="#" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'MyNETSのファイルがすべて転送されているかどうかをチェックプログラム等で確認してください。問題なければ、ページの通りに進むことでバージョンアッププログラムが動きます。');return false">バージョンアッププログラムの起動</a></li>
+            <li><a href="#" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'バージョンが完了すると、管理画面へのリンクがでてきます。管理画面へは、installフォルダーがのこっている場合はログインすることができません。必ずinstallフォルダーを削除するか別の名前に変えてからログインしてください。');return false">設定の確認</a></li>
+          </ul>
+          <p>バージョンアップする場合は、MyNETSのアプリケーションファイルへすべて切り替えます。</p>
+          <p>個人的にファイルのカスタマイズ等を行っている場合は、カスタマイズを行ったファイルをインストール後適用するようにしてください。</p>
+          <p>当ツールは、アプリケーションをそのまま移行するためのツールです。</p>
+        </div>
+      </div>
+      <div class="entry-box">
+        <div id="step2" class="entry-tag">サーバーへのファイルの転送</div>
+        <h2>ファイルの転送</h2>
+        <div class="entry-category">Step2</div>
+        <div class="entry-body">
+          <p>MyNETS1.1.0のファイルをダウンロードし、FTPクライアントまたはSSH等でご利用になるサーバーへアップロードしてください。</p>
+          <p>※確実にすべてのファイルがアップロードできるようにしてください。（FTP転送の場合、転送ミスで一部ファイルが正常にアップロードできないことがあります。その場合動作上不具合が出る可能性がありますので、ご注意ください。</p>
+          <p>ファイルが正常にアップロードできたかどうかを確認するためのツールを別途ご用意しています。</p>
+          <p>スクリプトチェックツールを UsagiProject 公式サイト、またはソースフォージからダウンロードして、サーバーに転送します。</p>
+          <p>すべてのファイルが正しくアップロードできたか確認してください。</p>
+          <p>MyNETSVersion1.1.0の大きな特徴として、public_htmlフォルダーを廃止し、ドメインでそのままSNSが動かせるように変更しました。<br />そのため、以前のファイルが残ったままファイルを転送しますと、思いもよらない不具合が出る可能性があります。必ずすべてのファイルを入れ替えるようにしてください。</p>
+          <br />
+          <br />
+        </div>
+      </div>
+      <div class="entry-box">
+        <div id="step3" class="entry-tag">データベースの調整</div>
+        <h2>MySQLデータベースの追加処理</h2>
+        <div class="entry-category">Step3</div>
+        <div class="entry-body">
+          <p>MyNETS1.1.0では、現在利用しているMySQLのデータベースをそのまま利用し、Version1.1.0で追加管理されているテーブルのみを追加することで移行を行うことが可能です。</p>
+          <p>MyNETS1.1.0では互換性を維持しながら、独自のテーブル拡張を行っています。Version1.1.0グレードアップされた新しい機能を利用するためのテーブル等が追加されています。</p>
+          <p>追加されたテーブルの作成と、新たに追加されたテーブル内の項目を作成します。</p>
+          <p>MyNETSで追加されたテーブルおよび追加された項目の一覧はこちら</p>
+          <br />
+          <br />
+        </div>
+      </div>
+      <div class="entry-box">
+        <div id="step4" class="entry-tag">最終移行処理</div>
+        <h2>完了後の確認</h2>
+        <div class="entry-category">Step4</div>
+        <div class="entry-body">
+          <p>DBの調整が完了しますと、バージョンアップは完了となります。</p>
+          <p>バージョンアップ完了後の画面では、管理画面へのリンクが表示されます。また、この時点でinstallフォルダーが残っていますと管理画面へのログインは行えません。必ずinsutallフォルダーを削除するか、別の名前にしてからログインを行ってください。</p>
+          <p>MyNETSでは、installフォルダーが残っていると、インストーラーを起動する設定になっています。バージョンアップのときは既存の運営サイトをメンテナンス中にして行うか、別のフォルダーにて実行し、完了後フォルダーを入れ替える、またはフォルダー名を既存のサイトに合わせることで安全にバージョンアップが完了します。<br /></p>
+          <br />
+          <br />
+        </div>
+      </div>
+      <div class="entry-box">
+        <div id="step5" class="entry-tag">アップグレード開始</div>
+        <h2>ウィザードを使って作業</h2>
+        <div class="entry-category">Step5</div>
+        <div class="entry-body">
+          <br />
+          <p>さあ、あなたもバージョンアップツールを使ってMyNETS1.1.0へバージョンアップしましょう！</p>
+          <br />
+           <p align="center"><img src="./images/back_img.jpg" alt="UsagiProject"  /></p>
+          <br />
+          <br />
+          <form action="index.php">
+          <p align="center"id="articleList" class="articleList"><input type="submit" value="バージョンアップ開始" /></p>
+          </form>
+          <br />
+        </div>
+      </div>
+    </div>
+    <div id="side-menu">
+      <div id="category">
+        <h3>CATEGORY</h3>
+        <ul class="link-list">
+          <li><a href="#step1" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'導入前の確認を行います');return false">導入前の確認</a></li>
+          <li><a href="#step2" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'ダウンロードしたファイルをサーバーへアップします。');return false">サーバーへのファイルの転送</a></li>
+          <li><a href="#step3" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'バージョンアップするためのDBの確認を行います。');return false">データベースの調整</a></li>
+          <li><a href="#step4" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'ファイルの確認とテーブルの確認を行ってください。');return false">完了後の確認</a></li>
+          <li><a href="#step5" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'アップグレードプログラムの開始です。');return false">バージョンアップ開始</a></li>
+        </ul>
+      </div>
+      <div id="search-box">
+        <h3>CHECK</h3>
+        <ul class="link-list">
+          <li><a href="http://usagi.mynets.jp/SBBS/" target="_blank">サポート掲示板</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="foot">
+    <ul class="menu">
+      <li><a href="http://usagi.mynets.jp">UsagiProject公式サイト</a></li>
+      <li><a href="http://usagi.mynets.jp/SBBS/">サポート掲示板</a></li>
+      <li><a href="http://usagi.mynets.jp/SNS100/">デモサイトSNS</a></li>
+      <li><a href="#">ページTOP</a></li>
+    </ul>
+    <div id="copyright">
+      <p>COPYRIGHT Usagi Project All Rights reserved. -2007</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

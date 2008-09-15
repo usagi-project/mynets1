@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/*左側再度メニュー*/
+
+#side-menu ul.link-list {
+  margin-bottom: 5px;
+}
+
+#side-menu ul.link-list li {
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
+  border-bottom-color: #CCCCCC;
+  list-style-type: none;
+}
+
+#side-menu ul.link-list li a {
+  color: #666666;
+  background: #FFFFFF;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: block;
+}
+
+#side-menu ul.link-list li a:hover {
+  color: #000000;
+  background: #FFFFCC;
+}

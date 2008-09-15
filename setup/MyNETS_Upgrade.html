@@ -1,0 +1,621 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title>Usagi Project | MyNETS アップグレードガイド</title>
+<style type="text/css">
+<!--
+body {
+  background-color: #fff;
+  color: #000;
+  margin: 0px;
+  padding: 1em;
+  padding-right: 2em;
+}
+h2 {
+    margin: 1em 0 1em;
+    color: #666666;
+    border-bottom-width: 3px;
+    border-bottom-style: dotted;
+    border-bottom-color: #999999;
+}
+hr{
+    border-top: 3px dotted #CCCCCC;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+}
+p.caution {
+  margin: 1em;
+  padding: 0.8em;
+  border: solid 1px #f63;
+}
+.footer {
+    text-align: center;
+}
+pre {
+    margin: 0.5em;
+    padding: 1em 2em;
+    background-color: #eee;
+    font-size: inherit;
+}
+dl {
+  margin: 1em;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin: 0 0 0.5em 1em;
+}
+table {
+  margin: 1em;
+  border-collapse: collapse;
+}
+th {
+  background-color: #ddd;
+}
+th, td {
+  padding: 5px 10px;
+  border: solid 1px #000;
+}
+var {
+  color: #922;
+}
+em {
+  font-weight: bold;
+  font-style: normal;
+}
+.red {
+    color: #FF0000;
+}
+.blue{
+color: #0000FF;
+}
+-->
+</style>
+</head>
+
+<body>
+
+<h1>Usagi Project MyNETS 1.2.0 アップグレードガイド</h1>
+
+<p>最終更新日: 2008/09/12</p>
+
+<h2>目次</h2>
+
+<ul>
+<li><a href="#SECTION0">0. はじめに</a></li>
+<li><a href="#SECTION1">1. 手順</a></li>
+<li><a href="#SECTION2">2. 作業方法</a>
+  <ul>
+  <li><a href="#SECTION2-1-1">2-1-1. アップグレード SQL の実行</a></li>
+  <!--<li><a href="#SECTION2-1-2">2-1-2. コンバートスクリプトの実行</a></li>-->
+  <li><a href="#SECTION2-2">2-2. ソースコードの置き換え</a></li>
+  <li><a href="#SECTION2-3">2-3. 設定ファイルの変更</a></li>
+  <li><a href="#SECTION2-4">2-4. 携帯メール投稿アドレス設定の変更</a></li>
+  </ul></li>
+<li><a href="#SECTION3">3. MyNETS で削除された設定ファイル</a></li>
+<li><a href="#SECTION4">4. MyNETS 1.1.* と OpenPNE2.4系テーブルの違う部分</a></li>
+<li><a href="#SECTION5">5. メール投稿機能が大幅に追加</a></li>
+</ul>
+
+<hr>
+
+<h2 id="SECTION0">0. はじめに</h2>
+
+<p>この文書は、MyNETS 1.0.*、1.1.* から 1.2.0 へのアップグレードの手順を記載したものです。</p>
+
+<h2 id="SECTION1">1. 手順</h2>
+
+<p>アップグレードは以下のような手順で進めます。</p>
+
+<ol>
+<li>メインテナンスモードへ切り替え<br>
+(config.php[<span class="blue">define('OPENPNE_UNDER_MAINTENANCE', <span class="red">true</span>);</span>])</li>
+<li>現在のデータベースをバックアップ</li>
+<li>アップグレード SQL の実行</li>
+<li>コンバートスクリプトの実行</li>
+<li>ソースコードの置き換え</li>
+<li>設定ファイルの変更</li>
+<li>運用モードへ切り替え<br>
+(config.php[<span class="blue">define('OPENPNE_UNDER_MAINTENANCE', <span class="red">false</span>);</span>])</li>
+</ol>
+
+<p class='red'>MyNETS 1.2.0 より、「3. アップグレード SQL の実行」および「4. コンバートスクリプトの実行」を自動で行うコンバートツールが含まれています。コンバートツールを利用するには、convert/README.txt を参照ください。</p>
+<h3><strong><span style="color:red">実行が終わったら、または使用しない場合、convert/ディレクトリは削除するか別の名前へ変更するようにしてください。</span></strong></h3>
+
+
+<h2 id="SECTION2">2. 作業方法</h2>
+
+<h3 id="SECTION2-1-1">2-1-1. アップグレード SQL の実行</h3>
+
+MyNETS 1.1.1 からアップグレードする場合は
+<ul>
+<li>setup/sql/MySQL4.*/upgrade/1.1.1to1.2.0Versionup.sql</li>
+</ul>
+を実行します。<br>
+<br>
+<p>その後、setup/sql/README_c_image_convert.txtの中の必要なSQLを実行します。<p>
+
+MyNETS 1.1.0 からアップグレードする場合は
+<ul>
+<li>setup/sql/MySQL4.*/upgrade/1.1.0to1.2.0Versionup.sql</li>
+</ul>
+を実行します。<br>
+<br>
+<p>その後、setup/sql/README_c_image_convert.txtの中の必要なSQLを実行します。<p>
+
+MyNETS 1.0.1 からアップグレードする場合は
+<ul>
+<li>setup/sql/MySQL4.*/upgrade/1.0.1to1.2.0Versionup.sql</li>
+</ul>
+を実行します。<br>
+<br>
+<p>その後、setup/sql/README_c_image_convert.txtの中の必要なSQLを実行します。<p>
+
+MyNETS 1.0.0 からアップグレードする場合は
+<ul>
+<li>setup/sql/MySQL4.*/upgrade/1.0.0to1.2.0Versionup.sql</li>
+</ul>
+を実行します。<br>
+<p>その後、setup/sql/README_c_image_convert.txtの中の必要なSQLを実行します。<p>
+
+<p>
+MySQL のバージョンによって sql ディレクトリの下のディレクトリを選択してください。ご使用の MySQL のバージョンにあったディレクトリ以下のファイルを実行してください。
+</p>
+
+<p>
+<span style="color:red">
+DB のテーブルにプレフィックス(PREFIX)を設定している場合は、手動で各 SQL ファイルのテーブル名に PREFIX を追加してから実行してください！！
+</span>
+</p>
+
+<!--<h3 id="SECTION2-1-2">2-1-2. コンバートスクリプトの実行</h3>
+
+次に、コンバートスクリプトを実行します。
+<br><br>
+
+MyNETS 1.1.* からアップグレードする場合は
+<ul>
+<li>setup/sql/MySQL4.*/upgrade/c_image_c_member_id.php
+</ul>
+を実行します。<br>
+<br>
+
+MyNETS 1.0.* からアップグレードする場合は
+<ul>
+<li>setup/sql/MySQL4.*/upgrade/diary_comment_no_convert.php
+<li>setup/sql/MySQL4.*/upgrade/topic_update_convert.php
+<li>setup/sql/MySQL4.*/upgrade/c_image_c_member_id.php
+</ul>
+を実行します。<br>
+
+<p>
+上記のファイルを
+[OPENPNE_URL] 以下に移動してください。<br>
+<br>
+
+例: http://<var>OPENPNE_URL</var>/c_image_c_member_id.php<br>
+<br>
+
+上記の URL にブラウザからアクセスすることで、スクリプトが実行されます。<br>
+<strong><span style="color:red">実行が終わったら、上記のファイルは削除するか別の場所へ保存するようにしてください。</span></strong>
+</p>
+-->
+
+<h3 id="SECTION2-2">2-2. ソースコードの置き換え</h3>
+
+<p>サーバ上に MyNETS 1.2.0 のソースファイルを設置します。
+詳しくは、「<a href="./MyNETS_Setup.html">MyNETS セットアップガイド</a>」の「1. ファイルの設置」を参考にしてください。</p>
+<p class='red'>MyNETS では、1.1.0 の時点でディレクトリ構成が変更され、<var>public_html</var> が廃止されています。1.0.0、1.0.1 からアップグレードされる際は、特にご注意願います。確実にソースコードを入れ替えるようにしてください。</p>
+
+
+<h3 id="SECTION2-3">2-3. 設定ファイルの変更</h3>
+
+<div class='red'>※config.php は、MyNETS に含まれる config.php.sample を元に変更し作成されることを推奨します。<br>
+尚、MyNETS 1.1.0 で、ディレクトリの構成が変更となり、public_html が廃止されました。それにより OPENPNE_DIR 直下に conf ディレクトリが用意され、そこへ config.php を保存するようになりました。ご注意ください。<br>
+</div>
+
+<h4>MyNETS 1.2.0 での追加</h4>
+
+<pre>
+// ニュースのもっと見るでGoogleニュースのトピック別ニュースを表示するか否か
+define('DISPLAY_GOOGLE_TOPIC',true);
+</pre>
+
+<pre>
+// 複数のニュースを結合してキャッシュする(true)か否(false)か
+// ニュースの保存に時間がかかるようになるが、読み出しは速くなる。
+define('NEWS_CACHE_MERGE',true);
+
+// キャッシュがNEWS_CACHE_LIMITより古い場合に収集する(true)か否(false)か
+// falseの場合は常にキャッシュから読み込む。（キャッシュがない場合だけ収集）
+// false指定の場合は、cronなどでキャッシュを更新しないと意味がないので注意。
+define('NEWS_COLLECT_FEED',true);
+
+// shima3BBCode入力支援モジュールを入力に使用する(true)か否(false)か
+// 使用するには define('USE_EXT_DIR', true); に設定する必要あり
+define('BBCODE_USE_FOR_INPUT', true);
+
+// shima3BBCode入力支援モジュールでscript.aculo.usを使用する(true)か否(false)か+define('BBCODE_USE_SCRIPTACULOUS', true);
+
+// Fesly開発のBBCode入力支援モジュールを入力に使用する(true)か否(false)か
+// 使用するには define('USE_EXT_DIR', true); に設定する必要あり
+define('BBCODE_USE_FOR_INPUT_FESLY', true);
+
+// ホームで表示するインフォメーションの件数
+define('ADMIN_INFO_NUM',3);
+
+// 携帯でのオートログインを有効にするか
+define('USAGI_MOBILE_AUTO_LOGIN', false);
+
+// iPhoneを携帯として接続させるかどうか
+define('IPHONE_IS_MOBILE', false);
+
+//海外サーバを利用した場合の日本時間の設定
+//利用する場合はコメントをはずしてください。
+//putenv(”TZ=Asia/Tokyo”);
+
+//キャッチオールが使えないサーバーの場合の
+//POPアカウントでの処理
+define('USE_POP_MAIL', false);
+define('POP_SERVER_DOMAIN', 'exsmple.com');
+define('POP_SERVER_USER', 'pop username');
+define('POP_SERVER_PASS', 'pop password');
+
+//メッセージの本文を受信させるかどうかの設定
+define('MESSAGE_BODY_RECIVE', true);
+
+//招待制可能なSNSの場合のみ有効
+//QRコードによるコミュニティ経由新規登録を行うか
+define('MYNETS_QRENTRY_COMMU', true);
+//QRコードによる招待登録を行うか
+define('MYNETS_QRENTRY_MEMBER', false);
+
+//システムでHOOKSを使うかどうか
+define('ENABLE_HOOKS', FALSE);
+
+//今日のひとこと・クイックコミュニケーションの名前
+define('QUICK_SERVICE_NAME', 'さあ愚痴をどうぞ！');
+</pre>
+
+<h4>MyNETS 1.1.1 での追加</h4>
+
+<pre>
+//外部公開日記を行う
+define('MYNETS_OPEN_DIARY', true);
+
+//外部公開コミュニティを行う
+define('MYNETS_OPEN_COMMU', false);
+
+//HOMEのカレンダーを本日起点とする。日曜起点の場合はfalse
+define('DISPLAY_SCHEDULE_WEEK', false);
+
+//サイドブロック情報を表示するかしないか
+define('DISPLAY_SIDE_BLOCK', false);
+
+//サイドブロックをログイン前に表示するかどうか
+define('DISPLAY_SIDE_BLOCK_WITHOUT_LOGIN', false);
+
+//サイドブロックで表示する情報
+$GLOBALS['MYNETS_DISABLE_SIDE_VIEW_MODULES'] = array(
+    'newdiary'  => true,
+    'newtopic' => true,
+    'newevent' => true,
+    'newreview' => true,
+    'newcommunity' => false,
+    'newmember' => true,
+    'onlinemember' => true,
+);
+
+//会員が新規登録した際に、管理者へメールを送信するかしないか
+define('ADMIN_INVITE_MAIL', false);
+
+// ニュースを表示するか否か
+define('DISPLAY_NEWS_BLOCK',false);
+
+// 認証前、ログインページなどでニュースを表示するか否か
+define('DISPLAY_NEWS_BLOCK_WITHOUT_LOGIN',false);
+
+// ニュースフィードのキャッシュの場所
+define('NEWS_CACHE_DIR',OPENPNE_RSS_CACHE_DIR);
+
+// ニュースフィードの取得制限時間（秒）
+define('NEWS_CACHE_LIMIT',1800);
+
+// ニュースフィードのURLリスト
+// RSS1.0/RSS2.0/Atom1.0形式のフィードを返すURLを指定してください。
+// キーとURLという形で複数指定することも可能ですが、実際に使用するURLの分だけ処理が重くなります。
+// 以下はサンプルのURLです。使用する行の先頭の「//」（コメントアウト）を削除し 、使用しない
+// 場合には、先頭に「//」を記述して下さい。
+$GLOBALS['NEWS_FEED_URL_LIST'] = array(
+    'GoogleNews-Top'  => 'http://news.google.com/news?hl=ja&amp;ned=us&amp;ie=UTF-8&amp;oe=UTF-8&amp;output=rss&amp;topic=h',
+//    'goo-Ranking' => 'http://ranking.goo.ne.jp/rss/index.rdf',
+);
+
+// ニュース記事のリンク要素から、元記事のURLを取り出す場合の
+// URLの正規表現のリスト
+// 'pattern'に正規表現を記述し、preg_matchの検索結果の
+// $matches[1]にドメイン名、$matches[2]に元記事のURL部分
+//  が入る正規表現にする。
+// 'urldecode'については、抽出した元記事のURLをURLデコード
+// するか否か(true/false)の指定項目。
+$GLOBALS['NEWS_EXTRACT_LINK_URL_LIST'] = array(
+    'GoogleNews' => array(
+                        'pattern'   => '@http://(news\.google\.com)/.*url=([^&amp;]+)@i',
+                        'urldecode' => true,
+                    ),
+    'GooRanking' => array(
+                        'pattern'   => '@http://(plus\.goo\.ne\.jp)/rnkredir/redir\.php\?.*to=(http%3A%2F%2F.+)@i',
+                        'urldecode' => true,
+                    ),
+    'Yahoo!News' => array(
+                        'pattern'   => '@http://(rd\.yahoo\.co\.jp)/[^\*]+\*(http://.+)@i',
+                        'urldecode' => false,
+                    ),
+    'RSSNavi' => array(
+                        'pattern'   => '@http://(www\.rssnavi\.jp)/r/\?.+(?:&amp;amp;|&amp;)u=(http.+)@i',
+                        'urldecode' => false,
+                    ),
+);
+
+// 広告などのURLをニュース記事から除去するための、URLの正規表現のリスト
+// デリミタは「/」で何でも良いが、正規表現であることが条件
+$GLOBALS['NEWS_REMOVE_LINK_URL_LIST'] = array(
+    '@http://www\.pheedo\.jp/click\.phdo\?a=@i',
+    '@http://ck\.jp\.ap\.valuecommerce\.com/.+@i',
+);
+
+// 広告などの項目をニュース記事から除去するための、タイトルの正規表現のリスト
+// デリミタは「/」で何でも良いが、正規表現であることが条件
+$GLOBALS['NEWS_REMOVE_TITLE_LIST'] = array(
+    '/^AD[:|：]/i',
+    '/^PR[:|：]/i',
+    '/^\(AD\)/i',
+);
+
+// ニュースを取得する件数
+define('NEWS_FEED_MAX',10);
+
+// ニュースのテキスト（概要）を省略する位置（文字数）
+// 省略文字も含んだ長さにすること
+define('NEWS_DESCRIPTION_LENGTH',200);
+
+// ニュースのテキスト（概要）を省略したことを表す文字列
+define('NEWS_DESCRIPTION_ETC','...');
+
+// Proxyサーバの設定（ENABLE_PROXY以外は小文字）
+// ENABLE_PROXY ... Proxyを使用するか否か（true/false）
+// proxy_host   ... Proxyサーバのホスト名またはIPアドレス
+// proxy_port   ... Proxyサーバのポート番号（80番や8080、8888など）
+// proxy_user   ... Proxyサーバを利用する際のユーザ名（通常不要）
+// proxy_pass   ... Proxyサーバを利用する際のパスワード（通常不要）
+$GLOBALS['NEWS_PROXY_CONFIG'] = array(
+    'ENABLE_PROXY'  => false,
+    'proxy_host' => 'localhost',
+    'proxy_port' => 8080,
+    'proxy_user' => '',
+    'proxy_pass' => '',
+);
+</pre>
+
+<h4>MyNETS 1.1.0 での追加</h4>
+
+<pre>
+// どのDBモジュールを使用するか ('pne','mysql')
+define('MYNETS_DB_MODULE', 'mysql');
+
+// CAPTCHA（画像のなかの文字列をメンバーに入力させる認証方式）を使用するかどうか
+define('MYNETS_USE_CAPTCHA', true);
+
+//最新日記の表示を一人１件とする場合はtrue,すべて出す場合はfalse
+define('DIARY_DISTINCT_LIST',false);
+
+//コミュニティの更新表示を１コミュニティ１件とする場合はtrue,すべて出す場合はfalse
+define('COMMU_DISTINCT_LIST',false);
+</pre>
+
+<h4>MyNETS 1.2.0 での変更</h4>
+
+<table>
+<tr><th>項目</th><th>1.1.1</th><th>1.2.0</th></tr>
+<tr>
+    <td>画像変換時に許可する解像度のリスト</td>
+    <td>$GLOBALS['_OPENPNE_IMG_ALLOWED_SIZE'] = array('36x36', '76x76', '120x120', '180x180', '360x360');
+</td>
+    <td>$GLOBALS['_OPENPNE_IMG_ALLOWED_SIZE'] = array('36x36', '76x76', '120x120', '180x180', '360x360'<em>, '54x54'</em>);
+</td>
+</tr>
+<tr>
+    <td>ニュースを表示するか否か</td>
+    <td>define('DISPLAY_NEWS_BLOCK',false);
+</td>
+    <td>define('DISPLAY_NEWS_BLOCK',<em>true</em>);
+</td>
+</tr>
+<tr>
+    <td>ニュースフィードのURLリスト</td>
+    <td> $GLOBALS['NEWS_FEED_URL_LIST'] = array(
+    'GoogleNews-Top'  => 'http://news.google.com/news?hl=ja&amp;ned=us&amp;ie=UTF-8&amp;oe=UTF-8&amp;output=rss&amp;topic=h',
+ //    'goo-Ranking' => 'http://ranking.goo.ne.jp/rss/index.rdf',
+ );
+</td>
+    <td> $GLOBALS['NEWS_FEED_URL_LIST'] = array(
+    'GoogleNews-<em>Popular</em>' => 'http://news.google.com/news?hl=ja&amp;ned=<em>ja</em>&amp;ie=UTF-8&amp;oe=UTF-8&amp;output=<em>atom</em>&amp;topic=<em>po</em>',
+ //    'goo-Ranking' => 'http://ranking.goo.ne.jp/rss/index.rdf',
+ );
+</td>
+</tr>
+<tr>
+    <td>ニュース記事から除去するタイトル</td>
+    <td> $GLOBALS['NEWS_REMOVE_TITLE_LIST'] = array(
+     '/^AD[:|：]/i',
+     '/^PR[:|：]/i',
+     '/^\(AD\)/i',
+ );
+</td>
+    <td> $GLOBALS['NEWS_REMOVE_TITLE_LIST'] = array(
+     '/^AD[:|：]/i',
+     '/^PR[:|：]/i',
+     '/^\(AD\)/i',
+     <em>'/^配信日時/',
+     '/^ダイジェストニュース：製品情報/',</em>
+ );
+</td>
+</tr>
+</table>
+
+<h4>MyNETS 1.1.1 での変更</h4>
+
+<table>
+<tr><th>項目</th><th>1.1.0</th><th>1.1.1</th></tr>
+<tr>
+    <td>セッションファイルの保存ディレクトリ</td>
+    <td><em>//</em>session_save_path('/tmp');
+</td>
+    <td>session_save_path(<em>OPENPNE_VAR_DIR . '/session'</em>);
+</td>
+</tr>
+</table>
+
+<h4>MyNETS 1.0.1 での変更</h4>
+
+<table>
+<tr><th>項目</th><th>1.0.0</th><th>1.0.1</th></tr>
+<tr>
+    <td>画像変換時に許可する解像度のリスト</td>
+    <td>$GLOBALS['_OPENPNE_IMG_ALLOWED_SIZE'] = array('36x36', '76x76', '120x120', '180x180');
+</td>
+    <td>$GLOBALS['_OPENPNE_IMG_ALLOWED_SIZE'] = array('36x36', '76x76', '120x120', '180x180'<em>, '360x360'</em>);
+</td>
+</tr>
+</table>
+
+
+<h3 id="SECTION2-4">2-4. 携帯メール投稿アドレス設定の変更</h3>
+<p>MyNETS では、携帯機能強化とともに、メール投稿で扱える機能が大幅に強化されています。</p>
+
+<table>
+<tr><th>項目</th><th>新形式</th><th>旧形式</th></tr>
+<tr>
+    <td>新規登録 / ログインURL取得</td>
+    <td>get@MAIL_SERVER_DOMAIN</td>
+    <td>同左</td>
+</tr>
+<tr>
+    <td>プロフィール画像変更</td>
+    <td>p<var>XXX</var>-<var>YYY</var>@MAIL_SERVER_DOMAIN</td>
+    <td>p<var>XXX</var>@MAIL_SERVER_DOMAIN</td>
+</tr>
+<tr>
+    <td>コミュニティトピックのメール投稿</td>
+    <td>t<var>XXX</var>-<var>YYY</var>@MAIL_SERVER_DOMAIN</td>
+    <td>t<var>XXX</var>@MAIL_SERVER_DOMAIN</td>
+</tr>
+<tr>
+    <td>コミュニティトピックのメール作成</td>
+    <td>e<var>XXX</var>-<var>YYY</var>@MAIL_SERVER_DOMAIN</td>
+    <td>e<var>XXX</var>@MAIL_SERVER_DOMAIN</td>
+</tr>
+<tr>
+    <td>コミュニティトピックのメール修正</td>
+    <td>et<var>XXX</var>-<var>YYY</var>@MAIL_SERVER_DOMAIN</td>
+    <td>et<var>XXX</var>@MAIL_SERVER_DOMAIN</td>
+</tr>
+<tr>
+    <td>日記メール投稿</td>
+    <td>b<var>XXX</var>-<var>YYY</var>@MAIL_SERVER_DOMAIN</td>
+    <td>blog@MAIL_SERVER_DOMAIN</td>
+</tr>
+<tr>
+    <td>日記コメントメール投稿</td>
+    <td>c<var>XXX</var>-<var>YYY</var>@MAIL_SERVER_DOMAIN</td>
+    <td>c<var>XXX</var>@MAIL_SERVER_DOMAIN</td>
+</tr>
+<tr>
+    <td>日記画像の修正メール投稿</td>
+    <td>dpic<var>XXX</var>-<var>XXX</var>-<var>YYY</var>@MAIL_SERVER_DOMAIN</td>
+    <td>dpic<var>XXX</var>-<var>XXX</var>@MAIL_SERVER_DOMAIN</td>
+</tr>
+<tr>
+    <td>コミュニティの管理者の携帯での画像変更投稿</td>
+    <td>copic<var>XXX</var>-<var>XXX</var>-<var>YYY</var>@MAIL_SERVER_DOMAIN</td>
+    <td>copic<var>XXX</var>-<var>XXX</var>@MAIL_SERVER_DOMAIN</td>
+</tr>
+<tr>
+    <td>空メールによる携帯アドレス設定</td>
+    <td>mbentry@MAIL_SERVER_DOMAIN</td>
+    <td>同左</td>
+</tr>
+<tr>
+    <td>QRによるコミュニティ経由新規登録用アドレス 1.2.0Nigtyで追加</td>
+    <td>qrc<var>XXX</var>-<var>XXX</var>@MAIL_SERVER_DOMAIN</td>
+    <td>同左</td>
+</tr>
+<tr>
+    <td>QRによるメンバー紹介新規登録用アドレス　1.2.0で追加(機能未実装)</td>
+    <td>qrm-<var>XXX</var>@MAIL_SERVER_DOMAIN</td>
+    <td>同左</td>
+</tr>
+</table>
+<ul>
+<li><var>XXX</var> には数字。</li>
+<li><var>YYY</var> には 12 バイトの英数字([0-9a-f]{12})。</li>
+</ul>
+
+<p>
+※上記のうち、追加されたメール投稿機能を確認し、運営している MyNETS の設定に追加してください。
+<br>
+漏れがあると携帯画面には出てくるのに投稿できないなどの不具合となります。
+</p>
+
+<hr>
+<p>以上でアップグレード作業は完了です。</p>
+
+
+<h2 id="SECTION3">3. 削除された設定項目</h2>
+
+<h4>MyNETS 1.1.0 で削除</h4>
+
+<pre>
+// Envelope-From ヘッダを設定するかどうか(safe_mode の場合は false に設定してください)
+define('MAIL_SET_ENVFROM', true);
+</pre>
+
+<pre>
+// SKIN Folder Path
+define('SKIN_FOLDER','default');
+</pre>
+
+<h2 id="SECTION4">4. MyNETS 1.1.* と 1.0.* のテーブルの差異</h2>
+<ol>
+<li>日記タグ用のテーブルが追加されています。(テーブル追加)</li>
+<li>PC及び携帯用のテンプレートファイルを用意することで、設定画面からメンバーが画面変更を行うことが出来るようになりました。その設定保存のため、c_member にカラムを追加、またテンプレートファイルの内容を保存する c_display_view テーブルが追加されました。
+</li>
+<li>退会者の管理用テーブルが追加されています。(テーブル追加)</li>
+<li>携帯の画面切り替えを管理するためのテーブルが追加されています。(テーブル追加)</li>
+</ol>
+
+<p>
+※今後もテーブルの追加及び削除、修正が行われる可能性があります。但しその場合は修正・追加一覧とコンバート用ファイルを用意して、
+移行がスムーズに行えるのを確認した上でリリースいたします。</p>
+<p>
+※これらの運用中データベースの移行は、確実な動作を保障するものではありませんので、移行の際はバックアップを確実に行ったうえで実効してください。<br>
+また、独自のカスタマイズでテーブル等の項目を追加したり削除している場合はそのままでは動くかどうかは分かりませんので、
+各種スクリプトを実行する前に SQL の内容を確認の上ご自信の判断で移行処理を行ってください。
+</p>
+
+<hr>
+<p>以上の内容を確認しながらアップグレードしてください。</p>
+
+<hr>
+OpenPNE は株式会社手嶋屋の開発しているオープンソースソフトウェアの名称です。<br>MyNETS は、ネットを使って多くの開発者が共同で開発している Usagi Project のオープンソースソフトウェアの名称です。<br>
+プロジェクト管理者、開発者、開発協力者の情報はプロジェクトホームページをご覧ください。<br>
+<a href="http://usagi-project.org/">Usagi Project</a> | <a href="https://sourceforge.jp/projects/usagi/">SourceForge.jp Usagi Project</a>
+<hr>
+<div class='footer'>(c)2006-2008 Usagi Project</div>
+
+</body>
+</html>

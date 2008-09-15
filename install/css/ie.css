@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+/* 共通項目 */
+body {
+  font-size: 80%;
+  line-height: 1.5;
+}
+
+
+/* ヘッダ */
+#head {
+  width: 772px;
+}
+
+
+/* サイドメニュー */
+#side-menu h3 {
+  font-size: 105%;
+  height: 33px;
+}
+
+
+/* コンテンツ */
+.entry-date {
+  font-size: 95%;
+  height: 33px;
+}
+
+
+/* フッタ */
+#foot {
+  width: 772px;
+}
+
+#copyright {
+  font-size: 80%;
+}

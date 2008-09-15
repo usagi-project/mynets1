@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+/*枠線要素*/
+.border_00 { border: #FFFFFF 1px solid ; }
+.border_01 { border: #B7B9C6 1px solid ; }
+.border_02 { border: #FFFFFF 1px solid ; }
+.border_03 { border: #FFFFFF 1px solid ; }
+.border_04 { border: #FFFFFF 1px solid ; }
+.border_05 { border: #FFFFFF 1px solid ; }
+.border_06 { border: #FFFFFF 1px solid ; }
+.border_07 { border: #B7B9C6 1px solid ; }
+.border_08 { border: #FFFFFF 1px solid ; }
+.border_09 { border: #FFFFFF 1px solid ; }
+.border_10 { border: #FFFFFF 1px solid ; }
+
+/*背景要素*/
+.bg_00 { background-color: #FFFFFF ; }
+.bg_01 { background-color: #B7B9C6 ; }
+.bg_02 { background-color: #FFFFFF ; }
+.bg_03 { background-color: #FFFFFF
+ ; }
+.bg_04 { background-color: #B7B9C6 ; }
+.bg_05 { background-color: #FFFFFF ; }
+.bg_06 { background-color: #B7B9C6 ; }
+.bg_07 { background-color: #B7B9C6 ; }
+.bg_08 { background-color: #FFFFFF ; }
+.bg_09 { background-color: #FFFFFF ; }
+.bg_10 { background-color: #B7B9C6 ; }
+.bg_11 { background-color: #C1C6CF ; }
+.bg_12 { background-color: #FFFFFF ; }
+.bg_13 { background-color: #E9EAF0 ; }

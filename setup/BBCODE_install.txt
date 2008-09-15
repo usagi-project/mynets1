@@ -1,0 +1,358 @@
+================================================================================
+【   作者名   】　Naoya Shimada
+【モジュール名】　OpenPNE BBCode入力支援モジュール
+【 バージョン 】　Ver 0.8.0
+【   作成日   】　2007/12/24
+【  開発言語  】　PHP
+【 ライセンス 】　The PHP License, version 3.01
+【  著作権者  】　Naoya Shimada / しまさん
+【   再配布   】　可
+【    転載    】　可
+【ホームページ】　http://shima3.seesaa.net/
+【   連絡先   】　shima3amihs@gmail.com
+================================================================================
+
+■ 1. バージョンアップの場合
+----------------------------
+
+  MyNETSの設置されているディレクトリが mynets であることを想定して説明
+  しています。
+
+  バージョンアップする場合には、以下の作業を先に行ってください。
+
+  [1] Ver.0.5.0 から、skin ディレクトリ以下の構造が変更されているので、
+      それ以前のバージョンの場合は、先に、既存のBBCode入力支援用画像
+      （bbcode_*.gif）を削除してください。
+
+  [2] Ver.0.5.0 から modifier.bbcode2del.php、modifier.bbcode2html.php
+      の設置場所が異なるので、既存のファイルを削除してください。 
+
+  [3] Ver.0.5.0 で添付していた prototype.js 1.5.1.1 を削除して、入れ
+      替えるようにしてください。
+      script.aculo.us 1.7.0とそれ以前のバージョンは、1.5.1以降に対応して
+      いないためエラーが発生します。
+
+      MyNETSのアーカイブに添付されているprototype.jsおよびscript.aculo.us
+      関連のJavascriptファイルをご使用ください。
+
+  [4] Ver.0.5.0 までの inc_bbcode_css.tpl を削除してください。
+      Ver.0.6.0 からは外部CSSファイルで設定するため、使用しません。
+
+      * テンプレートをご自分で修正されていた方は、inc_bbcode_css.tpl の
+        インクルード箇所を削除する必要があります。
+
+  [5] Ver.0.6.5 までの bbcode.css を削除するか、あるいは修正箇所を確認
+      し、最新の bbcode.css と比較して問題にならないように修正してくだ
+      さい。
+
+  [6] Ver.0.6.5 までのアイコン画像を削除します。
+      サーバ上の mynets/skin/bbcode ディレクトリを削除してください。
+
+      * MyNETS1.0.1の場合は、mynets/public_html/skin/bbcode ディレクトリ
+        を削除してください。
+
+  [7] 古いバージョンでresdiarybutton.js、restopicsbutton.jsをサーバに
+      設置している場合は削除してください。
+       * MyNETS 1.1.0以降では、サーバ上の mynets/js ディレクトリ内
+         MyNETS 1.0.1では、mynets/public_html/js ディレクトリ内
+
+  [8] Ver.0.8.0で、外部スタイルシート、外部Javascriptの配置が変更になり
+      ました。（それぞれ、css/bbcode、js/bbcode以下に配置するよう変更）
+      Ver.0.8.0までの外部スタイルシート、外部Javascriptは削除してくだ
+      さい。
+       * MyNETS 1.1.0以降では、サーバ上の mynets/css/bbcode_*.css、
+         mynets/js/bbcode.*.js というファイル。
+         MyNETS 1.0.1では、mynets/public_html以下の該当ディレクトリ内
+         のファイル。
+
+  [9] Ver.0.8.0から、config.phpに下記の設定が必要になりましたので、先に
+      追加で記述しておいてください。（add_config_php.txt参照）
+      これにより、後でBBCode入力支援機能を使用しないようにできるように
+      ないｒました。
+
+// BBCode入力支援モジュールを入力に使用する(true)か否(false)か
+define('BBCODE_USE_FOR_INPUT', true);
+
+
+  [10] MyNETSの場合で、prototype.jsおよびscript.aculo.us関連のJavascipt
+      ファイルを入れ替えてしまった場合は、MyNETSオリジナルのものに戻して
+      ください。
+      MyNETSにおいては、本パッケージに付属しているものでは不具合が発生
+      してしまいます。
+
+
+■ 2. インストール手始め
+------------------------
+
+  MyNETSの設置されているディレクトリが mynets であることを想定して説明
+  しています。
+
+   * MyNETS-1.0.x系の場合はOpenPNE用のインストール手順を見た方が良い
+     かもしれません。
+
+  (1) MyNETSが動作していることを確認してください。
+      動作していなければ設定等を行い、正常に動作するようにしてください。
+
+  (2) 本モジュールが含まれたアーカイブを解凍します。
+
+  (3) home/webapp/lib/smarty_pligins ディレクトリ内のファイル
+      ・modifier.bbcode2del.php
+      ・modifier.bbcode2del4pne.php
+      ・modifier.bbcode2html.php
+      ・modifier.bbcode2html4ktai.php
+      ・modifier.bbcode2html4pc.php
+      ・modifier.bbcode2html4pne.php
+      を、サーバ上の
+      mynes/webapp/lib/smarty_pligins
+      ディレクトリに設置してください。
+
+       * BBCodeをHTMLタグに変換するプラグイン（bbcode2html系）と
+         BBCodeを除去するプラグイン（bbcode2del系）です。
+
+  (4) 本アーカイブ中にある
+      home/css/bbcode.css
+      home/css/bbcode_buttons.css
+      home/css/bbcode_tags.css
+      をその構造に合わせて、サーバ上の
+      mynets/css/bbcode
+      ディレクトリに設置してください。
+
+       * MyNETS1.0.1の場合は mynets/public_html/css
+
+      bbcode.css、bbcode_buttons.css、bbcode_tags.css を利用するため
+      には、 default.css の編集が必要となります。
+
+      後で、既存の default.css を編集するか（後述）、別途提供する
+      テンプレートのアーカイブに同梱してある default.css を使用して
+      ください。
+
+       * Ver.0.8.0でbbcodeディレクトリ以下に配置するように変更されて
+         いますので、注意してください。
+
+  (5) home/skin/bbcode ディレクトリ（中身はGIFファイル）
+      を、bbcodeディレクトリごとサーバ上の
+      mynets/skin
+      ディレクトリに設置してください。
+
+       * BBCodeの入力支援の各種ボタンの画像です。
+
+       * MyNETS1.0.1の場合は、mynets/public_html/skin です。
+
+  (6) home/webapp_ext/modules/pc/templates ディレクトリ内のファイル
+      ・inc_bbcode.tpl
+      ・inc_bbcode_diary_comment_on_diary.tpl
+      ・inc_bbcode_event_comment_on_diary.tpl
+      ・inc_bbcode_topic_comment_on_diary.tpl
+      を、サーバ上の
+      mynets/webapp_ext/modules/pc/templates
+      ディレクトリに設置してください。
+
+       * BBCodeの入力に必要なテンプレートと、「日記でコメント」で必要
+         なテンプレートです。
+         「日記でコメント」機能を使用しない場合も設置してください。
+
+      拡張モジュールを有効化しない場合は、
+      mynets/webapp/modules/pc/templates
+      ディレクトリに設置してください。
+
+  (7) home/js/bbcode ディレクトリ内のファイル
+      ・bbcode.cmd.js
+      ・bbcode.colorpicker.js
+      ・bbcode.controller.js
+      ・bbcode.selector.js
+      ・bbcode.taglib.js
+      をその構造に合わせて、サーバ上の
+      mynets/js/bbcode
+      ディレクトリに設置してください。
+
+       * BBCodeの挿入や操作などを行うための外部Javascriptファイルです。
+
+       * MyNETS1.0.1の場合は、mynets/public_html/js です。
+
+       * Ver.0.8.0でbbcodeディレクトリ以下に配置するように変更されて
+         いますので、注意してください。
+
+  (8) 次章「3. インストールおよび設定」に従って、インストールおよび設定
+      を継続してください。
+  
+  (9) 設定が完了したら、一度 mynets/var/templates_c 以下を空に
+      した方が良いでしょう。
+
+
+■ 3. インストールおよび設定
+----------------------------
+
+  「2. インストール手始め」で各種ファイルを設置済みでしょうか？
+  再度ご確認下さい。
+
+  (1) 拡張モジュールを有効化
+
+    BBCode入力支援モジュールは、既存の機能を拡張することで成り立って
+    いるため、基本的には、拡張モジュールを有効化して利用することになり
+    ます。
+
+    もちろん、有効化しなくてもかいまいませんが、その場合は、既存の
+    ファイルに上書きする必要がありますので、ご注意ください。
+
+    まず、拡張モジュールを有効にして下さい。
+
+    MyNETSの設定ファイル mynets/conf/config.php のUSE_EXT_DIRをtrueに
+    します。
+
+---------------
+///
+// webapp_ext ディレクトリ使用設定
+///
+
+define('USE_EXT_DIR', true);
+---------------
+
+    拡張モジュールを有効にしたくない場合は、上記の設定をする必要はあり
+    ませんが、webapp_ext ディレクトリ以下に設置するものを、webapp ディレ
+    クトリに設置することになりますので、既存のファイルへの上書きが発生
+    することにご注意下さい。
+
+  (2) MyNETS用のテンプレートのインストール
+
+    別途配布する各バージョンごとのテンプレートモジュールを利用して、
+    自分でテンプレートの編集を行わずに済ますこともできます。
+
+    また、readme.txt「5. 既存テンプレートをBBCodeに対応させる」で解説
+    しているように、ご自分で既存のテンプレートを修正することもできます。
+    カスタマイズを行いたい、あるいは既に行っている場合には、後者の方が
+    良いでしょう。
+
+    各バージョンごとのテンプレートには、それぞれインストール方法が記載
+    されたreadme.txtが添付されているはずですので、インストールについて
+    は、そちらを参照してください。
+
+  (3) BBCode用スタイルシートの設定
+
+    本アーカイブ中の bbcode.css他３つのCSSファイルをBBCodeを利用して
+    いる場合に有効にします。
+    すでに３つのCSSファイルを設置済みで、テンプレートモジュールに添付
+    してある「default.css」をご利用の場合は、先へ進んでください。
+
+    bbcode.css等は設置済みで、default.css を設置していない場合は、ここで
+    default.css を編集します。
+
+    「default.css」ファイルの末尾に、以下の行を追加してください。
+
+/*---ここから---*/
+/*BBCode用スタイル*/
+@import url(./bbcode/bbcode.css);
+
+/* 空のセルに挿入するダミー画像 */
+img.dot {
+	height: 1px;
+	width: 1px;
+}
+
+img.square {
+	height: 7px;
+	width: 7px;
+}
+/*---ここまで---*/
+
+    他のCSSファイルをインポートするための記述は、bbcode.css内でimport
+    済みであるため、ここで記述する必要はありません。
+
+    テンプレートモジュールに同梱してある「default.css」を参考にして
+    ください。
+
+     * MyNETS本体をアップデートorアップグレード時には忘れずに記述して
+       ください。
+     * 拙作の他のモジュールでも「default.css」を編集する場合がありま
+       すので、その記述は消さないように気をつけてください。
+
+    上記の設定を行わずに、テンプレートモジュールに同梱のファイルを使用
+    することも可能ですので、ご検討ください。
+
+    なお、BBCode入力支援に関連するスタイル構成は以下の通りです。
+
+    ・BBCode入力支援モジュール全般：bbcode.css
+    ・入力支援用ボタン（画像等）　：bbcode_buttons.css
+    ・BBCodeタグ装飾用のスタイル　：bbcode_tags.css
+
+    必要に応じて、各スタイルシートを修正すれば、ある程度お好みの設定に
+    変更することができます。
+    
+     * 上記のように、bbcode.cssについてのみ記述しているのは、bbcode.css
+       から、bbcode_buttons.css、bbcode_tags.cssを読み込むようにしている
+       ためです。
+
+  (4) OpenPNE用独自BBCodeタグを有効化する
+
+    readme.txt「6. OpenPNE用独自BBCodeタグを有効化する」で解説している
+    設定を行ってください。
+    独自タグを使用しない場合は、特に設定する必要はありません。
+
+  (5) トピック・イベント・日記に「日記でコメント」ボタンを配置
+
+    readme.txt「7. トピック・イベント・日記に『日記でコメント』ボタンを
+    配置」で解説している設定を行ってください。
+    ボタンを配置しない場合は設定する必要はありません。
+
+
+■ 4. 動作確認
+--------------
+
+(1) 表示関連の確認
+
+  上述の配置や記述の追加が問題なければ、
+
+  ・日記の記述や表示、日記に対するコメントの記述や表示
+  ・コミュニティの説明文の記述や表示
+  ・トピックの本文やコメントの記述や表示
+  ・イベントの本文やコメントの記述や表示
+  ・レビューのレビュー内容の記述や表示
+  ・日記やトピックなどの検索結果に表示される本文の表示
+
+  において、以下のような表示がなされるはずです。
+
+  ・本文やコメントの入力にBBCode入力支援が使える
+  ・本文やコメントの表示にBBCodeが適用されて修飾されている
+  ・途中で本文やコメントが切れる表示の場合は、BBCodeが除去されている
+
+  テスト用のタグを記載したファイルを使用するなどして、表示具合を確認して
+  みてください。
+
+  もしも正常に表示されなかったり、Javascriptでエラーが生じる場合には、
+  本モジュールの不具合か手順の記述ミス、もしくは、先述の設定のミスや
+  配置ミスなどの原因が考えられます。
+
+  まずは、設定が間違っていないか確認してください。
+
+  テスト用のタグを記載したファイル
+
+  bbcode_smarty_test_all.txt   ... 独自タグ（docci除く）を含む全タグ
+  bbcode_smarty_test1.txt      ... 上記ファイルの前半部分
+  bbcode_smarty_test2.txt      ... 上記ファイルの中盤部分
+  bbcode_smarty_test3.txt      ... 上記ファイルの後半部分（独自タグ除く）
+  bbcode_smarty_test_pnetags.txt ... 独自タグ（docci除く）のみ
+
+  に、一通りのBBCodeを記述してありますので、Smartyプラグインの動作確認
+  にはそれを利用すると良いでしょう。
+  OpenPNE独自タグを使用する場合には、bbcode_smarty_test_pnetags.txt を
+  利用してください。
+
+(2) 入力関連の確認
+
+  BBCodeの入力ボタンを使用して、正常に入力できるかどうか確認してくだ
+  さい。
+  入力値のチェック後に挿入するような動作もあるため、正常な動作が不明と
+  いう場合があるかもしれませんが、不明な点があれば、コメント等いただけ
+  ればと思います。
+
+
+  設定の問題でないとわかった場合には、メールなどでご連絡ください。
+  可能な範囲内で対処するつもりではいますが、あてにしないでください。(>_<;
+
+  * テンプレートファイルを上書きする際に、ファイルの日付の問題（？）で
+    テンプレートキャッシュが古いままの場合が起こりえます。
+    設定が完了したら、一度 mynets/var/templates_c 以下を空にした方が
+    良いかもしれません。
+
+
+================================================================================
+Copyright (C) 2007. Naoya Shimada. All Rights Reserved.

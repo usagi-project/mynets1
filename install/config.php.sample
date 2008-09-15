@@ -1,0 +1,634 @@
+<?php
+
+/* ========================================================================
+ *
+ * @license This source file is subject to version 3.01 of the PHP license,
+ *              that is available at http://www.php.net/license/3_01.txt
+ *              If you did not receive a copy of the PHP license and are unable
+ *              to obtain it through the world-wide-web, please send a note to
+ *              license@php.net so we can mail you a copy immediately.
+ *
+ * @category   Application of MyNETS
+ * @project    OpenPNE UsagiProject 2006-2007
+ * @package    MyNETS
+ * @author     UsagiProject <info@usagi-project.org>
+ * @copyright  2006-2007 UsagiProject <author member ad http://usagi-project.org/member.html>
+ * @version    MyNETS,v 1.1.1Nighty
+ * @since      File available since Release 1.0.0 Nighty
+ * @chengelog  [2008/05/06] Ver1.2.0Nighty-20080506 package
+ * ========================================================================
+ */
+
+
+//// サーバー管理設定 ////
+
+//--- 必須設定
+
+// Web上の絶対パス(URL)(最後にスラッシュを付けてください)
+define('OPENPNE_URL', '%%current_url%%');
+
+// DBサーバ設定
+$GLOBALS['_OPENPNE_DSN_LIST']['main'] = array(
+'dsn'  => array(
+    'phptype'  => 'mysql',
+    'username' => '%%db_user%%',
+    'password' => '%%db_pass%%',
+    'hostspec' => '%%db_server%%',
+    'database' => '%%db_name%%',
+    'new_link' => false,
+    ),
+);
+
+//MyNETSでテーブルのPREFIXを利用するかどうか
+//define('MYNETS_PREFIX_NAME','MyNETS_');
+define('MYNETS_PREFIX_NAME','%%db_prefix%%');
+
+// DB暗号化キー(56バイト以内のASCII文字列)
+define('ENCRYPT_KEY', '%%db_crypt_key%%');
+
+// メールサーバードメイン
+// 携帯メール投稿の宛先などのドメイン名に使われる
+define('MAIL_SERVER_DOMAIN', '%%mail_domain%%');
+
+
+//--- オプション設定
+
+// デバッグモード
+// 0: off ... エラー非表示、エラーログを記録する
+// 1: on  ... エラー表示、エラーログを記録しない
+// 2: on  ... 1 + Smartyデバッグコンソール
+define('OPENPNE_DEBUGGING', 0);
+
+// 無効にするモジュール
+$GLOBALS['_OPENPNE_DISABLE_MODULES'] = array();
+//$GLOBALS['_OPENPNE_DISABLE_MODULES'] = array('admin', 'setup');
+
+// メンテナンスモード
+// true: メンバーにメンテナンス画面を表示
+define('OPENPNE_UNDER_MAINTENANCE', false);
+
+// メンテナンス中でも表示するモジュール名
+$GLOBALS['_OPENPNE_MAINTENANCE_MODULES'] = array('admin');
+
+// 1.8以前形式のURLでアクセスした場合の動作設定
+// 0    : 直接新URLへ移動する
+// n(>0): URL変更お知らせ画面を表示、n秒後に移動する
+// -1   : URL変更お知らせ画面を表示、自動的に移動しない
+define('WAIT_REDIRECT_TIME', 5);
+
+// Crypt_Blowfish ライブラリの旧バージョン使用設定
+// 2.2以前からのアップグレードでログインできないなどの
+//暗号化まわりの不具合が起こった場合はtrueに設定してください
+define('OPENPNE_USE_OLD_CRYPT_BLOWFISH', false);
+
+// ファンクションキャッシュ使用設定
+//有効にした場合は、最新情報の表示に遅延が起こることがあります
+define('OPENPNE_USE_FUNCTION_CACHE', false);
+
+// MySQL ヒント使用設定
+define('OPENPNE_USE_MYSQL_HINT', true);
+
+// セッション情報をDBに保存するかどうか
+// (有効にする場合は、以下のDBサーバ設定も行ってください)
+define('SESSION_SAVE_DB', false);
+
+// 確認画面用の一時画像をDBに保存するかどうか
+define('OPENPNE_TMP_IMAGE_DB', false);
+
+///
+// DBサーバ設定
+///
+
+// メインデータ読み込み用DB(オプション)
+//$GLOBALS['_OPENPNE_DSN_LIST']['main_reader'][] = array(
+//'priority' => 1,
+//'dsn' => array(
+//    'phptype'  => 'mysql',
+//    'username' => '',
+//    'password' => '',
+//    'hostspec' => 'localhost',
+//    'database' => '',
+//    'new_link' => false,
+//    ),
+//);
+//$GLOBALS['_OPENPNE_DSN_LIST']['main_reader'][] = array(
+//'priority' => 1,
+//'dsn' => array(
+//    'phptype'  => 'mysql',
+//    'username' => '',
+//    'password' => '',
+//    'hostspec' => 'localhost',
+//    'database' => '',
+//    'new_link' => false,
+//    ),
+//);
+
+// セッションデータ保存用DB(オプション)
+//$GLOBALS['_OPENPNE_DSN_LIST']['session'] = array(
+//'dsn' => array(
+//    'phptype'  => 'mysql',
+//    'username' => '',
+//    'password' => '',
+//    'hostspec' => 'localhost',
+//    'database' => '',
+//    'new_link' => false,
+//    ),
+//);
+
+// 画像データ保存用DB(オプション)
+//$GLOBALS['_OPENPNE_DSN_LIST']['image'] = array(
+//'dsn' => array(
+//    'phptype'  => 'mysql',
+//    'username' => '',
+//    'password' => '',
+//    'hostspec' => 'localhost',
+//    'database' => '',
+//    ),
+//);
+
+///
+// SSL設定
+///
+
+// 特定ページだけのSSLを使用するかどうか
+define('OPENPNE_USE_PARTIAL_SSL', false);
+
+// SSL使用状況をリクエストパラメータから取得するかどうか
+define('OPENPNE_USE_SSL_PARAM', false);
+
+// SSL用URL (Cookieの値を引き継ぐため、OPENPNE_URL と同一ドメイン・パスである必要があります)
+define('OPENPNE_SSL_URL', 'https://sns.example.com/');
+
+// SSLを使用することが必須であるモジュールリスト
+$GLOBALS['_OPENPNE_SSL_REQUIRED_MODULES'] = array('admin');
+
+// SSLを使用することが必須であるアクションリスト
+$GLOBALS['_OPENPNE_SSL_REQUIRED'] = array(
+'pc' => array(
+    'page_o_regist_prof',  'page_o_regist_prof_confirm', 'do_o_regist_prof',
+    'page_o_regist_intro', 'page_o_ri', 'page_o_regist_end',
+    'page_h_config_prof', 'page_h_config_prof_confirm', 'do_h_config_prof',
+    'page_h_config_ktai', 'do_h_config_ktai_send',
+),
+'ktai' => array(
+    'page_o_login', 'do_o_login', 'do_o_easy_login',
+    'page_o_login2', 'do_o_update_ktai_address',
+    'page_o_regist_pre', 'page_o_regist_input', 'do_o_insert_c_member',
+    'page_o_regist_end',
+    'page_o_password_query', 'do_o_password_query',
+    'page_h_config_prof', 'do_h_config_prof_update_c_member',
+    'page_h_config_easy_login', 'do_h_config_easy_login',
+    'page_h_config_mail', 'do_h_config_mail_insert_c_ktai_address_pre',
+    'page_h_pc_send', 'page_h_pc_send_confirm', 'do_h_pc_send_insert_c_pc_address_pre',
+    'page_h_config_password_query', 'do_h_config_password_query_update_password_query',
+    'page_h_config_password', 'do_h_config_password_update_password',
+));
+
+// SSLを使用するかどうかメンバーが選択できるアクションリスト
+$GLOBALS['_OPENPNE_SSL_SELECTABLE'] = array(
+'pc' => array(
+    'page_h_config', 'do_h_config_1', 'do_h_config_2', 'do_h_config_3',
+    'page_o_login', 'page_o_tologin', 'do_o_login',
+),
+'ktai' => array(
+    'page_h_config',
+));
+
+///
+// パス設定
+///
+
+define('OPENPNE_LIB_DIR'    , OPENPNE_DIR . '/lib');
+define('OPENPNE_VAR_DIR'    , OPENPNE_DIR . '/var');
+define('OPENPNE_WEBAPP_DIR' , OPENPNE_DIR . '/webapp');
+define('OPENPNE_MODULES_DIR', OPENPNE_WEBAPP_DIR . '/modules');
+define('OPENPNE_RSS_CACHE_DIR', OPENPNE_VAR_DIR . '/rss_cache');
+
+///
+// webapp_ext ディレクトリ使用設定
+///
+
+define('USE_EXT_DIR', false);
+define('OPENPNE_WEBAPP_EXT_DIR' , OPENPNE_DIR . '/webapp_ext');
+define('OPENPNE_MODULES_EXT_DIR', OPENPNE_WEBAPP_EXT_DIR . '/modules');
+
+///
+// デバッグ、エラーハンドリング、ログ設定
+///
+
+error_reporting(E_ALL ^ E_NOTICE);
+$GLOBALS['SMARTY'] = array();
+
+switch(OPENPNE_DEBUGGING) {
+// テスト開発環境
+case 2:
+    $GLOBALS['SMARTY']['debugging'] = true;
+case 1:
+    ini_set('display_errors', true);
+    ini_set('log_errors', false);
+//  $GLOBALS['SMARTY']['autoload_filters'] = array( "pre" => array("strip"),"output"=>array("comment") );
+    break;
+// 本番運用環境
+case 0:
+default:
+    ini_set('display_errors', false);
+    ini_set('log_errors', true);
+    ini_set('error_log', OPENPNE_VAR_DIR . '/log/php_errors.log');
+    $GLOBALS['SMARTY']['autoload_filters'] = array( "pre" => array("strip"),"output"=>array("comment") );
+    break;
+}
+
+// アクセスログを取得するかどうか(c_access_log)
+define('LOG_C_ACCESS_LOG', true);
+
+///
+// セッション・クッキー設定
+///
+
+ini_set('session.gc_maxlifetime', 432000); // 5 days
+session_save_path(OPENPNE_VAR_DIR . '/session');
+
+// PC版
+// セッション生成時からの有効期限(秒) (0 の場合は無期限)
+$GLOBALS['OpenPNE']['common']['session_lifetime'] = 0;
+// セッションの有効期限(秒)
+$GLOBALS['OpenPNE']['common']['session_idletime'] = 432000; // 5 days
+
+// 携帯版
+// セッション生成時からの有効期限(秒) (0 の場合は無限)
+$GLOBALS['OpenPNE']['ktai']['session_lifetime'] = 0;
+// セッションの有効期限(秒)
+$GLOBALS['OpenPNE']['ktai']['session_idletime'] = 3600; // 1 hour
+
+// 管理画面版
+// セッション生成時からの有効期限(秒) (0 の場合は無限)
+$GLOBALS['OpenPNE']['admin']['session_lifetime'] = 0;
+// セッションの有効期限(秒)
+$GLOBALS['OpenPNE']['admin']['session_idletime'] = 86400; // 1 day
+
+// セッションにOPENPNE_URLを保存しておく
+// 同一サーバ上で複数のSNSを運用する場合のセッションの混同を防ぐ
+// falseからtrueにした場合、または2.4RC1以前のバージョンからアップデートした場合
+// それまでのセッションが無効になりログアウトされます
+define('OPENPNE_SESSION_CHECK_URL', true);
+
+///
+// 画像
+///
+
+// 画像を別サーバに設定する場合に指定する
+//define('OPENPNE_IMG_URL', 'http://img.example.com/');
+
+// 画像キャッシュをpublic_html以下に置くかどうか(要mod_rewrite)
+define('OPENPNE_IMG_CACHE_PUBLIC', false);
+
+// 画像キャッシュディレクトリ(要書き込み権限)
+if (OPENPNE_IMG_CACHE_PUBLIC) {
+    define('OPENPNE_IMG_CACHE_DIR', OPENPNE_DIR . '/img');
+} else {
+    define('OPENPNE_IMG_CACHE_DIR', OPENPNE_VAR_DIR . '/img_cache');
+}
+
+// 画像変換時に許可する解像度のリスト (幅x高さ)
+// (空の配列を指定すると無制限になります)
+$GLOBALS['_OPENPNE_IMG_ALLOWED_SIZE'] = array('36x36', '76x76', '120x120', '180x180', '360x360', '54x54');
+
+// 画像キャッシュのファイル名のprefix
+define('OPENPNE_IMG_CACHE_PREFIX', 'img_cache_');
+
+// 画像変換後のJPEGのQUALITY値
+define('OPENPNE_IMG_JPEG_QUALITY', 75);
+
+// ImageMagick使用設定
+// 0: off ... ImageMagickを使わない
+// 1: on  ... GIFのみImageMagickを使う
+// 2: on  ... JEPG,PNG,GIFにImageMagickを使う(ただし、GDも必要)
+define('USE_IMAGEMAGICK', 0);
+
+// ImageMagick の convertコマンドのパス
+define('IMGMAGICK_APP', '/usr/bin/convert');
+//define('IMGMAGICK_APP', '"C:\Program Files\ImageMagick-6.2.5-Q16\convert"');
+
+// ImageMagick のオプション(デフォルトは -resize)
+//define('IMGMAGICK_OPT', '-thumbnail');
+//define('IMGMAGICK_OPT', '-deconstruct -coalesce -resize');
+
+// アップロード画像のファイルサイズ制限(KB)
+define('IMAGE_MAX_FILESIZE', %%image_max_size%%);
+
+///
+// 外部RSS取得
+///
+
+// 一度に取得するRSSの件数
+define('RSS_CACHE_LIMIT', 100);
+
+///
+// 携帯メール投稿
+///
+
+// 宛先アドレスのprefix
+//define('MAIL_ADDRESS_PREFIX', 'sns_');
+
+// 宛先アドレスをハッシュにするか
+define('MAIL_ADDRESS_HASHED', true);
+
+// 受信メールの文字コード(Content-Typeから取得できない場合に使う)
+//define('MAIL_FROM_ENCODING', 'JIS');
+define('MAIL_FROM_ENCODING', 'auto');
+
+// メールログを取るかどうか(var/log/mail.log)
+define('MAIL_DEBUG_LOG', false);
+
+///
+// メール送信設定
+///
+
+// 半角カタカナを全角カタカナに変換して送信する
+define('MAIL_HAN2ZEN', true);
+
+// MTAに渡すヘッダの改行コード(LF->CRLF の自動変換が行われることへの対策)
+//define('MAIL_HEADER_SEP', 'CRLF');
+define('MAIL_HEADER_SEP', 'LF');
+
+// Envelope-From で設定するメールアドレス
+//(指定しない場合は、管理者メールアドレス(Fromと同じ))
+//define('MAIL_ENVFROM', 'system@example.com');
+
+///
+// mbstring設定
+///
+
+mb_language('Japanese');
+ini_set('mbstring.detect_order', 'auto');
+ini_set('mbstring.http_input'  , 'auto');
+ini_set('mbstring.http_output' , 'pass');
+ini_set('mbstring.internal_encoding', 'UTF-8');
+ini_set('mbstring.script_encoding'  , 'UTF-8');
+ini_set('mbstring.substitute_character', 'none');
+mb_regex_encoding('UTF-8');
+
+// Validatorで全角スペースを削除するかどうか
+// mb_ereg_replace でエラーが出る場合は false にしてください
+define('OPENPNE_TRIM_DOUBLEBYTE_SPACE', true);
+
+///
+// PHPメモリ制限設定
+///
+
+//ini_set('memory_limit','32M');
+
+///
+// API通信設定
+///
+
+// API通信使用設定
+define('OPENPNE_USE_API', false);
+
+// セッション鍵生成用文字列(適当な文字列に変更してください)
+define('OPENPNE_API_TOKEN', 'OpenPNE');
+
+// 許可するIPリスト('any'が含まれている場合はIPをチェックしません)
+$GLOBALS['_OPENPNE_API_IP_LIST'] = array(
+'127.0.0.1',
+//'192.168.0.1',
+//'any',
+);
+
+// クライアントのIPアドレスのあるサーバ変数名($_SERVER['REMOTE_ADDR'])
+//define('SERVER_IP_KEY', 'HTTP_X_FORWARDED_FOR');
+define('SERVER_IP_KEY', 'REMOTE_ADDR');
+
+///
+// umask設定
+///
+
+umask(0);
+
+///
+// Google Maps API key
+///
+define('GOOGLE_MAPS_API_KEY', '%%map_api_key%%');
+
+
+//// SNSアプリケーション設定 ////
+
+// 管理画面のURL設定
+//(OPENPNE_URL)?m=ADMIN_MODULE_NAME (例. http://sns.example.com/?m=admin)
+define('ADMIN_MODULE_NAME', 'admin');
+
+// 管理画面の初期設定項目を表示するかどうか
+define('ADMIN_INIT_CONFIG', true);
+
+// 管理画面にバージョン情報を表示するかどうか
+define('DISPLAY_VERSION', true);
+
+// 管理画面にOpenPNE更新情報(RSS)を表示するかどうか
+define('DISPLAY_OPENPNE_INFO', true);
+
+// Usagi Project更新情報のURL設定
+define('OPENPNE_INFO_URL', 'http://usagi-project.org/PRESS/feed/');
+
+
+// 携帯版でUser-Agentのチェックをするかどうか
+define('CHECK_KTAI_UA', true);
+
+// メール一斉送信のメールキューの使用
+define('OPENPNE_MAIL_QUEUE', false);
+// メールキューで一度に送信するメールの数
+define('SEND_MAIL_QUEUE_NUM', 10);
+
+/* ここからうさぎちゃん */
+
+// 未ログイン日数を変更(default=3)
+//define('LASTLOGIN_DAYS', 7);
+
+// どのDBモジュールを使用するか ('pne','mysql')
+define('MYNETS_DB_MODULE', 'mysql');
+
+// CAPTCHA（画像のなかの文字列をメンバーに入力させる認証方式）を使用するかどうか
+define('MYNETS_USE_CAPTCHA', true);
+
+//最新日記の表示を一人１件とする場合はtrue,すべて出す場合はfalse
+define('DIARY_DISTINCT_LIST',false);
+
+//コミュニティの更新表示を１コミュニティ１件とする場合はtrue,すべて出す場合はfalse
+define('COMMU_DISTINCT_LIST',false);
+
+//外部公開日記を行う
+define('MYNETS_OPEN_DIARY', true);
+
+//外部公開コミュニティを行う（現在外部コミュページ未実装）
+define('MYNETS_OPEN_COMMU', false);
+
+//HOMEのカレンダーを本日起点とする。日曜起点の場合はfalse
+define('DISPLAY_SCHEDULE_WEEK', false);
+
+//サイドブロック情報を表示するかしないか
+//表示するには define('USE_EXT_DIR', true); に設定する必要あり
+define('DISPLAY_SIDE_BLOCK', false);
+
+//サイドブロックをログイン前に表示するかどうか
+define('DISPLAY_SIDE_BLOCK_WITHOUT_LOGIN', false);
+
+//サイドブロックで表示する情報
+$GLOBALS['MYNETS_DISABLE_SIDE_VIEW_MODULES'] = array(
+    'newdiary'  => true,
+    'newtopic' => true,
+    'newevent' => true,
+    'newreview' => true,        //現在表示設定なし
+    'newcommunity' => false,    //現在表示設定なし
+    'newmember' => true,
+    'onlinemember' => true,
+);
+
+//会員が新規登録した際に、管理者へメールを送信するかしないか
+define('ADMIN_INVITE_MAIL', false);
+
+// ニュースを表示するか否か
+define('DISPLAY_NEWS_BLOCK',true);
+
+// ニュースのもっと見るでGoogleニュースのトピック別ニュースを表示するか否か
+define('DISPLAY_GOOGLE_TOPIC',true);
+
+// 認証前、ログインページなどでニュースを表示するか否か
+define('DISPLAY_NEWS_BLOCK_WITHOUT_LOGIN',false);
+
+// ニュースフィードのキャッシュの場所
+define('NEWS_CACHE_DIR',OPENPNE_RSS_CACHE_DIR);
+
+// ニュースフィードの取得制限時間（秒）
+define('NEWS_CACHE_LIMIT',1800);
+
+// ニュースフィードのURLリスト
+// RSS1.0/RSS2.0/Atom1.0形式のフィードを返すURLを指定してください。
+// キーとURLという形で複数指定することも可能ですが、実際に使用するURLの分だけ処理が重くなります。
+// 以下はサンプルのURLです。使用する行の先頭の「//」（コメントアウト）を削除し、使用しない
+// 場合には、先頭に「//」を記述して下さい。
+$GLOBALS['NEWS_FEED_URL_LIST'] = array(
+    'GoogleNews-Popular' => 'http://news.google.com/news?hl=ja&ned=ja&ie=UTF-8&oe=UTF-8&output=atom&topic=po',
+//    'goo-Ranking' => 'http://ranking.goo.ne.jp/rss/index.rdf',
+);
+
+// ニュース記事のリンク要素から、元記事のURLを取り出す場合の
+// URLの正規表現のリスト
+// 'pattern'に正規表現を記述し、preg_matchの検索結果の
+// $matches[1]にドメイン名、$matches[2]に元記事のURL部分
+//  が入る正規表現にする。
+// 'urldecode'については、抽出した元記事のURLをURLデコード
+// するか否か(true/false)の指定項目。
+$GLOBALS['NEWS_EXTRACT_LINK_URL_LIST'] = array(
+    'GoogleNews' => array(
+                        'pattern'   => '@http://(news\.google\.com)/.*url=([^&]+)@i',
+                        'urldecode' => true,
+                    ),
+    'GooRanking' => array(
+                        'pattern'   => '@http://(plus\.goo\.ne\.jp)/rnkredir/redir\.php\?.*to=(http%3A%2F%2F.+)@i',
+                        'urldecode' => true,
+                    ),
+    'Yahoo!News' => array(
+                        'pattern'   => '@http://(rd\.yahoo\.co\.jp)/[^\*]+\*(http://.+)@i',
+                        'urldecode' => false,
+                    ),
+    'RSSNavi' => array(
+                        'pattern'   => '@http://(www\.rssnavi\.jp)/r/\?.+(?:&amp;|&)u=(http.+)@i',
+                        'urldecode' => false,
+                    ),
+);
+
+// 広告などのURLをニュース記事から除去するための、URLの正規表現のリスト
+// デリミタは「/」でも何でも良いが、正規表現であることが条件
+$GLOBALS['NEWS_REMOVE_LINK_URL_LIST'] = array(
+    '@http://www\.pheedo\.jp/click\.phdo\?a=@i',
+    '@http://ck\.jp\.ap\.valuecommerce\.com/.+@i',
+);
+
+// 広告などの項目をニュース記事から除去するための、タイトルの正規表現のリスト
+// デリミタは「/」でも何でも良いが、正規表現であることが条件
+$GLOBALS['NEWS_REMOVE_TITLE_LIST'] = array(
+    '/^AD[:|：]/i',
+    '/^PR[:|：]/i',
+    '/^\(AD\)/i',
+    '/^配信日時/',
+    '/^ダイジェストニュース：製品情報/',
+);
+
+// ニュースを取得する件数
+define('NEWS_FEED_MAX',10);
+
+// ニュースのテキスト（概要）を省略する位置（文字数）
+// 省略文字も含んだ長さにすること
+define('NEWS_DESCRIPTION_LENGTH',200);
+
+// ニュースのテキスト（概要）を省略したことを表す文字列
+define('NEWS_DESCRIPTION_ETC','...');
+
+// Proxyサーバの設定（ENABLE_PROXY以外は小文字）
+// ENABLE_PROXY ... Proxyを使用するか否か（true/false）
+// proxy_host   ... Proxyサーバのホスト名またはIPアドレス
+// proxy_port   ... Proxyサーバのポート番号（80番や8080、8888など）
+// proxy_user   ... Proxyサーバを利用する際のユーザ名（通常不要）
+// proxy_pass   ... Proxyサーバを利用する際のパスワード（通常不要）
+$GLOBALS['NEWS_PROXY_CONFIG'] = array(
+    'ENABLE_PROXY'  => false,
+    'proxy_host' => 'localhost',
+    'proxy_port' => 8080,
+    'proxy_user' => '',
+    'proxy_pass' => '',
+);
+
+// 複数のニュースを結合してキャッシュする(true)か否(false)か
+// ニュースの保存に時間がかかるようになるが、読み出しは速くなる。
+define('NEWS_CACHE_MERGE',true);
+
+// キャッシュがNEWS_CACHE_LIMITより古い場合に収集する(true)か否(false)か
+// falseの場合は常にキャッシュから読み込む。（キャッシュがない場合だけ収集）
+// false指定の場合は、cronなどでキャッシュを更新しないと意味がないので注意。
+define('NEWS_COLLECT_FEED',true);
+
+// shima3BBCode入力支援モジュールを入力に使用する(true)か否(false)か
+// 使用するには define('USE_EXT_DIR', true); に設定する必要あり
+define('BBCODE_USE_FOR_INPUT', true);
+
+// shima3BBCode入力支援モジュールでscript.aculo.usを使用する(true)か否(false)か
+define('BBCODE_USE_SCRIPTACULOUS', true);
+
+// Fesly開発のBBCode入力支援モジュールを入力に使用する(true)か否(false)か
+// 使用するには define('USE_EXT_DIR', true); に設定する必要あり
+define('BBCODE_USE_FOR_INPUT_FESLY', true);
+
+// ホームで表示するインフォメーションの件数
+define('ADMIN_INFO_NUM',3);
+
+// 携帯でのオートログインを有効にするか
+define('USAGI_MOBILE_AUTO_LOGIN', false);
+
+// iPhoneを携帯として接続させるかどうか（現在未実装）
+define('IPHONE_IS_MOBILE', false);
+
+//海外サーバを利用した場合の日本時間の設定
+//利用する場合はコメントをはずしてください。
+//putenv("TZ=Asia/Tokyo");
+
+//キャッチオールが使えないサーバーの場合の
+//POPアカウントでの処理
+define('USE_POP_MAIL', false);
+define('POP_SERVER_DOMAIN', 'exsmple.com');
+define('POP_SERVER_USER', 'pop username');
+define('POP_SERVER_PASS', 'pop password');
+
+//メッセージの本文を受信させるかどうかの設定
+define('MESSAGE_BODY_RECIVE', true);
+
+//招待制可能なSNSの場合のみ有効
+//QRコードによるコミュニティ経由新規登録を行うか
+define('MYNETS_QRENTRY_COMMU', true);
+//QRコードによる招待登録を行うか（現在未実装）
+define('MYNETS_QRENTRY_MEMBER', false);
+
+//システムでHOOKSを使うかどうか
+define('ENABLE_HOOKS', FALSE);
+
+//今日のひとこと・クイックコミュニケーションの名前
+define('QUICK_SERVICE_NAME', '一言メッセージをどうぞ！');
+?>
