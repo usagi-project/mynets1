@@ -36,7 +36,7 @@
             <p><a href="javascript:add_tag(document.editForm.body, 'quo');" id="code_quote" onmouseover="popHelp('quoteH', event.pageX, event.pageY);" onmouseout="hiddenHelp('quoteH');"><span>引用文</span></a></p>
             <p><a href="javascript:add_tag(document.editForm.body, 'code');" id="code_code" onmouseover="popHelp('codeH', event.pageX, event.pageY);" onmouseout="hiddenHelp('codeH');"><span>コード</span></a></p>
             <p><a href="javascript:add_tag(document.editForm.body, 'noparse');" id="code_noparse" onmouseover="popHelp('noparseH', event.pageX, event.pageY);" onmouseout="hiddenHelp('noparseH');"><span>ビービーコード</span></a></p>
-            <p><a href="javascript:void(0);" onclick="insertBBCode(document.editForm,'url','');return false;" id="code_url" onmouseover="popHelp('urlH', event.pageX, event.pageY)" onmouseout="hiddenHelp('urlH');"><span>ウェブリンク</span></p>
+            <p><a href="javascript:void(0);" onclick="insertBBCode(document.editForm,'url','');return false;" id="code_url" onmouseover="popHelp('urlH', event.pageX, event.pageY)" onmouseout="hiddenHelp('urlH');"><span>ウェブリンク</span></a></p>
             <p><a href="javascript:add_tag(document.editForm.body, 'wiki');" id="code_wiki" onmouseover="popHelp('wikiH', event.pageX, event.pageY);" onmouseout="hiddenHelp('wikiH');"><span>ウィキペディア</span></a></p>
             <p><a href="javascript:add_tag(document.editForm.body, 'marquee');" id="code_marquee" onmouseover="popHelp('marqueeH', event.pageX, event.pageY);" onmouseout="hiddenHelp('marqueeH');"><span>マーキー</span></a></p>
         </div>
