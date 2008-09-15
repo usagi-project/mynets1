@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+/* ラッパー */
+#wrapper{
+ width: 720px;
+}
+
+/* 外枠 */
+#primary {
+ margin: 0;
+ padding:0;
+ background-color: #E9EAF0 ;
+}
+#secondary {
+ background-color: #E9EAF0 ;
+}
+
+/* primary内 */
+#container{
+background-color:#CCCCCC;
+}
+#footer {
+ margin-top:0.5em;
+ height: 21px;
+ padding-top: 0.3em;
+ padding-left: 1.2em;
+ border-top: 1px s
+ font-size: 10pt;
+ border-top: 1px solid;
+}
+#left {
+position:absolute;
+top:40px;
+left:0px;
+width:178px;
+margin: 0px;
+padding: 0px;
+height:900px;
+background-color:#CCCCCC;
+}
+#right{
+margin:0px;
+margin-left: 178px;
+padding: 10px;
+background-color:#ffffff;
+}
+#full{
+margin:0px;
+margin-left: 10px;
+padding: 0px;
+background-color:#ffffff;
+}
+#header {
+  background-color: #9A0201;
+  height: 40px;
+}
+
+/******* バナーの位置情報 *******/
+
+#banner h1 {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding-top: 0.2em;
+  padding-left: 0.2em;
+  color: #fff;
+}
+#banner h1 a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}

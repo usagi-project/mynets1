@@ -1,0 +1,97 @@
+@charset"UTF-8";
+
+/*レビュー小窓*/
+
+div.cmd_review * {
+ border:none;
+ font-size:10pt;
+ text-decoration:none;
+ margin:0px;
+ padding:0px;
+}
+div.cmd_review {
+ border:1px solid #cccccc;
+ text-align:center;
+ margin:auto;
+ padding:0px;
+ height:auto;
+ width:320px;
+}
+div.cmd_review p {
+ line-height:20px;
+ text-align:left;
+ margin:5px;
+}
+div.cmd_review .title_bar {
+ background-color:#e6e6fa;
+ margin:0px;
+ padding:2px 0px 2px 5px;
+ text-align:left;
+ width:315px;
+}
+div.cmd_review .package {
+ margin:0px;
+ padding:3px 1px 2px 1px;
+ width:100px;
+ float:left;
+}
+div.cmd_review img.package_image {
+ margin:0px;
+ padding:0px;
+ width:98px;
+}
+div.cmd_review .detail {
+ margin:0px;
+ padding:3px;
+ width:auto;
+ float:right;
+}
+div.cmd_review .title {
+ margin:0px;
+ padding:3px 0px 3px 0px;
+ width:210px;
+}
+div.cmd_review .satisfaction {
+ height:30px;
+ margin:0px;
+ padding:10px 0px 0px 0px;
+ border-top:1px dashed #c0c0c0;
+ border-bottom:1px dashed #c0c0c0;
+}
+div.cmd_review img.level {
+ vertical-align:top;
+ margin-top:0px;
+}
+div.cmd_review .package_info {
+ line-height:18px;
+ margin:0px;
+ padding:3px 0px 3px 0px;
+ width:210px;
+}
+div.cmd_review .footer {
+ text-align:right;
+ margin:4px 2px 0px 2px;
+ padding:5px;
+ height:18px;
+ width:306px;
+ border-top:1px dashed #c0c0c0;
+ clear:both;
+}
+div.cmd_review .category {
+ margin:0px;
+ padding:0px;
+ text-align:left;
+ width:200px;
+ float:left;
+}
+div.cmd_review .more_info {
+ text-align:right;
+ margin:0px;
+ padding:0px;
+ width:auto;
+ float:right;
+}
+div.cmd_review .clear {
+ height:0px;
+ clear:both;
+}

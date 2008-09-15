@@ -1,0 +1,93 @@
+<?php include_once $header; ?>
+<!-- header ends-->
+
+<!-- content-wrap starts here -->
+<div id="content-wrap">
+    <div id="content">
+        <div id="sidebar" >
+            <?php //include_once 'common/sidebar.html'; ?>
+        </div>
+        <div id="main">
+            <a name="top"></a>
+            <h2>MyNETSへようこそ</h2>
+            <p>MyNETSコンバータでは、画面を見ながらMyNETS最新バージョンへコンバートすることができます。<br />
+            画面の指示に従ってSNSエンジン「MyNETS最新版」へコンバートしましょう。
+            </p>
+            <p>
+            MyNETS最新版へコンバートできるのは、MyNETSの以前のバージョンからのアップグレードと、OpenPNEのVer2.8.Xからのコンバートです。<br />
+            <span style="color:red">OpenPNE Ver2.10.Xは、絵文字コードの保存形式が変更されたため、絵文字コンバートを行わないといけません。<br />
+            現在のMyNETSコンバータでは絵文字コンバート機能がありません</span>
+            </p>
+            <p><span style="color:red">コンバータの実行を行った後、またはコンバータを実行しない場合、コンバータディレクトリは削除するか、別名に変更してください。</span>
+</p>
+
+            <a name="modules-check"></a>
+            <h2>必要なもの</h2>
+            <h3>コンバートに当たっては次の内容が必要になります。</h3>
+            <ul>
+                <li>DBサーバへの接続情報</li>
+            </ul>
+            <br />
+            <?php
+            if ($error_msg)
+            {
+            ?>
+                <h3 style="color:red">config.php（設定情報）が読み込めません。conf/ディレクトリにconfig.phpを設置してください！！</h3>
+            <?php
+            }
+            else
+            {
+                echo form_open('Converterinfo');
+            ?>
+            <table>
+                <tr>
+                    <td>接続ユーザー名: </td>
+                    <td><?php echo $username; ?></td>
+                </tr>
+                <tr>
+                    <td>接続パスワード: </td>
+                    <td>****************</td>
+                </tr>
+                <tr>
+                    <td>接続サーバー名: </td>
+                    <td><?php echo $hostname; ?></td>
+                </tr>
+                <tr>
+                    <td>使用DATABASE名: </td>
+                    <td><?php echo $dbname; ?></td>
+                </tr>
+                <tr>
+                    <td>DB PREFIX名: </td>
+                    <td><?php
+                        if ($dbprefix)
+                        {
+                            echo $dbprefix;
+                        }
+                        else
+                        {
+                            echo "prefix なし";
+                        }
+                        ?></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><?php echo form_submit('submit', '次へ'); ?></td>
+                </tr>
+            </table>
+            <input type="hidden" name="username" value="<?php echo $username; ?>" />
+            <input type="hidden" name="password" value="<?php echo $password; ?>" />
+            <input type="hidden" name="hostname" value="<?php echo $hostname; ?>" />
+            <input type="hidden" name="dbname" value="<?php echo $dbname; ?>" />
+            <input type="hidden" name="dbprefix" value="<?php echo $dbprefix; ?>" />
+            <?php echo form_close(); ?>
+            <?php
+            }
+            ?>
+        </div>
+    </div>
+</div>
+<!-- content-wrap ends here -->
+
+<!-- footer starts here-->
+<?php include_once $footer; ?>
+<!-- footer ends-->

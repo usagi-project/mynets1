@@ -1,0 +1,51 @@
+<?php include_once $header; ?>
+<!-- header ends-->
+
+<!-- content-wrap starts here -->
+<div id="content-wrap">
+    <div id="content">
+        <div id="sidebar" >
+            <?php //include_once 'common/sidebar.html'; ?>
+        </div>
+        <div id="main">
+            <a name="top"></a>
+            <h2>MyNETSへようこそ</h2>
+            <p>MyNETSコンバータでは、画面を見ながらMyNETS最新バージョンへコンバートすることができます。<br />
+            画面の指示に従ってSNSエンジン「MyNETS最新版」へコンバートしましょう。
+            </p>
+            <p>
+            MyNETS最新版へコンバートできるのは、MyNETSの以前のバージョンからのアップグレードと、OpenPNEのVer2.8.X以下ノーバージョンからのコンバートです。<br />
+            <span style="color:red"><!--OpenPNE Ver2.10.Xは、絵文字コードの保存形式が変更されたため、絵文字コンバートを行わないといけません。<br />-->
+            現在のMyNETSコンバータでは絵文字コンバート機能がありません<br />そのため、OpenPNE Ver2.10.Xからコンバートした場合、過去に入力した絵文字が正常に表示されません。<br />
+            OpenPNE Ver2.10.Xからコンバートされる場合はご注意ください。</span>
+            </p>
+            <p><span style="color:red">現在MyNETS1.2.0コンバートツールでは、OpenPNE Ver2.11.X以上のバージョンのコンバートにおいては対応しておりません。</span>
+            </p>
+            <a name="modules-check"></a>
+            <h2>処理を選択してください。</h2>
+            <h3>次の処理を選択することができます。</h3>
+            <ul>
+                <li>バージョンアップ</li>
+                <li>OpenPNEからのコンバート</li>
+            </ul>
+            <div style="text-align:center">
+            <?php echo form_open('Convert');?>
+            <?php if ($from_version == 'mynets') { ?>
+            <?php echo form_submit('submit', 'VersionUP'); ?>
+            <?php } else { ?>
+            <?php echo form_submit('submit', 'Convert'); ?>
+            <?php } ?>
+            <?php echo form_close();?>
+            </div>
+            <?php echo form_open('');?>
+            <?php echo form_submit('submit', 'Cancel'); ?>
+            <?php echo form_close();?>
+        </div>
+    </div>
+</div>
+<!-- content-wrap ends here -->
+
+<!-- footer starts here-->
+<?php include_once $footer; ?>
+<!-- footer ends-->
+

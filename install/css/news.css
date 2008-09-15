@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+/* 共通指定 */
+body {
+  background: #F1F1F1 url(../images/bg-body-2nd.jpg) repeat-x;
+}
+/* 共通設定 END */
+
+
+/* メインイメージ */
+#main-image {
+  height: 93px;
+  background-image: url(../images/bg-category-news2.jpg);
+}
+/* メインイメージ END */
+
+
+/* メインメニュー */
+#main-menu {
+  width: 157px;
+  background-image: url(../images/bg-main-menu.jpg);
+  background-repeat: repeat-y;
+  padding-left: 10px;
+  float: left;
+}
+#main-menu ul.menu li {
+  margin-bottom: 1px;
+}
+/* メインメニュー END */
+
+
+/* コンテンツ */
+#news-box {
+  width: 575px;
+  margin-right: 10px;
+  float: right;
+}
+/* コンテンツ END */
+.news-body {
+	width: 475px;
+}

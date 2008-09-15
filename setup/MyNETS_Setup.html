@@ -1,0 +1,529 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title>Usagi Project MyNETS 1.2.0 セットアップガイド</title>
+<style type="text/css">
+<!--
+body {
+  background-color: #fff;
+  color: #000;
+  margin: 0px;
+  padding: 1em;
+  padding-right: 2em;
+}
+h2 {
+    margin: 1em 0 1em;
+    color: #666666;
+    border-bottom-width: 3px;
+    border-bottom-style: dotted;
+    border-bottom-color: #999999;
+}
+hr{
+    border-top: 3px dotted #CCCCCC;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+}
+p.caution {
+  margin: 1em;
+  padding: 0.8em;
+  border: solid 1px #f63;
+}
+.footer {
+    text-align: center;
+}
+pre {
+    margin: 0.5em;
+    padding: 1em 2em;
+    background-color: #eee;
+    font-size: inherit;
+}
+dl {
+  margin: 1em;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin: 0 0 0.5em 1em;
+}
+table {
+  margin: 1em;
+  border-collapse: collapse;
+}
+th {
+  background-color: #ddd;
+}
+th, td {
+  padding: 5px 10px;
+  border: solid 1px #000;
+}
+var {
+  color: #922;
+}
+em {
+  font-weight: bold;
+  font-style: normal;
+}
+-->
+</style>
+</head>
+
+<body>
+
+<h1>Usagi Project MyNETS 1.2.0 セットアップガイド</h1>
+
+<p>最終更新日: 2008/09/10</p>
+
+<h2>目次</h2>
+<ul>
+<li><a href="#SECTION0">0. はじめに</a></li>
+<li><a href="#SECTION1">1. ファイルの設置</a></li>
+<li><a href="#SECTION2">2. 設定ファイルの変更</a></li>
+<li><a href="#SECTION3">3. サーバ設定</a>
+  <ul>
+  <li><a href="#SECTION3-1">3-1. Apache の設定</a></li>
+  <li><a href="#SECTION3-2">3-2. メールサーバの設定</a></li>
+  <li><a href="#SECTION3-3">3-3. cron の設定</a></li>
+  </ul></li>
+<li><a href="#SECTION4">4. MyNETS 用データベースの作成</a>
+  <ul>
+  <li><a href="#SECTION4-1">4-1. MySQL 4.1 以上の場合</a></li>
+  <li><a href="#SECTION4-2">4-2. MySQL 4.0 の場合</a></li>
+  </ul></li>
+<li><a href="#SECTION5">5. セットアップモジュールの実行</a></li>
+<li><a href="#SECTION6">6. 管理ページへのアクセス</a></li>
+</ul>
+
+<hr>
+
+<h2 id="SECTION0">0. はじめに</h2>
+
+<p>この文書は、MyNETS バージョン 1.2.0 を基にして書かれています。</p>
+<p>MyNETS は以下のようなサーバ環境で動作させることを想定しています。</p>
+<ul>
+<li>Apache 1.3.*/2.0.* 以上</li>
+<li>PHP 4.3.*/5.0.*/5.1.*~ (SAPI版を推奨)
+    <ul>
+    <li>PHP の mbstring 拡張モジュールを使用可能</li>
+    <li>PHP から GD ライブラリを使用可能 (JPEG/GIF/PNG サポート)</li>
+    <li>PHP の mcrypt 拡張モジュールの使用を推奨</li>
+    </ul></li>
+<li>MySQL 4.0/4.1/5.0~</li>
+<li>メールサーバ(携帯からメール投稿する場合)
+    <ul>
+    <li>Postfix 2.1.* 以上を推奨</li>
+    </ul></li>
+</ul>
+
+<h2 id="SECTION1">1. ファイルの設置</h2>
+
+<p>MyNETS に含まれるディレクトリ、ファイルを以下のように Web サーバ上に設置してください。</p>
+
+<p>インストーラを利用してインストールする場合は、Web サーバ上への設置が完了したら、設置した URL にブラウザでアクセスし、インストーラの指示に従って下さい。</p>
+
+<pre>
+- <var>OPENPNE_DIR</var>
+  ├ bin-- *.cron[755]
+  ├ lib          &lt;--- <var>OPENPNE_LIB_DIR</var>
+  ├ var          &lt;--- <var>OPENPNE_VAR_DIR</var>
+  │ ├ img_cache
+  │ │ ├ gif [777]
+  │ │ │ ├ w_h [777]
+  │ │ │ ├ w_h_raw [777]
+  │ │ │ ├ w76_h76 [777]
+  │ │ │ ├ w120_h120 [777]
+  │ │ │ └ w180_h180 [777]
+  │ │ ├ jpg [777]
+  │ │ │ ├ w_h [777]
+  │ │ │    ... [777]
+  │ │ └ png [777]
+  │ │    ├ w_h [777]
+  │ │       ... [777]
+  │ ├ log [777]
+  │ ├ rss_cache [777]
+  │ ├ templates_c [777]
+  │ └ tmp [777]
+  ├ webapp       &lt;--- <var>OPENPNE_WEBAPP_DIR</var>
+  ├ webapp_ext   &lt;--- <var>OPENPNE_WEBAPP_EXT_DIR</var>
+  ├ config.inc.php (<var>OPENPNE_DIR</var> ディレクトリを指定)
+  ├ index.php
+     ...
+
+※[777] は例です。環境に合わせて適切な値に読み替えてください。
+</pre>
+
+<p>また、<var>OPENPNE_DIR</var>/var 以下の<strong>全ディレクトリ</strong>にウェブサーバからの書き込み権限(例えば 777)を与えてください。</p>
+<pre>
+$ chmod -R 777 var/*
+</pre>
+
+<hr>
+
+<pre>
+-  <var>OPENPNE_DIR</var>
+  ├ bin
+  ├ lib          &lt;--- <var>OPENPNE_LIB_DIR</var>
+  ├ var          &lt;--- <var>OPENPNE_VAR_DIR</var>
+  │ ├ log [777]
+  │ ├ rss_cache [777]
+  │ ├ templates_c [777]
+  │ └ tmp [777]
+  ├ webapp       &lt;--- <var>OPENPNE_WEBAPP_DIR</var>
+  ├ conf [777]   &lt;--- <var>conf directry</var>
+  │ └ config.php ここに config.php.sample を編集して設置
+  │    (インストーラを利用してインストールする場合は、インストーラが作成します)
+  ├ webapp_ext   &lt;--- <var>OPENPNE_WEBAPP_EXT_DIR</var>
+  ├ config.inc.php (<var>OPENPNE_DIR</var> ディレクトリを指定)
+  ├ index.php
+  ├ img
+  │ ├ .htaccess
+  │ ├ index.php
+  │ ├ gif [777]
+  │ │ ├ w_h [777]
+  │ │ ├ w_h_raw [777]
+  │ │ ├ w36_h36 [777]
+  │ │ ├ w76_h76 [777]
+  │ │ ├ w120_h120 [777]
+  │ │ └ w180_h180 [777]
+  │ ├ jpg [777]
+  │ │ ├ w_h [777]
+  │ │    ... [777]
+  │ └ png [777]
+  │    ├ w_h [777]
+  │       ... [777]
+  ├ skin  ... [777]
+     ├ default  ... [777]
+     │ └ img [777]
+     ├ ume      ... [777]
+     │ └ img [777]
+     └ [任意のスキンディレクトリ名]  ... [777]
+        └ img [777]
+     ...
+
+※[777] は例です。環境に合わせて適切な値に読み替えてください。
+</pre>
+
+<hr>
+
+ウェブからの公開領域に置く必要のないファイルを非公開領域に置きたい場合は、以下のファイルとディレクトリを非公開領域に移動し、config.inc.php の <var>OPENPNE_DIR</var> のパスを調整して下さい。インストーラを利用してインストールする場合は、この作業はインストール完了後に実施して下さい。
+
+<pre>
+LICENSE
+THANKS.ja
+access.sh
+bin/
+conf/
+lib/
+setup/
+var/
+webapp/
+webapp_ext/
+</pre>
+
+
+<h2 id="SECTION2">2. 設定ファイルの変更</h2>
+
+<p>
+<var>OPENPNE_DIR</var>/conf/config.php.sample を
+<var>OPENPNE_DIR</var>/conf/config.php にコピーして config.php の方を環境に合わせて編集します。</p>
+
+
+<h3>SNS の URL</h3>
+28行目 Web 上の絶対パス(URL)
+<br>
+http://sns.example.com/ の部分を、SNS を設置する URL に変更してください。最後にスラッシュを付けてください
+<pre>define('OPENPNE_URL', 'http://sns.example.com/');</pre>
+
+
+<h3>データベースの設定</h3>
+30行目
+<pre>
+$GLOBALS['_OPENPNE_DSN_LIST']['main'] = array(
+'dsn'  =&gt; array(
+    'phptype'  =&gt; 'mysql',
+    'username' =&gt; 'MYSQL サーバのユーザ名',
+    'password' =&gt; 'パスワード',
+    'hostspec' =&gt; 'localhost',
+    'database' =&gt; 'SNS 用に作成したデータベースの名前',
+    'new_link' =&gt; false,
+    ),
+);
+</pre>
+
+
+<h3>DB暗号化キー(56バイト以内のASCII文字列) </h3>
+
+42行目 暗号を記入(好きな英数字を入れても大丈夫です)
+<pre>
+// DB暗号化キー(56バイト以内のASCII文字列)
+define('ENCRYPT_KEY', '');
+</pre>
+サーバで暗号を生成する場合は以下のコマンドで生成ください(CentOS、Fedora Core 6 にて生成実行確認)
+<pre>
+$ mkpasswd -l 56
+kggqcorgrurylrQts}gpitoqnlqsxcishxdjrq24zjtpyausemhkxtxI
+</pre>
+
+
+<h3>メールのドメイン </h3>
+
+45行目 mail.example.com の部分を、使用するメールドメインに変更ください。
+<pre>
+// メールサーバードメイン
+// 携帯メール投稿の宛先などのドメイン名に使われる
+define('MAIL_SERVER_DOMAIN', 'mail.example.com');
+</pre>
+
+
+<h3>Google Maps API Key</h3>
+
+設置するサイト用の Google Maps API Key を取得してください。
+<br>
+* 申請先URL: <a href="http://www.google.com/apis/maps/signup.html" target="_blank">http://www.google.com/apis/maps/signup.html</a>
+<br><br>
+
+401行目に取得したキーを記入してください。
+<pre>
+// Google Maps API key
+///
+define('GOOGLE_MAPS_API_KEY', '取得したKEYをここに記入してください');
+</pre>
+
+
+<h3>スキン設置ディレクトリ</h3>
+
+スキンの変更は FTP などにより行います。
+<br><br>
+
+* <var>OPENPNE_DIR</var>/skin/[skin任意のディレクトリ名]/img/ 以下に、スキン素材を保存します。
+<br>
+(このディレクトリ内で足りない素材は、skin/default/img/ 以下のファイルが補完をします。)
+<br><br>
+
+* 設置ディレクトリおよび設置スキンのパーミッションを 777 に変更します。
+<pre>
+$ chmod -R 777  <var>OPENPNE_DIR</var>/skin/[skin任意のディレクトリ名]/img/
+</pre>
+
+<p>必要に応じて、オプション設定も書き換えてください。
+デバッグモードの設定は、本番運用に移行する際には 0 にしておくことをおすすめします。</p>
+
+
+<h2 id="SECTION3">3. サーバ設定</h2>
+
+<p>レンタルサーバ等で設定済みの場合は読み飛ばしてください。</p>
+
+<h3 id="SECTION3-1">3-1. Apacheの設定</h3>
+
+<p>httpd.conf を修正し、</p>
+<ul>
+<li>DirectoryIndex に index.php を追加します。</li>
+<li><var>OPENPNE_DIR</var> にアクセスできるようにドキュメントパスを通します。</li>
+</ul>
+
+<p><em>[設定例]</em></p>
+<div>
+バーチャルホストを使った httpd.conf の設定
+<pre>
+&lt;VirtualHost *:80&gt;
+    ServerName        mynets.example.jp
+    DocumentRoot      /home/username/OPENPNE_DIR/
+    DirectoryIndex    index.html index.php
+&lt;/VirtualHost&gt;
+</pre>
+</div>
+
+<p>httpd.conf を修正したら、Apache を再起動してください。<br>
+設定は設置した環境に合わせて行ってください。</p>
+
+<h3 id="SECTION3-2">3-2. メールサーバの設定</h3>
+
+<p>携帯版を使用しない場合は以下の設定は不要です。</p>
+
+<p>MAIL_SERVER_DOMAIN に届くメールで、以下のアドレスはシステムで利用されます。</p>
+
+<table>
+<tr><th>項目</th><th>新形式</th><th>旧形式</th></tr>
+<tr>
+    <td>新規登録 / ログインURL取得</td>
+    <td>get@MAIL_SERVER_DOMAIN</td>
+    <td>同左</td>
+</tr>
+<tr>
+    <td>プロフィール画像変更</td>
+    <td>p<var>XXX</var>-<var>YYY</var>@MAIL_SERVER_DOMAIN</td>
+    <td>p<var>XXX</var>@MAIL_SERVER_DOMAIN</td>
+</tr>
+<tr>
+    <td>コミュニティトピックのメール投稿</td>
+    <td>t<var>XXX</var>-<var>YYY</var>@MAIL_SERVER_DOMAIN</td>
+    <td>t<var>XXX</var>@MAIL_SERVER_DOMAIN</td>
+</tr>
+<tr>
+    <td>コミュニティトピックのメール作成</td>
+    <td>e<var>XXX</var>-<var>YYY</var>@MAIL_SERVER_DOMAIN</td>
+    <td>e<var>XXX</var>@MAIL_SERVER_DOMAIN</td>
+</tr>
+<tr>
+    <td>コミュニティトピックのメール修正</td>
+    <td>et<var>XXX</var>-<var>YYY</var>@MAIL_SERVER_DOMAIN</td>
+    <td>et<var>XXX</var>@MAIL_SERVER_DOMAIN</td>
+</tr>
+<tr>
+    <td>日記メール投稿</td>
+    <td>b<var>XXX</var>-<var>YYY</var>@MAIL_SERVER_DOMAIN</td>
+    <td>blog@MAIL_SERVER_DOMAIN</td>
+</tr>
+<tr>
+    <td>日記コメントメール投稿</td>
+    <td>c<var>XXX</var>-<var>YYY</var>@MAIL_SERVER_DOMAIN</td>
+    <td>c<var>XXX</var>@MAIL_SERVER_DOMAIN</td>
+</tr>
+<tr>
+    <td>日記画像の修正メール投稿</td>
+    <td>dpic<var>XXX</var>-<var>XXX</var>-<var>YYY</var>@MAIL_SERVER_DOMAIN</td>
+    <td>dpic<var>XXX</var>-<var>XXX</var>@MAIL_SERVER_DOMAIN</td>
+</tr>
+<tr>
+    <td>コミュニティの管理者の携帯での画像変更投稿</td>
+    <td>copic<var>XXX</var>-<var>XXX</var>-<var>YYY</var>@MAIL_SERVER_DOMAIN</td>
+    <td>copic<var>XXX</var>-<var>XXX</var>@MAIL_SERVER_DOMAIN</td>
+</tr>
+<tr>
+    <td>空メールによる携帯アドレス設定</td>
+    <td>mbentry@MAIL_SERVER_DOMAIN</td>
+    <td>同左</td>
+</tr>
+<tr>
+    <td>QRコードによるコミュニティ経由新規登録用アドレス(1.2.0Nigty で追加)</td>
+    <td>qrc<var>XXX</var>-<var>XXX</var>@MAIL_SERVER_DOMAIN</td>
+    <td>同左</td>
+</tr>
+<tr>
+    <td>QRコードによるメンバー紹介新規登録用アドレス(1.2.0で追加;機能未実装)</td>
+    <td>qrm-<var>XXX</var>@MAIL_SERVER_DOMAIN</td>
+    <td>同左</td>
+</tr>
+</table>
+<ul>
+<li><var>XXX</var> には数字。</li>
+<li><var>YYY</var> には 12 バイトの英数字([0-9a-f]{12})。</li>
+</ul>
+
+<p>新形式、旧形式のどちらのアドレスで受け付けるかは config.php の設定(MAIL_ADDRESS_HASHED)によって切り替えることができます。</p>
+<p>新形式はメール投稿の際の From アドレス偽装へのセキュリティ対策のために導入されたものです。
+From 偽装対策を(IP 制限等により)メールサーバ側で行っている場合には旧形式での運用も問題ありません。</p>
+
+<p>メールサーバの転送設定を利用して、これらのアドレスへのメールが、以下のコマンドにわたるように設定します。</p>
+<pre>
+"|/usr/local/bin/php <var>OPENPNE_DIR</var>/bin/mail.php"
+</pre>
+
+<h3 id="SECTION3-3">3-3. cron の設定</h3>
+
+<p><em>[設定例]</em></p>
+
+<p>/etc/crontab に以下を記述。</p>
+<div>
+<pre>
+# 6時にメールを送信＆20分毎にRSS更新
+00   6 * * * root sh <var>OPENPNE_DIR</var>/bin/tool_send_dairy_news.cron     <var>OPENPNE_DIR</var>/bin/ [bin_path]/php
+00   6 * * * root sh <var>OPENPNE_DIR</var>/bin/tool_send_birthday_mail.cron  <var>OPENPNE_DIR</var>/bin/ [bin_path]/php
+00   6 * * * root sh <var>OPENPNE_DIR</var>/bin/tool_send_schedule_mail.cron  <var>OPENPNE_DIR</var>/bin/ [bin_path]/php
+*/20 * * * * root sh <var>OPENPNE_DIR</var>/bin/tool_rss_cache.cron           <var>OPENPNE_DIR</var>/bin/ [bin_path]/php
+</pre>
+[bin_path] は php コマンドをインストールした bin ディレクトリ(例えば、/usr/local/bin)です。
+</div>
+
+<h2 id="SECTION4">4. MyNETS 用データベースの作成</h2>
+<p>インストーラを利用してインストールする場合は、下記のテーブル作成はインストーラーが行います。</p>
+
+<h3 id="SECTION4-1">4-1. MySQL 4.1 以上の場合</h3>
+
+<p>新しくデータベースを作成する場合、以下のような SQL クエリを実行してデータベースを作成します。</p>
+
+<pre>
+CREATE DATABASE `DBNAME` DEFAULT CHARACTER SET utf8 ;
+</pre>
+
+<p>準備したデータベース(例: DBNAME)上で、以下の SQL 文を順番に実行してください。</p>
+<ol>
+<li><var>OPENPNE_DIR</var>/setup/sql/MySQL4.1/install/install-mynets-create-mysql41.sql</li>
+<li><var>OPENPNE_DIR</var>/setup/sql/MySQL4.1/install/install-mynets-insert_data.sql</li>
+</ol>
+
+<div>
+<em>[実行例]</em>
+<pre>
+$ mysql -u username -p --default-character-set=utf8 DBNAME &lt; install-mynets-create-mysql41.sql
+$ mysql -u username -p --default-character-set=utf8 DBNAME &lt; install-mynets-insert_data.sql
+</pre>
+</div>
+
+<h3 id="SECTION4-2">4-2. MySQL 4.0 の場合</h3>
+<p>新しくデータベースを作成する場合、以下のような SQL クエリを実行してデータベースを作成します。</p>
+
+<pre>
+CREATE DATABASE `DBNAME` ;
+</pre>
+
+<p>準備したデータベース(例: DBNAME)上で、以下の SQL 文を順番に実行してください。</p>
+<ol>
+<li><var>OPENPNE_DIR</var>/setup/sql/MySQL4.0/install/install-mynets-create-mysql40.sql</li>
+<li><var>OPENPNE_DIR</var>/setup/sql/MySQL4.0/install/install-mynets-insert_data.sql</li>
+</ol>
+
+<div>
+<em>[実行例]</em>
+<pre>
+$ mysql -u username -p DBNAME &lt; install-mynets-create-mysql40.sql
+$ mysql -u username -p DBNAME &lt; install-mynets-insert_data.sql
+</pre>
+</div>
+
+<h2 id="SECTION5">5. セットアップモジュールの実行</h2>
+
+<p>ブラウザから以下のアドレスへアクセスしてください。(セットアップ完了後はアクセスすることができません)</p>
+
+<pre>
+<var>OPENPNE_URL</var>?m=setup
+(例) http://mynets.example.jp/?m=setup
+</pre>
+
+<p>ここで SNS 名、管理用アカウント、初期メンバーの設定を行うことができます。</p>
+
+
+<h2 id="SECTION6">6. 管理ページへのアクセス</h2>
+
+<p>セットアップ時に設定した管理用アカウントのユーザ名、パスワードを入力してログインしてください。ログイン後、管理メニューの「SNS設定変更」から SNS の基本情報の設定をすることができます。</p>
+
+<pre>
+<var>OPENPNE_URL</var>?m=admin
+(例) http://mynets.example.jp/?m=admin
+</pre>
+
+<p>管理ページの URL を変更する場合は、設定ファイル config.php 内にある ADMIN_MODULE_NAME の値を変更してください。</p>
+<div>例えば、abcde に変更した場合、
+<pre>
+<var>OPENPNE_URL</var>?m=abcde
+(例) http://mynets.example.jp/?m=abcde
+</pre>
+という URL から管理ページへアクセスすることができます。</div>
+
+<p>また、管理メニューの「管理用ページ名をランダム生成」でページ名置換を実行すると管理ページ内部のページ名を変更することができるので、セキュリティ向上のためセットアップ後に必ず実行しておくことをおすすめします。</p>
+
+<hr>
+<p>これでセットアップは完了です。</p>
+
+<hr>
+OpenPNE は株式会社手嶋屋の開発しているオープンソースソフトウェアの名称です。<br>MyNETS は、ネットを使って多くの開発者が共同で開発している Usagi Project のオープンソースソフトウェアの名称です。<br>
+プロジェクト管理者、開発者、開発協力者の情報はプロジェクトホームページをご覧ください。<br>
+<a href="http://usagi-project.org/">Usagi Project</a> | <a href="https://sourceforge.jp/projects/usagi/">SourceForge.jp Usagi Project</a>
+<hr>
+<div class='footer'>(c)2006-2008 Usagi Project</div>
+
+</body>
+</html>

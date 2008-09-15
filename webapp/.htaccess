@@ -1,0 +1,2 @@
+# This folder does not require access over HTTP
+Order allow,deny

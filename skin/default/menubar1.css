@@ -1,0 +1,30 @@
+@charset "UTF-8";
+#menubar1 {
+ position: relative;
+ display:  block;
+ width:    720px;
+ height:   96px;
+}
+#menubar1 a img {
+ width:  100%;
+ height: 100%;
+}
+#pmenu1 { position:absolute; top: 70px;  left:  0px;  width: 90px; height: 20px;}
+#pmenu2 { position:absolute; top: 70px;  left: 90px;  width: 90px; height: 20px;}
+#pmenu3 { position:absolute; top: 70px;  left:180px;  width: 90px; height: 20px;}
+#pmenu4 { position:absolute; top: 70px;  left:288px;  width: 72px; height: 20px;}
+#pmenu5 { position:absolute; top: 70px;  left:360px;  width: 72px; height: 20px;}
+#pmenu6 { position:absolute; top: 70px;  left:432px;  width: 72px; height: 20px;}
+#pmenu7 { position:absolute; top: 70px;  left:504px;  width: 72px; height: 20px;}
+#pmenu8 { position:absolute; top: 70px;  left:576px;  width: 72px; height: 20px;}
+#pmenu9 { position:absolute; top: 70px;  left:648px;  width: 72px; height: 20px;}
+a#pmenu1:hover { background: url(./img/skin_after_header_2.jpg)    0px -70px;}
+a#pmenu2:hover { background: url(./img/skin_after_header_2.jpg)  -90px -70px;}
+a#pmenu3:hover { background: url(./img/skin_after_header_2.jpg) -180px -70px;}
+a#pmenu4:hover { background: url(./img/skin_after_header_2.jpg) -288px -70px;}
+a#pmenu5:hover { background: url(./img/skin_after_header_2.jpg) -360px -70px;}
+a#pmenu6:hover { background: url(./img/skin_after_header_2.jpg) -432px -70px;}
+a#pmenu7:hover { background: url(./img/skin_after_header_2.jpg) -504px -70px;}
+a#pmenu8:hover { background: url(./img/skin_after_header_2.jpg) -576px -70px;}
+a#pmenu9:hover { background: url(./img/skin_after_header_2.jpg) -648px -70px;}
+

@@ -1,0 +1,39 @@
+@charset"UTF-8";
+
+/*サイドニュース*/
+
+#sidenews * {
+ border: none;
+ font-size: 12px;
+ text-decoration: none;
+ margin: 0px;
+ padding: 0px;
+ }
+#sidenews {
+ display: block;
+ margin: 5px;
+ height: auto;
+ width: 170px;
+ border: 1px solid #CCCCCC;
+}
+#sidenews h2 {
+ background-color: #C9C9C9;
+ background-position: center center;
+ margin: 5px;
+ padding: 5px;
+ text-align: center;
+}
+#sidenews p {
+ line-height: 15px;
+ margin-top: 5px;
+ margin-right: 5px;
+ margin-bottom: 5px;
+ margin-left: 5px;
+ background-color: #EFEFEF;
+}
+#sidenews img {
+ margin: 0px;
+ padding: 0px;
+ width:14px;
+ height:14px;
+}

@@ -1,0 +1,97 @@
+// ニュースを表示するか否か
+define('DISPLAY_NEWS_BLOCK',true);
+
+// 認証前、ログインページなどでニュースを表示するか否か
+define('DISPLAY_NEWS_BLOCK_WITHOUT_LOGIN',false);
+
+// ニュースフィードのキャッシュの場所
+define('NEWS_CACHE_DIR',OPENPNE_RSS_CACHE_DIR);
+
+// ニュースフィードの取得制限時間（秒）
+define('NEWS_CACHE_LIMIT',1800);
+
+// ニュースフィードのURLリスト
+// RSS1.0/RSS2.0/Atom1.0形式のフィードを返すURLを指定してください。
+// キーとURLという形で複数指定することも可能ですが、実際に使用するURLの分だけ処理が重くなります。
+// 以下はサンプルのURLです。使用する行の先頭の「//」（コメントアウト）を削除し、使用しない
+// 場合には、先頭に「//」を記述して下さい。
+$GLOBALS['NEWS_FEED_URL_LIST'] = array(
+    'GoogleNews-Popular' => 'http://news.google.com/news?hl=ja&ned=ja&ie=UTF-8&oe=UTF-8&output=atom&topic=po',
+//    'goo-Ranking' => 'http://ranking.goo.ne.jp/rss/index.rdf',
+);
+
+// ニュース記事のリンク要素から、元記事のURLを取り出す場合の
+// URLの正規表現のリスト
+// 'pattern'に正規表現を記述し、preg_matchの検索結果の
+// $matches[1]にドメイン名、$matches[2]に元記事のURL部分
+//  が入る正規表現にする。
+// 'urldecode'については、抽出した元記事のURLをURLデコード
+// するか否か(true/false)の指定項目。
+$GLOBALS['NEWS_EXTRACT_LINK_URL_LIST'] = array(
+    'GoogleNews' => array(
+                        'pattern'   => '@http://(news\.google\.com)/.*url=([^&]+)@i',
+                        'urldecode' => true,
+                    ),
+    'GooRanking' => array(
+                        'pattern'   => '@http://(plus\.goo\.ne\.jp)/rnkredir/redir\.php\?.*to=(http%3A%2F%2F.+)@i',
+                        'urldecode' => true,
+                    ),
+    'Yahoo!News' => array(
+                        'pattern'   => '@http://(rd\.yahoo\.co\.jp)/[^\*]+\*(http://.+)@i',
+                        'urldecode' => false,
+                    ),
+    'RSSNavi' => array(
+                        'pattern'   => '@http://(www\.rssnavi\.jp)/r/\?.+(?:&amp;|&)u=(http.+)@i',
+                        'urldecode' => false,
+                    ),
+);
+
+// 広告などのURLをニュース記事から除去するための、URLの正規表現のリスト
+// デリミタは「/」でも何でも良いが、正規表現であることが条件
+$GLOBALS['NEWS_REMOVE_LINK_URL_LIST'] = array(
+    '@http://www\.pheedo\.jp/click\.phdo\?a=@i',
+    '@http://ck\.jp\.ap\.valuecommerce\.com/.+@i',
+);
+
+// 広告などの項目をニュース記事から除去するための、タイトルの正規表現のリスト
+// デリミタは「/」でも何でも良いが、正規表現であることが条件
+$GLOBALS['NEWS_REMOVE_TITLE_LIST'] = array(
+    '/^AD[:|：]/i',
+    '/^PR[:|：]/i',
+    '/^\(AD\)/i',
+    '/^配信日時/',
+    '/^ダイジェストニュース：製品情報/',
+);
+
+// ニュースを取得する件数
+define('NEWS_FEED_MAX',10);
+
+// ニュースのテキスト（概要）を省略する位置（文字数）
+// 省略文字も含んだ長さにすること
+define('NEWS_DESCRIPTION_LENGTH',200);
+
+// ニュースのテキスト（概要）を省略したことを表す文字列
+define('NEWS_DESCRIPTION_ETC','...');
+
+// Proxyサーバの設定（ENABLE_PROXY以外は小文字）
+// ENABLE_PROXY ... Proxyを使用するか否か（true/false）
+// proxy_host   ... Proxyサーバのホスト名またはIPアドレス
+// proxy_port   ... Proxyサーバのポート番号（80番や8080、8888など）
+// proxy_user   ... Proxyサーバを利用する際のユーザ名（通常不要）
+// proxy_pass   ... Proxyサーバを利用する際のパスワード（通常不要）
+$GLOBALS['NEWS_PROXY_CONFIG'] = array(
+    'ENABLE_PROXY'  => false,
+    'proxy_host' => 'localhost',
+    'proxy_port' => 8080,
+    'proxy_user' => '',
+    'proxy_pass' => '',
+);
+
+// 複数のニュースを結合してキャッシュする(true)か否(false)か
+// ニュースの保存に時間がかかるようになるが、読み出しは速くなる。
+define('NEWS_CACHE_MERGE',true);
+
+// キャッシュがNEWS_CACHE_LIMITより古い場合に収集する(true)か否(false)か
+// falseの場合は常にキャッシュから読み込む。（キャッシュがない場合だけ収集）
+// false指定の場合は、cronなどでキャッシュを更新しないと意味がないので注意。
+define('NEWS_COLLECT_FEED',true);

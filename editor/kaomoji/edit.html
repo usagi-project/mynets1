@@ -1,0 +1,274 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+body {
+    font-family: "Osaka","ＭＳ Ｐゴシック",sans-serif ;
+    line-height:160%;
+    margin:0;
+    padding:0;
+}
+a.kao {
+    margin:1px;
+    padding:3px;
+    background-color:#DDDDDD;
+    font-size:12px;
+    text-decoration:none;
+    color:#000000;
+}
+a.kao:hover{
+    margin:1px;
+    padding:3px;
+    background-color:#FECEAE;
+    font-size:12px;
+    text-decoration:none;
+    color:#000000;
+}
+.flat {
+    margin:1px;
+    padding:3px;
+    border:#ffffff 1px solid;
+    background-color:#ffffff;
+    font-size:12px;
+    color:#000000;
+}
+.over {
+    margin:1px;
+    padding:3px;
+    border:#316AC5 1px solid;
+    background-color:#DFF1FF;
+    font-size:12px;
+    color:#000000;
+    text-decoration:none;
+}
+.toggle {
+    margin:1px;
+    padding:3px;
+    border:#316AC5 1px solid;
+    background-color:#C1D2EE;
+    font-size:12px;
+    color:#000000;
+    text-decoration:none;
+}
+</style>
+<script src="../../js/javascripts/Selection.js" type="text/javascript"></script>
+<script type="text/javascript">
+var gecko = false;
+var msie = false;
+if(navigator) {
+    if(navigator.userAgent) {
+        if(navigator.userAgent.indexOf("Gecko") != -1) {
+            gecko = true;
+        } else if(navigator.userAgent.indexOf("MSIE") != -1) {
+            msie = true;
+        }
+    }
+}
+
+function insertKao (num) {
+    e = window.parent.area;
+    if (window.parent.document.selection) {
+        e.focus();
+        if(msie) {
+            var selection = new Selection(e);
+            var s = selection.create();
+            var iestart = s.start;
+            var iehead = e.value.substring(0, iestart);
+            var ieend = s.end;
+            var rt = e.value.substring(0,ieend).split("\n").length - e.value.substring(iestart,ieend).split("\n").length;
+            var iefoot = e.value.substring(ieend, e.textLength);
+            e.value = iehead + kao[num] + iefoot;
+            var ierange = e.createTextRange();
+            ierange.move('character', iestart + kao[num].length - rt);
+            ierange.select();
+        } else {
+            var range = window.parent.document.selection.createRange();
+            range.text = kao[num];
+        }
+    } else if(gecko) {
+        var start = e.selectionStart;
+        var head = e.value.substring(0, start);
+        var end = e.selectionEnd;
+        var foot = e.value.substring(end, e.textLength);
+        e.value = head + kao[num] + foot;
+        e.selectionStart = start + kao[num].length;
+        e.selectionEnd = start + kao[num].length;
+    } else {
+        e.value = e.value + kao[num];
+    }
+    e.focus();
+}
+
+function kaolen(moji) {
+    count = 0;
+    for (p = 0; p < moji.length; p++) {
+        n = escape(moji.charAt(p));
+        if (n.length < 4) {
+            count++;
+        } else {
+            count+=2;
+        }
+    }
+    return count;
+}
+
+flg = 1;
+
+function oc(fnc) {
+    if(document.getElementById('editor').innerHTML == '' || flg != fnc) {
+        document.getElementById("on"+fnc).className = 'toggle';
+        if(flg != '' && flg != fnc) {
+            document.getElementById("on"+flg).className = 'flat';
+        }
+        document.getElementById('editor').innerHTML = document.getElementById("kao"+fnc).innerHTML;
+        flg = fnc;
+    } else {
+        document.getElementById("on"+fnc).className = 'flat';
+        document.getElementById('editor').innerHTML = '';
+        flg="";
+    }
+}
+
+function over(pct) {
+    document.getElementById("on"+pct).className = "over";
+};
+
+function out(pct) {
+    if(flg != pct) {
+        document.getElementById("on"+pct).className = "flat";
+    } else {
+        document.getElementById("on"+pct).className = "toggle";
+    }
+};
+
+function init() {
+    document.getElementById('editor').innerHTML = document.getElementById("kao1").innerHTML;
+}
+</script>
+</head>
+<body onload="javascript:init()">
+<div id="fd" style="text-align:center">
+
+<textarea id="kaopre" style="display:none">
+tagname:笑い
+o(^-^)
+o(^O^)
+(^o^)／
+(*^_^*)
+(^_^)v
+＼(≧▽≦)丿
+(*^－')ノ
+v(｀∀´v)
+(*‘‐＾)-☆
+(￣―＋￣)ニヤリ
+tagname:泣き
+(T_T)
+(ToT)
+(>_<)
+(;_;)
+(∋_∈)
+。°・(>_<)・°。
+(ノ_＜。)ビェェン
+。。。(〃_ _)σ∥
+(´Ａ｀)
+Σ(Ｔ▽Ｔ;)グワーン
+tagname:怒り
+(｀ε´)
+(`ヘ´)
+(-_-#)
+(-"-;)
+(`o´)
+(￣＾￣#)
+Ｏ(｀ヘ´#)"Ｏ
+(｀ω´♯)
+<<o(>_<)o>>
+o(><;)(;><)o
+tagname:汗
+(^_^;)
+(-.-;)
+(‐o-;)
+f^_^;
+(-д-；)
+(;￣_￣)=3
+σ(^◇^;)。。。
+(・ω・;)(;・ω・)
+...... (￣□￣;)!!
+ガ－(゜Д゜;)-ン!
+tagname:えっ？
+(・_・)エッ......?
+(・_・;)
+(*_*)
+(?_?)
+(￣○￣;)
+(@_@;)
+(屮゜Д゜)屮
+＼(◎o◎)／あっ！
+w(☆o◎)wガーン
+(ΘoΘ;)
+tagname:その他
+m(_ _)m
+(-.-)zzZ
+ZZzz。。..
+V(^-^)V
+(^з^)-☆Chu!!
+('◇')ゞ ラジャ
+(^O^)/~~ see you !
+(-.-)y-~~~イップク
+ε=ε= 。。(ノT-T)ノ
+ジ～ (・_｜
+←(￢_￢)あやしい…
+<(｀^´)> エッヘン
+(≧Д≦)ゞ
+(ρ.-)ネムイ
+o(`へ')○☆パンチ！
+ポイッ(/--)/ ⌒●
+(ノ-o-)ノ  ┫オリャ
+(・_*)＼ペチ
+ρ(..、) ヾ(＾-＾;)
+σ)Д`)ぷに
+</textarea>
+
+</div>
+<script type="text/javascript">
+var html1 = '';
+var html2 = '';
+var sp = 0;
+var spnum = 0;
+var kaonum = 0;
+var kao = document.getElementById('kaopre').value.split('\r').join('').split('\n');
+for(i = 0; i < kao.length-1; i++) {
+    if(kao[i].indexOf("tagname:",0) == 0) {
+        tag = kao[i].split(":");
+        kaonum = 0;
+        sp += 1;
+        spnum += kaolen(tag[1]);
+        if(sp != 1) {
+            html2 += '</div>';
+            if(spnum > 50) {
+                html1 += '<br><a href="javascript:void(0);" onClick="oc('+ sp +')" onmouseout="out('+ sp +')" onmouseover="over('+ sp +')" class="flat" id="on'+ sp +'">'+ tag[1] + '</a>';
+                spnum = kaolen(tag[1]);
+            } else {
+                html1 += '<a href="javascript:void(0);" onClick="oc('+ sp +')" onmouseout="out('+ sp +')" onmouseover="over('+ sp +')" class="flat" id="on'+ sp +'">'+ tag[1] + '</a>';
+            }
+        } else {
+            html1 += '<a href="javascript:void(0);" onClick="oc('+ sp +')" onmouseout="out('+ sp +')" onmouseover="over('+ sp +')" class="toggle" id="on'+ sp +'">'+ tag[1] + '</a>';
+        }
+        html2 += '<div id="kao'+ sp +'" style="display:none">'
+    } else {
+        kaonum += kaolen(kao[i]);
+        kaomoji = kao[i].split("<").join("&lt;");
+        kaomoji = kaomoji.split(">").join("&gt;");
+        if(kaonum > 60) {
+            html2 +=  '<br><a href="javascript:void(0)" class="kao" onClick="insertKao(' + i + ')" alt="">' + kaomoji + '</a>&nbsp;';
+            kaonum = kaolen(kao[i]);
+        } else {
+            html2 +=  '<a href="javascript:void(0)" class="kao" onClick="insertKao(' + i + ')" alt="">' + kaomoji + '</a>&nbsp;';
+        }
+    }
+}
+html2 += '</div>'
+document.getElementById('fd').innerHTML = '<div>' + html1 + '</div>' + '<div id="editor"></div>' + html2;
+</script>
+</body>
+</html>

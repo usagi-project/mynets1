@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+/* 外部CSSを読込　MacIEを除く ¥*/
+@import "share.css";
+@import "base.css";
+@import "sort_table.css";
+/*  */
+
+/* Win IE5.0/5.5用　Mid Pass Filter */
+@media tty{
+ i{content:"¥";/*" "*/}} @import 'ie.css'; /*";}
+}/* */

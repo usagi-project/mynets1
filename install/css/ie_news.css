@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+/* 共通項目 */
+body {
+  font-size: 80%;
+  line-height: 1.5;
+}
+
+#news-box p {
+  font-size: x-small;
+}
+
+
+/* フッター */
+#copyright {
+  font-size: 70%;
+}

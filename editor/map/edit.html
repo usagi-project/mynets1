@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="../../css/default.css" type="text/css">
+<script src="../../googlemapsapi.php" type="text/javascript"></script>
+<script src="../../js/javascripts/Selection.js" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+var latr = 37.788345;//緯度初期値
+var lngr = 137.724609;//経度初期値
+var zmr = 5;//倍率初期値
+var type;//マップタイプ
+window.onload = function() {
+map = new GMap2(document.getElementById("gmap"));
+map.enableDoubleClickZoom();
+map.enableContinuousZoom();
+map.setCenter(new GLatLng(latr,lngr),zmr);
+map.addControl(new GMapTypeControl());
+map.addControl(new GLargeMapControl());
+map.addControl(new GOverviewMapControl());
+map.addControl(new GScaleControl());
+geocoder = new GClientGeocoder();
+type = map.getCurrentMapType();
+var markObj = document.createElement("div");
+var mapW = parseInt(map.getContainer().style.width);
+var mapH = parseInt(map.getContainer().style.height);
+var markW = 31;
+var markH = 31;
+var x = (mapW - markW) / 2;
+var y = (mapH - markH) / 2;
+markObj.style.position = "absolute";
+markObj.style.top = y+"px";
+markObj.style.left = x+"px";
+markObj.style.backgroundImage = "url(centermark.gif)";
+markObj.style.width = markW+"px";
+markObj.style.height = markH+"px";
+markObj.style.opacity = 0.5;
+map.getContainer().appendChild(markObj);
+GEvent.addListener(map, "moveend", function() {
+    latr = map.getCenter().lat();
+    lngr = map.getCenter().lng();
+    zmr = map.getZoom();
+    type = map.getCurrentMapType();
+    });
+}
+
+function showaddress(address) {
+    if (geocoder) {
+        geocoder.getLatLng(
+            address,
+            function(point) {
+                if(point != null) {
+                    document.getElementById('mts').value="";
+                    map.setCenter(point, 16);
+                }
+                else document.getElementById('mts').value="検索できません";
+            }
+        );
+    }
+}
+
+var gecko = false;
+var msie = false;
+if(navigator) {
+    if(navigator.userAgent) {
+        if(navigator.userAgent.indexOf("Gecko") != -1) {
+            gecko = true;
+        } else if(navigator.userAgent.indexOf("MSIE") != -1) {
+            msie = true;
+        }
+    }
+}
+
+function insertMap(v) {
+    e = window.parent.document.getElementsByName("body").item(0);
+    if (window.parent.document.selection) {
+        e.focus();
+        if(msie) {
+            var selection = new Selection(e);
+            var s = selection.create();
+            var iestart = s.start;
+            var iehead = e.value.substring(0, iestart);
+            var ieend = s.end;
+            var rt = e.value.substring(0,ieend).split("\n").length - e.value.substring(iestart,ieend).split("\n").length;
+            var iefoot = e.value.substring(ieend, e.textLength);
+            e.value = iehead + v + iefoot;
+            var ierange = e.createTextRange();
+            ierange.move('character', iestart + v.length - rt);
+            ierange.select();
+        } else {
+            var range = window.parent.document.selection.createRange();
+            range.text = v;
+        }
+    } else if(gecko) {
+        var start = e.selectionStart;
+        var head = e.value.substring(0, start);
+        var end = e.selectionEnd;
+        var foot = e.value.substring(end, e.textLength);
+        e.value = head + v + foot;
+        e.selectionStart = start + v.length;
+        e.selectionEnd = start + v.length;
+    } else {
+        e.value = e.value + v;
+    }
+    e.focus();
+}
+
+function cmdwrite() {
+    var maplatcom = new String(latr);
+    if (maplatcom.length<9) {
+        maplatcom = maplatcom + "0000000000";
+    }
+    var maplatcoms = maplatcom.substr(0,9).split(".");
+    var maploncom = new String(lngr);
+    if (maploncom.length<10) {
+        maploncom = maploncom + "0000000000";
+    }
+    var maploncoms = maploncom.substr(0,10).split(".");
+    var mapzoomcoms = new String(zmr);
+    if(map.getMapTypes()[0] == type) {
+        tpr = 0;
+    } else if(map.getMapTypes()[1] == type) {
+        tpr = 1;
+    } else {
+        tpr = 2;
+    }
+    if(tpr == 0) {
+        var cmdgmap = '<cmd src="gmaps" args="'+mapzoomcoms+','+maplatcoms[0]+','+maplatcoms[1]+','+maploncoms[0]+','+maploncoms[1]+'">';
+    } else {
+        var cmdgmap = '<cmd src="gmaps" args="'+mapzoomcoms+','+maplatcoms[0]+','+maplatcoms[1]+','+maploncoms[0]+','+maploncoms[1]+','+tpr+'">';
+    }
+    str = cmdgmap;
+    if(mapzoomcoms && maplatcoms[0] && maplatcoms[1] && maploncoms[0] && maploncoms[1]) {
+        insertMap(str);
+    }
+    return false;
+}
+//]]>
+</script>
+
+<style type="text/css">
+input {
+    font-size: 10pt ;
+    color: #333333 ;
+    background-color: #FFFFFF ;
+    border: 1px solid #888888 ;
+    vertical-align: middle ;
+    margin:2px 0;
+}
+input.submit {
+    background: #DADCE6 url(../../skin/default/img/bg_button.gif) 50% 0 repeat-x ;
+}
+</style>
+</head>
+<body onunload="GUnload()">
+<input type="button" value="マップ表示用タグを挿入" onClick="cmdwrite();" class="submit""><br>
+<input type="text" id="adrs" AUTOCOMPLETE="off">
+<input type="button" value="場所検索" onClick="showaddress(document.getElementById('adrs').value)" class="submit">
+<input type="text" id="mts" style="background:#FFFFFF;border:none;color:#ff0000;" readonly>
+<div id="gmap" style="width: 400px; height: 400px"></div><br>
+</body>
+</html>

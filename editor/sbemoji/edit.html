@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<script src="../../js/javascripts/Selection.js" type="text/javascript"></script>
+<script type="text/javascript">
+var gecko = false;
+var msie = false;
+if(navigator) {
+    if(navigator.userAgent) {
+        if(navigator.userAgent.indexOf("Gecko") != -1) {
+            gecko = true;
+        } else if(navigator.userAgent.indexOf("MSIE") != -1) {
+            msie = true;
+        }
+    }
+}
+
+function insertAtCaret (text) {
+    e = window.parent.area;
+    if (window.parent.document.selection) {
+        e.focus();
+        if(msie) {
+            var selection = new Selection(e);
+            var s = selection.create();
+            var iestart = s.start;
+            var iehead = e.value.substring(0, iestart);
+            var ieend = s.end;
+            var rt = e.value.substring(0,ieend).split("\n").length - e.value.substring(iestart,ieend).split("\n").length;
+            var iefoot = e.value.substring(ieend, e.textLength);
+            e.value = iehead + text + iefoot;
+            var ierange = e.createTextRange();
+            ierange.move('character', iestart + text.length - rt);
+            ierange.select();
+        } else {
+            var range = window.parent.document.selection.createRange();
+            range.text = text;
+        }
+    } else if(gecko) {
+        var start = e.selectionStart;
+        var head = e.value.substring(0, start);
+        var end = e.selectionEnd;
+        var foot = e.value.substring(end, e.textLength);
+        e.value = head + text + foot;
+        e.selectionStart = start + text.length;
+        e.selectionEnd = start + text.length;
+    } else {
+        e.value = e.value + text;
+    }
+    e.focus();
+}
+
+function sendPreviewRequest() {}
+</script>
+</head>
+<body style="margin:0;padding:0;">
+<div>
+<img src="s_emoji_417x136.jpg" width="417" height="136" border="0" usemap="#s_emoji_417x136" alt="SoftBank絵文字">
+<map name="s_emoji_417x136" alt="map">
+<area onclick="insertAtCaret('&amp;#xE04A;')" shape="rect" coords="0,0,16,15" nohref alt="晴れ">
+<area onclick="insertAtCaret('&amp;#xE049;')" shape="rect" coords="19,0,35,15" nohref alt="曇り">
+<area onclick="insertAtCaret('&amp;#xE04B;')" shape="rect" coords="38,0,54,15" nohref alt="雨">
+<area onclick="insertAtCaret('&amp;#xE048;')" shape="rect" coords="57,0,73,15" nohref alt="雪">
+<area onclick="insertAtCaret('&amp;#xE13D;')" shape="rect" coords="76,0,92,15" nohref alt="雷">
+<area onclick="insertAtCaret('&amp;#xE443;')" shape="rect" coords="95,0,111,15" nohref alt="台風">
+<area onclick="insertAtCaret('&amp;#xE43C;')" shape="rect" coords="114,0,130,15" nohref alt="傘">
+<area onclick="insertAtCaret('&amp;#xE23F;')" shape="rect" coords="133,0,149,15" nohref alt="牡羊座">
+<area onclick="insertAtCaret('&amp;#xE240;')" shape="rect" coords="152,0,168,15" nohref alt="牡牛座">
+<area onclick="insertAtCaret('&amp;#xE241;')" shape="rect" coords="171,0,187,15" nohref alt="双子座">
+<area onclick="insertAtCaret('&amp;#xE242;')" shape="rect" coords="190,0,206,15" nohref alt="蟹座">
+<area onclick="insertAtCaret('&amp;#xE243;')" shape="rect" coords="209,0,225,15" nohref alt="獅子座">
+<area onclick="insertAtCaret('&amp;#xE244;')" shape="rect" coords="228,0,244,15" nohref alt="乙女座">
+<area onclick="insertAtCaret('&amp;#xE245;')" shape="rect" coords="247,0,263,15" nohref alt="天秤座">
+<area onclick="insertAtCaret('&amp;#xE246;')" shape="rect" coords="266,0,282,15" nohref alt="蠍座">
+<area onclick="insertAtCaret('&amp;#xE247;')" shape="rect" coords="285,0,301,15" nohref alt="射手座">
+<area onclick="insertAtCaret('&amp;#xE248;')" shape="rect" coords="304,0,320,15" nohref alt="山羊座">
+<area onclick="insertAtCaret('&amp;#xE249;')" shape="rect" coords="323,0,339,15" nohref alt="水瓶座">
+<area onclick="insertAtCaret('&amp;#xE24A;')" shape="rect" coords="342,0,358,15" nohref alt="魚座">
+<area onclick="insertAtCaret('&amp;#xE016;')" shape="rect" coords="361,0,377,15" nohref alt="野球">
+<area onclick="insertAtCaret('&amp;#xE014;')" shape="rect" coords="380,0,396,15" nohref alt="ゴルフ">
+<area onclick="insertAtCaret('&amp;#xE015;')" shape="rect" coords="399,0,415,15" nohref alt="テニス">
+
+<area onclick="insertAtCaret('&amp;#xE018;')" shape="rect" coords="0,17,16,32" nohref alt="サッカー">
+<area onclick="insertAtCaret('&amp;#xE013;')" shape="rect" coords="19,17,35,32" nohref alt="スキー">
+<area onclick="insertAtCaret('&amp;#xE42A;')" shape="rect" coords="38,17,54,32" nohref alt="バスケットボール">
+<area onclick="insertAtCaret('&amp;#xE132;')" shape="rect" coords="57,17,73,32" nohref alt="モータースポーツ">
+<area onclick="insertAtCaret('&amp;#xE01E;')" shape="rect" coords="76,17,92,32" nohref alt="電車">
+<area onclick="insertAtCaret('&amp;#xE434;')" shape="rect" coords="95,17,111,32" nohref alt="地下鉄">
+<area onclick="insertAtCaret('&amp;#xE435;')" shape="rect" coords="114,17,130,32" nohref alt="新幹線">
+<area onclick="insertAtCaret('&amp;#xE01B;')" shape="rect" coords="133,17,149,32" nohref alt="車">
+<area onclick="insertAtCaret('&amp;#xE159;')" shape="rect" coords="152,17,168,32" nohref alt="バス">
+<area onclick="insertAtCaret('&amp;#xE202;')" shape="rect" coords="171,17,187,32" nohref alt="船">
+<area onclick="insertAtCaret('&amp;#xE01D;')" shape="rect" coords="190,17,206,32" nohref alt="飛行機">
+<area onclick="insertAtCaret('&amp;#xE036;')" shape="rect" coords="209,17,225,32" nohref alt="家">
+<area onclick="insertAtCaret('&amp;#xE038;')" shape="rect" coords="228,17,244,32" nohref alt="ビル">
+<area onclick="insertAtCaret('&amp;#xE153;')" shape="rect" coords="247,17,263,32" nohref alt="郵便局">
+<area onclick="insertAtCaret('&amp;#xE155;')" shape="rect" coords="266,17,282,32" nohref alt="病院">
+<area onclick="insertAtCaret('&amp;#xE14D;')" shape="rect" coords="285,17,301,32" nohref alt="銀行">
+<area onclick="insertAtCaret('&amp;#xE154;')" shape="rect" coords="304,17,320,32" nohref alt="ATM">
+<area onclick="insertAtCaret('&amp;#xE158;')" shape="rect" coords="323,17,339,32" nohref alt="ホテル">
+<area onclick="insertAtCaret('&amp;#xE156;')" shape="rect" coords="342,17,358,32" nohref alt="コンビニ">
+<area onclick="insertAtCaret('&amp;#xE03A;')" shape="rect" coords="361,17,377,32" nohref alt="ガソリンスタンド">
+<area onclick="insertAtCaret('&amp;#xE14F;')" shape="rect" coords="380,17,396,32" nohref alt="駐車場">
+<area onclick="insertAtCaret('&amp;#xE14E;')" shape="rect" coords="399,17,415,32" nohref alt="信号">
+
+<area onclick="insertAtCaret('&amp;#xE043;')" shape="rect" coords="0,34,16,49" nohref alt="レストラン">
+<area onclick="insertAtCaret('&amp;#xE045;')" shape="rect" coords="19,34,35,49" nohref alt="喫茶店">
+<area onclick="insertAtCaret('&amp;#xE044;')" shape="rect" coords="38,34,54,49" nohref alt="バー">
+<area onclick="insertAtCaret('&amp;#xE047;')" shape="rect" coords="57,34,73,49" nohref alt="ビール">
+<area onclick="insertAtCaret('&amp;#xE120;')" shape="rect" coords="76,34,92,49" nohref alt="ファーストフード">
+<area onclick="insertAtCaret('&amp;#xE13E;')" shape="rect" coords="95,34,111,49" nohref alt="ブティック">
+<area onclick="insertAtCaret('&amp;#xE313;')" shape="rect" coords="114,34,130,49" nohref alt="美容院">
+<area onclick="insertAtCaret('&amp;#xE03C;')" shape="rect" coords="133,34,149,49" nohref alt="カラオケ">
+<area onclick="insertAtCaret('&amp;#xE03D;')" shape="rect" coords="152,34,168,49" nohref alt="映画">
+<area onclick="insertAtCaret('&amp;#xE236;')" shape="rect" coords="171,34,187,49" nohref alt="右斜め上">
+<area onclick="insertAtCaret('&amp;#xE30A;')" shape="rect" coords="190,34,206,49" nohref alt="音楽">
+<area onclick="insertAtCaret('&amp;#xE502;')" shape="rect" coords="209,34,225,49" nohref alt="アート">
+<area onclick="insertAtCaret('&amp;#xE503;')" shape="rect" coords="228,34,244,49" nohref alt="演劇">
+<area onclick="insertAtCaret('&amp;#xE125;')" shape="rect" coords="247,34,263,49" nohref alt="チケット">
+<area onclick="insertAtCaret('&amp;#xE30E;')" shape="rect" coords="266,34,282,49" nohref alt="喫煙">
+<area onclick="insertAtCaret('&amp;#xE208;')" shape="rect" coords="285,34,301,49" nohref alt="禁煙">
+<area onclick="insertAtCaret('&amp;#xE008;')" shape="rect" coords="304,34,320,49" nohref alt="カメラ">
+<area onclick="insertAtCaret('&amp;#xE323;')" shape="rect" coords="323,34,339,49" nohref alt="カバン">
+<area onclick="insertAtCaret('&amp;#xE148;')" shape="rect" coords="342,34,358,49" nohref alt="本">
+<area onclick="insertAtCaret('&amp;#xE314;')" shape="rect" coords="361,34,377,49" nohref alt="リボン">
+<area onclick="insertAtCaret('&amp;#xE112;')" shape="rect" coords="380,34,396,49" nohref alt="プレゼント">
+<area onclick="insertAtCaret('&amp;#xE34B;')" shape="rect" coords="399,34,415,49" nohref alt="バースデー">
+
+<area onclick="insertAtCaret('&amp;#xE009;')" shape="rect" coords="0,51,16,66" nohref alt="電話">
+<area onclick="insertAtCaret('&amp;#xE00A;')" shape="rect" coords="19,51,35,66" nohref alt="携帯電話">
+<area onclick="insertAtCaret('&amp;#xE301;')" shape="rect" coords="38,51,54,66" nohref alt="メモ">
+<area onclick="insertAtCaret('&amp;#xE12A;')" shape="rect" coords="57,51,73,66" nohref alt="TV">
+<area onclick="insertAtCaret('&amp;#xE126;')" shape="rect" coords="76,51,92,66" nohref alt="CD">
+<area onclick="insertAtCaret('&amp;#xE20C;')" shape="rect" coords="95,51,111,66" nohref alt="ハート">
+<area onclick="insertAtCaret('&amp;#xE20E;')" shape="rect" coords="114,51,130,66" nohref alt="スペード">
+<area onclick="insertAtCaret('&amp;#xE20D;')" shape="rect" coords="133,51,149,66" nohref alt="ダイヤ">
+<area onclick="insertAtCaret('&amp;#xE20F;')" shape="rect" coords="152,51,168,66" nohref alt="クラブ">
+<area onclick="insertAtCaret('&amp;#xE419;')" shape="rect" coords="171,51,187,66" nohref alt="目">
+<area onclick="insertAtCaret('&amp;#xE41B;')" shape="rect" coords="190,51,206,66" nohref alt="耳">
+<area onclick="insertAtCaret('&amp;#xE010;')" shape="rect" coords="209,51,225,66" nohref alt="手（グー）">
+<area onclick="insertAtCaret('&amp;#xE011;')" shape="rect" coords="228,51,244,66" nohref alt="手（チョキ）">
+<area onclick="insertAtCaret('&amp;#xE012;')" shape="rect" coords="247,51,263,66" nohref alt="手（パー）">
+<area onclick="insertAtCaret('&amp;#xE238;')" shape="rect" coords="266,51,282,66" nohref alt="右斜め下">
+<area onclick="insertAtCaret('&amp;#xE237;')" shape="rect" coords="285,51,301,66" nohref alt="左斜め上">
+<area onclick="insertAtCaret('&amp;#xE536;')" shape="rect" coords="304,51,320,66" nohref alt="足あと">
+<area onclick="insertAtCaret('&amp;#xE20A;')" shape="rect" coords="323,51,339,66" nohref alt="車椅子">
+<area onclick="insertAtCaret('&amp;#xE04C;')" shape="rect" coords="342,51,358,66" nohref alt="三日月">
+<area onclick="insertAtCaret('&amp;#xE052;')" shape="rect" coords="361,51,377,66" nohref alt="犬">
+<area onclick="insertAtCaret('&amp;#xE04F;')" shape="rect" coords="380,51,396,66" nohref alt="猫">
+<area onclick="insertAtCaret('&amp;#xE01C;')" shape="rect" coords="399,51,415,66" nohref alt="リゾート">
+
+<area onclick="insertAtCaret('&amp;#xE033;')" shape="rect" coords="0,68,16,83" nohref alt="クリスマス">
+<area onclick="insertAtCaret('&amp;#xE239;')" shape="rect" coords="19,68,35,83" nohref alt="左斜め下">
+<area onclick="insertAtCaret('&amp;#xE104;')" shape="rect" coords="38,68,54,83" nohref alt="phone to">
+<area onclick="insertAtCaret('&amp;#xE103;')" shape="rect" coords="57,68,73,83" nohref alt="mail to">
+<area onclick="insertAtCaret('&amp;#xE00B;')" shape="rect" coords="76,68,92,83" nohref alt="fax to">
+<area onclick="insertAtCaret('&amp;#xE229;')" shape="rect" coords="95,68,111,83" nohref alt="ID">
+<area onclick="insertAtCaret('&amp;#xE03F;')" shape="rect" coords="114,68,130,83" nohref alt="パスワード">
+<area onclick="insertAtCaret('&amp;#xE114;')" shape="rect" coords="133,68,149,83" nohref alt="サーチ（調べる）">
+<area onclick="insertAtCaret('&amp;#xE212;')" shape="rect" coords="152,68,168,83" nohref alt="NEW">
+<area onclick="insertAtCaret('&amp;#xE210;')" shape="rect" coords="171,68,187,83" nohref alt="シャープダイヤル">
+<area onclick="insertAtCaret('&amp;#xE21C;')" shape="rect" coords="190,68,206,83" nohref alt="1">
+<area onclick="insertAtCaret('&amp;#xE21D;')" shape="rect" coords="209,68,225,83" nohref alt="2">
+<area onclick="insertAtCaret('&amp;#xE21E;')" shape="rect" coords="228,68,244,83" nohref alt="3">
+<area onclick="insertAtCaret('&amp;#xE21F;')" shape="rect" coords="247,68,263,83" nohref alt="4">
+<area onclick="insertAtCaret('&amp;#xE220;')" shape="rect" coords="266,68,282,83" nohref alt="5">
+<area onclick="insertAtCaret('&amp;#xE221;')" shape="rect" coords="285,68,301,83" nohref alt="6">
+<area onclick="insertAtCaret('&amp;#xE222;')" shape="rect" coords="304,68,320,83" nohref alt="7">
+<area onclick="insertAtCaret('&amp;#xE223;')" shape="rect" coords="323,68,339,83" nohref alt="8">
+<area onclick="insertAtCaret('&amp;#xE224;')" shape="rect" coords="342,68,358,83" nohref alt="9">
+<area onclick="insertAtCaret('&amp;#xE225;')" shape="rect" coords="361,68,377,83" nohref alt="0">
+<area onclick="insertAtCaret('&amp;#xE24D;')" shape="rect" coords="380,68,396,83" nohref alt="決定">
+<area onclick="insertAtCaret('&amp;#xE022;')" shape="rect" coords="399,68,415,83" nohref alt="大きいハート">
+
+<area onclick="insertAtCaret('&amp;#xE023;')" shape="rect" coords="0,85,16,100" nohref alt="失恋">
+<area onclick="insertAtCaret('&amp;#xE057;')" shape="rect" coords="19,85,35,100" nohref alt="わーい（嬉しい顔）">
+<area onclick="insertAtCaret('&amp;#xE059;')" shape="rect" coords="38,85,54,100" nohref alt="ちっ（怒った顔）">
+<area onclick="insertAtCaret('&amp;#xE407;')" shape="rect" coords="57,85,73,100" nohref alt="もうやだ～（悲しい顔）">
+<area onclick="insertAtCaret('&amp;#xE03E;')" shape="rect" coords="76,85,92,100" nohref alt="るんるん">
+<area onclick="insertAtCaret('&amp;#xE123;')" shape="rect" coords="95,85,111,100" nohref alt="いい気分（温泉）">
+<area onclick="insertAtCaret('&amp;#xE003;')" shape="rect" coords="114,85,130,100" nohref alt="キスマーク">
+<area onclick="insertAtCaret('&amp;#xE32E;')" shape="rect" coords="133,85,149,100" nohref alt="ぴかぴか（新しい）">
+<area onclick="insertAtCaret('&amp;#xE10F;')" shape="rect" coords="152,85,168,100" nohref alt="ひらめき">
+<area onclick="insertAtCaret('&amp;#xE334;')" shape="rect" coords="171,85,187,100" nohref alt="むかっ（怒り）">
+<area onclick="insertAtCaret('&amp;#xE00D;')" shape="rect" coords="190,85,206,100" nohref alt="パンチ">
+<area onclick="insertAtCaret('&amp;#xE311;')" shape="rect" coords="209,85,225,100" nohref alt="爆弾">
+<area onclick="insertAtCaret('&amp;#xE326;')" shape="rect" coords="228,85,244,100" nohref alt="ムード">
+<area onclick="insertAtCaret('&amp;#xE13C;')" shape="rect" coords="247,85,263,100" nohref alt="眠い(睡眠)">
+<area onclick="insertAtCaret('&amp;#xE337;')" shape="rect" coords="266,85,282,100" nohref alt="exclamation">
+<area onclick="insertAtCaret('&amp;#xE331;')" shape="rect" coords="285,85,301,100" nohref alt="あせあせ（飛び散る汗）">
+<area onclick="insertAtCaret('&amp;#xE330;')" shape="rect" coords="304,85,320,100" nohref alt="ダッシュ（走り出すさま）">
+<area onclick="insertAtCaret('&amp;#xE324;')" shape="rect" coords="323,85,339,100" nohref alt="カチンコ">
+<area onclick="insertAtCaret('&amp;#xE44B;')" shape="rect" coords="342,85,358,100" nohref alt="夜">
+<area onclick="insertAtCaret('&amp;#xE006;')" shape="rect" coords="361,85,377,100" nohref alt="Tシャツ（ボーダー）">
+<area onclick="insertAtCaret('&amp;#xE31C;')" shape="rect" coords="380,85,396,100" nohref alt="化粧">
+<area onclick="insertAtCaret('&amp;#xE325;')" shape="rect" coords="399,85,415,100" nohref alt="チャペル">
+
+<area onclick="insertAtCaret('&amp;#xE12F;')" shape="rect" coords="0,102,16,117" nohref alt="ドル袋">
+<area onclick="insertAtCaret('&amp;#xE00C;')" shape="rect" coords="19,102,35,117" nohref alt="パソコン">
+<area onclick="insertAtCaret('&amp;#xE10E;')" shape="rect" coords="38,102,54,117" nohref alt="王冠">
+<area onclick="insertAtCaret('&amp;#xE034;')" shape="rect" coords="57,102,73,117" nohref alt="指輪">
+<area onclick="insertAtCaret('&amp;#xE136;')" shape="rect" coords="76,102,92,117" nohref alt="自転車">
+<area onclick="insertAtCaret('&amp;#xE338;')" shape="rect" coords="95,102,111,117" nohref alt="湯呑">
+<area onclick="insertAtCaret('&amp;#xE403;')" shape="rect" coords="114,102,130,117" nohref alt="考えてる顔">
+<area onclick="insertAtCaret('&amp;#xE40A;')" shape="rect" coords="133,102,149,117" nohref alt="ほっとした顔">
+<area onclick="insertAtCaret('&amp;#xE108;')" shape="rect" coords="152,102,168,117" nohref alt="冷や汗">
+<area onclick="insertAtCaret('&amp;#xE416;')" shape="rect" coords="171,102,187,117" nohref alt="ぷっくっくな顔">
+<area onclick="insertAtCaret('&amp;#xE40E;')" shape="rect" coords="190,102,206,117" nohref alt="">
+<area onclick="insertAtCaret('&amp;#xE106;')" shape="rect" coords="209,102,225,117" nohref alt="目がハート">
+<area onclick="insertAtCaret('&amp;#xE00E;')" shape="rect" coords="228,102,244,117" nohref alt="指でOK">
+<area onclick="insertAtCaret('&amp;#xE105;')" shape="rect" coords="247,102,263,117" nohref alt="あっかんべー">
+<area onclick="insertAtCaret('&amp;#xE405;')" shape="rect" coords="266,102,282,117" nohref alt="ウィンク">
+<area onclick="insertAtCaret('&amp;#xE406;')" shape="rect" coords="285,102,301,117" nohref alt="がまん顔">
+<area onclick="insertAtCaret('&amp;#xE402;')" shape="rect" coords="304,102,320,117" nohref alt="ウッシッシ">
+<area onclick="insertAtCaret('&amp;#xE411;')" shape="rect" coords="323,102,339,117" nohref alt="涙">
+<area onclick="insertAtCaret('&amp;#xE24E;')" shape="rect" coords="342,102,358,117" nohref alt="コピーライト">
+<area onclick="insertAtCaret('&amp;#xE537;')" shape="rect" coords="361,102,377,117" nohref alt="トレードマーク">
+<area onclick="insertAtCaret('&amp;#xE115;')" shape="rect" coords="380,102,396,117" nohref alt="走る人">
+<area onclick="insertAtCaret('&amp;#xE315;')" shape="rect" coords="399,102,415,117" nohref alt="マル秘">
+
+<area onclick="insertAtCaret('&amp;#xE24F;')" shape="rect" coords="0,119,16,134" nohref alt="レジスタードトレードマーク">
+<area onclick="insertAtCaret('&amp;#xE252;')" shape="rect" coords="19,119,35,134" nohref alt="危険・警告">
+<area onclick="insertAtCaret('&amp;#xE22B;')" shape="rect" coords="38,119,54,134" nohref alt="空室・空席・空車">
+<area onclick="insertAtCaret('&amp;#xE22A;')" shape="rect" coords="57,119,73,134" nohref alt="満室・満席・満車">
+<area onclick="insertAtCaret('&amp;#xE157;')" shape="rect" coords="76,119,92,134" nohref alt="学校">
+<area onclick="insertAtCaret('&amp;#xE43E;')" shape="rect" coords="95,119,111,134" nohref alt="波">
+<area onclick="insertAtCaret('&amp;#xE03B;')" shape="rect" coords="114,119,130,134" nohref alt="富士山">
+<area onclick="insertAtCaret('&amp;#xE110;')" shape="rect" coords="133,119,149,134" nohref alt="クローバー">
+<area onclick="insertAtCaret('&amp;#xE304;')" shape="rect" coords="152,119,168,134" nohref alt="チューリップ">
+<area onclick="insertAtCaret('&amp;#xE345;')" shape="rect" coords="171,119,187,134" nohref alt="リンゴ">
+<area onclick="insertAtCaret('&amp;#xE118;')" shape="rect" coords="190,119,206,134" nohref alt="紅葉">
+<area onclick="insertAtCaret('&amp;#xE030;')" shape="rect" coords="209,119,225,134" nohref alt="桜">
+<area onclick="insertAtCaret('&amp;#xE342;')" shape="rect" coords="228,119,244,134" nohref alt="おにぎり">
+<area onclick="insertAtCaret('&amp;#xE046;')" shape="rect" coords="247,119,263,134" nohref alt="ショートケーキ">
+<area onclick="insertAtCaret('&amp;#xE30B;')" shape="rect" coords="266,119,282,134" nohref alt="とっくり（おちょこ付き）">
+<area onclick="insertAtCaret('&amp;#xE340;')" shape="rect" coords="285,119,301,134" nohref alt="どんぶり">
+<area onclick="insertAtCaret('&amp;#xE339;')" shape="rect" coords="304,119,320,134" nohref alt="パン">
+<area onclick="insertAtCaret('&amp;#xE055;')" shape="rect" coords="323,119,339,134" nohref alt="ペンギン">
+<area onclick="insertAtCaret('&amp;#xE01A;')" shape="rect" coords="342,119,358,134" nohref alt="ウマ">
+<area onclick="insertAtCaret('&amp;#xE10B;')" shape="rect" coords="361,119,377,134" nohref alt="ぶた">
+<area shape="default" nohref alt="">
+</map>
+</div>
+</body>
+</html>

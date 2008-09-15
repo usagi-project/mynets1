@@ -1,0 +1,150 @@
+/*
+  Usagi Project
+  Author: Kazuo Yamanoi
+  Version: 2007/2/11
+-------------------------------------------*/
+
+/* Import Styles
+-------------------------------------------*/
+@import url("frame.css");
+/*@import url("base.css");*/
+
+/* IE/Mac Only Styles
+-------------------------------------------*/
+/*\//*/
+@import "ie5mac.css";
+/**/
+
+/* IE5/Win Only Styles
+-------------------------------------------*/
+@media tty {
+ i{content:"\";/*" "*/}}@import 'ie5win.css';/*";}
+}/* */
+
+/* Default
+-------------------------------------------*/
+* {
+ margin: 0;
+ padding: 0;
+ background-color: transparent;
+ color: #000000;
+ font-size: 100%;
+ font-weight: normal;
+ font-style: normal;
+}
+body {
+ margin: 0 auto;
+ padding: 0;
+ font-family: "Osaka","ＭＳ Ｐゴシック",sans-serif ;
+ font-style: normal;
+ font-variant: normal;
+ font-weight: 400;
+ font-size: 10pt;
+ border-color: #B7B9C6;
+}
+
+
+/* Admin Page
+-------------------------------------------*/
+p {
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+ul{
+    margin: 18px 0 18px 20px;
+    padding: 0;
+}
+li{
+    margin: 0;
+}
+
+form {
+  margin: 0px;
+}
+
+a img {
+  border-style: none;
+}
+
+input.submit {
+  border: solid 2px #000;
+  background-color: #fcc;
+  color: #000;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 5px;
+  border: solid 1px #666;
+  white-space: nowrap;
+}
+
+th {
+  background-color: #cdf;
+  color: #000;
+  font-weight: bold;
+}
+
+td.idnumber {
+  text-align: right;
+  background-color: #ffc;
+}
+td.number {
+  text-align: right;
+}
+
+h2 {
+  font-size: 1.4em;
+  font-weight: bold;
+  padding-top:0.5em;
+}
+
+h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+  padding-top:0.5em;
+}
+
+#site_navi {
+}
+#site_navi ul {
+  margin-top: 0px;
+}
+#site_navi ul li {
+  line-height: 1.2em ;
+}
+#site_navi p {
+  margin-bottom: 0px;
+  padding-top: 1.0em;
+}
+
+#page_navi {
+  border: solid 1px #999;
+  padding: 20px 10px 40px;
+  margin-right: 20px;
+  font-size: 10pt;
+}
+#page_navi h2 {
+  font-size: 120%;
+  margin: 20px 0 2px;
+  padding: 0px;
+}
+#page_navi ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+#page_body {
+}
+
+.pager {
+  margin: 1em 0em;
+}
+
+.caution {
+  color: #c33;
+  font-size: 10pt;
+}

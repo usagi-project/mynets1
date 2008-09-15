@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+#searchbar1 {
+display: block;
+position:relative;
+margin-left:20px;
+margin-top: 4px;
+margin-bottom: 2px;
+width:680px;
+padding:0px;
+height: 30px;
+background-color: #ffffff;
+}
+.search {
+ display:block;
+ float:left;
+ padding: 0px;
+ margin: 2px;
+ height:20px;
+}
+#searchbar1img {
+ display:block;
+ float:left;
+ padding-top: 0.2em;
+}
+#search-inner { 
+padding-left:6.0em;
+display:block;
+margin:0.2em;
+}

@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+/* BBCode入力用ボタンのスタイル */
+
+.bbcode-items input {
+	background: #efefef url(../../skin/bbcode/bbcode_icons.gif) no-repeat scroll 0;
+	border: 1px solid #888888;
+	vertical-align: middle;
+	margin: 0px;
+	padding: 0px;
+	height: 22px;
+	width: 21px;
+	z-index:0;
+}
+
+.bbcode-items input.bbcode {
+	background-position: 0px 0px;
+	color : #000000;
+	border: 1px solid #888888 ;
+	vertical-align: middle ;
+	font-size: 12px;
+	font-family: "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", Osaka, sans-serif ;
+	white-space: nowrap;
+	padding:1px;
+	margin:1px;
+	height: 20px;
+	z-index:0;
+}
+
+.bbcode-items input.bbcode-button-bold {
+	background-position: -1px -19px;
+	width: 21px;
+}
+
+.bbcode-items input.bbcode-button-italic {
+	background-position: -1px -39px;
+	width: 21px;
+}
+
+.bbcode-items input.bbcode-button-underline {
+	background-position: -1px -59px;
+	width: 21px;
+}
+
+.bbcode-items input.bbcode-button-strike{
+	background-position: -1px -79px;
+	width: 21px;
+}
+
+.bbcode-items input.bbcode-button-sup {
+	background-position: -1px -119px;
+	width: 21px;
+}
+
+.bbcode-items input.bbcode-button-sub {
+	background-position: -1px -100px;
+	width: 21px;
+}
+
+.bbcode-items input.bbcode-button-color {
+	background-position: -1px -140px;
+	width: 21px;
+}
+
+.bbcode-items input.bbcode-button-highlight {
+	background-position: -1px -160px;
+	width: 21px;
+}
+
+.bbcode-items input.bbcode-button-size {
+	background-position: -1px -180px;
+	width: 21px;
+}
+
+.bbcode-items input.bbcode-button-center {
+	background-position: -1px -219px;
+	width: 21px;
+}
+
+.bbcode-items input.bbcode-button-right {
+	background-position: -1px -239px;
+	width: 21px;
+}
+
+.bbcode-items input.bbcode-button-indent {
+	background-position: 0px -259px;
+	width: 21px;
+}
+
+.bbcode-items input.bbcode-button-quote {
+	background-position: -1px -280px;
+	width: 21px;
+}
+
+
+.bbcode-items input.bbcode-button-code {
+	background-position: -2px -298px;
+	width: 21px;
+}
+
+.bbcode-items input.bbcode-button-noparse {
+	background-position: -1px -318px;
+	width: 21px;
+}
+
+.bbcode-items input.bbcode-button-list {
+	background-position: -1px -357px;
+	width: 21px;
+}
+
+.bbcode-items input.bbcode-button-list-ul {
+	background-position: -1px -377px;
+	width: 21px;
+}
+
+.bbcode-items input.bbcode-button-img {
+	background-position: -1px -398px;
+	width: 21px;
+}
+
+.bbcode-items input.bbcode-button-url {
+	background-position: -1px -419px;
+	width: 21px;
+}
+
+.bbcode-items input.bbcode-button-marquee {
+	background: #efefef url(../../skin/bbcode/bbcode_marquee.gif) 50% 0;
+}
+
+.bbcode-items input.bbcode-button-cmd {
+	background-position: -1px -458px;
+	width: 21px;
+}
+
+.bbcode-items input.bbcode-button-email {
+	background-position: -1px -500px;;
+	width: 21px;
+}
+
+.bbcode-items input.bbcode-button-font {
+	background-position: -1px -521px;
+	width: 21px;
+}
+
+.bbcode-items input.bbcode-button-preview {
+	background-position: -1px -479px;
+	width: 21px;
+}
+
+.bbcode-items input.bbcode-button-album {
+	background-position: -1px -540px;
+	width: 21px;
+}

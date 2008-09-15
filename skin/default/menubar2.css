@@ -1,0 +1,31 @@
+@charset "UTF-8";
+#menubar2 {
+ position: relative;
+ display:  block;
+ width:    720px;
+ height:   29px;
+ background: url(./img/skin_navi_h.jpg) no-repeat;
+}
+#menubar2 a img {
+ width: 100%;
+ height: 100%;
+}
+#hmenu1 { position:absolute; top: 0px;  left:  0px;  width: 80px; height: 29px;}
+#hmenu2 { position:absolute; top: 0px;  left: 80px;  width: 80px; height: 29px;}
+#hmenu3 { position:absolute; top: 0px;  left:160px;  width: 80px; height: 29px;}
+#hmenu4 { position:absolute; top: 0px;  left:240px;  width: 80px; height: 29px;}
+#hmenu5 { position:absolute; top: 0px;  left:320px;  width: 80px; height: 29px;}
+#hmenu6 { position:absolute; top: 0px;  left:400px;  width: 80px; height: 29px;}
+#hmenu7 { position:absolute; top: 0px;  left:480px;  width: 80px; height: 29px;}
+#hmenu8 { position:absolute; top: 0px;  left:560px;  width: 80px; height: 29px;}
+#hmenu9 { position:absolute; top: 0px;  left:640px;  width: 80px; height: 29px;}
+a#hmenu1:hover { background: url(./img/skin_navi_h_2.jpg)    0px 0px;}
+a#hmenu2:hover { background: url(./img/skin_navi_h_2.jpg)  -80px 0px;}
+a#hmenu3:hover { background: url(./img/skin_navi_h_2.jpg) -160px 0px;}
+a#hmenu4:hover { background: url(./img/skin_navi_h_2.jpg) -240px 0px;}
+a#hmenu5:hover { background: url(./img/skin_navi_h_2.jpg) -320px 0px;}
+a#hmenu6:hover { background: url(./img/skin_navi_h_2.jpg) -400px 0px;}
+a#hmenu7:hover { background: url(./img/skin_navi_h_2.jpg) -480px 0px;}
+a#hmenu8:hover { background: url(./img/skin_navi_h_2.jpg) -560px 0px;}
+a#hmenu9:hover { background: url(./img/skin_navi_h_2.jpg) -640px 0px;}
+
