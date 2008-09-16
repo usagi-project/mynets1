@@ -89,7 +89,7 @@ function smarty_modifier_t_truncate($string, $length = 80, $etc = '...',
     $string = str_replace($from, $to, $string);
 
     $length = ($length - $emoji_count) + ($emoji_count * 8);
-    if (strlen($string) > $length) {
+    if (mb_strlen($string) > $length) {
         //$length -= strlen($etc);
         if (!$break_words)
             $string = preg_replace('/\s+?(\S+)?$/', '', substr($string, 0, $length+1));
