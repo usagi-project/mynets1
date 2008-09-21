@@ -134,18 +134,21 @@ if (! function_exists('getUseTag'))
  */
 if (! function_exists('getDiaryList4Tags'))
 {
-    function getDiaryList4Tags($c_member_id, $c_tags_id, $c_entry_flag = '0',$u = null)
+    function getDiaryList4Tags($c_member_id, $c_tags_id, $page, $page_size, $c_entry_flag = '0',$u = null)
     {
         $sql = 'SELECT c_entry_id FROM '.MYNETS_PREFIX_NAME.'c_entry_tag WHERE c_tags_id = ?';
         $diary_list = db_get_col($sql, array(intval($c_tags_id)));
         $ids = join(',', $diary_list);
 
         $pf_cond = db_diary_public_flag_condition($c_member_id, $u);
-        $sql = 'SELECT * FROM '.MYNETS_PREFIX_NAME.'c_diary' .
+        $sql = 'SELECT SQL_CALC_FOUND_ROWS * FROM '.MYNETS_PREFIX_NAME.'c_diary' .
             ' WHERE c_diary_id IN ('.$ids.') AND c_member_id = ? ' . $pf_cond . ' ORDER BY r_datetime DESC';
-        $list = db_get_all($sql, array($c_member_id));
+        $params = array(intval($c_member_id));
+        $list = db_get_all_page($sql, $page, $page_size, $params);
+        $sql = "SELECT FOUND_ROWS() ";
+        $total_num = db_get_one($sql);
 
-        return array($list, false, false);
+        return array($list, false, false, $total_num);
     }
 }
 

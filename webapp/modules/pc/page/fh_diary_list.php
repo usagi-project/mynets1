@@ -4,9 +4,9 @@
  *
  * @license This source file is subject to version 3.01 of the PHP license,
  *              that is available at http://www.php.net/license/3_01.txt
- *              If you did not receive a copy of the PHP license and are unable 
- *              to obtain it through the world-wide-web, please send a note to 
- *              license@php.net so we can mail you a copy immediately.  
+ *              If you did not receive a copy of the PHP license and are unable
+ *              to obtain it through the world-wide-web, please send a note to
+ *              license@php.net so we can mail you a copy immediately.
  *
  * @category   Application of MyNETS
  * @project    OpenPNE UsagiProject 2006-2007
@@ -16,7 +16,7 @@
  * @version    MyNETS,v 1.0.0
  * @since      File available since Release 1.0.0 Nighty
  * @chengelog  [2007/02/17] Ver1.1.0Nighty package
- * ======================================================================== 
+ * ========================================================================
  */
 
 /**
@@ -45,7 +45,7 @@ class pc_page_fh_diary_list extends OpenPNE_Action
             $strYearmonth = "&year=".$year."&month=".$month;
         }
         // ----------
-        
+
         if (!$target_c_member_id) {
             $target_c_member_id = $u;
         }
@@ -79,13 +79,14 @@ class pc_page_fh_diary_list extends OpenPNE_Action
         if ($year && $month) {
             $list_set = p_fh_diary_list_diary_list_date4c_member_id($target_c_member_id, $page, $page_size, $year, $month, $day, $u);
             $rss_list = p_fh_diary_list_c_rss_cache_list_date($target_c_member_id, $year, $month, $day);
-            
+
         } elseif($c_tags_id) {
             $year = date('Y');
             $month = date('n');
-            $list_set = getDiaryList4Tags($target_c_member_id, $c_tags_id, '0', $u);
+            $list_set = getDiaryList4Tags($target_c_member_id, $c_tags_id, $page, $page_size, '0', $u);
             $this->set('c_tags_name', getTagName($c_tags_id));
-            
+            //変数にタグIDを埋め込む　タグの場合年月日がないので、これを流用
+            $strYearmonth = "&c_tags_id=".$c_tags_id;
         } else {
             $year = date('Y');
             $month = date('n');
@@ -93,7 +94,7 @@ class pc_page_fh_diary_list extends OpenPNE_Action
 
             $list_set = p_fh_diary_list_diary_list4c_member_id($target_c_member_id, $page_size, $page, $u);
             $rss_list = p_fh_diary_list_c_rss_cache_list($target_c_member_id, $page_size, $page);
-            
+
         }
 
         $this->set('c_rss_cache_list', $rss_list);
@@ -137,7 +138,10 @@ class pc_page_fh_diary_list extends OpenPNE_Action
 
         // appendを0にすることでfileNameが有効になる
          "append"     => 0,
-         "fileName"   => "?m=pc&a=page_fh_diary_list&target_c_member_id=".$target_c_member_id."&page=%d&page_size=".$page_size.$strYearmonth,
+         "fileName"   => "?m=pc&a=page_fh_diary_list&target_c_member_id=".
+                            $target_c_member_id.
+                            "&page=%d&page_size=".
+                            $page_size.$strYearmonth,
     );
 
     // Pagerインスタンスの作成
@@ -164,10 +168,10 @@ class pc_page_fh_diary_list extends OpenPNE_Action
 
         //各月の日記
         $this->set('date_list', p_fh_diary_list_date_list4c_member_id($target_c_member_id));
-        
+
         //メンバーのタグリスト
         $this->set("member_tag_list", getUseTag($target_c_member_id, '0'));
-        
+
         return 'success';
     }
 }
