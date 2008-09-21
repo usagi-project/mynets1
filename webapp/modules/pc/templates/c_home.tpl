@@ -775,10 +775,12 @@ SNS内
                 ({if $smarty.const.OPENPNE_REGIST_FROM == $smarty.const.OPENPNE_REGIST_FROM_PC})
                     ※携帯アドレスには招待を送ることができません。<br>
                 ({else})
+                    ({if $smarty.const.IS_USER_INVITE && $smarty.const.MYNETS_QRENTRY_COMMU})
                     <div align="center">
                     表示されたバーコードを保存して印刷してご利用ください。<br>
                     <img src="qr_img.php?d=({$linkurl})&amp;t=J&amp;s=3">
                     </div>
+                    ({/if})
                 ({/if})
             ({/if})
             </div>
