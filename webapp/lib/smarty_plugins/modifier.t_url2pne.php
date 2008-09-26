@@ -121,7 +121,7 @@ function smarty_modifier_t_url2pne_callback($matches)
         if (empty($db_msg['subject'])) {
             $link_str = "【該当する日記はありません】";
         } else {
-            $link_str = "【" . $db_msg['subject'] . "】(" . $member['nickname'] . "さん-" . $db_msg['r_datetime'] . ")";
+            $link_str = "【" . htmlspecialchars($db_msg['subject'], ENT_QUOTES) . "】(" . htmlspecialchars($member['nickname'], ENT_QUOTES) . "さん-" . $db_msg['r_datetime'] . ")";
         }
     } else if ( $mtype==2 ) {
         $db_msg = _do_c_bbs_c_commu_topic4c_commu_topic_id($param['target_c_commu_topic_id']);
@@ -131,13 +131,13 @@ function smarty_modifier_t_url2pne_callback($matches)
             if (empty($db_msg['name'])) {
                 $link_str = "【該当するイベントはありません】";
             } else {
-                $link_str = "【" . $db_msg['name'] . "】(開催日:" . $db_msg['open_date'] . " / 募集期間:" . $db_msg['invite_period'] . ")";
+                $link_str = "【" . htmlspecialchars($db_msg['name'], ENT_QUOTES) . "】(開催日:" . $db_msg['open_date'] . " / 募集期間:" . $db_msg['invite_period'] . ")";
             }
         } else {
             if (empty($db_msg['name'])) {
                 $link_str = "【該当するトピックはありません】";
             } else {
-                $link_str = "【" . $db_msg['name'] . "】(" . $member['nickname'] . "さん-" . $db_msg['r_datetime'] . ")";
+                $link_str = "【" . htmlspecialchars($db_msg['name'], ENT_QUOTES) . "】(" . htmlspecialchars($member['nickname'], ENT_QUOTES) . "さん-" . $db_msg['r_datetime'] . ")";
             }
         }
     } else if ( $mtype==5 ) {
@@ -146,21 +146,21 @@ function smarty_modifier_t_url2pne_callback($matches)
         if (empty($db_msg['name'])) {
             $link_str = "【該当するイベントはありません】";
         } else {
-            $link_str = "【" . $db_msg['name'] . "】(開催日:" . $db_msg['open_date'] . " / 募集期間:" . $db_msg['invite_period'] . ")";
+            $link_str = "【" . htmlspecialchars($db_msg['name'], ENT_QUOTES) . "】(開催日:" . $db_msg['open_date'] . " / 募集期間:" . $db_msg['invite_period'] . ")";
         }
     } else if ( $mtype==3 ) {
         $member = db_common_c_member4c_member_id_LIGHT($param['target_c_member_id']);
         if (empty($member['nickname'])) {
             $link_str = "【該当する方はおられません】";
         } else {
-            $link_str = "【" . $member['nickname'] . "】さんのページ";
+            $link_str = "【" . htmlspecialchars($member['nickname'], ENT_QUOTES) . "】さんのページ";
         }
     } else if ( $mtype==4 ) {
         $db_msg = _db_c_commu4c_commu_id($param['target_c_commu_id']);
         if (empty($db_msg['name'])) {
             $link_str = "【該当するコミュニティはありません】";
         } else {
-            $link_str = "【" . $db_msg['name'] . "】コミュニティ";
+            $link_str = "【" . htmlspecialchars($db_msg['name'], ENT_QUOTES) . "】コミュニティ";
         }
     } else if ( $mtype==6 ) {
         // cmd_plugins でレビュー小窓を生成する
@@ -179,11 +179,11 @@ function smarty_modifier_t_url2pne_callback($matches)
         } else {
             // 今のところ携帯にはレビューがないので詳細情報へのリンクとする
             if ($mdevs==2) {
-                $link_str = "【" . $db_msg['title'] . "】の詳細情報";
+                $link_str = "【" . htmlspecialchars($db_msg['title'], ENT_QUOTES) . "】の詳細情報";
                 $link_url = 'http_://amazon.jp/' . AMAZON_AFFID . '/dp/' . $db_msg['asin'];
                 return '<a href="t.php?'.$link_url.'" target="_blank">'.$link_str.'</a>';
             } else {
-                $link_str = "【" . $db_msg['title'] . "】のレビュー";
+                $link_str = "【" . htmlspecialchars($db_msg['title'], ENT_QUOTES) . "】のレビュー";
             }
         }
     }
