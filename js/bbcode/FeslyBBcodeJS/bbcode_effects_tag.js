@@ -64,16 +64,16 @@ function make_tag(str, stag, etag) {
         rang.moveEnd("textedit");
         if(rang.text.replace(/\r/g,"").length != 0){
             var las = (str.value.match(/(\r\n)*$/),RegExp.lastMatch.length);
-            str.selectionStart = str.value.length - (rang.text.length + las);
-            str.selectionEnd = str.selectionStart + sel.text.length;
-            str.selectionStart2 = str.value.replace(/\r/g,"").length - (rang.text.replace(/\r/g,"").length + las/2);
-            var bl1 = str.value.substring(0, str.selectionStart);
-            var bl2 = str.value.substring(str.selectionStart, str.selectionEnd);
-            var bl3 = str.value.substring(str.selectionEnd, str.value.length);
+            var Start = str.value.length - (rang.text.length + las);
+            var End = Start + sel.text.length;
+            var Start2 = str.value.replace(/\r/g,"").length - (rang.text.replace(/\r/g,"").length + las/2);
+            var bl1 = str.value.substring(0, Start);
+            var bl2 = str.value.substring(Start, End);
+            var bl3 = str.value.substring(End, str.value.length);
             str.value = bl1 + stag + bl2 + etag + bl3;
-            str.selectionEnd2 = (str.selectionStart2 + stag.length + bl2.length + etag.length) - str.value.replace(/\r/g,"").length;
-            rang.moveStart("character",str.selectionStart2);
-            rang.moveEnd("character",str.selectionEnd2);
+            var End2 = (Start2 + stag.length + bl2.length + etag.length) - str.value.replace(/\r/g,"").length;
+            rang.moveStart("character",Start2);
+            rang.moveEnd("character",End2);
         }else{
             rang.moveToPoint(sel.offsetLeft,sel.offsetTop);
             rang.text = stag + etag;
