@@ -142,6 +142,7 @@ class Community_Search
             $commu = $this->getCommuData($value['c_commu_id']);
             $result[$key]['commu_name'] = $commu['name'];
             $result[$key]['commu_info'] = $commu['info'];
+            $result[$key]['commu_image'] = $commu['image_filename'];
             $topickind = ($topic['event_flag']) ? 'event' : 'topic';
             $result[$key]['url'] = './?m=pc&a=page_c_' . $topickind . '_detail&target_c_commu_topic_id=' .$value['c_commu_topic_id']. '&page='
             .$this->getCommentPage($value['c_commu_topic_id'],$value['c_commu_topic_comment_id'],$value['number']);
