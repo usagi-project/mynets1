@@ -39,36 +39,25 @@ if ($task !== 'step4' && $task !== 'step5') {
 }
 
 $conn = @mysql_connect($db_server, $db_user, $db_pass);
-$dbs = @mysql_list_dbs($conn);
-if (!$dbs) {
-    //接続ができない
+$dbs = @mysql_query('USE '.$db_name);
+if ( ! $dbs) {
+    //DBに接続ができない
     header("location: step4.php?act=error&set_language=ja");
     exit;
 }
-    
+
 //DBがあるかないかをチェック。グレードアップでも使います。
-$cnt = mysql_num_rows($dbs);
+//$cnt = mysql_num_rows($dbs);
 $dbcheck = false;
 
-if ($cnt < 1) {
+if (! $dbs) {
     //テーブルは存在しません
     //新規インストールと判断する
-    
     $dbcheck = false;
 } else {
-    //DBが存在します。
-    //新しくDBを作成するか、グレードアップか
-    //DBリストを作成
-    //$db_list = "<select name=\"db\">";
-    
-    
-    for ($i = 0; $i < $cnt; $i++) {
-        if ($db_name == mysql_db_name($dbs, $i)) {
-            $dbcheck = true;
-            break;
-        }
-    }
-    
+    //DBに接続できました
+    $dbcheck = true;
+
 }
 
 include_once $header_template;
