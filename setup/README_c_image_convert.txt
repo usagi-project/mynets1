@@ -55,7 +55,7 @@ OPTIMIZE TABLE `c_diary_comment` ;
 --
 
 --
--- 日記のコメント数を計算する
+-- 日記のコメント数を計算し、更新日付を最新のコメントの日付とする
 --
 
 CREATE TABLE `convert_diary_commentno_max_tmp` (
@@ -70,7 +70,8 @@ INSERT INTO `convert_diary_commentno_max_tmp`
     GROUP BY c_diary_id;
 
 UPDATE c_diary as c, convert_diary_commentno_max_tmp as t
-    SET c.comment_count = t.comment_count
+    SET c.comment_count = t.comment_count,
+    c.e_datetime = t.e_datetime
     WHERE c.c_diary_id = t.c_diary_id;
 
 DROP TABLE convert_diary_commentno_max_tmp;
