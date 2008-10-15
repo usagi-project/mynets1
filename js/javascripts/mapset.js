@@ -248,62 +248,62 @@ function reset() {
     latl = 37.5;
     lngl = 137.8233;
     zml = 5;
-	map.setCenter(new GLatLng(latl,lngl),zml,G_NORMAL_MAP);
+    map.setCenter(new GLatLng(latl,lngl),zml,G_NORMAL_MAP);
     uri_type = '';
     uri_id = '';
-	uriopen();
-	pagekind = 'both';
-	$("svol").checked = false;
+    uriopen();
+    pagekind = 'both';
+    $("svol").checked = false;
     loadData('./?m=pc&a=page_h_gmaps_list_data&');
 }
 
 //マップオブジェクトロード
 function loadMap() {
     //各種コントロール追加
-	map = new GMap2($("map"));
-	map.enableDoubleClickZoom();
-	map.enableContinuousZoom();
-	map.addControl(new GLargeMapControl());
-	map.addControl(new GMapTypeControl());
-	map.addControl(new GScaleControl());
-	map.addControl(new areaSearchControl());
-	map.addControl(new resetmapControl());
-	map.addControl(new zoomMapControl());
+    map = new GMap2($("map"));
+    map.enableDoubleClickZoom();
+    map.enableContinuousZoom();
+    map.addControl(new GLargeMapControl());
+    map.addControl(new GMapTypeControl());
+    map.addControl(new GScaleControl());
+    map.addControl(new areaSearchControl());
+    map.addControl(new resetmapControl());
+    map.addControl(new zoomMapControl());
 
     var mapsearch = new GControlPosition(G_ANCHOR_TOP_RIGHT, new GSize(10,45));
     mapsearch.apply($("mapsearch"));
     $("mapsearch").style.display = "block";
     map.getContainer().appendChild($("mapsearch"));
-	
+
     var viewwindow = new GControlPosition(G_ANCHOR_BOTTOM_RIGHT, new GSize(10,30));
     viewwindow.apply($("viewwindow"));
     $("viewwindow").style.display = "block";
     $("d_viewwindow").style.display = "block";
     $("svcheckbox").style.display = "block";
     map.getContainer().appendChild($("viewwindow"));
-	
-	//各種イベントリスナ追加
-	GEvent.addListener(
-	    map,
-	    'zoomend',
-	    function(oldZoomLevel,newZoomLevel) {
-	        zml = newZoomLevel;
-	    }
-	);
-	GEvent.addListener(
-	    map,
-	    'moveend',
-	    function() {
-	        xy = map.getCenter();
-	        latl = xy.lat();
-	        lngl = xy.lng();
-	    }
-	);
+
+    //各種イベントリスナ追加
+    GEvent.addListener(
+        map,
+        'zoomend',
+        function(oldZoomLevel,newZoomLevel) {
+            zml = newZoomLevel;
+        }
+    );
+    GEvent.addListener(
+        map,
+        'moveend',
+        function() {
+            xy = map.getCenter();
+            latl = xy.lat();
+            lngl = xy.lng();
+        }
+    );
 
     GEvent.addListener(
         map,
         "infowindowclose",
-        function() { 
+        function() {
             $("mapsearch").style.display="block";
             $("viewwindow").style.display="block";
             if(svm != null) {
@@ -316,27 +316,27 @@ function loadMap() {
             }
         }
     );
-	
+
     GEvent.addListener(
         map.getInfoWindow(),
         "maximizeend",
-        function() { 
+        function() {
             $("mapsearch").style.display="none";
             $("viewwindow").style.display="none";
             maxInfoWindow();
         }
     );
-    
+
     GEvent.addListener(
         map.getInfoWindow(),
         "restoreend",
-        function() { 
+        function() {
             $("mapsearch").style.display="block";
             $("viewwindow").style.display="block";
         }
     );
-    
-	map.setCenter(new GLatLng(latl,lngl),zml,G_NORMAL_MAP);
+
+    map.setCenter(new GLatLng(latl,lngl),zml,G_NORMAL_MAP);
 }
 
 //マーカーに応じて表示範囲を最適化
@@ -478,40 +478,40 @@ function initMarker() {
     if(d_total_num == 'トータル数[0]件') {
         $("d_page").innerHTML = "";
     } else {
-	    var i;
-	    var str = '';
-	    for (i=0;i<pointData.length;i++) {
-	        if(!isNaN(pointData[i].zoom) && !isNaN(pointData[i].lon) && !isNaN(pointData[i].lat)) {
-	            var marker = plotById(i);
-    	        map.addOverlay(marker);
-    	        str += makeList(i);
+        var i;
+        var str = '';
+        for (i=0;i<pointData.length;i++) {
+            if(!isNaN(pointData[i].zoom) && !isNaN(pointData[i].lon) && !isNaN(pointData[i].lat)) {
+                var marker = plotById(i);
+                map.addOverlay(marker);
+                str += makeList(i);
                 d_viewpic180[i] = new Image();
                 d_viewpic180[i].src = makeimg(pointData[i].img);
                 //manager.addMarker(marker,0);
-	        }
-	    }
+            }
+        }
         str = "<div style='text-align:left;padding:5px;'><ol>" + str + "</ol></div>";
         $("d_page").innerHTML = str;
-	}
-	
+    }
+
     if(c_total_num == 'トータル数[0]件') {
         $("c_page").innerHTML = "";
     } else {
-	    var j;
-	    var str = '';
-	    for (j=0;j<pointData2.length;j++) {
-	        if(!isNaN(pointData2[j].zoom) && !isNaN(pointData2[j].lon) && !isNaN(pointData2[j].lat)) {
-	            var marker = plotById2(j);
-    	        map.addOverlay(marker);
-    	        str += makeList2(j);
+        var j;
+        var str = '';
+        for (j=0;j<pointData2.length;j++) {
+            if(!isNaN(pointData2[j].zoom) && !isNaN(pointData2[j].lon) && !isNaN(pointData2[j].lat)) {
+                var marker = plotById2(j);
+                map.addOverlay(marker);
+                str += makeList2(j);
                 c_viewpic180[j] = new Image();
                 c_viewpic180[j].src = makeimg(pointData2[j].img);
                 //manager.addMarker(marker,0);
-	        }
-	    }
+            }
+        }
         str = "<div style='text-align:left;padding:5px;'><ol>" + str + "</ol></div>";
         $("c_page").innerHTML = str;
-	}
+    }
 }
 
 //イメージ読み込み
@@ -580,10 +580,10 @@ function makeInfom(i) {
     }
     var npoint = '<span id=\'d' + id + '\'>&nbsp;<img src="./skin/default/img/icon_arrow_1.gif" align="absmiddle"><a href=\'javascript:void(0);\' onclick=\'listSelected('+id+');return false;\'>作成時の倍率で表示</a></span>';
     var rpoint = '<span id=\'rd' + id + '\'>&nbsp;<img src="./skin/default/img/icon_arrow_1.gif" align="absmiddle"><a href=\'javascript:void(0);\' onclick=\'rv('+id+');return false;\'>前に戻る</a></span>';
-	var html = "<div style='width:280px;line-height:150%;font-size:9pt;font-family:sans-serif;text-align:left;'><div style='border-bottom:#cccccc 1px solid;'><span style='font-weight:bold;color:#60E060;'>■日記</span>"+rpoint+npoint+"</div>";
+    var html = "<div style='width:280px;line-height:150%;font-size:9pt;font-family:sans-serif;text-align:left;'><div style='border-bottom:#cccccc 1px solid;'><span style='font-weight:bold;color:#60E060;'>■日記</span>"+rpoint+npoint+"</div>";
     html += "<div style='padding:5px 0;'><span style='font-weight:bold;'>"+(i+1)+"</span><img src='./skin/dummy.gif' style='width:14px;height:14px;' class='icon icon_1'>" + date + "<br>" + nickname + "&nbsp;<img src='./skin/default/img/icon_arrow_1.gif' align='absmiddle'><a href='javascript:void(0);' onclick='mindiv("+mid+");return false;'>メンバーで絞り込む</a></div><div style='font-weight:bold;'><a href='javascript:void(0);' onclick='map.getInfoWindow().maximize();return false;'>" + info + "</a></div><div>" + note + "<br><img src='./skin/default/img/icon_arrow_1.gif' align='absmiddle'><a href='" + url + "' target='_blank'>コメントをする</a></div>";
-	html += "<div style='text-align:right;clear:both;'><div style='margin-top:3px;padding-top:3px;border-top:#cccccc 1px solid;'><img src='./skin/default/img/icon_arrow_1.gif' align='absmiddle'><a href='javascript:void(0);' onclick='indiv(\"d_page\","+inid+");return false;'>この日記で絞り込む</a><div style='padding:3px 0;'><span id='svd" + id + "'><img src='./skin/default/img/icon_arrow_1.gif' align='absmiddle'><a href='javascript:void(0);' onclick='showsv();return false;'>ストリートビュー</a>&nbsp;</span><img src='./skin/default/img/icon_arrow_1.gif' align='absmiddle'><a href='javascript:void(0);' onclick='map.getInfoWindow().maximize();return false;'>全文を見る</a></div></div></div>";
-	return html + "</div>";
+    html += "<div style='text-align:right;clear:both;'><div style='margin-top:3px;padding-top:3px;border-top:#cccccc 1px solid;'><img src='./skin/default/img/icon_arrow_1.gif' align='absmiddle'><a href='javascript:void(0);' onclick='indiv(\"d_page\","+inid+");return false;'>この日記で絞り込む</a><div style='padding:3px 0;'><span id='svd" + id + "'><img src='./skin/default/img/icon_arrow_1.gif' align='absmiddle'><a href='javascript:void(0);' onclick='showsv();return false;'>ストリートビュー</a>&nbsp;</span><img src='./skin/default/img/icon_arrow_1.gif' align='absmiddle'><a href='javascript:void(0);' onclick='map.getInfoWindow().maximize();return false;'>全文を見る</a></div></div></div>";
+    return html + "</div>";
 }
 
 function makeInfo2m(i) {
@@ -612,10 +612,10 @@ function makeInfo2m(i) {
     } else {
         cname = "トピック";
     }
-	var html = "<div style='width:280px;line-height:150%;font-size:9pt;font-family:sans-serif;text-align:left;'><div style='border-bottom:#cccccc 1px solid;'><span style='font-weight:bold;color:#FD766A;'>■"+cname+"</span>"+rpoint+npoint+"</div>";
+    var html = "<div style='width:280px;line-height:150%;font-size:9pt;font-family:sans-serif;text-align:left;'><div style='border-bottom:#cccccc 1px solid;'><span style='font-weight:bold;color:#FD766A;'>■"+cname+"</span>"+rpoint+npoint+"</div>";
     html += "<div style='padding:5px 0;'><span style='font-weight:bold;'>"+(i+1)+"</span><img src='./skin/dummy.gif' style='width:14px;height:14px;' class='icon icon_2'>" + date + "<br>" + nickname + "&nbsp;<img src='./skin/default/img/icon_arrow_1.gif' align='absmiddle'><a href='javascript:void(0);' onclick='mindiv("+mid+");return false;'>メンバーで絞り込む</a></div><div style='font-weight:bold;'><a href='javascript:void(0);' onclick='map.getInfoWindow().maximize();return fasle;'>" + info + "</a></div><div>" + note + "<br><img src='./skin/default/img/icon_arrow_1.gif' align='absmiddle'><a href='" + url + "' target='_blank'>書き込みをする</a></div>";
-	html += "<div style='text-align:right;clear:both;'><div style='margin-top:3px;padding-top:3px;border-top:#cccccc 1px solid;'><img src='./skin/default/img/icon_arrow_1.gif' align='absmiddle'><a href='javascript:void(0);' onclick='indiv(\"c_page\","+inid+");return false;'>この"+cname+"で絞り込む</a>&nbsp;<img src='./skin/default/img/icon_arrow_1.gif' align='absmiddle'><a href='javascript:void(0);' onclick='cmindiv("+cmid+");return false'>コミュで絞り込む</a><div style='padding:3px 0;'><span id='svc" + id + "'><img src='./skin/default/img/icon_arrow_1.gif' align='absmiddle'><a href='javascript:void(0);' onclick='showsv();return false;'>ストリートビュー</a>&nbsp;</span><img src='./skin/default/img/icon_arrow_1.gif' align='absmiddle'><a href='javascript:void(0);' onclick='map.getInfoWindow().maximize();return false;'>全文を見る</a></div></div></div>";
-	return html + "</div>";
+    html += "<div style='text-align:right;clear:both;'><div style='margin-top:3px;padding-top:3px;border-top:#cccccc 1px solid;'><img src='./skin/default/img/icon_arrow_1.gif' align='absmiddle'><a href='javascript:void(0);' onclick='indiv(\"c_page\","+inid+");return false;'>この"+cname+"で絞り込む</a>&nbsp;<img src='./skin/default/img/icon_arrow_1.gif' align='absmiddle'><a href='javascript:void(0);' onclick='cmindiv("+cmid+");return false'>コミュで絞り込む</a><div style='padding:3px 0;'><span id='svc" + id + "'><img src='./skin/default/img/icon_arrow_1.gif' align='absmiddle'><a href='javascript:void(0);' onclick='showsv();return false;'>ストリートビュー</a>&nbsp;</span><img src='./skin/default/img/icon_arrow_1.gif' align='absmiddle'><a href='javascript:void(0);' onclick='map.getInfoWindow().maximize();return false;'>全文を見る</a></div></div></div>";
+    return html + "</div>";
 }
 
 //マーカーリスト作成
@@ -782,7 +782,7 @@ function addDragEvent() {
             map.closeInfoWindow();
             before_drag = svm.getPoint();
             svicon.image = "http://maps.google.co.jp/intl/ja_jp/mapfiles/cb/man-0.png";
-	        if(svm != null) {
+            if(svm != null) {
                 svm.setImage(svicon.image);
             }
         }
@@ -793,12 +793,12 @@ function addDragEvent() {
         function() {
             if (!hlng || hlng < svm.getLatLng().lng()) {
                 svicon.image = "http://www.google.co.jp/intl/ja_jp/mapfiles/cb/man_fly_right.png";
-    	        if(svm != null) {
+                if(svm != null) {
                     svm.setImage(svicon.image);
                  }
             } else if (hlng > svm.getLatLng().lng()) {
                 svicon.image = "http://www.google.co.jp/intl/ja_jp/mapfiles/cb/man_fly_left.png";
-    	        if(svm != null) {
+                if(svm != null) {
                     svm.setImage(svicon.image);
                 }
             }
@@ -810,7 +810,7 @@ function addDragEvent() {
         "dragend",
         function() {
             svicon.image = "http://maps.google.co.jp/intl/ja_jp/mapfiles/cb/man_arrow-0.png";
-	        if(svm != null) {
+            if(svm != null) {
                 svm.setImage(svicon.image);
             }
             svc.getNearestPanorama(svm.getPoint(), svccallback);
@@ -892,9 +892,9 @@ function hide_rt() {
 
 //作成時の位置のみでマーカー表示
 function listSelectedm(id) {
-		markers[id].openInfoWindowHtml(htmlm[id], {maxContent: maxdiv2, maxTitle: '<b>' + pointData[id].info + '</b>'});
-		map.panTo(new GLatLng(pointData[id].lat, pointData[id].lon));
-		c_mode = 1;
+        markers[id].openInfoWindowHtml(htmlm[id], {maxContent: maxdiv2, maxTitle: '<b>' + pointData[id].info + '</b>'});
+        map.panTo(new GLatLng(pointData[id].lat, pointData[id].lon));
+        c_mode = 1;
         if(existdv[id] == undefined) {
             svc.getNearestPanorama(new GLatLng(pointData[id].lat, pointData[id].lon), svtextcallback);
         } else if(existdv[id] == 1) {
@@ -907,9 +907,9 @@ function listSelectedm(id) {
 }
 
 function listSelected2m(id) {
-		markers2[id].openInfoWindowHtml(htmlm2[id], {maxContent: maxdiv2, maxTitle: '<b>' + pointData2[id].info + '</b>'});
-		map.panTo(new GLatLng(pointData2[id].lat, pointData2[id].lon));
-		c_mode = 2;
+        markers2[id].openInfoWindowHtml(htmlm2[id], {maxContent: maxdiv2, maxTitle: '<b>' + pointData2[id].info + '</b>'});
+        map.panTo(new GLatLng(pointData2[id].lat, pointData2[id].lon));
+        c_mode = 2;
         if(existcv[id] == undefined) {
             svc.getNearestPanorama(new GLatLng(pointData2[id].lat, pointData2[id].lon), svtextcallback);
         } else if(existcv[id] == 1) {
@@ -923,39 +923,39 @@ function listSelected2m(id) {
 
 //作成時の位置・倍率でマーカー表示
 function listSelected(id) {
-		addllz();
-		map.setCenter(new GLatLng(pointData[id].lat, pointData[id].lon), parseInt(pointData[id].zoom));
-		markers[id].openInfoWindowHtml(htmlm[id], {maxContent: maxdiv2, maxTitle: '<b>' + pointData[id].info + '</b>'});
+        addllz();
+        map.setCenter(new GLatLng(pointData[id].lat, pointData[id].lon), parseInt(pointData[id].zoom));
+        markers[id].openInfoWindowHtml(htmlm[id], {maxContent: maxdiv2, maxTitle: '<b>' + pointData[id].info + '</b>'});
         if(existdv[id] == undefined) {
             svc.getNearestPanorama(new GLatLng(pointData[id].lat, pointData[id].lon), svtextcallback);
         } else if(existdv[id] == 1) {
             hide_sv();
         }
-		$('d'+id).style.display='none';
+        $('d'+id).style.display='none';
 }
 
 function listSelected2(id) {
-		addllz();
-		map.setCenter(new GLatLng(pointData2[id].lat, pointData2[id].lon), parseInt(pointData2[id].zoom));
-		markers2[id].openInfoWindowHtml(htmlm2[id], {maxContent: maxdiv2, maxTitle: '<b>' + pointData2[id].info + '</b>'});
+        addllz();
+        map.setCenter(new GLatLng(pointData2[id].lat, pointData2[id].lon), parseInt(pointData2[id].zoom));
+        markers2[id].openInfoWindowHtml(htmlm2[id], {maxContent: maxdiv2, maxTitle: '<b>' + pointData2[id].info + '</b>'});
         if(existcv[id] == undefined) {
             svc.getNearestPanorama(new GLatLng(pointData2[id].lat, pointData2[id].lon), svtextcallback);
         } else if(existcv[id] == 1) {
             hide_sv();
         }
-		$('c'+id).style.display='none';
+        $('c'+id).style.display='none';
 }
 
 //マーカーの位置と倍率を記録
 function addllz() {
-	latr=map.getCenter().lat();
-	lngr=map.getCenter().lng();
-	zmr=map.getZoom();
+    latr=map.getCenter().lat();
+    lngr=map.getCenter().lng();
+    zmr=map.getZoom();
 }
 
 //マーカーを前の位置と倍率で表示
 function rv(id) {
-	map.setCenter(new GLatLng(latr,lngr),zmr);
+    map.setCenter(new GLatLng(latr,lngr),zmr);
     markers[id].openInfoWindowHtml(htmlm[id], {maxContent: maxdiv2, maxTitle: '<b>' + pointData[id].info + '</b>'});
     if(existdv[id] == undefined) {
         svc.getNearestPanorama(new GLatLng(pointData[id].lat, pointData[id].lon), svtextcallback);
@@ -964,10 +964,10 @@ function rv(id) {
     }
     $('rd'+id).style.display='none';
 }
-	
+
 function rv2(id) {
-	map.setCenter(new GLatLng(latr,lngr),zmr);
-	markers2[id].openInfoWindowHtml(htmlm2[id], {maxContent: maxdiv2, maxTitle: '<b>' + pointData2[id].info + '</b>'});
+    map.setCenter(new GLatLng(latr,lngr),zmr);
+    markers2[id].openInfoWindowHtml(htmlm2[id], {maxContent: maxdiv2, maxTitle: '<b>' + pointData2[id].info + '</b>'});
     if(existcv[id] == undefined) {
         svc.getNearestPanorama(new GLatLng(pointData2[id].lat, pointData2[id].lon), svtextcallback);
     } else if(existcv[id] == 1) {
@@ -1023,7 +1023,7 @@ function deletePoint() {
     var flg = false;
     var parray2 = new Array();
     for(i=0; i<parray.length; i++) {
-        var chkObj = $(parray[i].id);
+        var chkObj = $(parray[i].id + "");
         if (chkObj.checked) {
             $(chkObj.value).style.display = "none";
             flg = true;
@@ -1057,8 +1057,8 @@ function recPoint() {
 
 //ページャ初期化
 function initPager() {
-	    $("num1").innerHTML = d_total_num;
-	    $("pager1").innerHTML = d_page_link;
+        $("num1").innerHTML = d_total_num;
+        $("pager1").innerHTML = d_page_link;
         $("num2").innerHTML = c_total_num;
         $("pager2").innerHTML = c_page_link;
 }
