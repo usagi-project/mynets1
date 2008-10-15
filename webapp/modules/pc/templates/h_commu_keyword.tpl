@@ -222,7 +222,7 @@
 <div class="padding_s">
 
 <a href="({t_url m=pc a=page_c_topic_detail})&amp;target_c_commu_topic_id=({$item.c_commu_topic_id})">
-<img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_logo_small})"></a>
+<img src="({t_img_url filename=$item.commu_image w=76 h=76 noimg=no_logo_small})"></a>
 
 </div>
 
