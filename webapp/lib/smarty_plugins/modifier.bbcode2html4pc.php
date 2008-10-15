@@ -49,8 +49,8 @@ function smarty_modifier_bbcode2html4pc($message,$allowWiki=TRUE,$allowUrl=TRUE,
         '/\[color=(#[a-fA-F0-9]{3,6}|[a-zA-Z ]*)\](.*?)\[\/color\]/si'  => "<span style=\"color:\\1\">\\2</span>",
         '/\[size=([0-9]+)(pt|pc|px|em|ex|mm|cm|in|%)\](.*?)\[\/size\]/si'   => "<span class=\"bb-height\" style=\"font-size:\\1\\2\">\\3</span>",
         '/\[size=(x{1,2}\-small|small|medium|large|x{1,2}\-large)\](.*?)\[\/size\]/si'      => "<span class=\"bb-size-\\1\">\\2</span>",
-		'/\[large\](.*?)\[\/large\]/si'	 		 => "<span style=\"font-size:120%; line-height:100%;\">\\1</span>",
-		'/\[small\](.*?)\[\/small\]/si'			 => "<span style=\"font-size:80%; line-height:100%;\">\\1</span>",
+        '/\[large\](.*?)\[\/large\]/si'          => "<span style=\"font-size:120%; line-height:100%;\">\\1</span>",
+        '/\[small\](.*?)\[\/small\]/si'          => "<span style=\"font-size:80%; line-height:100%;\">\\1</span>",
         '/\[font=(?:&quot;|"|&#039;|\')?([^(&quot;|&#039)"\'\[\]]*?)(?:&quot;|"|&#039;|\')?\](.*?)\[\/font\]/si'    => '<span style="font-family:\'\\1\'">\\2</span>',
         '/\[align=(left|right|center|justify)\](.*?)\[\/align\](<br\s*\/{0,1}>|[\r\n]{0,2})?/si'    => "<div style=\"text-align:\\1\">\\2</div>",
         '/\[b\](.*?)\[\/b\]/si'                 => "<span class=\"bb-bold\">\\1</span>",
@@ -61,11 +61,11 @@ function smarty_modifier_bbcode2html4pc($message,$allowWiki=TRUE,$allowUrl=TRUE,
         '/\[center\](.*?)\[\/center\](<br\s*\/{0,1}>|[\r\n]{0,2})?/si'  => "<div class=\"bb-center\">\\1</div>",
         '/\[left\](.*?)\[\/left\](<br\s*\/{0,1}>|[\r\n]{0,2})?/si'      => "<div class=\"bb-left\">\\1</div>",
         '/\[right\](.*?)\[\/right\](<br\s*\/{0,1}>|[\r\n]{0,2})?/si'    => "<div class=\"bb-right\">\\1</div>",
-		'/\[justify\](.*?)\[\/justify\]/si'		 => "<div style=\"text-align:justify;\">\\1</div>",
+        '/\[justify\](.*?)\[\/justify\]/si'      => "<div style=\"text-align:justify;\">\\1</div>",
         '/\[s\](.*?)\[\/s\]/si'                     => "<span class=\"bb-through\">\\1</span>",
         '/\[strike\](.*?)\[\/strike\]/si'           => "<span class=\"bb-through\">\\1</span>",
         '/\[del\](.*?)\[\/del\]/si'                 => "<span class=\"bb-through\">\\1</span>",
-		'/\[d\](.*?)\[\/d\]/si'					 => "<span style=\"text-decoration:line-through;\">\\1</span>",
+        '/\[d\](.*?)\[\/d\]/si'                  => "<span style=\"text-decoration:line-through;\">\\1</span>",
         '/\[linethrough\](.*?)\[\/linethrough\]/si' => "<span class=\"bb-through\">\\1</span>",
         '/\[sub\](.*?)\[\/sub\]/si'                 => "<sub>\\1</sub>",
         '/\[sup\](.*?)\[\/sup\]/si'                 => "<sup>\\1</sup>",
@@ -82,7 +82,7 @@ function smarty_modifier_bbcode2html4pc($message,$allowWiki=TRUE,$allowUrl=TRUE,
         '/\[indent=([0-9]+(?:pt|pc|px|em|ex|mm|cm|in|%))\](.*?)\[\/indent\](<br\s*\/{0,1}>|[\r\n]{0,2})?/si'    => "<div style=\"text-indent:\\1;\">\\2</div>",
 
         // [highlight]
-		'/\[marker=(.*?)\](.*?)\[\/marker\]/si'	 => "<span style=\"background-color:\\1; line-height:100%;\">\\2</span>",
+        '/\[marker=(.*?)\](.*?)\[\/marker\]/si'  => "<span style=\"background-color:\\1; line-height:100%;\">\\2</span>",
         '/\[highlight\](.*?)\[\/highlight\]/si'         => "<span class=\"bb-highlight\">\\1</span>",
         '/\[highlight=(#[a-fA-F0-9]{3,6}|[a-zA-Z ]+)\](.*?)\[\/highlight\]/si'  => "<span class=\"bb-highlight\" style=\"background-color:\\1\">\\2</span>",
 
@@ -91,7 +91,7 @@ function smarty_modifier_bbcode2html4pc($message,$allowWiki=TRUE,$allowUrl=TRUE,
         //'/\[quote=(?:&quot;|"|&#039;|\')?([^(&quot;|&#039)"\'\[\]]*?)(?:&quot;|"|&#039;|\')?\](.*?)\[\/quote\](<br\s*\/{0,1}>|[\r\n]{0,2})?/si' => "<div class=\"bb-blockquote\"><div class=\"bb-quote-marks\">\\1</div><div class=\"bb-quote\">\\2</div><div class=\"bb-float-clear\"></div></div>",
         '/\[quote=Quote\](.*?)\[\/quote\](<br\s*\/{0,1}>|[\r\n]{0,2})?/si' =>  "<div class=\"bb-blockquote\"><div class=\"bb-quote-marks\">Quote:</div><div class=\"bb-quote\">\\1</div><div class=\"bb-float-clear\"></div></div>",
         '/\[quote=(?:&quot;|"|&#039;|\')?(.*?)(?:&quot;|"|&#039;|\')?\](.*?)\[\/quote\](<br\s*\/{0,1}>|[\r\n]{0,2})?/si' => "<div class=\"bb-blockquote\"><div class=\"bb-quote-marks\">\\1</div><div class=\"bb-quote\">\\2</div><div class=\"bb-float-clear\"></div></div>",
-		'/\[quo\](<br\s*\/{0,1}>|[\r\n]*)?(.*?)\[\/quo\](<br\s*\/{0,1}>|[\r\n]{0,2})?/esi' => '"<div class=\"BBcode_Quote\"><blockquote>".preg_replace(array(\'/^<br\s*\/?>/si\',\'/ /\',\'/\t/\',\'/<br&nbsp;\/>/si\',\'/:/\'),array("","&nbsp;","&nbsp;&nbsp;&nbsp;&nbsp;","<br />","&#58;"),"\\2")."</blockquote></div>"',
+        '/\[quo\](<br\s*\/{0,1}>|[\r\n]*)?(.*?)\[\/quo\](<br\s*\/{0,1}>|[\r\n]{0,2})?/esi' => '"<div class=\"BBcode_Quote\"><blockquote>".preg_replace(array(\'/^<br\s*\/?>/si\',\'/ /\',\'/\t/\',\'/<br&nbsp;\/>/si\',\'/:/\'),array("","&nbsp;","&nbsp;&nbsp;&nbsp;&nbsp;","<br />","&#58;"),"\\2")."</blockquote></div>"',
 
 
         // [list]
@@ -133,37 +133,37 @@ function smarty_modifier_bbcode2html4pc($message,$allowWiki=TRUE,$allowUrl=TRUE,
         '/\[\[item\(http:\/\/route\.alpslab\.jp\/fslide\.swf\?routeid=([a-z0-9]+),[0-9]+,[0-9]+\)\]\]/si'   => 'http://route.alpslab.jp/watch.rb?id=\\1',
     );
 
-	switch ($allowWiki) {
-		case "TRUE":
-			// [Wikipedia]
-			$preg['/\[wiki\](.*?)\[\/wiki\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"http\:\/\/www.wikipedia.org/search-redirect.php?language=ja&go=Go&search=\\1\" target=\"_blank\" title=\"Wikipediaで\\1を照会\">\\1<'+'/a>');</script><noscript>\\1</noscript>";
-			break;
-		case "FALSE":
-		default:
-			break;
-	}
+    switch ($allowWiki) {
+        case TRUE:
+            // [Wikipedia]
+            $preg['/\[wiki\](.*?)\[\/wiki\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"http\:\/\/www.wikipedia.org/search-redirect.php?language=ja&go=Go&search=\\1\" target=\"_blank\" title=\"Wikipediaで\\1を照会\">\\1<'+'/a>');</script><noscript>\\1</noscript>";
+            break;
+        case FALSE:
+        default:
+            break;
+    }
 
-	switch ($allowUrl) {
-		case "TRUE":
-			// [url] for OpenPNE
-			$preg['/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[img\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\](.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\" class=\"bb-url\">\\4<img src=\"\\5'+'\\6\\7\" alt=\"\\5'+'\\6\\7\" class=\"bb-image\" width=\"".$imgWidth."\">\\8<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
-			$preg['/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[img=(.*?)x(.*?)\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\](.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\" class=\"bb-url\">\\4<img src=\"\\7'+'\\8\\9\" alt=\"\\7'+'\\8\\9\" class=\"bb-image\" width=\"\\5\" height=\"\\6\">\\{10}<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
-			$preg['/\[url\](https?)?(:\/\/|\.{0,2}\/)([^\[]+?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\" class=\"bb-url\">\\1'+'\\2\\3<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
-			$preg['/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\][^:\[]*https?[^:]*:\/\/(.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\">\\1'+'\\2\\3<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
-			$preg['/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\">\\4<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
-			break;
-		case "FALSE":
-		default:
-			break;
-	}
+    switch ($allowUrl) {
+        case TRUE:
+            // [url] for OpenPNE
+            $preg['/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[img\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\](.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\" class=\"bb-url\">\\4<img src=\"\\5'+'\\6\\7\" alt=\"\\5'+'\\6\\7\" class=\"bb-image\" width=\"".$imgWidth."\">\\8<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
+            $preg['/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[img=(.*?)x(.*?)\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\](.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\" class=\"bb-url\">\\4<img src=\"\\7'+'\\8\\9\" alt=\"\\7'+'\\8\\9\" class=\"bb-image\" width=\"\\5\" height=\"\\6\">\\{10}<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
+            $preg['/\[url\](https?)?(:\/\/|\.{0,2}\/)([^\[]+?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\" class=\"bb-url\">\\1'+'\\2\\3<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
+            $preg['/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\][^:\[]*https?[^:]*:\/\/(.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\">\\1'+'\\2\\3<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
+            $preg['/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\">\\4<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
+            break;
+        case FALSE:
+        default:
+            break;
+    }
 
     switch ($allowImg) {
-        case "TRUE":
+        case TRUE:
             // [img] for OpenPNE
             $preg['/\[img\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\"><img src=\"\\1'+'\\2\\3\" alt=\"\\1'+'\\2\\3\" class=\"bb-image\" width=\"".$imgWidth."\"><'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
             $preg['/\[img=([0-9]+)x([0-9]+)\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\3'+'\\4\\5\" target=\"_blank\" title=\"\\3'+'\\4\\5\"><img width=\"\\1\" height=\"\\2\" src=\"\\3'+'\\4\\5\" alt=\"\\3'+'\\4\\5\" class=\"bb-image\"><'+'/a>');</script><noscript>\\3\\4\\5</noscript>";
             break;
-        case "FALSE":
+        case FALSE:
         default:
             break;
     }

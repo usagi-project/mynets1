@@ -49,8 +49,8 @@ function smarty_modifier_bbcode2html4ktai($message,$allowWiki=TRUE,$allowUrl=TRU
 //      '/\[size=(.*?)\](.*?)\[\/size\]/si'     => "<span style=\"font-size:\\1\">\\2</span>",
         '/\[size=(.*?)\](.*?)\[\/size\]/esi'    => '_smarty_modifier_fontsize2size("\\1","\\2")',
         '/\[font=(?:&quot;|"|&#039;|\')?([^(&quot;|&#039)"\'\[\]]*?)(?:&quot;|"|&#039;|\')?\](.*?)\[\/font\]/si'    => "\\2",
-		'/\[large\](.*?)\[\/large\]/si'	 		 => "<span style=\"font-size:120%; line-height:100%;\">\\1</span>",
-		'/\[small\](.*?)\[\/small\]/si'			 => "<span style=\"font-size:80%; line-height:100%;\">\\1</span>",
+        '/\[large\](.*?)\[\/large\]/si'          => "<span style=\"font-size:120%; line-height:100%;\">\\1</span>",
+        '/\[small\](.*?)\[\/small\]/si'          => "<span style=\"font-size:80%; line-height:100%;\">\\1</span>",
         '/\[align=(left|right|center|justify)\](.*?)\[\/align\](<br\s*\/{0,1}>|[\r\n]{0,2})?/si'    => "<div style=\"text-align:\\1\">\\2</div>",
         '/\[b\](.*?)\[\/b\]/si'                 => "<span style=\"font-weight:bold\">\\1</span>",
         '/\[strong\](.*?)\[\/strong\]/si'       => "<strong>\\1</strong>",
@@ -60,7 +60,7 @@ function smarty_modifier_bbcode2html4ktai($message,$allowWiki=TRUE,$allowUrl=TRU
         '/\[center\](.*?)\[\/center\](<br\s*\/{0,1}>|[\r\n]{0,2})?/si'  => "<div style=\"text-align:center\">\\1</div>",
         '/\[left\](.*?)\[\/left\](<br\s*\/{0,1}>|[\r\n]{0,2})?/si'      => "<div style=\"text-align:left\">\\1</div>",
         '/\[right\](.*?)\[\/right\](<br\s*\/{0,1}>|[\r\n]{0,2})?/si'    => "<div style=\"text-align:right\">\\1</div>",
-		'/\[justify\](.*?)\[\/justify\]/si'		 => "<div style=\"text-align:justify;\">\\1</div>",
+        '/\[justify\](.*?)\[\/justify\]/si'      => "<div style=\"text-align:justify;\">\\1</div>",
         '/\[s\](.*?)\[\/s\]/si'                     => "<span style=\"text-decoration:line-through\">\\1</span>",
         '/\[strike\](.*?)\[\/strike\]/si'           => "<span style=\"text-decoration:line-through\">\\1</span>",
         '/\[del\](.*?)\[\/del\]/si'                 => "<span style=\"text-decoration:line-through\">\\1</span>",
@@ -83,7 +83,7 @@ function smarty_modifier_bbcode2html4ktai($message,$allowWiki=TRUE,$allowUrl=TRU
         // [highlight]
         '/\[highlight\](.*?)\[\/highlight\]/si'         => "<span style=\"background-color:#ffff00\">\\1</span>",
         '/\[highlight=(#[a-fA-F0-9]{3,6}|[a-zA-Z ]+)\](.*?)\[\/highlight\]/si'  => "<span style=\"background-color:\\1\">\\2</span>",
-		'/\[marker=(.*?)\](.*?)\[\/marker\]/si'	 => "<span style=\"background-color:\\1; line-height:100%;\">\\2</span>",
+        '/\[marker=(.*?)\](.*?)\[\/marker\]/si'  => "<span style=\"background-color:\\1; line-height:100%;\">\\2</span>",
 
         // [quote]
         '/\[quo\](.*?)\[\/quo\](<br\s*\/{0,1}>|[\r\n]{0,2})?/si'    => "<blockquote>\\1</blockquote>",
@@ -128,11 +128,11 @@ function smarty_modifier_bbcode2html4ktai($message,$allowWiki=TRUE,$allowUrl=TRU
         //[[item(http://route.alpslab.jp/fslide.swf?routeid=[a-z0-9]+,320,240)]]
         '/\[\[item\(http:\/\/route\.alpslab\.jp\/fslide\.swf\?routeid=([a-z0-9]+),[0-9]+,[0-9]+\)\]\]/si'   => 'http://route.alpslab.jp/watch.rb?id=\\1',
 
-		'/\[wiki\](.*?)\[\/wiki\]/si'			=> "\\1",
+        '/\[wiki\](.*?)\[\/wiki\]/si'           => "\\1",
     );
 
     switch ($allowUrl) {
-        case "TRUE":
+        case TRUE:
             // [url] for OpenPNE (Cellular)
             $preg['/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[img\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\](.*?)\[\/url\]/si'] = OPENPNE_URL . "\\1\\2\\3<br>" . OPENPNE_URL . "\\5\\6\\7";
             $preg['/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[img=(.*?)x(.*?)\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\](.*?)\[\/url\]/si'] = OPENPNE_URL . "\\1\\2\\3<br>" . OPENPNE_URL . "\\7\\8\\9";
@@ -140,34 +140,34 @@ function smarty_modifier_bbcode2html4ktai($message,$allowWiki=TRUE,$allowUrl=TRU
             $preg['/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\][^:\[]*https?[^:]*:\/\/(.*?)\[\/url\]/esi'] = 'preg_replace(array(\'/^\.{0,2}\//si\'),array("' . OPENPNE_URL .'"),"\\1\\2")."\\3"';
             $preg['/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[\/url\]/esi'] = '"\\4<br>".preg_replace(array(\'/^\.{0,2}\//si\'),array("' . OPENPNE_URL .'"),"\\1\\2")."\\3"';
             break;
-        case "FALSE":
+        case FALSE:
         default:
             break;
     }
 
     if(function_exists("smarty_modifier_t_url2pne")){
         switch ($allowImg) {
-            case "TRUE":
+            case TRUE:
                 // [img] for OpenPNE (Cellular)
                 $preg['/\[img\](\.{0,2}\/)(.+?)\[\/img\]/si'] = OPENPNE_URL . "\\2";
                 $preg['/\[img=(.*?)x(.*?)\](\.{0,2}\/)(.+?)\[\/img\]/si'] = OPENPNE_URL . "\\4";
                 $preg['/\[img\](https?)(:\/\/)(.+?)\[\/img\]/si'] = "\\1\\2\\3";
                 $preg['/\[img=(.*?)x(.*?)\](https?)(:\/\/)(.+?)\[\/img\]/si'] = "\\3\\4\\5";
                 break;
-            case "FALSE":
+            case FALSE:
             default:
                 break;
         }
     }else{
         switch ($allowImg) {
-            case "TRUE":
+            case TRUE:
                 // [img] for OpenPNE (Cellular)
                 $preg['/\[img\](\.{0,2}\/)(.+?)\[\/img\]/si'] = "<a href=\"". OPENPNE_URL . "\\2\"><img src=\"" . OPENPNE_URL . "\\2\" width=\"".$imgWidth."\"></a>";
                 $preg['/\[img=([0-9]+)x([0-9]+)\](\.{0,2}\/)(.+?)\[\/img\]/si'] = "<a href=\"". OPENPNE_URL . "\\4\"><img src=\"" . OPENPNE_URL . "\\4\" width=\"\\1\" height=\"\\2\"></a>";
                 $preg['/\[img\](https?)(:\/\/)(.+?)\[\/img\]/si'] = "<a href=\"\\1\\2\\3\"><img src=\"\\1\\2\\3\" width=\"".$imgWidth."\"></a>";
                 $preg['/\[img=([0-9]+)x([0-9]+)\](https?)?(:\/\/)(.+?)\[\/img\]/si'] = "<a href=\"\\3\\4\\5\"><img src=\"\\3\\4\\5\" width=\"\\1\" height=\"\\2\"></a>";
                 break;
-            case "FALSE":
+            case FALSE:
             default:
                 break;
         }
