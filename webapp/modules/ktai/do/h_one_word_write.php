@@ -56,8 +56,8 @@ class ktai_do_h_one_word_write extends OpenPNE_Action
         }
         else
         {
-            $one_word = ereg_replace('\r\n', ' ', $one_word);
-            $one_word = ereg_replace('\n', ' ', $one_word);
+            $one_word = preg_replace('/\r\n/', ' ', $one_word);
+            $one_word = preg_replace('/\n/  ', ' ', $one_word);
         }
         $moji_pattern = '/&(?:amp;|)#x([0-9A-F][0-9A-F][0-9A-F][0-9A-F]);/i';
         $moji_num = preg_match_all($moji_pattern, $one_word, $out);
