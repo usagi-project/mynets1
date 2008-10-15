@@ -75,6 +75,12 @@ if ($act == 'check') {
     if ($db_crypt_key == '') {
         $errmsg .= "DB暗号化キーが未入力です<br />";
     }
+    else
+    {
+        if (strlen($db_crypt_key) > 56) {
+            $errmsg .= "DB暗号化キーが56文字以上あります。半角英数56文字以下にしてください。<br />";
+        }
+    }
     if ($mail_domain == '') {
         $errmsg .= "送信メールドメインが未入力です<br />";
     }
@@ -82,11 +88,11 @@ if ($act == 'check') {
         $errmsg .= "GoogleMapAPIのKEYが未入力です<br />";
     }
 }
-    
+
 //インストール数サーバーのURLを自動取得
 $current_url = "http://" . $_SERVER['HTTP_HOST'] . dirname(htmlspecialchars($_SERVER['PHP_SELF']));
 $current_url = preg_replace("/install$/", '', $current_url);
-    
+
 //新規で作成できるかどうかをチェック
 $conn = mysql_connect($db_server, $db_user, $db_pass);
 if (!$conn) {
@@ -118,7 +124,7 @@ if ($cnt < 1) {
         $table_list .=  "<option>". $check_tablename;
     }
     $table_list .= "</select>";
-    
+
 }
 
 include_once $header_template;
