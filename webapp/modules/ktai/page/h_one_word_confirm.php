@@ -47,8 +47,8 @@ class ktai_page_h_one_word_confirm extends OpenPNE_Action
         }
         else
         {
-            $one_word = ereg_replace('\r\n', ' ', $one_word);
-            $one_word = ereg_replace('\n', ' ', $one_word);
+            $one_word = preg_replace('/\r\n/', ' ', $one_word);
+            $one_word = preg_replace('/\n/  ', ' ', $one_word);
         }
 
         //=======================================
