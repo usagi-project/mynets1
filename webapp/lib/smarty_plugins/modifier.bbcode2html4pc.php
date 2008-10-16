@@ -173,8 +173,8 @@ function smarty_modifier_bbcode2html4pc($message,$allowWiki=TRUE,$allowUrl=TRUE,
     require_once $cdir . '/modifier.bbcode2html4pne.php';
     $preg = _smarty_modifier_link4pnetags($preg);
     */
-    $search = array('&#039;');
-    $replace = array("’");
+    $search = array('\\', '&#039;');
+    $replace = array('\\\\', "\'");
     $message = str_replace($search, $replace, $message);
 
     while ( ($message2 = preg_replace(array_keys($preg), array_values($preg), $message)) != $message) {
