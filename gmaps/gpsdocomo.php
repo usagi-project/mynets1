@@ -59,7 +59,7 @@ else {
     echo "<div align='center'><a href='mailto:{$mail}?body=GPS誤差レベル(DoCoMo):{$smaj}%0D%0A&#60;cmd src=\"gmaps\" args=\"17,{$laaa},{$looo}\"&#62;'>下記マップでメール作成</a><br>";
     echo "<img src='http://maps.google.com/staticmap?center={$laa},{$loo}&amp;zoom=17&amp;size=180x220&amp;markers={$laa},{$loo}&amp;maptype=mobile&amp;key=" .GOOGLE_MAPS_API_KEY. "'><br>";
     echo "<a href='../../kmaps.php?lat={$laa}&amp;lon={$loo}'>周辺を詳しく見る</a></div>";
-    echo "<br><a href='" .OPENPNE_URL. "gmaps/gpsau.php/{$ksid}/{$mail}' lcs>再計測</a><br>";
+    echo "<br><a href='" .OPENPNE_URL. "gmaps/gpsdocomo.php/{$ksid}/{$mail}' lcs>再計測</a><br>";
     echo "<a href='../../../?m=ktai&amp;a=page_h_home&amp;{$ksid}' accesskey='0'>0.ﾎｰﾑ</a>";
 }
 ?>
