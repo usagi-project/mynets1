@@ -146,6 +146,17 @@ function smarty_modifier_bbcode2html4pc($message,$allowWiki=TRUE,$allowUrl=TRUE,
     switch ($allowUrl) {
         case TRUE:
             // [url] for OpenPNE
+            // javascriptの変数となりうるBBCODEタグ内のシングルクォートとバックスラッシュを変換
+            $jstags1 = array(
+                '/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[img\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\](.*?)\[\/url\]/si',
+                '/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[img=(.*?)x(.*?)\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\](.*?)\[\/url\]/si',
+                '/\[url\](https?)?(:\/\/|\.{0,2}\/)([^\[]+?)\[\/url\]/si',
+                '/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\][^:\[]*https?[^:]*:\/\/(.*?)\[\/url\]/si',
+                '/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[\/url\]/si'
+            );
+
+            $message = preg_replace_callback($jstags1, "rep_singlequote", $message);
+
             $preg['/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[img\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\](.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\" class=\"bb-url\">\\4<img src=\"\\5'+'\\6\\7\" alt=\"\\5'+'\\6\\7\" class=\"bb-image\" width=\"".$imgWidth."\">\\8<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
             $preg['/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[img=(.*?)x(.*?)\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\](.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\" class=\"bb-url\">\\4<img src=\"\\7'+'\\8\\9\" alt=\"\\7'+'\\8\\9\" class=\"bb-image\" width=\"\\5\" height=\"\\6\">\\{10}<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
             $preg['/\[url\](https?)?(:\/\/|\.{0,2}\/)([^\[]+?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\" class=\"bb-url\">\\1'+'\\2\\3<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
@@ -160,6 +171,14 @@ function smarty_modifier_bbcode2html4pc($message,$allowWiki=TRUE,$allowUrl=TRUE,
     switch ($allowImg) {
         case TRUE:
             // [img] for OpenPNE
+            // javascriptの変数となりうるBBCODEタグ内のシングルクォートとバックスラッシュを変換
+            $jstags2 = array(
+                '/\[img\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\]/si',
+                '/\[img=([0-9]+)x([0-9]+)\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\]/si'
+            );
+
+            $message = preg_replace_callback($jstags2, "rep_singlequote", $message);
+
             $preg['/\[img\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\"><img src=\"\\1'+'\\2\\3\" alt=\"\\1'+'\\2\\3\" class=\"bb-image\" width=\"".$imgWidth."\"><'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
             $preg['/\[img=([0-9]+)x([0-9]+)\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\3'+'\\4\\5\" target=\"_blank\" title=\"\\3'+'\\4\\5\"><img width=\"\\1\" height=\"\\2\" src=\"\\3'+'\\4\\5\" alt=\"\\3'+'\\4\\5\" class=\"bb-image\"><'+'/a>');</script><noscript>\\3\\4\\5</noscript>";
             break;
@@ -173,15 +192,19 @@ function smarty_modifier_bbcode2html4pc($message,$allowWiki=TRUE,$allowUrl=TRUE,
     require_once $cdir . '/modifier.bbcode2html4pne.php';
     $preg = _smarty_modifier_link4pnetags($preg);
     */
-    $search = array('\\', '&#039;');
-    $replace = array('\\\\', "\'");
-    $message = str_replace($search, $replace, $message);
+    //$search = array('\\', '&#039;');
+    //$replace = array('\\\\', "\'");
+    //$message = str_replace($search, $replace, $message);
 
     while ( ($message2 = preg_replace(array_keys($preg), array_values($preg), $message)) != $message) {
         $message = $message2;
     }
 
     return $message;
+}
+
+function rep_singlequote($matches){
+    return str_replace(array("\\", "&#039;"), array("\\\\", "\'"), $matches[0]);
 }
 
 ?>
