@@ -68,7 +68,7 @@ function showPalette() {
     }
     palette+="</table>";
 
-    document.getElementById("color_palette").innerHTML = '<div align=\"left\" class=\"palette_title\" onClick=\"closePalette();\"><div class=\"palette_title_left\">&nbsp;&nbsp;$BJ8;z?'(B&nbsp;&nbsp;</div><div class=\"palette_title_right\"><a href=\"javascript:void(0)\" class=\"image_close\"><img src=\"./css/bbcode/FeslyBBcodeStyle/img/close_rev.gif\" border=\"0\" height=\"11\" width=\"12\" alt=\"close\" class=\"image_close\"></a></div></div><div class=\"palette_body\">'+palette+'</div>';
+    document.getElementById("color_palette").innerHTML = '<div align=\"left\" class=\"palette_title\" onClick=\"closePalette();\"><div class=\"palette_title_left\">&nbsp;&nbsp;文字色&nbsp;&nbsp;</div><div class=\"palette_title_right\"><a href=\"javascript:void(0)\" class=\"image_close\"><img src=\"./css/bbcode/FeslyBBcodeStyle/img/close_rev.gif\" border=\"0\" height=\"11\" width=\"12\" alt=\"close\" class=\"image_close\"></a></div></div><div class=\"palette_body\">'+palette+'</div>';
 
 }
 

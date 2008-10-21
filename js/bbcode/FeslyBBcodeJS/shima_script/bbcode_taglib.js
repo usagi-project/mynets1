@@ -91,7 +91,7 @@ BBCodeTags.add("url");
 BBCodeTags.url.with_attribute = true;
 BBCodeTags.url.need_prompt = true;
 BBCodeTags.url.prompt_with_select = true;
-BBCodeTags.url.prompt_options.text = "$BA^F~$9$k%j%s%/$N(BURL$B$rF~NO$7$F$/$@$5$$(B";
+BBCodeTags.url.prompt_options.text = "挿入するリンクのURLを入力してください";
 BBCodeTags.url.prompt_options.init = "http://";
 BBCodeTags.url.prompt_options.checker = function(v){return (v!=null&&v.length>1&&(v.match(/^https?:\/\/(.+)/i)));}
 BBCodeTags.url.prompt_options.convert_return = function(v,f){
