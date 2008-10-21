@@ -48,15 +48,19 @@ function config_generate(){
     foreach ($config_lines as $line_num => $line) {
         if (preg_match("/%%(.+)%%/", $line, $config)) {
             $line = preg_replace("/%%(.+)%%/", $_POST[$config[1]] , $line);
-        }            
+        }
         $result = @fputs($file, $line);
     }
 
     @flock($file, LOCK_UN);
     @fclose($file);
 
+    //2008-10-21 KUNIHARU Tsujioka
+    //chmod config.php > 777
+    chmod('../conf/config.php', 0777);
+
     if (empty($result)){
-        error("Error: generating config.php",$_POST); 
+        error("Error: generating config.php",$_POST);
     }
 }
 
@@ -69,13 +73,13 @@ function ExecSQL($db_server, $db_user, $db_pass, $db_name, $db_prefix) {
     $db['db']     = $db_name;
     //$db['version']     = $db_version;
     $db['prefix']     = $db_prefix;
-    
+
     //prefixのみSQLインジェクション対策
     $db['prefix'] = preg_replace(array('/[~;\'\"]/','/--/'),'',$db['prefix']);
 
     $filename = "./sql/v41.sql";
     $db['version'] = "41";
-    
+
 
     /* 自動判定を入れたため、コメントアウト
     if ($db['version'] == '41') {
@@ -109,7 +113,7 @@ function ExecSQL($db_server, $db_user, $db_pass, $db_name, $db_prefix) {
 
     if (!@mysql_select_db ($db['db'], $link)) {
          error("", $_POST, "<p><font color=red>データベースのテーブルに接続できませんでした。設定を見直してください。</font></p>");
-    }  
+    }
 
     $file = @fopen ( $filename, "r" );
     @flock($file, LOCK_EX);
@@ -132,7 +136,7 @@ function ExecSQL($db_server, $db_user, $db_pass, $db_name, $db_prefix) {
             $s_sql .= str_replace('INSERT INTO `', 'INSERT INTO `'.$db['prefix'],(str_replace('CREATE TABLE IF NOT EXISTS `', 'CREATE TABLE IF NOT EXISTS `'.$db['prefix'],$sql_files)));
             continue;
         }
-        
+
         $res = @mysql_query ( $s_sql, $link );
         if (!$res ) {
              error("", $_POST, "<p><font color=red>データベースの設定に失敗しました。設定を見直して再度実行してください。</font>".$s_sql."</p>");
