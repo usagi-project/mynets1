@@ -5,6 +5,7 @@ check("./", "*.inc");
 check("./", "*.tpl");
 check("./", "*.html");
 check("./", "*.ini");
+check("./", "*.js");
 
 
 function check($path, $match){
