@@ -10,9 +10,9 @@
 
 /*@cc_on _d=document;eval('var document=_d');@*/
 
-// BBCode入力支援用定数
+// BBCode$BF~NO;Y1gMQDj?t(B
 function BBCodeConst(navigator){
-	// ブラウザ判定
+	// $B%V%i%&%6H=Dj(B
 	this.ua		= navigator.userAgent.toLowerCase();
 	this.naviver= parseInt(navigator.appVersion);
 	this.is		= function(t){ return this.ua.indexOf(t) != -1; };
@@ -24,15 +24,15 @@ function BBCodeConst(navigator){
 	this.is_nav	= (this.is('mozilla') && !this.is('spoofer') && !this.is('compatible') && !this.is('opera') && !this.is('webtv') && !this.is('hotjava'));
 	this.is_moz	= (this.is('gecko/')||this.is('mozilla/'));
 	this.is_saf	= (this.is('applewebkit/'));
-	// 独自タグを使用するか否か
+	// $BFH<+%?%0$r;HMQ$9$k$+H]$+(B
 	this.pnetag_mode = false;
-	// textarea.onfocusの設定状態
+	// textarea.onfocus$B$N@_Dj>uBV(B
 	this.is_set_onfocus_color = false;
 	this.is_set_onfocus_select = false;
 };
 var BBCode = new BBCodeConst(navigator);
 
-//テキストエリア取得
+//$B%F%-%9%H%(%j%"<hF@(B
 function bbgetbodyobj(formObj) {
 	if (typeof(formObj.body) != 'undefined' && formObj.body != null) {
 		return formObj.body;
@@ -48,7 +48,7 @@ function bbgetbodyobj(formObj) {
 	}
 }
 
-//タグ挿入
+//$B%?%0A^F~(B
 var default_convert=function(v){return v;}
 function insertBBCode(formObj, bbtag, value) {
 	var txtarea = bbgetbodyobj(formObj);
@@ -77,7 +77,7 @@ function insertBBCode(formObj, bbtag, value) {
 				var convert_value  = bbt.prompt_options.convert_value;
 				var convert_return = bbt.prompt_options.convert_return;
 				if(ret!=null&&check(ret)){
-					// [list]の場合だけ特殊
+					// [list]$B$N>l9g$@$1FC<l(B
 					if(bbt.tag=='list'){
 						bbinsert(txtarea,bbt,bbt.open_tag(convert_return(ret,false))+convert_value(value),bbt.close_tag(),theselection);
 					}else{
@@ -114,7 +114,7 @@ function insertBBCode(formObj, bbtag, value) {
 		return false;
 	}
 
-	//選択範囲なし
+	//$BA*BrHO0O$J$7(B
 	if(bbt.need_prompt){
 		var check = bbt.prompt_options.checker;
 		var parse = bbt.parse_value;
@@ -123,7 +123,7 @@ function insertBBCode(formObj, bbtag, value) {
 		convert_value  = bbt.prompt_options.convert_value;
 		convert_return = bbt.prompt_options.convert_return;
 		if(ret!=null&&check(ret)){
-			// [list]の場合だけ特殊
+			// [list]$B$N>l9g$@$1FC<l(B
 			if(bbt.tag=='list'){
 				bbinsert(txtarea,bbt,bbt.open_tag(convert_return(ret,true))+convert_value(value),bbt.close_tag(),'');
 			}else{
@@ -138,7 +138,7 @@ function insertBBCode(formObj, bbtag, value) {
 	return false;
 }
 
-//タグ挿入
+//$B%?%0A^F~(B
 function bbinsert(txtarea,bbt,bbopen,bbclose,value){
 	if (BBCode.is_win && BBCode.is_ie && BBCode.naviver >= 4 ){
 		var range = document.selection.createRange();
@@ -180,9 +180,9 @@ function mozWrap(txtarea, bbt, lft, rgt, val, conv)
 	return;
 }
 
-// anything from here offsetLeft,offsetTop,offsetWidthそしてoffsetHeight──静的配置要素の絶対位置を確実に取得する方法について
+// anything from here offsetLeft,offsetTop,offsetWidth$B$=$7$F(BoffsetHeight$B(!(!@EE*G[CVMWAG$N@dBP0LCV$r3N<B$K<hF@$9$kJ}K!$K$D$$$F(B
 // http://hkom.blog1.fc2.com/blog-entry-503.html
-//要素のスタイル属性を取得する関数
+//$BMWAG$N%9%?%$%kB0@-$r<hF@$9$k4X?t(B
 function getElementStyle(targetElm,IEStyleProp,CSSStyleProp) {
 	var elem = targetElm;
 	if (elem.currentStyle) {
@@ -193,22 +193,22 @@ function getElementStyle(targetElm,IEStyleProp,CSSStyleProp) {
 	}
 }
 function getPosition(that) {
-	var targetEle = that;			//thatは位置を取得したい要素Object
+	var targetEle = that;			//that$B$O0LCV$r<hF@$7$?$$MWAG(BObject
 	var pos = new function(){ this.x = 0; this.y = 0; }
 	while( targetEle ){
 		pos.x += targetEle.offsetLeft; 
 		pos.y += targetEle.offsetTop; 
 		targetEle = targetEle.offsetParent;
-		//IEの補正：上記計算で無視されてしまう各親要素のborder幅を加算
+		//IE$B$NJd@5!'>e5-7W;;$GL5;k$5$l$F$7$^$&3F?FMWAG$N(Bborder$BI}$r2C;;(B
 		if ((targetEle) && (BBCode.is_ie)) {
 			pos.x += (parseInt(getElementStyle(targetEle,"borderLeftWidth","border-left-width")) || 0);
 			pos.y += (parseInt(getElementStyle(targetEle,"borderTopWidth","border-top-width")) || 0);
 		}
 	}
-	//geckoの補正：カウントしないbody部border幅をマイナスしてしまうので２倍して加算
+	//gecko$B$NJd@5!'%+%&%s%H$7$J$$(Bbody$BIt(Bborder$BI}$r%^%$%J%9$7$F$7$^$&$N$G#2G\$7$F2C;;(B
 	if (BBCode.is_moz) {
-			//以下の部分でbody部を取得し、borderの減算を補正する。
-		var bd = document.getElementsByTagName("BODY")[0];		//body部を取得
+			//$B0J2<$NItJ,$G(Bbody$BIt$r<hF@$7!"(Bborder$B$N8:;;$rJd@5$9$k!#(B
+		var bd = document.getElementsByTagName("BODY")[0];		//body$BIt$r<hF@(B
 		pos.x += 2*(parseInt(getElementStyle(bd,"borderLeftWidth","border-left-width")) || 0);
 		pos.y += 2*(parseInt(getElementStyle(bd,"borderTopWidth","border-top-width")) || 0);
 	}
