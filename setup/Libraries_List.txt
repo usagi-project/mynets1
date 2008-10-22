@@ -1,0 +1,224 @@
+MyNETS 1.2.1 で使用している外部ライブラリの一覧
+
+2008/10/22
+
+
+■ PHP のライブラリ
+● PEAR
+Auth
+	ライセンス: 
+	バージョン: 
+	用途・機能: 
+	    配布元: 
+      ファイル: 
+
+Cache
+	ライセンス: 
+	バージョン: 
+	用途・機能: 
+	    配布元: 
+      ファイル: 
+
+Calendar
+	ライセンス: 
+	バージョン: 
+	用途・機能: 
+	    配布元: 
+      ファイル: 
+
+Crypt_Blowfish
+	ライセンス: PHP 3.0
+	バージョン: 1.1.0RC1
+	用途・機能: 暗号化処理
+	    配布元: http://pear.php.net/package/Crypt_Blowfish
+      ファイル: 
+
+DB
+	ライセンス: 
+	バージョン: 
+	用途・機能: 
+	    配布元: 
+      ファイル: 
+
+Date
+	ライセンス: 
+	バージョン: 
+	用途・機能: 
+	    配布元: 
+      ファイル: 
+
+HTTP
+	ライセンス: 
+	バージョン: 
+	用途・機能: 
+	    配布元: 
+      ファイル: 
+
+Log
+	ライセンス: 
+	バージョン: 
+	用途・機能: 
+	    配布元: 
+      ファイル: 
+
+Mail
+	ライセンス: 
+	バージョン: 
+	用途・機能: 
+	    配布元: 
+      ファイル: 
+
+Net
+	ライセンス: 
+	バージョン: 
+	用途・機能: 
+	    配布元: 
+      ファイル: 
+
+Pager
+	ライセンス: 
+	バージョン: 
+	用途・機能: 
+	    配布元: 
+      ファイル: 
+
+Services
+	ライセンス: 
+	バージョン: 
+	用途・機能: 
+	    配布元: 
+      ファイル: 
+
+XML
+	ライセンス: 
+	バージョン: 
+	用途・機能: 
+	    配布元: 
+      ファイル: 
+
+● フレームワーク
+CodeIgniter
+	ライセンス: CodeIgniter License
+	バージョン: 1.6.1
+	用途・機能: コンバータで使用
+	    配布元: http://codeigniter.com/
+      ファイル: convert/
+
+● その他
+Smarty
+	ライセンス: LGPL 2.1
+	バージョン: 2.6.14
+	用途・機能: テンプレートエンジン
+	    配布元: http://smarty.php.net/
+      ファイル: lib/include/Smarty/
+
+Snoopy
+	ライセンス: LGPL 2.1
+	バージョン: 1.01
+	用途・機能: RSSフィードの取得
+	    配布元: http://snoopy.sourceforge.net/
+      ファイル: lib/include/Snoopy.class.php
+
+SimplePie
+	ライセンス: LGPL 2.1
+	バージョン: 1.0 b3.2
+	用途・機能: RSS and Atom Feed Framework
+	    配布元: http://simplepie.org
+      ファイル: lib/include/simplepie.inc
+
+Etag.php
+	ライセンス: Public Domain
+	バージョン: 1.0
+	用途・機能: 
+	    配布元: OpenPNE より。作者は Ryosuke Hosoi <hosoi ryo.com>。元は、http://www.ryo.com/2005/05/23/9/ か 
+      ファイル: lib/include/Etag.php
+
+QRcode
+	ライセンス: 独自
+				これらのプログラムはフリーウエアです。もとの著作権表示を変更しなければ
+				自由に再配布・改造してもかまいません。
+	バージョン: 0.50g
+	用途・機能: QRコード生成
+	    配布元: http://www.swetake.com/qr/qr_cgi.html
+      ファイル: /lib/include/QRcode/
+
+KCAPTCHA
+	ライセンス: 独自
+				KCAPTCHA is a free software. You can freely use it for building own site or software. 
+				If you use this software as a part of own sofware, you must leave copyright notices 
+				intact or add KCAPTCHA copyright notices to own.
+	バージョン: 1.2.3
+	用途・機能: キャプチャ画像生成
+	    配布元: http://www.captcha.ru/en/kcaptcha/
+      ファイル: lib/include/kcaptcha
+
+
+■ JavaScript のライブラリ
+jQuery
+	ライセンス: MIT and GPL
+	バージョン: 1.1
+	用途・機能: Ajax用ライブラリ。thickbox の動作に必要
+	    配布元: http://jquery.com/
+      ファイル: js/javascripts/jquery-1.1.js
+
+Prototype
+	ライセンス: MIT
+	バージョン: 1.5.0_rc1
+	用途・機能: Ajax用ライブラリ。ホームのフローティング、ソーシャルマップ、その他で必要
+	    配布元: http://www.prototypejs.org/
+      ファイル: js/javascripts/prototype.js
+
+script.aculo.us
+	ライセンス: MIT
+	バージョン: 1.6.4
+	用途・機能: Ajax用ライブラリ。ホームのフローティングで必要
+	    配布元: http://script.aculo.us/
+      ファイル: js/javascripts/scriptaculous.js
+				js/javascripts/builder.js
+				js/javascripts/controls.js
+				js/javascripts/dragdrop.js
+				js/javascripts/effects.js
+				js/javascripts/slider.js
+				js/javascripts/unittest.js
+
+Thickbox
+	ライセンス: MIT
+	バージョン: 2.1
+	用途・機能: 画像表示制御。jQuery用ウィジェット
+	    配布元: http://jquery.com/demo/thickbox/ ※ 2008/10/22 403 Forbidden
+      ファイル: js/javascripts/thickbox.js
+
+Selection.js
+	ライセンス: MIT
+	バージョン: 0.2
+	用途・機能: エディタ入力補助
+	    配布元: http://www.teria.com/~koseki/memo/xbselection/
+      ファイル: js/javascripts/Selection.js
+
+js.js
+	ライセンス: LGPL
+	バージョン: ?
+	用途・機能: インストーラでのツールチップ表示
+	    配布元: ? http://www.dhtmlgoodies.com/index.html
+      ファイル: install/js/js.js
+
+SpryTabbedPanels.js
+	ライセンス: New BSD
+	バージョン: 1.4
+	用途・機能: ?
+	    配布元: Adobe Systems
+      ファイル: js/Spry/SpryTabbedPanels.js
+
+Fabtabulous
+	ライセンス: CC Attribution-Share Alike 2.5 Generic http://creativecommons.org/licenses/by-sa/2.5/
+	バージョン: 1.1
+	用途・機能: ひとことのタブインターフェイス
+	    配布元: http://tetlaw.id.au/view/blog/fabtabulous-simple-tabs-using-prototype/
+      ファイル: js/javascripts/tabs.js
+
+
+	ライセンス: 
+	バージョン: 
+	用途・機能: 
+	    配布元: 
+      ファイル: 
