@@ -82,12 +82,33 @@ Pager
 	    配布元: 
       ファイル: 
 
-Services
+PEAR
+	ライセンス: PHP 3.0
+	バージョン: 
+	用途・機能: 
+	    配布元: http://pear.php.net/package/PEAR
+      ファイル: 
+
+PHP_Compat
 	ライセンス: 
 	バージョン: 
 	用途・機能: 
-	    配布元: 
+	    配布元: http://pear.php.net/package/PHP_Compat
       ファイル: 
+
+Services_Amazon
+	ライセンス: New BSD
+	バージョン: 
+	用途・機能: 
+	    配布元: http://pear.php.net/package/Services_Amazon
+      ファイル: lib/include/Services/Amazon.php
+
+Services_Amazon
+	ライセンス: New BSD
+	バージョン: 
+	用途・機能: 
+	    配布元: http://pear.php.net/package/Services_Amazon
+      ファイル: lib/include/Services/AmazonECS4.php
 
 XML
 	ライセンス: 
@@ -195,11 +216,11 @@ Selection.js
 	    配布元: http://www.teria.com/~koseki/memo/xbselection/
       ファイル: js/javascripts/Selection.js
 
-js.js
-	ライセンス: LGPL
-	バージョン: ?
+tooltip with shadow
+	ライセンス: 独自
+	バージョン: March, 11th, 2006
 	用途・機能: インストーラでのツールチップ表示
-	    配布元: ? http://www.dhtmlgoodies.com/index.html
+	    配布元: http://www.dhtmlgoodies.com/index.html?whichScript=tooltip_shadow
       ファイル: install/js/js.js
 
 SpryTabbedPanels.js
