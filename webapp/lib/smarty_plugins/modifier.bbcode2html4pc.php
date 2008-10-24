@@ -82,7 +82,7 @@ function smarty_modifier_bbcode2html4pc($message,$allowWiki=TRUE,$allowUrl=TRUE,
         '/\[indent=([0-9]+(?:pt|pc|px|em|ex|mm|cm|in|%))\](.*?)\[\/indent\](<br\s*\/{0,1}>|[\r\n]{0,2})?/si'    => "<div style=\"text-indent:\\1;\">\\2</div>",
 
         // [highlight]
-        '/\[marker=(.*?)\](.*?)\[\/marker\]/si'  => "<span style=\"background-color:\\1; line-height:100%;\">\\2</span>",
+        '/\[marker=(#[a-fA-F0-9]{3,6}|[a-zA-Z ]+)\](.*?)\[\/marker\]/si'  => "<span style=\"background-color:\\1; line-height:100%;\">\\2</span>",
         '/\[highlight\](.*?)\[\/highlight\]/si'         => "<span class=\"bb-highlight\">\\1</span>",
         '/\[highlight=(#[a-fA-F0-9]{3,6}|[a-zA-Z ]+)\](.*?)\[\/highlight\]/si'  => "<span class=\"bb-highlight\" style=\"background-color:\\1\">\\2</span>",
 
