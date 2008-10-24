@@ -47,7 +47,7 @@ function smarty_modifier_bbcode2html4ktai($message,$allowWiki=TRUE,$allowUrl=TRU
         '/\[color=(#[a-fA-F0-9]{3,6}|[a-zA-Z ]*)\](.*?)\[\/color\]/si'  => "<font color=\"\\1\">\\2</font>",
 //      '/\[size=(.*?)(pt|pc|px|em|ex|mm|cm|in|%)\](.*?)\[\/size\]/si'  => "<span style=\"font-size:\\1\">\\2</span>",
 //      '/\[size=(.*?)\](.*?)\[\/size\]/si'     => "<span style=\"font-size:\\1\">\\2</span>",
-        '/\[size=(.*?)\](.*?)\[\/size\]/esi'    => '_smarty_modifier_fontsize2size("\\1","\\2")',
+        '/\[size=([0-9a-zA-Z\- ]+)\](.*?)\[\/size\]/esi'    => '_smarty_modifier_fontsize2size("\\1","\\2")',
         '/\[font=(?:&quot;|"|&#039;|\')?([^(&quot;|&#039)"\'\[\]]*?)(?:&quot;|"|&#039;|\')?\](.*?)\[\/font\]/si'    => "\\2",
         '/\[large\](.*?)\[\/large\]/si'          => "<span style=\"font-size:120%; line-height:100%;\">\\1</span>",
         '/\[small\](.*?)\[\/small\]/si'          => "<span style=\"font-size:80%; line-height:100%;\">\\1</span>",
@@ -83,7 +83,7 @@ function smarty_modifier_bbcode2html4ktai($message,$allowWiki=TRUE,$allowUrl=TRU
         // [highlight]
         '/\[highlight\](.*?)\[\/highlight\]/si'         => "<span style=\"background-color:#ffff00\">\\1</span>",
         '/\[highlight=(#[a-fA-F0-9]{3,6}|[a-zA-Z ]+)\](.*?)\[\/highlight\]/si'  => "<span style=\"background-color:\\1\">\\2</span>",
-        '/\[marker=(.*?)\](.*?)\[\/marker\]/si'  => "<span style=\"background-color:\\1; line-height:100%;\">\\2</span>",
+        '/\[marker=(#[a-fA-F0-9]{3,6}|[a-zA-Z ]+)\](.*?)\[\/marker\]/si'     => "<span style=\"background-color:\\1; line-height:100%;\">\\2</span>",
 
         // [quote]
         '/\[quo\](.*?)\[\/quo\](<br\s*\/{0,1}>|[\r\n]{0,2})?/si'    => "<blockquote>\\1</blockquote>",
