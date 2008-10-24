@@ -97,7 +97,7 @@
 <tr>
 <td style="width:100%;height:20px;">
 ({$c_ashiato.r_datetime|date_format:"%Y年%m月%d日 %H:%M"})
-&nbsp;<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$c_ashiato.c_member_id_from})">({$c_ashiato.nickname|t_body:'name'|default:"&nbsp;"})</a>&nbsp;(ID=({$c_ashiato.c_member_id_from}))
+&nbsp;<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$c_ashiato.c_member_id_from})">({$c_ashiato.nickname|t_body:'name'|default:"&nbsp;"})</a>({if $c_ashiato.is_friend})<img src="({t_img_url_skin filename=friend_icon f=gif})" align="absmiddle">({/if})&nbsp;(ID=({$c_ashiato.c_member_id_from}))
 ({if $c_ashiato.is_mobile == "mobile"})&nbsp;&nbsp;<img src="img/moji/161.jpg" width="16">
 ({/if})
 </td>

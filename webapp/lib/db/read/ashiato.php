@@ -74,6 +74,7 @@ if (! function_exists('p_h_ashiato_c_ashiato_list4c_member_id'))
             $c_member = db_common_c_member4c_member_id_LIGHT($value['c_member_id_from']);
             $result[$key]['nickname'] = $c_member['nickname'];
             $result[$key]['image_filename'] = $c_member['image_filename'];
+            $result[$key]['is_friend'] = db_friend_is_friend($c_member_id_to, $value['c_member_id_from']);
         }
         return $result;
     }

@@ -12,7 +12,7 @@
 ({foreach from=$c_ashiato_list item=item})
 ({$item.r_datetime|date_format:"%m/%d %H:%M"})
 ({if $item.nickname})
-<a href="({t_url m=ktai a=page_f_home})&amp;target_c_member_id=({$item.c_member_id_from})&amp;({$tail})">({$item.nickname|t_body:'name'})</a>
+<a href="({t_url m=ktai a=page_f_home})&amp;target_c_member_id=({$item.c_member_id_from})&amp;({$tail})">({$item.nickname|t_body:'name'})</a>({if $item.is_friend})<img src="({t_img_url_skin filename=friend_icon f=gif})" align="absmiddle">({/if})
 ({/if})
 ({if $item.is_mobile == 'mobile'})
 &em_ktai;
