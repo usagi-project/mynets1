@@ -43,29 +43,46 @@ function makeballoon() {
 }
 
 function load(e) {
+    //吹き出し本文取得
     var title = e.getAttribute("oneword");
+    title = title.replace(/<script[^>]*?>.*?<\/script>/gi, "");
+    e.titles = title;
+
+    //吹き出し本体作成
     var balloon = document.createElement("span");
     balloon.className = "balloon";
     balloon.style.display = "block";
     balloon.style.position = "absolute";
     balloon.style.bottom = "0px";
-    text = document.createElement("span");
+    e.balloon = balloon;
+
+    //吹き出し上部を作成
+    var text = document.createElement("span");
     text.className = "text";
     text.style.display = "block";
-    text.innerHTML = title;
-    balloon.appendChild(text);
+    e.texts = text;
+
+    //吹き出し下部を作成
     var btm = document.createElement("b");
     btm.className = "bottom";
     btm.style.display = "block";
-    balloon.appendChild(btm);
-    e.balloon = balloon;
+    e.btms = btm;
+
+    //イベントハンドラ設定
     e.onmouseover = showbln;
     e.onmouseout = hidebln;
     e.onmousemove = move;
 }
 
 function showbln(e) {
+    //吹き出し本体へ上部を追加
+    this.balloon.appendChild(this.texts);
+    //吹き出し本体へ下部を追加
+    this.balloon.appendChild(this.btms);
+    //吹き出しアンカーへ吹き出しを追加
     $("wedge").appendChild(this.balloon);
+    //上部へ本文を流し込み
+    this.texts.innerHTML = this.titles;
 }
 
 function hidebln(e) {

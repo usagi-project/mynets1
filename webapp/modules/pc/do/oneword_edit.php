@@ -28,7 +28,9 @@ class pc_do_oneword_edit extends OpenPNE_Action
     {
         $uid     = $GLOBALS['AUTH']->uid();
         $id_to = $requests['id_to'];
-        $oneword = $requests['value'];
+        $search = array('/<script[^>]*?>.*?</script>/si','/<[\/\!]*?[^<>]*?>/si');
+        $replace = array('','');
+        $oneword = preg_replace($search, $replace, $requests['value']);
         $moji_pattern = '/&(?:amp;|)#x([0-9A-F][0-9A-F][0-9A-F][0-9A-F]);/i';
         $moji_num = preg_match_all($moji_pattern, $oneword, $out);
         $count   = mb_strlen($oneword, mb_internal_encoding()) - $moji_num * 8 + $moji_num;
