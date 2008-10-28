@@ -58,6 +58,7 @@ class Convertnext extends Controller
                 'footer'   => 'header/footer.html',
         );
 
+        $file_path = OPENPNE_DIR . '/var/tmp';
         //PNEからMyNETS、足跡集計及びc_memberへの追加処理
         if ($this->input->post('view_count') == '1' && $this->input->post('is_pne') == '1')
         {

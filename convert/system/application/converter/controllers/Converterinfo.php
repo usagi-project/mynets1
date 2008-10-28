@@ -27,16 +27,6 @@ class Converterinfo extends Controller
                 'header'   => 'header/header.html',
                 'footer'   => 'header/footer.html',
         );
-        include_once OPENPNE_WEBAPP_DIR . '/version.php';
-        if (! defined('MyNETS_VERSION'))
-        {
-            //PNEからのコンバート
-            $vData['from_version'] = 'openpne';
-        }
-        else
-        {
-            $vData['from_version'] = 'mynets';
-        }
         $this->load->view('menu.html', $vData);
     }
 

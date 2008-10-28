@@ -11,6 +11,13 @@ $tablecolumnlist = array(
              ),
             array('action' => 'MODIFY COLUMN',
             'data' => array(
+                'name' => "c_diary",
+                'column' => "e_datetime",
+                'sql' => "ALTER TABLE `".MYNETS_PREFIX_NAME."c_diary` MODIFY COLUMN `e_datetime` datetime NOT NULL default '0000-00-00 00:00:00';",
+                        ),
+             ),
+            array('action' => 'MODIFY COLUMN',
+            'data' => array(
                 'name' => "c_member_secure",
                 'column' => "pc_address_aes",
                 'sql' => "ALTER TABLE `".MYNETS_PREFIX_NAME."c_member_secure` MODIFY COLUMN `pc_address_aes` text NOT NULL DEFAULT '';",
