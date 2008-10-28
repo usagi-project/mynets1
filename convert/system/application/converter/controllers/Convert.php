@@ -29,6 +29,14 @@ class Convert extends Controller
 
     function index()
     {
+        if (strpos($this->input->post('submit'), 'MyNETS') !== FALSE)
+        {
+            $convert_flag = 'mynets';
+        }
+        else
+        {
+            $convert_flag = 'pne';
+        }
         $this->load->helper('form');
         $this->load->library('session');
         $this->session->start();
@@ -59,7 +67,7 @@ class Convert extends Controller
 
         $is_pne = 0;
 
-        if ($submit == 'VersionUP')
+        if ($convert_flag === 'mynets')
         {
             log_message('debug', "MyNETS database VersionUP started");
             //テーブルの削除
@@ -129,7 +137,7 @@ class Convert extends Controller
                 $this->mynet_converter->setIdImageTable();
             }
         }
-        else if ($submit == 'Convert')
+        else if ($convert_flag === 'pne')
         {
             log_message('debug', "OpenPNE database Convert started");
             $is_pne = 1;

@@ -403,19 +403,17 @@ class Mynet_converter extends Model
      */
     function hasColumn($tablename, $columnname)
     {
-        /*
-        $this->getTableColumns($tablename);
-        if ($this->tablecolumns) {
-            if (in_array($columnname, $this->tablecolumns)) {
-                return true;
-            } else {
-                return false;
+        //return $this->db->field_exists($columnname, $tablename);
+        $fields = $this->get_table_type($tablename);
+        $flag = 0;
+        foreach ($fields as $field)
+        {
+            if ($field->name == $columnname)
+            {
+                $flag ++;
             }
-        } else {
-            return false;
         }
-        */
-        return $this->db->field_exists($columnname, $tablename);
+        return (bool)$flag;
     }
 
     /**
@@ -475,14 +473,45 @@ class Mynet_converter extends Model
         if ($modifylist) {
             foreach ($modifylist as $value)
             {
+                //2008-10-28 KUNIHARU Tsujioka update
+                //一部c_diaryのe_datetimeでdate型になっているケースがある
                 if ($this->hasColumn(MYNETS_PREFIX_NAME.$value['name'], $value['column']))
                 {
-                    $this->db->query($value['sql']);
+                    //c_diaryのe_datetimeを調査
+                    if ($value['name'] === 'c_diary')
+                    {
+                        $fields = $this->get_table_type(MYNETS_PREFIX_NAME.$value['name']);
+                        foreach ($fields as $field)
+                        {
+                            if ($field->name == 'e_datetime')
+                            {
+                                if ($field->type == 'date')
+                                {
+                                    $this->db->query($value['sql']);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        $this->db->query($value['sql']);
+                    }
                 } else {
                     $this->sqlerrmsg[] = $value['sql'].":更新するはずのカラムがありません！";
                 }
             }
         }
+    }
+
+    /**
+     * テーブル内のカラム情報を格納
+     *
+     * @param   string  テーブル名
+     * @access  public
+     */
+    function get_table_type($table)
+    {
+        return $this->db->field_data($table);
     }
 
     /**
@@ -505,9 +534,9 @@ class Mynet_converter extends Model
                 {
                     //echo "skip -- " . $value['column'] . " add column <br>";
                 } else {
-                    //echo "false<BR>";
+                    //echo "no column<BR>";
                     //ADD COLUMNを実行する
-                    if ($this->db->query($value['sql'])) {
+                    if ($query = $this->db->query($value['sql'])) {
                         //echo "OK -- " . $value['sql'] . " add column <br>";
                     } else {
                         $this->sqlerrmsg[] = $value['name'].":".$value['column'].":カラム追加エラー";

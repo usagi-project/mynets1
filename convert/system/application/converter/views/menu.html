@@ -30,11 +30,8 @@
             </ul>
             <div style="text-align:center">
             <?php echo form_open('Convert');?>
-            <?php if ($from_version == 'mynets') { ?>
-            <?php echo form_submit('submit', 'VersionUP'); ?>
-            <?php } else { ?>
-            <?php echo form_submit('submit', 'Convert'); ?>
-            <?php } ?>
+            <?php echo form_submit('submit', 'MyNETS VersionUP'); ?>&nbsp;&nbsp;&nbsp;
+            <?php echo form_submit('submit', 'OpenPNE Convert (-2.10)'); ?>
             <?php echo form_close();?>
             </div>
             <?php echo form_open('');?>
