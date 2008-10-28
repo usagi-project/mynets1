@@ -28,9 +28,7 @@ class pc_do_oneword_edit extends OpenPNE_Action
     {
         $uid     = $GLOBALS['AUTH']->uid();
         $id_to = $requests['id_to'];
-        $search = array('/<script[^>]*?>.*?</script>/si','/<[\/\!]*?[^<>]*?>/si');
-        $replace = array('','');
-        $oneword = preg_replace($search, $replace, $requests['value']);
+        $oneword = $requests['value'];
         $moji_pattern = '/&(?:amp;|)#x([0-9A-F][0-9A-F][0-9A-F][0-9A-F]);/i';
         $moji_num = preg_match_all($moji_pattern, $oneword, $out);
         $count   = mb_strlen($oneword, mb_internal_encoding()) - $moji_num * 8 + $moji_num;
@@ -44,6 +42,9 @@ class pc_do_oneword_edit extends OpenPNE_Action
         $word->set($oneword);
         $word->add();
         
+        //出力をエスケープ
+        $oneword = htmlspecialchars($oneword, ENT_QUOTES);
+        //絵文字コードを絵文字イメージタグへ変換
         $oneword = preg_replace_callback($moji_pattern, array($this, 'smarty_modifier_t_moji_callback'), $oneword);
         
         if($oneword){
@@ -56,7 +57,7 @@ class pc_do_oneword_edit extends OpenPNE_Action
     function smarty_modifier_t_moji_callback($matches) {
         $moji_file = sprintf('/moji/x_%s.gif',strtolower($matches[1]));
         if( is_readable("./img" . $moji_file) ) {
-            return sprintf("<img src=\"img%s\" alt=\"絵文字\">",$moji_file);
+            return sprintf('<img src="img%s" alt="絵文字">',$moji_file);
         } else {
             return $matches[0];
         }

@@ -4,8 +4,11 @@ if(Ajax.InPlaceEditor != null) {
         var text = this.element.innerHTML;
         var loc = location.href.split('?');
         var locExp = new RegExp(loc[0], "ig");
+        //絵文字イメージタグを絵文字コードへ変換
         text = text.replace(locExp, "").replace(/\salt="絵文字"/gi, "").replace(/\salt=絵文字/gi, "").replace(/\/>/gi, ">");
         text = text.replace(/<img\ssrc="img\/moji\/x_([0-9A-F][0-9A-F][0-9A-F][0-9A-F])\.gif">/gi, "&#x$1;");
+        //<>＆エンティティを実物へ変換
+        text = text.replace(/&lt;/gi, "<").replace(/&gt;/gi, ">").replace(/&amp;/gi, "&");
         return text;
     }
 }
@@ -45,7 +48,11 @@ function makeballoon() {
 function load(e) {
     //吹き出し本文取得
     var title = e.getAttribute("oneword");
-    title = title.replace(/<script[^>]*?>.*?<\/script>/gi, "");
+    //吹き出し本文をエスケープ
+    title = title.escapeHTML();
+    //エスケープされた絵文字イメージタグのみタグへ戻す
+    title = title.replace(/&lt;img\ssrc="img\/moji\/x_([0-9A-F][0-9A-F][0-9A-F][0-9A-F])\.gif"\salt="絵文字"((&gt;)|>)/gi, '<img src="img/moji/x_$1.gif" alt="絵文字">');
+    title = title.replace(/&amp;#039;/gi, "&#039;");
     e.titles = title;
 
     //吹き出し本体作成

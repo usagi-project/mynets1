@@ -132,12 +132,9 @@ function oneword_comment(id_to, value) {
                 && value.replace(/&(?:amp;|)#x([0-9A-F][0-9A-F][0-9A-F][0-9A-F]);/ig, 'e').length < 37) {
                     nextall(1);
                     nextfri(1);
+                    value = value.escapeHTML();
                     value = value.replace(/&(?:amp;|)#x([0-9A-F][0-9A-F][0-9A-F][0-9A-F]);/ig, '<img src="img/moji/x_$1.gif">');
-                    if(value.indexOf('<img src="img/moji/', 0) != -1) {
-                        $('oneword').innerHTML = value;
-                    } else {
-                        $('oneword').innerHTML = value.escapeHTML();
-                    }
+                    $('oneword').innerHTML = value;
                 }
             },
             onFailure: function(request) {

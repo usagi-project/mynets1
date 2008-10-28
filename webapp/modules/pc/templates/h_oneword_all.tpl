@@ -1,7 +1,7 @@
 ({if $oneword_list_all})
 <div id="all_current" style="display:none;">
 max_oneword_id = ({if $max_oneword_id})({$max_oneword_id})({else})0({/if});
-oneword2 = '({$oneword2|replace:"&#039;":"\'"|t_body:'dengon'|default:"&nbsp;"})';
+oneword2 = '({$oneword2|replace:"\\":"\\\\"|replace:"&#039;":"\'"|t_body:'dengon'|default:"&nbsp;"})';
 all_page = ({$all_page});
 </div>
 ({foreach from=$oneword_list_all item=item name=all})
