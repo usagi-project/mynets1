@@ -235,7 +235,7 @@ Thickbox
 	ライセンス: MIT
 	バージョン: 2.1
 	用途・機能: 画像表示制御。jQuery用ウィジェット
-		配布元: http://jquery.com/demo/thickbox/ ※ 2008/10/22 403 Forbidden
+		配布元: http://jquery.com/demo/thickbox/
 	  ファイル: js/javascripts/thickbox.js
 
 Selection.js
