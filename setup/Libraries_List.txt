@@ -164,7 +164,7 @@ Smarty
 
 Snoopy
 	ライセンス: LGPL 2.1
-	バージョン: 1.01
+	バージョン: 1.2.4
 	用途・機能: RSSフィードの取得
 		配布元: http://snoopy.sourceforge.net/
 	  ファイル: lib/include/Snoopy.class.php
@@ -246,7 +246,7 @@ Selection.js
 	  ファイル: js/javascripts/Selection.js
 
 tooltip with shadow
-	ライセンス: 独自
+	ライセンス: LGPL http://www.dhtmlgoodies.com/index.html?page=termsOfUse
 	バージョン: March, 11th, 2006
 	用途・機能: インストーラでのツールチップ表示
 		配布元: http://www.dhtmlgoodies.com/index.html?whichScript=tooltip_shadow
