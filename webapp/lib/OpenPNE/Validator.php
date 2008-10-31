@@ -156,9 +156,14 @@ class OpenPNE_Validator
      * @access private
      * @param string $key
      * @param string $msg エラーメッセージ
+     * merge for OpenPNE 2.12
+     * 2008-10-31 kuniharu tsujioka
      */
     function _setError($key, $msg)
     {
+        // エラーメッセージに名称変更を適用
+        $msg = preg_replace_callback('/WORD_[A-Z_]+/', create_function('$m', 'return defined($m[0]) ? constant($m[0]) : $m[0];'), $msg);
+
         $this->errors[$key] = $msg;
     }
 
@@ -278,6 +283,8 @@ class OpenPNE_Validator
      * @param string $value
      * @param string $filter
      * @return string フィルターを通した値
+     * merge for OpenPNE 2.12
+     * 2008-10-31 kuniharu tsujoka
      */
     function _filter($value, $filter)
     {
@@ -288,8 +295,8 @@ class OpenPNE_Validator
                 case 'trim':
                     if (OPENPNE_TRIM_DOUBLEBYTE_SPACE) {
                         // 全角スペースに対応
-                        $value = preg_replace('/^(\s|　)+/', '', $value);
-                        $value = preg_replace('/(\s|　)+$/', '', $value);
+                        $value = preg_replace('/^[\s　]+/u', '', $value);
+                        $value = preg_replace('/[\s　]+$/u', '', $value);
                     } else {
                         $value = trim($value);
                     }
@@ -297,7 +304,7 @@ class OpenPNE_Validator
                 case 'ltrim':
                     if (OPENPNE_TRIM_DOUBLEBYTE_SPACE) {
                         // 全角スペースに対応
-                        $value = preg_replace('/^(\s|　)+/', '', $value);
+                        $value = preg_replace('/^(\s|　)+/u', '', $value);
                     } else {
                         $value = ltrim($value);
                     }
@@ -305,14 +312,14 @@ class OpenPNE_Validator
                 case 'rtrim':
                     if (OPENPNE_TRIM_DOUBLEBYTE_SPACE) {
                         // 全角スペースに対応
-                        $value = preg_replace('/(\s|　)+$/', '', $value);
+                        $value = preg_replace('/(\s|　)+$/u', '', $value);
                     } else {
                         $value = rtrim($value);
                     }
                     break;
                 case 'ntrim':
                     // NULL バイトをすべて削除
-                    $value = str_replace("\0", '', $value);
+                    $value = preg_replace("/[\x{0}-\x{08}\x{0b}-\x{1f}\x{7f}-\x{9f}\x{ad}]/u", '', $value);
                     break;
                 case 'mysqltext':
                     if (is_string($value) && strlen($value) > 65535) {
