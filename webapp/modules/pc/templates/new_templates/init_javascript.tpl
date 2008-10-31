@@ -2,7 +2,6 @@
 <script type="text/javascript" src="js/javascripts/jquery-1.1.js"></script>
 <script type="text/javascript">jQuery.noConflict();</script>
 <script type="text/javascript" src="js/javascripts/prototype.js"> </script>
-<script type="text/javascript" src="js/javascripts/debug.js"> </script>
 <link href="js/themes/default.css" rel="stylesheet" type="text/css">
 <!-- Add this to have a specific theme-->
 <link href="js/themes/default.css" rel="stylesheet" type="text/css" />
