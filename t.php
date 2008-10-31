@@ -20,7 +20,7 @@
  */
 
 
-$url = $_SERVER["QUERY_STRING"];
+$url = htmlspecialchars($_SERVER["QUERY_STRING"], ENT_QUOTES, 'Shift_JIS');
 
 header('Content-Type: text/html; charset=Shift_JIS');
 
