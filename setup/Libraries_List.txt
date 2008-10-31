@@ -1,6 +1,11 @@
 MyNETS 1.2.1 で使用している外部ライブラリの一覧
 
-2008/10/22
+2008/10/31
+
+
+説明
+  ダウンロード: ダウンロード URL
+	変更の有無: Usagi Project でオリジナルに変更を加えたかどうか
 
 
 ■ PHP のライブラリ
@@ -10,6 +15,8 @@ Auth
 	バージョン: 1.3.0
 	用途・機能: 認証
 		配布元: http://pear.php.net/package/Auth
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: lib/include/Auth/Auth.php
 				lib/include/Auth/
 
@@ -18,6 +25,8 @@ Cache
 	バージョン: 
 	用途・機能: 
 		配布元: 
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: 
 
 Calendar
@@ -25,6 +34,7 @@ Calendar
 	バージョン: 
 	用途・機能: 
 		配布元: 
+  ダウンロード: 
 	  ファイル: 
 
 Crypt_Blowfish
@@ -32,6 +42,8 @@ Crypt_Blowfish
 	バージョン: 1.1.0RC1
 	用途・機能: 暗号化処理
 		配布元: http://pear.php.net/package/Crypt_Blowfish
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: 
 
 DB
@@ -39,6 +51,8 @@ DB
 	バージョン: 1.7.6? (要確認)
 	用途・機能: 
 		配布元: 
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: 
 
 Date
@@ -46,6 +60,8 @@ Date
 	バージョン: 1.4.6? (要確認)
 	用途・機能: 
 		配布元: 
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: 
 
 HTTP_Request
@@ -53,6 +69,8 @@ HTTP_Request
 	バージョン: 1.2? (要確認)
 	用途・機能: 
 		配布元: 
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: 
 
 Log
@@ -60,6 +78,8 @@ Log
 	バージョン: 1.9.6? (要確認)
 	用途・機能: 
 		配布元: 
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: 
 
 Mail
@@ -67,6 +87,8 @@ Mail
 	バージョン: 1.1.3? (要確認)
 	用途・機能: 
 		配布元: 
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: 
 
 Net_Socket
@@ -74,6 +96,8 @@ Net_Socket
 	バージョン: 1.0.5? (要確認)
 	用途・機能: 
 		配布元: 
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: 
 
 Net_URL
@@ -81,6 +105,8 @@ Net_URL
 	バージョン: 
 	用途・機能: 
 		配布元: 
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: 
 
 Pager
@@ -88,6 +114,8 @@ Pager
 	バージョン: 
 	用途・機能: 
 		配布元: 
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: 
 
 PEAR
@@ -95,6 +123,8 @@ PEAR
 	バージョン: 
 	用途・機能: 
 		配布元: http://pear.php.net/package/PEAR
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: 
 
 PHP_Compat
@@ -102,6 +132,8 @@ PHP_Compat
 	バージョン: 
 	用途・機能: 
 		配布元: http://pear.php.net/package/PHP_Compat
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: 
 
 Services_Amazon
@@ -109,6 +141,8 @@ Services_Amazon
 	バージョン: 
 	用途・機能: 
 		配布元: http://pear.php.net/package/Services_Amazon
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: lib/include/Services/Amazon.php
 
 Services_Amazon
@@ -116,6 +150,8 @@ Services_Amazon
 	バージョン: 
 	用途・機能: 
 		配布元: http://pear.php.net/package/Services_Amazon
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: lib/include/Services/AmazonECS4.php
 
 XML_Parser
@@ -123,6 +159,8 @@ XML_Parser
 	バージョン: 
 	用途・機能: 
 		配布元: 
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: 
 
 XML_RPC
@@ -130,6 +168,8 @@ XML_RPC
 	バージョン: 1.5.0? (要確認)
 	用途・機能: 
 		配布元: 
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: 
 
 XML_Serializer
@@ -137,6 +177,8 @@ XML_Serializer
 	バージョン: 
 	用途・機能: 
 		配布元: 
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: 
 
 XML_Util
@@ -144,6 +186,8 @@ XML_Util
 	バージョン: 
 	用途・機能: 
 		配布元: 
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: 
 
 ● フレームワーク
@@ -152,6 +196,8 @@ CodeIgniter
 	バージョン: 1.6.1
 	用途・機能: コンバータで使用
 		配布元: http://codeigniter.com/
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: convert/
 
 ● その他
@@ -160,6 +206,8 @@ Smarty
 	バージョン: 2.6.14
 	用途・機能: テンプレートエンジン
 		配布元: http://smarty.php.net/
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: lib/include/Smarty/
 
 Snoopy
@@ -167,6 +215,8 @@ Snoopy
 	バージョン: 1.2.4
 	用途・機能: RSSフィードの取得
 		配布元: http://snoopy.sourceforge.net/
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: lib/include/Snoopy.class.php
 
 SimplePie
@@ -174,13 +224,17 @@ SimplePie
 	バージョン: 1.0 b3.2
 	用途・機能: RSS and Atom Feed Framework
 		配布元: http://simplepie.org
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: lib/include/simplepie.inc
 
 Etag.php
 	ライセンス: Public Domain
 	バージョン: 1.0
 	用途・機能: 
-		配布元: OpenPNE より。作者は Ryosuke Hosoi <hosoi ryo.com>。元は、http://www.ryo.com/2005/05/23/9/ か 
+		配布元: OpenPNE 2.4 より。作者は Ryosuke Hosoi <hosoi ryo.com>。元は、http://www.ryo.com/2005/05/23/9/ か 
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: lib/include/Etag.php
 
 QRcode
@@ -190,6 +244,8 @@ QRcode
 	バージョン: 0.50g
 	用途・機能: QRコード生成
 		配布元: http://www.swetake.com/qr/qr_cgi.html
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: /lib/include/QRcode/
 
 KCAPTCHA
@@ -200,6 +256,8 @@ KCAPTCHA
 	バージョン: 1.2.3
 	用途・機能: キャプチャ画像生成
 		配布元: http://www.captcha.ru/en/kcaptcha/
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: lib/include/kcaptcha/
 
 
@@ -209,6 +267,8 @@ jQuery
 	バージョン: 1.1
 	用途・機能: Ajax用ライブラリ。Thickbox の動作に必要
 		配布元: http://jquery.com/
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: js/javascripts/jquery-1.1.js
 
 Prototype
@@ -216,6 +276,8 @@ Prototype
 	バージョン: 1.5.0_rc1
 	用途・機能: Ajax用ライブラリ。ホームのフローティング、ソーシャルマップ、その他で必要
 		配布元: http://www.prototypejs.org/
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: js/javascripts/prototype.js
 
 script.aculo.us
@@ -223,6 +285,8 @@ script.aculo.us
 	バージョン: 1.6.4
 	用途・機能: Ajax用ライブラリ。ホームのフローティングで必要
 		配布元: http://script.aculo.us/
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: js/javascripts/scriptaculous.js
 				js/javascripts/builder.js
 				js/javascripts/controls.js
@@ -236,6 +300,8 @@ Thickbox
 	バージョン: 2.1
 	用途・機能: 画像表示制御。jQuery用ウィジェット
 		配布元: http://jquery.com/demo/thickbox/
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: js/javascripts/thickbox.js
 
 Selection.js
@@ -243,6 +309,8 @@ Selection.js
 	バージョン: 0.2
 	用途・機能: エディタ入力補助
 		配布元: http://www.teria.com/~koseki/memo/xbselection/
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: js/javascripts/Selection.js
 
 tooltip with shadow
@@ -250,14 +318,9 @@ tooltip with shadow
 	バージョン: March, 11th, 2006
 	用途・機能: インストーラでのツールチップ表示
 		配布元: http://www.dhtmlgoodies.com/index.html?whichScript=tooltip_shadow
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: install/js/js.js
-
-SpryTabbedPanels.js
-	ライセンス: New BSD
-	バージョン: 1.4
-	用途・機能: ?
-		配布元: Adobe Systems
-	  ファイル: js/Spry/SpryTabbedPanels.js
 
 Fabtabulous
 	ライセンス: CC Attribution-Share Alike 2.5 Generic
@@ -265,14 +328,27 @@ Fabtabulous
 	バージョン: 1.1
 	用途・機能: ひとことのタブインターフェイス
 		配布元: http://tetlaw.id.au/view/blog/fabtabulous-simple-tabs-using-prototype/
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: js/javascripts/tabs.js
+				js/javascripts/othertabs.js
 
 
 	ライセンス: 
 	バージョン: 
 	用途・機能: 
 		配布元: 
+  ダウンロード: 
+	変更の有無: 
 	  ファイル: 
 
 
 ■ 画像ファイル
+
+	ライセンス: 
+	バージョン: 
+	用途・機能: 
+		配布元: 
+  ダウンロード: 
+	変更の有無: 
+	  ファイル: 
