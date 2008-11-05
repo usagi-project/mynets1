@@ -34,12 +34,13 @@ class ktai_page_h_one_word_write extends OpenPNE_Action
     {
 
         $u  = $GLOBALS['KTAI_C_MEMBER_ID'];
-        $msg = urldecode($requests['msg']);
 
         //=======================================
         //request parameters get
         //=======================================
-        //ここでリクエストパラメータを取得する
+        $msg           = urldecode($requests['msg']);
+        //$one_word      = $requests['one_word'];
+        $c_one_word_id = $requests['c_one_word_id'];
 
         //=======================================
         //logic block
@@ -50,6 +51,11 @@ class ktai_page_h_one_word_write extends OpenPNE_Action
         $oneword->setUid($u);
         $my_word = $oneword->get();
         $other_word = $oneword->getList();
+
+        if (intval($c_one_word_id) >= 1)
+        {
+            $my_word = '';
+        }
         //=======================================
         //template assign block
         //=======================================
@@ -58,6 +64,9 @@ class ktai_page_h_one_word_write extends OpenPNE_Action
         $this->set('my_word', $my_word);
         $this->set('other_word', $other_word);
         $this->set('msg', $msg);
+        //$this->set('one_word', $one_word);
+        $this->set('c_one_word_id', $c_one_word_id);
+
         return 'success';
 
     }

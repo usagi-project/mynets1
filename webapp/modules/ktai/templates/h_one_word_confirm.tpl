@@ -36,6 +36,7 @@
     <br />
     <input type="submit" value="保存" />
     <input type="hidden" name="ksid" value="({$PHPSESSID})" />
+    <input type="hidden" name="c_one_word_id" value="({$c_one_word_id})" />
     </form>
 </div>
 <hr style="border-style:solid;border-color:#ADADAD;width:100%" color="#ADADAD" />

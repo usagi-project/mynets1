@@ -40,9 +40,10 @@ class ktai_do_h_one_word_write extends OpenPNE_Action
         //=======================================
         //ここでリクエストパラメータを取得する
 
-        $one_word = $requests['one_word'];
-        $twiiter = $requests['twiiter'];
-        $wassr = $requests['wassr'];
+        $one_word      = $requests['one_word'];
+        //$twiiter  = $requests['twiiter'];
+        //$wassr    = $requests['wassr'];
+        $c_one_word_id = $requests['c_one_word_id'];
 
         //=======================================
         //logic block
@@ -65,11 +66,13 @@ class ktai_do_h_one_word_write extends OpenPNE_Action
         {
             $error = "文字数オーバー";
         }
+
         if (! $error)
         {
             $oneword = new OneWord();
             $oneword->setUid($u);
             $oneword->set($one_word);
+            $oneword->setId_to($c_one_word_id);
             $oneword->add();
             //twitter
 

@@ -39,8 +39,13 @@ class ktai_page_h_one_word_confirm extends OpenPNE_Action
         //request parameters get
         //=======================================
         //ここでリクエストパラメータを取得する
+        $one_word      = $requests['one_word'];
+        $c_one_word_id = $requests['c_one_word_id'];
 
-        $one_word = $requests['one_word'];
+        //=======================================
+        //logic block
+        //=======================================
+        //ここでビジネスロジックを記述する
         if (! $one_word)
         {
             $one_word = '・・・・・・';
@@ -51,10 +56,6 @@ class ktai_page_h_one_word_confirm extends OpenPNE_Action
             $one_word = preg_replace('/\n/  ', ' ', $one_word);
         }
 
-        //=======================================
-        //logic block
-        //=======================================
-        //ここでビジネスロジックを記述する
         $oneword = new OneWord();
         $other_word = $oneword->getList();
 
@@ -65,6 +66,8 @@ class ktai_page_h_one_word_confirm extends OpenPNE_Action
         //$this->set('[[パラメータ名]]', [[セットするパラメータ変数]]);
         $this->set('other_word', $other_word);
         $this->set('one_word', $one_word);
+        $this->set('c_one_word_id', $c_one_word_id);
+
         return 'success';
 
     }
