@@ -113,6 +113,8 @@ class ktai_page_f_one_word_list extends OpenPNE_Action
         $this->set('other_word', $other_word);
         $this->set('page_link',$pager->links);
         $this->set('target_c_member_id', $target_c_member_id);
+        //$this->set('u', $u);
+
         return 'success';
 
     }

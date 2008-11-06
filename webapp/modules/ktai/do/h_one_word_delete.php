@@ -27,7 +27,7 @@
 
 require_once OPENPNE_WEBAPP_DIR . '/components/one_word.class.php';
 
-class ktai_page_h_one_word_write extends OpenPNE_Action
+class ktai_do_h_one_word_delete extends OpenPNE_Action
 {
 
     function execute($requests)
@@ -38,36 +38,53 @@ class ktai_page_h_one_word_write extends OpenPNE_Action
         //=======================================
         //request parameters get
         //=======================================
-        $msg           = urldecode($requests['msg']);
-        //$one_word      = $requests['one_word'];
+        //ここでリクエストパラメータを取得する
         $c_one_word_id = $requests['c_one_word_id'];
 
         //=======================================
         //logic block
         //=======================================
         //ここでビジネスロジックを記述する
-        //ONE_WORDを取得する。（じぶんの分と、フレンドの分）
-        $oneword = new OneWord();
-        $oneword->setUid($u);
-        $my_word = $oneword->get();
-        $other_word = $oneword->getList();
+        $error = '';
 
-        if (intval($c_one_word_id) >= 1)
+        if ( ! $c_one_word_id)
         {
-            $my_word = '';
+            $error = 'IDが不正です';
+        }
+        else
+        {
+            $oneword = new OneWord();
+            //存在確認
+            if ( ! $oneword->getWord($c_one_word_id))
+            {
+                $error = '指定のデータが見つかりません';
+            }
+            else
+            {
+                $oneword->setUid($u);
+                $oneword->setOid($c_one_word_id);
+                $oneword->delete();
+            }
         }
         //=======================================
         //template assign block
         //=======================================
         //ここでテンプレートへ変数をセットする
         //$this->set('[[パラメータ名]]', [[セットするパラメータ変数]]);
-        $this->set('my_word', $my_word);
-        $this->set('other_word', $other_word);
-        $this->set('msg', $msg);
-        $this->set('c_one_word_id', $c_one_word_id);
 
-        return 'success';
-
+        //リダイレクトする先を記述
+        if (! $error)
+        {
+            openpne_redirect('ktai', 'page_h_one_word_write');
+            //一言のトップへ戻すように変更
+        }
+        else
+        {
+            $p = array(
+                'msg' => urlencode($error),
+            );
+            openpne_redirect('ktai', 'page_h_one_word_write', $p);
+        }
     }
 }
 ?>
