@@ -38,7 +38,7 @@
                 ({t_loop from=$c_friend_list start=0 num=3})
                 ({if $item})
                 <td style="width:88px;" class="bg_03" align="center">
-                    <a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})" oneword='({if $item.friend_oneword})({$item.friend_oneword|t_body:'dengon'|default:"&nbsp;"})({else})・・・・・・({/if})' class="oneword_bln">
+                    <a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})" oneword='({if $item.friend_oneword})({$item.friend_oneword|t_body:'dengon'|default:"&nbsp;"|replace:"'":"&#039;"})({else})・・・・・・({/if})' class="oneword_bln">
                     <img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image_small})" class="pict"></a>
                 </td>
                 ({else})
@@ -68,7 +68,7 @@
                 ({t_loop from=$c_friend_list start=3 num=3})
                 ({if $item})
                 <td class="bg_03" align="center">
-                    <a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})" oneword='({if $item.friend_oneword})({$item.friend_oneword|t_body:'dengon'|default:"&nbsp;"})({else})・・・・・・({/if})' class="oneword_bln">
+                    <a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})" oneword='({if $item.friend_oneword})({$item.friend_oneword|t_body:'dengon'|default:"&nbsp;"|replace:"'":"&#039;"})({else})・・・・・・({/if})' class="oneword_bln">
                     <img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image_small})" class="pict"></a>
                 </td>
                 ({else})
@@ -98,7 +98,7 @@
                 ({t_loop from=$c_friend_list start=6 num=3})
                 ({if $item})
                 <td class="bg_03" align="center">
-                    <a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})" oneword='({if $item.friend_oneword})({$item.friend_oneword|t_body:'dengon'|default:"&nbsp;"})({else})・・・・・・({/if})' class="oneword_bln">
+                    <a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})" oneword='({if $item.friend_oneword})({$item.friend_oneword|t_body:'dengon'|default:"&nbsp;"|replace:"'":"&#039;"})({else})・・・・・・({/if})' class="oneword_bln">
                     <img src="({t_img_url filename=$item.image_filename w=76 h=76 noimg=no_image_small})" class="pict"></a>
                 </td>
                 ({else})

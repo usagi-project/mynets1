@@ -52,7 +52,6 @@ function load(e) {
     title = title.escapeHTML();
     //エスケープされた絵文字イメージタグのみタグへ戻す
     title = title.replace(/&lt;img\ssrc="img\/moji\/x_([0-9A-F][0-9A-F][0-9A-F][0-9A-F])\.gif"\salt="絵文字"((&gt;)|>)/gi, '<img src="img/moji/x_$1.gif" alt="絵文字">');
-    title = title.replace(/&amp;#039;/gi, "&#039;");
     e.titles = title;
 
     //吹き出し本体作成
