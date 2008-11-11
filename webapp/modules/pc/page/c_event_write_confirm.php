@@ -4,9 +4,9 @@
  *
  * @license This source file is subject to version 3.01 of the PHP license,
  *              that is available at http://www.php.net/license/3_01.txt
- *              If you did not receive a copy of the PHP license and are unable 
- *              to obtain it through the world-wide-web, please send a note to 
- *              license@php.net so we can mail you a copy immediately.  
+ *              If you did not receive a copy of the PHP license and are unable
+ *              to obtain it through the world-wide-web, please send a note to
+ *              license@php.net so we can mail you a copy immediately.
  *
  * @category   Application of MyNETS
  * @project    OpenPNE UsagiProject 2006-2007
@@ -16,7 +16,7 @@
  * @version    MyNETS,v 1.0.0
  * @since      File available since Release 1.0.0 Nighty
  * @chengelog  [2007/02/17] Ver1.1.0Nighty package
- * ======================================================================== 
+ * ========================================================================
  */
 
 /**
@@ -53,20 +53,28 @@ class pc_page_c_event_write_confirm extends OpenPNE_Action
 
         //エラーチェック
         $err_msg = array();
-        if (trim($body) == '')  $err_msg[] = "本文を入力してください";
-
-        if ($upfile_obj1['error'] !== UPLOAD_ERR_NO_FILE) {
-            if (!($image = t_check_image($upfile_obj1))) {
+        if (trim($body) == '')
+        {
+            $err_msg[] = '本文を入力してください';
+        }
+        if ($upfile_obj1['error'] !== UPLOAD_ERR_NO_FILE && ! empty($upfile_obj1))
+        {
+            if ( ! ($image = t_check_image($upfile_obj1)))
+            {
                 $err_msg[] = '画像1は'.IMAGE_MAX_FILESIZE.'KB以内のGIF・JPEG・PNGにしてください';
             }
         }
-        if ($upfile_obj2['error'] !== UPLOAD_ERR_NO_FILE) {
-            if (!($image = t_check_image($upfile_obj2))) {
+        if ($upfile_obj2['error'] !== UPLOAD_ERR_NO_FILE && ! empty($upfile_obj2))
+        {
+            if ( ! ($image = t_check_image($upfile_obj2)))
+            {
                 $err_msg[] = '画像2は'.IMAGE_MAX_FILESIZE.'KB以内のGIF・JPEG・PNGにしてください';
             }
         }
-        if ($upfile_obj3['error'] !== UPLOAD_ERR_NO_FILE) {
-            if (!($image = t_check_image($upfile_obj3))) {
+        if ($upfile_obj3['error'] !== UPLOAD_ERR_NO_FILE && ! empty($upfile_obj3))
+        {
+            if ( ! ($image = t_check_image($upfile_obj3)))
+            {
                 $err_msg[] = '画像3は'.IMAGE_MAX_FILESIZE.'KB以内のGIF・JPEG・PNGにしてください';
             }
         }
@@ -100,7 +108,7 @@ class pc_page_c_event_write_confirm extends OpenPNE_Action
         } elseif ($button == "参加をキャンセルする") {
             $event_write['add_event_member'] = -1;
         }
-        
+
         $this->set('event_write', $event_write);
         return 'success';
     }
