@@ -319,7 +319,7 @@
 <tr>
 <td style="width:36px;" class="bg_06"><img src="({t_img_url_skin filename=content_header_1})" style="width:30px;height:20px;" class="dummy"></td>
 <td style="width:486px;padding:2px 0px;" class="bg_06"><span class="b_b c_00">
-({if $target_member.c_member_id})<a href="({t_url m=diary a=page_list})&amp;target_c_member_id=({$target_member.c_member_id})">({$target_member.nickname})</a>さんの({/if})公開日記
+({if $target_member.c_member_id})<a href="({t_url m=diary a=page_list})&amp;target_c_member_id=({$target_member.c_member_id})">({$target_member.nickname|t_body:'name'})</a>さんの({/if})公開日記
 ({if !$all})
 &nbsp;({$date_val.year})年({$date_val.month})月({if $date_val.day})({$date_val.day})日({/if})
 ({/if})
