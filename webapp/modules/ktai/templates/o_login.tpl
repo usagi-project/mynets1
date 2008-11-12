@@ -46,7 +46,7 @@
 ({foreach from=$other_word item=item})
 &em_pen;「<font color="blue">({$item.comment|t_body:'title'})</font>」<br>
 <font size="1">
-({$item.r_datetime|t_date})&nbsp;({$item.nickname})
+({$item.r_datetime|t_date})&nbsp;({$item.nickname|t_body:'name'})
 </font>
 <hr width="90%">
 ({/foreach})
