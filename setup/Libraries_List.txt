@@ -323,8 +323,10 @@ tooltip with shadow
 	  ファイル: install/js/js.js
 
 Fabtabulous
-	ライセンス: CC Attribution-Share Alike 2.5 Generic
-				http://creativecommons.org/licenses/by-sa/2.5/
+	ライセンス: MIT
+				※ もともと CC Attribution-Share Alike 2.5 Generic
+				http://creativecommons.org/licenses/by-sa/2.5/ だが、
+				MIT License での使用許諾を作者より得ている
 	バージョン: 1.1
 	用途・機能: ひとことのタブインターフェイス
 		配布元: http://tetlaw.id.au/view/blog/fabtabulous-simple-tabs-using-prototype/
