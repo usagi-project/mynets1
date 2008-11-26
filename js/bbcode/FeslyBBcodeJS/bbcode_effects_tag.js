@@ -1,3 +1,10 @@
+/*
+ * @author      FeslyProject
+ * @copyright   Copyright (c) 2008, FeslyProject
+ * @license     http://www.php.net/license/3_01.txt PHP License 3.01
+ * @since       2008/07/22
+ */
+
 function MM_preloadImages() {
   var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
     var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)

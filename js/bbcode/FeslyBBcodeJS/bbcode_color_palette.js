@@ -1,3 +1,10 @@
+/*
+ * @author      FeslyProject
+ * @copyright   Copyright (c) 2008, FeslyProject
+ * @license     http://www.php.net/license/3_01.txt PHP License 3.01
+ * @since       2008/07/22
+ */
+
 var onclick_function;
 var pos_x = 0;
 var pos_y = 0;
