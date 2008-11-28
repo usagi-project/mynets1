@@ -21,31 +21,31 @@ div:after{/*for modern browser*/
     </div>
     <div id="cnt2" style="display:none;">
         <div style="padding:0 1px;">
-    		<div style="height:25px;position:relative;overflow:hidden;background:url(./skin/default/img/bg_button.gif) left bottom repeat-x;">
-    			<ul id="tabs">
-    				<li>
-    					<a href="#tab1">ひとこと（全体）</a>
-    				</li>
-    				<li>
-    					<a href="#tab2">ひとこと（({$WORD_MY_FRIEND})まで）</a>
-    				</li>
-    				<li>
-    					<a href="#tab3">MyBBS</a>
-    				</li>
-    			</ul>
-    		</div>
-    		<div class="panel" id="tab1">
-    		    ({if $oneword_list_all})
-    		    <script type="text/javascript">
-    		    max_oneword_id = ({if $max_oneword_id})({$max_oneword_id})({else})0({/if});
-    		    oneword2 = '({$oneword2|replace:"&#039;":"\'"|t_body:'dengon'|default:"&nbsp;"})';
+            <div style="height:25px;position:relative;overflow:hidden;background:url(./skin/default/img/bg_button.gif) left bottom repeat-x;">
+                <ul id="tabs">
+                    <li>
+                        <a href="#tab1">ひとこと（全体）</a>
+                    </li>
+                    <li>
+                        <a href="#tab2">ひとこと（({$WORD_MY_FRIEND})まで）</a>
+                    </li>
+                    <li>
+                        <a href="#tab3">MyBBS</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="panel" id="tab1">
+                ({if $oneword_list_all})
+                <script type="text/javascript">
+                max_oneword_id = ({if $max_oneword_id})({$max_oneword_id})({else})0({/if});
+                oneword2 = '({$oneword2|replace:"&#039;":"\'"|t_body:'dengon'|default:"&nbsp;"})';
                 all_page = ({$all_page});
                 </script>
                 ({foreach from=$oneword_list_all item=item name=all})
                 <div style="padding:3px 5px;({if $smarty.foreach.all.last})({if $all_link})border-bottom:#cccccc 1px solid;({else})({/if})({else})border-bottom:#cccccc 1px dotted;({/if})" id="list_all_({$item.c_one_word_id})">
                     <img src="({t_img_url_skin filename=icon_1})" style="margin-right:5px;">
                     ({$item.r_datetime|t_date})…&nbsp;
-                    「({if $item.nickname_to})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id_to})" oneword='({$item.comment_to|replace:"&#039;":'&amp#039;'|t_body:'dengon'|default:"&nbsp;"})' class="oneword_bln">>>({$item.nickname_to|t_body:'name'|default:"&nbsp;"})</a>&nbsp;&nbsp;({/if})({$item.comment|t_body:'dengon'|default:"&nbsp;"})」&nbsp;
+                    「({if $item.nickname_to})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id_to})" oneword='({$item.comment_to|t_body:'dengon'|default:"&nbsp;"|replace:"'":"&#039;"})' class="oneword_bln">>>({$item.nickname_to|t_body:'name'|default:"&nbsp;"})</a>&nbsp;&nbsp;({/if})({$item.comment|t_body:'dengon'|default:"&nbsp;"})」&nbsp;
                     （<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|t_body:'name'|default:"&nbsp;"})</a>）&nbsp;
                     <a href="javascript:void(0);" onclick="comment_form(({$item.c_one_word_id}),this);return false;"><img src="skin/default/img/write_pen01.gif" align="absmiddle" alt="コメントする"></a>({if $c_member.c_member_id == $item.c_member_id})&nbsp;<a href="javascript:void(0);" onclick="oneword_del(({$item.c_one_word_id}));return false;">削除</a>({/if})
                 </div>
@@ -56,17 +56,17 @@ div:after{/*for modern browser*/
                 </div>
                 ({/if})
                 ({/if})
-    		</div>
-    		<div class="panel" id="tab2">
-    		    ({if $oneword_list_friend})
-    		    <script type="text/javascript">
+            </div>
+            <div class="panel" id="tab2">
+                ({if $oneword_list_friend})
+                <script type="text/javascript">
                 fri_page = ({$fri_page});
                 </script>
                 ({foreach from=$oneword_list_friend item=item name=fri})
                 <div style="padding:3px 5px;({if $smarty.foreach.fri.last})({if $fri_link})border-bottom:#cccccc 1px solid;({else})({/if})({else})border-bottom:#cccccc 1px dotted;({/if})" id="list_friend_({$item.c_one_word_id})">
                     <img src="({t_img_url_skin filename=icon_1})" style="margin-right:5px;">
                     ({$item.r_datetime|t_date})…&nbsp;
-                    「({if $item.nickname_to})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id_to})" oneword='({$item.comment_to|replace:"&#039;":'&amp#039;'|t_body:'dengon'|default:"&nbsp;"})' class="oneword_bln">>>({$item.nickname_to|t_body:'name'|default:"&nbsp;"})</a>&nbsp;&nbsp;({/if})({$item.comment|t_body:'dengon'|default:"&nbsp;"})」&nbsp;
+                    「({if $item.nickname_to})<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id_to})" oneword='({$item.comment_to|t_body:'dengon'|default:"&nbsp;"|replace:"'":"&#039;"})' class="oneword_bln">>>({$item.nickname_to|t_body:'name'|default:"&nbsp;"})</a>&nbsp;&nbsp;({/if})({$item.comment|t_body:'dengon'|default:"&nbsp;"})」&nbsp;
                     （<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|t_body:'name'|default:"&nbsp;"})</a>）&nbsp;
                     <a href="javascript:void(0);" onclick="comment_form(({$item.c_one_word_id}),this);return false;"><img src="skin/default/img/write_pen01.gif" align="absmiddle" alt="コメントする"></a>({if $c_member.c_member_id == $item.c_member_id})&nbsp;<a href="javascript:void(0);" onclick="oneword_del(({$item.c_one_word_id}));return false;">削除</a>({/if})
                 </div>
@@ -77,9 +77,9 @@ div:after{/*for modern browser*/
                 </div>
                 ({/if})
                 ({/if})
-    		</div>
-    		<div class="panel" id="tab3">
-    		    ({if $c_dengon_comment})
+            </div>
+            <div class="panel" id="tab3">
+                ({if $c_dengon_comment})
                 ({foreach from=$c_dengon_comment item=item name=dengon})
                 <div style="padding:3px 5px;border-bottom:#cccccc 1px ({if $smarty.foreach.dengon.last})solid;({else})dotted;({/if})">
                     <img src="({t_img_url_skin filename=icon_1})" style="margin-right:5px;">
@@ -92,7 +92,7 @@ div:after{/*for modern browser*/
                     <img src="./skin/dummy.gif" class="icon arrow_1">
                     <a href="({t_url m=pc a=page_fh_dengon})&amp;target_c_member_id=({$target_c_member_id})">もっと読む・入力</a>
                 </div>
-    		</div>
-		</div>
+            </div>
+        </div>
     </div>
 </div>

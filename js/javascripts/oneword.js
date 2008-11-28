@@ -45,7 +45,10 @@ function makeballoon() {
 function load(e) {
     //吹き出し本文取得
     var title = e.getAttribute("oneword");
-    title = title.replace(/<script[^>]*?>.*?<\/script>/gi, "");
+    //吹き出し本文をエスケープ
+    title = title.escapeHTML();
+    //エスケープされた絵文字イメージタグのみタグへ戻す
+    title = title.replace(/&lt;img\ssrc="img\/moji\/x_([0-9A-F][0-9A-F][0-9A-F][0-9A-F])\.gif"\salt="絵文字"((&gt;)|>)/gi, '<img src="img/moji/x_$1.gif" alt="絵文字">');
     e.titles = title;
 
     //吹き出し本体作成
