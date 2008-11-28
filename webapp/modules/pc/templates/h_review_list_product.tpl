@@ -477,6 +477,11 @@
 <a href="({t_url m=pc a=page_fh_review_list_member})">自分のレビュー一覧を見る</a>
 
 </div>
+<div align="center">
+
+Powered by Amazon.co.jpアソシエイト
+
+</div>
 <!-- ******ここまで：レビュー　どこへ****** -->
 <!-- **************************************** -->
 
