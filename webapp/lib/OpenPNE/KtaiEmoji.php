@@ -2856,13 +2856,37 @@ class OpenPNE_KtaiEmoji
             $c_code = $o_id;
             switch ($c_carrier) {
             case 'i':
-                $converter = OpenPNE_KtaiEmoji_Docomo::getInstance();
+                if ( ! $GLOBALS['__Framework']['ktai_carrier']=='docomo')
+                {
+                    $c_code = $o_code;
+                    $converter = OpenPNE_KtaiEmoji_Img::getInstance();
+                }
+                else
+                {
+                    $converter = OpenPNE_KtaiEmoji_Docomo::getInstance();
+                }
                 break;
             case 's':
-                $converter = OpenPNE_KtaiEmoji_Softbank::getInstance();
+                if ( ! $GLOBALS['__Framework']['ktai_carrier']=='softbank')
+                {
+                    $c_code = $o_code;
+                    $converter = OpenPNE_KtaiEmoji_Img::getInstance();
+                }
+                else
+                {
+                    $converter = OpenPNE_KtaiEmoji_Softbank::getInstance();
+                }
                 break;
             case 'e':
-                $converter = OpenPNE_KtaiEmoji_Au::getInstance();
+                if ( ! $GLOBALS['__Framework']['ktai_carrier']=='au')
+                {
+                    $c_code = $o_code;
+                    $converter = OpenPNE_KtaiEmoji_Img::getInstance();
+                }
+                else
+                {
+                    $converter = OpenPNE_KtaiEmoji_Au::getInstance();
+                }
                 break;
             default:
                 $c_code = $o_code;
