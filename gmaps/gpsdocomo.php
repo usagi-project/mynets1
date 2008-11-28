@@ -39,9 +39,11 @@ if ((!$_SERVER['PATH_INFO']) && (isset($_SERVER['ORIG_PATH_INFO']))) {
     $_SERVER['PATH_INFO'] = $_SERVER['ORIG_PATH_INFO'];
 }
 list($dummy,$ksid,$mail) = explode("/",$_SERVER['PATH_INFO']);
-$lat = $_GET['lat'];
-$lon = $_GET['lon'];
-$smaj = $_GET['x-acc'];
+$ksid = htmlspecialchars($ksid, ENT_QUOTES, 'Shift_JIS');
+$mail = htmlspecialchars($mail, ENT_QUOTES, 'Shift_JIS');
+$lat = htmlspecialchars($_GET["lat"], ENT_QUOTES, 'Shift_JIS');
+$lon = htmlspecialchars($_GET["lon"], ENT_QUOTES, 'Shift_JIS');
+$smaj = htmlspecialchars($_GET["x-acc"], ENT_QUOTES, 'Shift_JIS');
 if($lat == "" || $lon == "" || $smaj == "")
     echo "Œv‘ª‚Å‚«‚Ü‚¹‚ñ<br><a href='../../../?m=ktai&amp;a=page_h_home&amp;".$ksid."' accesskey='0'>0.Î°Ñ</a>";
 else {

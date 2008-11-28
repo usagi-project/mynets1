@@ -19,8 +19,8 @@
  * ======================================================================== 
  */
 
-$lat = $_GET["lat"];
-$lon = $_GET["lon"];
+$lat = htmlspecialchars($_GET["lat"], ENT_QUOTES, 'Shift_JIS');
+$lon = htmlspecialchars($_GET["lon"], ENT_QUOTES, 'Shift_JIS');
 header('Content-Type: text/html; charset=Shift_JIS');
 $glocal = "http://www.google.co.jp/m/search?output=chtml&amp;site=maps&amp;hl=ja&amp;q={$lat},{$lon}&amp;zp=III";
 $gtransit = "http://www.google.co.jp/transit?uipref=3&amp;hl=ja&amp;saddr={$lat},{$lon}&amp;output=mobile";

@@ -28,10 +28,10 @@
 <script type="text/javascript">
 
 <?php
-echo 'var latp = '.$_GET['lat'].';';
-echo 'var lngp = '.$_GET['lon'].';';
-echo 'var zmp = '.$_GET['zoom'].';';
-echo 'var tp = '.$_GET['type'].';';
+echo 'var latp = ' . floatval($_GET['lat']) . ';';
+echo 'var lngp = ' . floatval($_GET['lon']) . ';';
+echo 'var zmp = ' . intval($_GET['zoom']) . ';';
+echo 'var tp = ' . intval($_GET['type']) . ';';
 ?>
 
 var map;

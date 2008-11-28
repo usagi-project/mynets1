@@ -39,8 +39,10 @@ if ((!$_SERVER['PATH_INFO']) && (isset($_SERVER['ORIG_PATH_INFO']))) {
     $_SERVER['PATH_INFO'] = $_SERVER['ORIG_PATH_INFO'];
 }
 list($dummy,$ksid,$mail) = explode("/",$_SERVER['PATH_INFO']);
-$pos = $_GET['pos'];
-$smaj = $_GET['x-acr'];
+$ksid = htmlspecialchars($ksid, ENT_QUOTES, 'Shift_JIS');
+$mail = htmlspecialchars($mail, ENT_QUOTES, 'Shift_JIS');
+$pos = htmlspecialchars($_GET["pos"], ENT_QUOTES, 'Shift_JIS');
+$smaj = htmlspecialchars($_GET["x-acr"], ENT_QUOTES, 'Shift_JIS');
 list($lat,$lon) = explode("E",$pos);
 $latn = str_replace("N","",strval($lat));
 $la = explode('.',$latn);

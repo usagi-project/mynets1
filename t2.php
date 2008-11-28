@@ -17,10 +17,13 @@
  * @chengelog  [2007/04/14] Ver1.0.1Nighty package
  * ========================================================================
  */
-$lat = $_GET["lat"];
-$lon = $_GET["lon"];
-$zoom = $_GET["zoom"];
-$gkey = $_GET["gkey"];
+
+//2008-10-31 KUNIHARU Tsujioka update
+
+$lat = htmlspecialchars($_GET["lat"], ENT_QUOTES, 'Shift-JIS');
+$lon = htmlspecialchars($_GET["lon"], ENT_QUOTES, 'Shift-JIS');
+$zoom = htmlspecialchars($_GET["zoom"], ENT_QUOTES, 'Shift-JIS');
+$gkey = htmlspecialchars($_GET["gkey"], ENT_QUOTES, 'Shift-JIS');
 
 $zp = zconvert($_GET["zoom"]);
 
@@ -75,10 +78,10 @@ function zconvert($p)
         case '13' :
             $zp = 'O';
             break;
-        case '12' : 
+        case '12' :
             $zp = 'OO';
             break;
-        case '11' : 
+        case '11' :
             $zp = 'OOO';
             break;
         case '10' :
