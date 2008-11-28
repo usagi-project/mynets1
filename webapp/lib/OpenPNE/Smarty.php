@@ -4,9 +4,9 @@
  *
  * @license This source file is subject to version 3.01 of the PHP license,
  *              that is available at http://www.php.net/license/3_01.txt
- *              If you did not receive a copy of the PHP license and are unable 
- *              to obtain it through the world-wide-web, please send a note to 
- *              license@php.net so we can mail you a copy immediately.  
+ *              If you did not receive a copy of the PHP license and are unable
+ *              to obtain it through the world-wide-web, please send a note to
+ *              license@php.net so we can mail you a copy immediately.
  *
  * @category   Application of MyNETS
  * @project    OpenPNE UsagiProject 2006-2007
@@ -16,7 +16,7 @@
  * @version    MyNETS,v 1.0.0
  * @since      File available since Release 1.0.0 Nighty
  * @chengelog  [2007/02/17] Ver1.1.0Nighty package
- * ======================================================================== 
+ * ========================================================================
  */
 
 /**
@@ -48,12 +48,14 @@ class OpenPNE_Smarty extends Smarty
     // extディレクトリ対応 SMARTY->display() ラッパー
     function ext_display($resource_name, $cache_id = null, $compile_id = null)
     {
+        $this->load_filter('output', 'pne_display_emoji');
+        $this->register_outputfilter('smarty_outputfilter_pne_display_emoji');
         // とりあえず携帯用にSJISのみ対応
         if ($this->output_charset == 'SJIS') {
             $this->register_outputfilter('smarty_outputfilter_convert_utf82sjis');
             $this->register_outputfilter('smarty_outputfilter_unescape_emoji');
             $this->register_outputfilter('smarty_outputfilter_unescape_emoji_entity');
-            $this->register_outputfilter('smarty_outputfilter_unescape_softbank_emoji');
+            //$this->register_outputfilter('smarty_outputfilter_unescape_softbank_emoji');
         }
         $this->sendContentType();
         $this->ext_fetch($resource_name, $cache_id, $compile_id, true);
