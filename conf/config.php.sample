@@ -631,4 +631,7 @@ define('ENABLE_HOOKS', FALSE);
 
 //今日のひとこと・クイックコミュニケーションの名前
 define('QUICK_SERVICE_NAME', '一言メッセージをどうぞ！');
+
+//2008-11-18 emoji
+define('PICTGRAM_CHANGE_CARRIER', FALSE);
 ?>

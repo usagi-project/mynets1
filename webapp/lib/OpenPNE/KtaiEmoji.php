@@ -2865,18 +2865,25 @@ class OpenPNE_KtaiEmoji
                 $converter = OpenPNE_KtaiEmoji_Au::getInstance();
                 break;
             default:
-                // PC向けau/SoftBank→DoCoMo絵文字変換
-                if (OPENPNE_EMOJI_DOCOMO_FOR_PC && $o_carrier !== 'i') {
-                    return emoji_convert($this->relation_list[$o_carrier]['i'][$o_id]);
-                }
+                $c_code = $o_code;
 
-                $c_code = $o_code;  // 画像出力の際にキャリア情報が必要になるため、絵文字IDではなく絵文字コードを用いる
                 $converter = OpenPNE_KtaiEmoji_Img::getInstance();
                 break;
             }
             return $converter->get_emoji4emoji_code_id($c_code);
-        } else {  // キャリアの変更がある場合、ここでの変換処理はおこなわず、対応する文字列に置換した上で再度変換処理
-            return emoji_convert($this->relation_list[$o_carrier][$c_carrier][$o_id]);
+        }
+        else
+        {
+            if ( ! PICTGRAM_CHANGE_CARRIER)
+            {
+                $converter = OpenPNE_KtaiEmoji_Img::getInstance();
+                return $converter->get_emoji4emoji_code_id($o_code);
+            }
+            else
+            {
+                // キャリアの変更がある場合、ここでの変換処理はおこなわず、対応する文字列に置換した上で再度変換処理
+                return emoji_convert($this->pictgram_list[$o_carrier][$c_carrier][$o_id]);
+            }
         }
     }
 }
