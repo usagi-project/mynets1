@@ -132,11 +132,17 @@ function smarty_modifier_bbcode2html4pc($message,$allowWiki=TRUE,$allowUrl=TRUE,
         //[[item(http://route.alpslab.jp/fslide.swf?routeid=[a-z0-9]+,320,240)]]
         '/\[\[item\(http:\/\/route\.alpslab\.jp\/fslide\.swf\?routeid=([a-z0-9]+),[0-9]+,[0-9]+\)\]\]/si'   => 'http://route.alpslab.jp/watch.rb?id=\\1',
     );
+    $message = preg_replace(array_keys($preg), array_values($preg), $message);
 
     switch ($allowWiki) {
         case TRUE:
             // [Wikipedia]
+            $wktags1 = array(
+                    '/\[wiki\](.*?)\[\/wiki\]/si',
+            );
+            $message = preg_replace_callback($wktags1, "rep_singlequote", $message);
             $preg['/\[wiki\](.*?)\[\/wiki\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"http\:\/\/www.wikipedia.org/search-redirect.php?language=ja&go=Go&search=\\1\" target=\"_blank\" title=\"Wikipediaで\\1を照会\">\\1<'+'/a>');</script><noscript>\\1</noscript>";
+
             break;
         case FALSE:
         default:
@@ -148,20 +154,27 @@ function smarty_modifier_bbcode2html4pc($message,$allowWiki=TRUE,$allowUrl=TRUE,
             // [url] for OpenPNE
             // javascriptの変数となりうるBBCODEタグ内のシングルクォートとバックスラッシュを変換
             $jstags1 = array(
-                '/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[img\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\](.*?)\[\/url\]/si',
-                '/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[img=(.*?)x(.*?)\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\](.*?)\[\/url\]/si',
+                '/\[url=(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)\](.*?)\[img\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\](.*?)\[\/url\]/si',
+                '/\[url=(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)\](.*?)\[img=(.*?)x(.*?)\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\](.*?)\[\/url\]/si',
                 '/\[url\](https?)?(:\/\/|\.{0,2}\/)([^\[]+?)\[\/url\]/si',
-                '/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\][^:\[]*https?[^:]*:\/\/(.*?)\[\/url\]/si',
-                '/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[\/url\]/si'
+                '/\[url=(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)\][^:\[]*https?[^:]*:\/\/(.*?)\[\/url\]/si',
+                '/\[url=(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)\](.*?)\[\/url\]/si'
             );
 
             $message = preg_replace_callback($jstags1, "rep_singlequote", $message);
 
+            $preg['/\[url=(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)\](.*?)\[img\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\](.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\" class=\"bb-url\">\\4<img src=\"\\5'+'\\6\\7\" alt=\"\\5'+'\\6\\7\" class=\"bb-image\" width=\"".$imgWidth."\">\\8<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
+            $preg['/\[url=(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)\](.*?)\[img=(.*?)x(.*?)\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\](.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\" class=\"bb-url\">\\4<img src=\"\\7'+'\\8\\9\" alt=\"\\7'+'\\8\\9\" class=\"bb-image\" width=\"\\5\" height=\"\\6\">\\{10}<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
+            $preg['/\[url\](https?)?(:\/\/|\.{0,2}\/)([^\[]+?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\" class=\"bb-url\">\\1'+'\\2\\3<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
+            $preg['/\[url=(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)\][^:\[]*https?[^:]*:\/\/(.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\">\\1'+'\\2\\3<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
+            $preg['/\[url=(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)\](.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\">\\4<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
+            /*
             $preg['/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[img\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\](.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\" class=\"bb-url\">\\4<img src=\"\\5'+'\\6\\7\" alt=\"\\5'+'\\6\\7\" class=\"bb-image\" width=\"".$imgWidth."\">\\8<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
             $preg['/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[img=(.*?)x(.*?)\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\](.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\" class=\"bb-url\">\\4<img src=\"\\7'+'\\8\\9\" alt=\"\\7'+'\\8\\9\" class=\"bb-image\" width=\"\\5\" height=\"\\6\">\\{10}<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
             $preg['/\[url\](https?)?(:\/\/|\.{0,2}\/)([^\[]+?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\" class=\"bb-url\">\\1'+'\\2\\3<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
             $preg['/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\][^:\[]*https?[^:]*:\/\/(.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\">\\1'+'\\2\\3<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
             $preg['/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\">\\4<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
+            */
             break;
         case FALSE:
         default:
@@ -181,6 +194,7 @@ function smarty_modifier_bbcode2html4pc($message,$allowWiki=TRUE,$allowUrl=TRUE,
 
             $preg['/\[img\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\"><img src=\"\\1'+'\\2\\3\" alt=\"\\1'+'\\2\\3\" class=\"bb-image\" width=\"".$imgWidth."\"><'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
             $preg['/\[img=([0-9]+)x([0-9]+)\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\3'+'\\4\\5\" target=\"_blank\" title=\"\\3'+'\\4\\5\"><img width=\"\\1\" height=\"\\2\" src=\"\\3'+'\\4\\5\" alt=\"\\3'+'\\4\\5\" class=\"bb-image\"><'+'/a>');</script><noscript>\\3\\4\\5</noscript>";
+            $message = preg_replace(array_keys($preg), array_values($preg), $message);
             break;
         case FALSE:
         default:
@@ -196,15 +210,18 @@ function smarty_modifier_bbcode2html4pc($message,$allowWiki=TRUE,$allowUrl=TRUE,
     //$replace = array('\\\\', "\'");
     //$message = str_replace($search, $replace, $message);
 
-    while ( ($message2 = preg_replace(array_keys($preg), array_values($preg), $message)) != $message) {
+    /*while ( ($message2 = preg_replace(array_keys($preg), array_values($preg), $message)) != $message) {
         $message = $message2;
     }
+    */
 
     return $message;
 }
 
 function rep_singlequote($matches){
-    return str_replace(array("\\", "&#039;"), array("\\\\", "\'"), $matches[0]);
+    $msg = h($matches[0]);
+    //$msg = str_replace("&amp;#039;", "", str_replace("&amp;quot;", "", $msg));
+    return $msg;
 }
 
 ?>

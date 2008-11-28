@@ -55,14 +55,14 @@ function _smarty_modifier_link4member($member_id) {
             if (isKtaiUserAgent()) {
                 $link_str = '【該当するメンバーはいません】';
             } else {
-                $link_str = '<span title="member=' . $member_id . '" class="bb-red">【該当するメンバーはいません】</span>';
+                $link_str = '<span title="member=' . h($member_id) . '" class="bb-red">【該当するメンバーはいません】</span>';
             }
         } else {
             //PCの場合は自動リンク回避のためJavascriptで出力
             if (!isKtaiUserAgent() && preg_match('/(https?)(:\/\/.*)/si',$link_url, $matches)) {
-                $link_str = "<script type=\"text/javascript\">document.write('<a href=\"" . $matches[1] . "'+'" . $matches[2] . "\" target=\"_blank\" title=\"" . $matches[1] . "'+'" . $matches[2] . "\" class=\"bb-url\">" . htmlspecialchars($member['nickname'], ENT_QUOTES) . "<'+'/a>');</script><noscript>" . $link_url . "</noscript>";
+                $link_str = "<script type=\"text/javascript\">document.write('<a href=\"" . h($matches[1]) . "'+'" . h($matches[2]) . "\" target=\"_blank\" title=\"" . h($matches[1]) . "'+'" . h($matches[2]) . "\" class=\"bb-url\">" . h($member['nickname']) . "<'+'/a>');</script><noscript>" . h($link_url) . "</noscript>";
             } else {
-                $link_str = htmlspecialchars($member['nickname'], ENT_QUOTES) . "<br>" . $link_url ."<br>";
+                $link_str = h($member['nickname']) . "<br>" . h($link_url) ."<br>";
             }
         }
     }
@@ -88,14 +88,14 @@ function _smarty_modifier_link4diary($diary_id, $comment_id = 0) {
             if (isKtaiUserAgent()) {
                 $link_str = '【該当する日記はありません】';
             } else {
-                $link_str = '<span title="diary=' . $diary_id . '" class="bb-red">【該当する日記はありません】</span>';
+                $link_str = '<span title="diary=' . h($diary_id) . '" class="bb-red">【該当する日記はありません】</span>';
             }
         } else {
             //PCの場合は自動リンク回避のためJavascriptで出力
             if (!isKtaiUserAgent() && preg_match('/(https?)(:\/\/.*)/si',$link_url, $matches)) {
-                $link_str = "<script type=\"text/javascript\">document.write('【<a href=\"" . $matches[1] . "'+'" . $matches[2] . "\" target=\"_blank\" title=\"" . $matches[1] . "'+'" . $matches[2] . "\" class=\"bb-url\">" . htmlspecialchars($db_msg['subject'], ENT_QUOTES) . "<'+'/a>】（" . htmlspecialchars($member['nickname'], ENT_QUOTES) . "さん）');</script><noscript>" . $link_url . "</noscript>";
+                $link_str = "<script type=\"text/javascript\">document.write('【<a href=\"" . h($matches[1]) . "'+'" . h($matches[2]) . "\" target=\"_blank\" title=\"" . h($matches[1]) . "'+'" . h($matches[2]) . "\" class=\"bb-url\">" . h($db_msg['subject']) . "<'+'/a>】（" . h($member['nickname']) . "さん）');</script><noscript>" . h($link_url) . "</noscript>";
             } else {
-                $link_str = "【" . htmlspecialchars($db_msg['subject'], ENT_QUOTES) . "】（" . htmlspecialchars($member['nickname'], ENT_QUOTES) . "さん）" . "<br>" . $link_url ."<br>";
+                $link_str = "【" . h($db_msg['subject']) . "】（" . h($member['nickname']) . "さん）" . "<br>" . h($link_url) ."<br>";
             }
         }
     }
@@ -116,15 +116,15 @@ function _smarty_modifier_link4topic($topic_id, $comment_id = 0) {
             if (isKtaiUserAgent()) {
                 $link_str = '【該当するトピックはありません】';
             } else {
-                $link_str = '<span title="topic=' . $topic_id . '" class="bb-red">【該当するトピックはありません】</span>';
+                $link_str = '<span title="topic=' . h($topic_id) . '" class="bb-red">【該当するトピックはありません】</span>';
             }
         } else {
             $db_cmmu = _db_c_commu4c_commu_id($db_msg['c_commu_id']);
             //PCの場合は自動リンク回避のためJavascriptで出力
             if (!isKtaiUserAgent() && preg_match('/(https?)(:\/\/.*)/si',$link_url, $matches)) {
-                $link_str = "<script type=\"text/javascript\">document.write('【トピック：<a href=\"" . $matches[1] . "'+'" . $matches[2] . "\" target=\"_blank\" title=\"" . $matches[1] . "'+'" . $matches[2] . "\" class=\"bb-url\">" . htmlspecialchars($db_msg['name'], ENT_QUOTES) . "<'+'/a>】（コミュニティ：" . htmlspecialchars($db_cmmu['name'], ENT_QUOTES) ."）');</script><noscript>" . $link_url . "</noscript>";
+                $link_str = "<script type=\"text/javascript\">document.write('【トピック：<a href=\"" . h($matches[1]) . "'+'" . h($matches[2]) . "\" target=\"_blank\" title=\"" . h($matches[1]) . "'+'" . h($matches[2]) . "\" class=\"bb-url\">" . h($db_msg['name']) . "<'+'/a>】（コミュニティ：" . h($db_cmmu['name']) ."）');</script><noscript>" . h($link_url) . "</noscript>";
             } else {
-                $link_str = "【" . htmlspecialchars($db_msg['name'], ENT_QUOTES) . "】トピック（コミュニティ：" . htmlspecialchars($db_cmmu['name'], ENT_QUOTES) ."）<br>" . $link_url ."<br>";
+                $link_str = "【" . h($db_msg['name']) . "】トピック（コミュニティ：" . h($db_cmmu['name']) ."）<br>" . h($link_url) ."<br>";
             }
         }
     }
@@ -145,15 +145,15 @@ function _smarty_modifier_link4event($topic_id, $comment_id = 0) {
             if (isKtaiUserAgent()) {
                 $link_str = '【該当するイベントはありません】';
             } else {
-                $link_str = '<span title="event=' . $topic_id . '" class="bb-red">【該当するイベントはありません】</span>';
+                $link_str = '<span title="event=' . h($topic_id) . '" class="bb-red">【該当するイベントはありません】</span>';
             }
         } else {
             $db_cmmu = _db_c_commu4c_commu_id($db_msg['c_commu_id']);
             //PCの場合は自動リンク回避のためJavascriptで出力
             if (!isKtaiUserAgent() && preg_match('/(https?)(:\/\/.*)/si',$link_url, $matches)) {
-                $link_str = "<script type=\"text/javascript\">document.write('【イベント：<a href=\"" . $matches[1] . "'+'" . $matches[2] . "\" target=\"_blank\" title=\"" . $matches[1] . "'+'" . $matches[2] . "\" class=\"bb-url\">" . htmlspecialchars($db_msg['name'], ENT_QUOTES) . "<'+'/a>】（コミュニティ：" . htmlspecialchars($db_cmmu['name'], ENT_QUOTES) ."）');</script><noscript>" . $link_url . "</noscript>";
+                $link_str = "<script type=\"text/javascript\">document.write('【イベント：<a href=\"" . h($matches[1]) . "'+'" . h($matches[2]) . "\" target=\"_blank\" title=\"" . h($matches[1]) . "'+'" . h($matches[2]) . "\" class=\"bb-url\">" . h($db_msg['name']) . "<'+'/a>】（コミュニティ：" . h($db_cmmu['name']) ."）');</script><noscript>" . h($link_url) . "</noscript>";
             } else {
-                $link_str = "【" . htmlspecialchars($db_msg['name'], ENT_QUOTES) . "】イベント（コミュニティ：" . htmlspecialchars($db_cmmu['name'], ENT_QUOTES) ."）<br>" . $link_url ."<br>";
+                $link_str = "【" . h($db_msg['name']) . "】イベント（コミュニティ：" . h($db_cmmu['name']) ."）<br>" . h($link_url) ."<br>";
             }
         }
     }
@@ -174,14 +174,14 @@ function _smarty_modifier_link4commu($commu_id) {
             if (isKtaiUserAgent()) {
                 $link_str = '【該当するコミュニティはありません】';
             } else {
-                $link_str = '<span title="commu=' . $commu_id . '" class="bb-red">【該当するコミュニティはありません】</span>';
+                $link_str = '<span title="commu=' . h($commu_id) . '" class="bb-red">【該当するコミュニティはありません】</span>';
             }
         } else {
             //PCの場合は自動リンク回避のためJavascriptで出力
             if (!isKtaiUserAgent() && preg_match('/(https?)(:\/\/.*)/si',$link_url, $matches)) {
-                $link_str = "<script type=\"text/javascript\">document.write('【コミュニティ：<a href=\"" . $matches[1] . "'+'" . $matches[2] . "\" target=\"_blank\" title=\"" . $matches[1] . "'+'" . $matches[2] . "\" class=\"bb-url\">" . htmlspecialchars($db_msg['name'], ENT_QUOTES) . "<'+'/a>】');</script><noscript>" . $link_url . "</noscript>";
+                $link_str = "<script type=\"text/javascript\">document.write('【コミュニティ：<a href=\"" . h($matches[1]) . "'+'" . h($matches[2]) . "\" target=\"_blank\" title=\"" . h($matches[1]) . "'+'" . h($matches[2]) . "\" class=\"bb-url\">" . h($db_msg['name']) . "<'+'/a>】');</script><noscript>" . h($link_url) . "</noscript>";
             } else {
-                $link_str = "【" . htmlspecialchars($db_msg['name'], ENT_QUOTES) . "】コミュニティ<br>" . $link_url ."<br>";
+                $link_str = "【" . h($db_msg['name']) . "】コミュニティ<br>" . h($link_url) ."<br>";
             }
         }
     }
@@ -193,7 +193,7 @@ function _smarty_modifier_link4review($review_id) {
         //携帯の場合はレビューはない
         $link_url = "";
     } else {
-        $link_url = OPENPNE_URL . '?m=pc&amp;a=page_h_review_list_product&amp;c_review_id=' . $review_id;
+        $link_url = OPENPNE_URL . '?m=pc&amp;a=page_h_review_list_product&amp;c_review_id=' . h($review_id);
     }
     /*
     //MyNETS-1.1.1stableのsmarty_modifier_t_url2pneには存在するが、レビュー小窓を仕様するように
@@ -211,14 +211,14 @@ function _smarty_modifier_link4review($review_id) {
             if (isKtaiUserAgent()) {
                 $link_str = '【該当するレビューはありません】';
             } else {
-                $link_str = '<span title="review=' . $review_id . '" class="bb-red">【該当するレビューはありません】</span>';
+                $link_str = '<span title="review=' . h($review_id) . '" class="bb-red">【該当するレビューはありません】</span>';
             }
         } else {
             //PCの場合は自動リンク回避のためJavascriptで出力
             if (!isKtaiUserAgent() && preg_match('/(https?)(:\/\/.*)/si',$link_url, $matches)) {
-                $link_str = "<script type=\"text/javascript\">document.write('【レビュー：<a href=\"" . $matches[1] . "'+'" . $matches[2] . "\" target=\"_blank\" title=\"" . $matches[1] . "'+'" . $matches[2] . "\" class=\"bb-url\">" . htmlspecialchars($db_msg['title'], ENT_QUOTES) . "<'+'/a>】');</script><noscript>" . $link_url . "</noscript>";
+                $link_str = "<script type=\"text/javascript\">document.write('【レビュー：<a href=\"" . h($matches[1]) . "'+'" . h($matches[2]) . "\" target=\"_blank\" title=\"" . h($matches[1]) . "'+'" . h($matches[2]) . "\" class=\"bb-url\">" . h($db_msg['title']) . "<'+'/a>】');</script><noscript>" . h($link_url) . "</noscript>";
             } else {
-                $link_str = "【" . htmlspecialchars($db_msg['title'], ENT_QUOTES) . "】のレビュー<br>" . $link_url ."<br>";
+                $link_str = "【" . h($db_msg['title']) . "】のレビュー<br>" . h($link_url) ."<br>";
             }
         }
     //}
@@ -242,16 +242,16 @@ function _smarty_modifier_link4docci($docci_id) {
     $db_msg = db_get_row($sql, array(intval($docci_id)));
     if (empty($db_msg['topic'])) {
         if (isKtaiUserAgent()) {
-            $link_str = '【該当する' . htmlspecialchars($docci_name, ENT_QUOTES) . 'はありません】';
+            $link_str = '【該当する' . h($docci_name) . 'はありません】';
         } else {
-            $link_str = '<span title="docci=' . $review_id . '" class="bb-red">【該当する' . htmlspecialchars($docci_name, ENT_QUOTES) . 'はありません】</span>';
+            $link_str = '<span title="docci=' . h($review_id) . '" class="bb-red">【該当する' . h($docci_name) . 'はありません】</span>';
         }
     } else {
         //PCの場合は自動リンク回避のためJavascriptで出力
         if (!isKtaiUserAgent() && preg_match('/(https?)(:\/\/.*)/si',$link_url, $matches)) {
-            $link_str = "<script type=\"text/javascript\">document.write('【" . htmlspecialchars($docci_name, ENT_QUOTES) . "：<a href=\"" . $matches[1] . "'+'" . $matches[2] . "\" target=\"_blank\" title=\"" . $matches[1] . "'+'" . $matches[2] . "\" class=\"bb-url\">" . htmlspecialchars($db_msg['topic'], ENT_QUOTES) . "<'+'/a>】');</script><noscript>" . $link_url . "</noscript>";
+            $link_str = "<script type=\"text/javascript\">document.write('【" . h($docci_name) . "：<a href=\"" . h($matches[1]) . "'+'" . h($matches[2]) . "\" target=\"_blank\" title=\"" . h($matches[1]) . "'+'" . h($matches[2]) . "\" class=\"bb-url\">" . h($db_msg['topic']) . "<'+'/a>】');</script><noscript>" . h($link_url) . "</noscript>";
         } else {
-            $link_str = "【" . htmlspecialchars($db_msg['topic'], ENT_QUOTES) . "】の" . htmlspecialchars($docci_name, ENT_QUOTES) . "<br>" . $link_url ."<br>";
+            $link_str = "【" . h($db_msg['topic']) . "】の" . h($docci_name) . "<br>" . h($link_url) ."<br>";
         }
     }
 
