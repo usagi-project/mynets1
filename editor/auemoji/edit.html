@@ -8,7 +8,7 @@ var gecko = false;
 var msie = false;
 if(navigator) {
     if(navigator.userAgent) {
-        if(navigator.userAgent.indexOf("Gecko/") != -1) {
+        if(navigator.userAgent.indexOf("Gecko") != -1) {
             gecko = true;
         } else if(navigator.userAgent.indexOf("MSIE") != -1) {
             msie = true;
@@ -17,8 +17,8 @@ if(navigator) {
 }
 
 function insertAtCaret (text) {
-//    e = window.parent.area;
-    e = window.parent.findarea();
+    e = window.parent.area;
+//    e = window.parent.findarea();
     if (window.parent.document.selection) {
         e.focus();
         if(msie) {
@@ -38,7 +38,7 @@ function insertAtCaret (text) {
             range.text = text;
         }
     } else if(gecko) {
-	var top = e.scrollTop;
+  var top = e.scrollTop;
         var start = e.selectionStart;
         var head = e.value.substring(0, start);
         var end = e.selectionEnd;
@@ -46,7 +46,7 @@ function insertAtCaret (text) {
         e.value = head + text + foot;
         e.selectionStart = start + text.length;
         e.selectionEnd = start + text.length;
-	e.scrollTop = top;
+  e.scrollTop = top;
     } else {
         e.value = e.value + text;
     }
