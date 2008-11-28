@@ -115,12 +115,7 @@ function emoji_escape_ez($bin)
     return '['.$code.']';
 }
 
-/*
- * ソフトバンクのShift-JISマルチバイト領域の絵文字をウェブコードに変換
- * 参考 SoftBank ウェブコンテンツ開発ガイド HTML編　2.0.0
- * http://developers.softbankmobile.co.jp/dp/tool_dl/list/
- */
-function emoji_escape_softbank($bin)
+function emoji_escape_s($bin)
 {
     $sjis1 = ord($bin[0]);
     $sjis2 = ord($bin[1]);
