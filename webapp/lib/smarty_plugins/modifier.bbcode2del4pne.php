@@ -38,9 +38,9 @@ function _smarty_modifier_delete_link4pnetags($preg)
 
 function _smarty_modifier_delete_link4member($member_id) {
     if(isKtaiUserAgent()){
-        $link_url = OPENPNE_URL . '?m=ktai&amp;a=page_f_home&amp;target_c_member_id=' . $member_id;
+        $link_url = OPENPNE_URL . '?m=ktai&amp;a=page_f_home&amp;target_c_member_id=' . h($member_id);
     }else{
-        $link_url = OPENPNE_URL . '?m=pc&amp;a=page_f_home&amp;target_c_member_id=' . $member_id;
+        $link_url = OPENPNE_URL . '?m=pc&amp;a=page_f_home&amp;target_c_member_id=' . h($member_id);
     }
     if(function_exists("smarty_modifier_t_url2pne")){
         $link_str = $link_url;
@@ -54,10 +54,10 @@ function _smarty_modifier_delete_link4member($member_id) {
             if(isKtaiUserAgent()){
                 $link_str = '【該当するメンバーはいません】';
             }else{
-                $link_str = '<span title="member=' . $member_id . '" class="bb-red">【該当するメンバーはいません】</span>';
+                $link_str = '<span title="member=' . h($member_id) . '" class="bb-red">【該当するメンバーはいません】</span>';
             }
         } else {
-            $link_str = htmlspecialchars($member['nickname'], ENT_QUOTES) . "<br>" . $link_url ."<br>";
+            $link_str = h($member['nickname']) . "<br>" . h($link_url) ."<br>";
         }
     }
     return $link_str;
@@ -65,9 +65,9 @@ function _smarty_modifier_delete_link4member($member_id) {
 
 function _smarty_modifier_delete_link4diary($diary_id,$comment_id) {
     if(isKtaiUserAgent()){
-        $link_url = OPENPNE_URL . '?m=ktai&amp;a=page_fh_diary&amp;target_c_diary_id=' . $diary_id;
+        $link_url = OPENPNE_URL . '?m=ktai&amp;a=page_fh_diary&amp;target_c_diary_id=' . h($diary_id);
     }else{
-        $link_url = OPENPNE_URL . '?m=pc&amp;a=page_fh_diary&amp;target_c_diary_id=' . $diary_id;
+        $link_url = OPENPNE_URL . '?m=pc&amp;a=page_fh_diary&amp;target_c_diary_id=' . h($diary_id);
     }
     if(function_exists("smarty_modifier_t_url2pne")){
         $link_str = $link_url;
@@ -82,10 +82,10 @@ function _smarty_modifier_delete_link4diary($diary_id,$comment_id) {
             if(isKtaiUserAgent()){
                 $link_str = '【該当する日記はありません】';
             }else{
-                $link_str = '<span title="diary=' . $diary_id . '" class="bb-red">【該当する日記はありません】</span>';
+                $link_str = '<span title="diary=' . h($diary_id) . '" class="bb-red">【該当する日記はありません】</span>';
             }
         } else {
-            $link_str = "【" . htmlspecialchars($db_msg['subject'], ENT_QUOTES) . "】（" . htmlspecialchars($member['nickname'], ENT_QUOTES) . "さん）" . "<br>" . $link_url ."<br>";
+            $link_str = "【" . h($db_msg['subject']) . "】（" . h($member['nickname']) . "さん）" . "<br>" . h($link_url) ."<br>";
         }
     }
     return $link_str;
@@ -93,9 +93,9 @@ function _smarty_modifier_delete_link4diary($diary_id,$comment_id) {
 
 function _smarty_modifier_delete_link4topic($topic_id,$comment_id) {
     if(isKtaiUserAgent()){
-        $link_url = OPENPNE_URL . '?m=ktai&amp;a=page_c_bbs&amp;target_c_commu_topic_id=' . $topic_id;
+        $link_url = OPENPNE_URL . '?m=ktai&amp;a=page_c_bbs&amp;target_c_commu_topic_id=' . h($topic_id);
     }else{
-        $link_url = OPENPNE_URL . '?m=pc&amp;a=page_c_topic_detail&amp;target_c_commu_topic_id=' . $topic_id;
+        $link_url = OPENPNE_URL . '?m=pc&amp;a=page_c_topic_detail&amp;target_c_commu_topic_id=' . h($topic_id);
     }
     if(function_exists("smarty_modifier_t_url2pne")){
         $link_str = $link_url;
@@ -105,11 +105,11 @@ function _smarty_modifier_delete_link4topic($topic_id,$comment_id) {
             if(isKtaiUserAgent()){
                 $link_str = '【該当するトピックはありません】';
             }else{
-                $link_str = '<span title="topic=' . $topic_id . '" class="bb-red">【該当するトピックはありません】</span>';
+                $link_str = '<span title="topic=' . h($topic_id) . '" class="bb-red">【該当するトピックはありません】</span>';
             }
         } else {
             $db_cmmu = _db_c_commu4c_commu_id($db_msg['c_commu_id']);
-            $link_str = "【" . htmlspecialchars($db_msg['name'], ENT_QUOTES) . "】トピック（コミュニティ：" . htmlspecialchars($db_cmmu['name'], ENT_QUOTES) ."）<br>" . $link_url ."<br>";
+            $link_str = "【" . h($db_msg['name']) . "】トピック（コミュニティ：" . h($db_cmmu['name']) ."）<br>" . h($link_url) ."<br>";
         }
     }
     return $link_str;
@@ -117,9 +117,9 @@ function _smarty_modifier_delete_link4topic($topic_id,$comment_id) {
 
 function _smarty_modifier_delete_link4event($topic_id,$comment_id) {
     if(isKtaiUserAgent()){
-        $link_url = OPENPNE_URL . '?m=ktai&amp;a=page_c_bbs&amp;target_c_commu_topic_id=' . $topic_id;
+        $link_url = OPENPNE_URL . '?m=ktai&amp;a=page_c_bbs&amp;target_c_commu_topic_id=' . h($topic_id);
     }else{
-        $link_url = OPENPNE_URL . '?m=pc&amp;a=page_c_event_detail&amp;target_c_commu_topic_id=' . $topic_id;
+        $link_url = OPENPNE_URL . '?m=pc&amp;a=page_c_event_detail&amp;target_c_commu_topic_id=' . h($topic_id);
     }
     if(function_exists("smarty_modifier_t_url2pne")){
         $link_str = $link_url;
@@ -129,11 +129,11 @@ function _smarty_modifier_delete_link4event($topic_id,$comment_id) {
             if(isKtaiUserAgent()){
                 $link_str = '【該当するイベントはありません】';
             }else{
-                $link_str = '<span title="event=' . $topic_id . '" class="bb-red">【該当するイベントはありません】</span>';
+                $link_str = '<span title="event=' . h($topic_id) . '" class="bb-red">【該当するイベントはありません】</span>';
             }
         } else {
             $db_cmmu = _db_c_commu4c_commu_id($db_msg['c_commu_id']);
-            $link_str = "【" . htmlspecialchars($db_msg['name'], ENT_QUOTES) . "】イベント（コミュニティ：" . htmlspecialchars($db_cmmu['name'], ENT_QUOTES) ."）<br>" . $link_url ."<br>";
+            $link_str = "【" . h($db_msg['name']) . "】イベント（コミュニティ：" . h($db_cmmu['name']) ."）<br>" . h($link_url) ."<br>";
         }
     }
     return $link_str;
@@ -141,9 +141,9 @@ function _smarty_modifier_delete_link4event($topic_id,$comment_id) {
 
 function _smarty_modifier_delete_link4commu($commu_id) {
     if(isKtaiUserAgent()){
-        $link_url = OPENPNE_URL . '?m=ktai&amp;a=page_c_home&amp;target_c_commu_id=' . $commu_id;
+        $link_url = OPENPNE_URL . '?m=ktai&amp;a=page_c_home&amp;target_c_commu_id=' . h($commu_id);
     }else{
-        $link_url = OPENPNE_URL . '?m=pc&amp;a=page_c_home&amp;target_c_commu_id=' . $commu_id;
+        $link_url = OPENPNE_URL . '?m=pc&amp;a=page_c_home&amp;target_c_commu_id=' . h($commu_id);
     }
     if(function_exists("smarty_modifier_t_url2pne")){
         $link_str = $link_url;
@@ -153,10 +153,10 @@ function _smarty_modifier_delete_link4commu($commu_id) {
             if(isKtaiUserAgent()){
                 $link_str = '【該当するコミュニティはありません】';
             }else{
-                $link_str = '<span title="commu=' . $commu_id . '" class="bb-red">【該当するコミュニティはありません】</span>';
+                $link_str = '<span title="commu=' . h($commu_id) . '" class="bb-red">【該当するコミュニティはありません】</span>';
             }
         } else {
-            $link_str = "【" . htmlspecialchars($db_msg['name'], ENT_QUOTES) . "】コミュニティ<br>" . $link_url ."<br>";
+            $link_str = "【" . h($db_msg['name']) . "】コミュニティ<br>" . h($link_url) ."<br>";
         }
     }
     return $link_str;
@@ -167,7 +167,7 @@ function _smarty_modifier_delete_link4review($review_id) {
         //携帯の場合はレビューはない
         $link_url = "";
     }else{
-        $link_url = OPENPNE_URL . '?m=pc&amp;a=page_h_review_list_product&amp;c_review_id=' . $review_id;
+        $link_url = OPENPNE_URL . '?m=pc&amp;a=page_h_review_list_product&amp;c_review_id=' . h($review_id);
     }
     /*
     smarty_modifier_t_url2pneには存在しない
@@ -184,10 +184,10 @@ function _smarty_modifier_delete_link4review($review_id) {
             if(isKtaiUserAgent()){
                 $link_str = '【該当するレビューはありません】';
             }else{
-                $link_str = '<span title="review=' . $review_id . '" class="bb-red">【該当するレビューはありません】</span>';
+                $link_str = '<span title="review=' . h($review_id) . '" class="bb-red">【該当するレビューはありません】</span>';
             }
         } else {
-            $link_str = "【" . htmlspecialchars($db_msg['title'], ENT_QUOTES) . "】のレビュー<br>" . $link_url ."<br>";
+            $link_str = "【" . h($db_msg['title']) . "】のレビュー<br>" . h($link_url) ."<br>";
         }
     //}
     return $link_str;
@@ -197,9 +197,9 @@ function _smarty_modifier_delete_link4review($review_id) {
 // https://sourceforge.jp/projects/openpneplus
 function _smarty_modifier_delete_link4docci($docci_id) {
     if(isKtaiUserAgent()){
-        $link_url = OPENPNE_URL . '?m=ktai_docci&amp;a=page_view&amp;docci_topic_id=' . $docci_id;
+        $link_url = OPENPNE_URL . '?m=ktai_docci&amp;a=page_view&amp;docci_topic_id=' . h($docci_id);
     }else{
-        $link_url = OPENPNE_URL . '?m=pc_docci&amp;a=page_view&amp;docci_topic_id=' . $docci_id;
+        $link_url = OPENPNE_URL . '?m=pc_docci&amp;a=page_view&amp;docci_topic_id=' . h($docci_id);
     }
     $sql = "SELECT value FROM docci_config where name = 'docci_name'";
     $docci_name = db_get_one($sql);
@@ -207,12 +207,12 @@ function _smarty_modifier_delete_link4docci($docci_id) {
     $db_msg = db_get_row($sql, array(intval($docci_id)));
     if (empty($db_msg['topic'])) {
         if(isKtaiUserAgent()){
-            $link_str = '【該当する' . htmlspecialchars($docci_name, ENT_QUOTES) . 'はありません】';
+            $link_str = '【該当する' . h($docci_name) . 'はありません】';
         }else{
-            $link_str = '<span title="docci=' . $review_id . '" class="bb-red">【該当する' . htmlspecialchars($docci_name, ENT_QUOTES) . 'はありません】</span>';
+            $link_str = '<span title="docci=' . h($review_id) . '" class="bb-red">【該当する' . h($docci_name) . 'はありません】</span>';
         }
     } else {
-        $link_str = "【" . htmlspecialchars($db_msg['topic'], ENT_QUOTES) . "】の" . $docci_name . "<br>" . $link_url ."<br>";
+        $link_str = "【" . h($db_msg['topic']) . "】の" . $docci_name . "<br>" . h($link_url) ."<br>";
     }
 
     return $link_str;
