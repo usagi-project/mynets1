@@ -4,7 +4,7 @@
 ({$inc_ktai_header|smarty:nodefaults})
 
 <center><font color="orange">({$target_c_member.nickname|t_body:'name'})さんのﾎｰﾑ(ID=({$target_c_member.c_member_id}))</font></center>
-<marquee loop="infinity">({$oneword})</marquee>
+<marquee loop="infinity">({$oneword|t_body:'title'})</marquee>
 <hr>
 ({if $page_flag})
 他の人があなたのﾍﾟｰｼﾞを

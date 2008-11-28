@@ -48,8 +48,8 @@ class OpenPNE_Smarty extends Smarty
     // extディレクトリ対応 SMARTY->display() ラッパー
     function ext_display($resource_name, $cache_id = null, $compile_id = null)
     {
-        $this->load_filter('output', 'pne_display_emoji');
-        $this->register_outputfilter('smarty_outputfilter_pne_display_emoji');
+        //$this->load_filter('output', 'pne_display_emoji');
+        //$this->register_outputfilter('smarty_outputfilter_pne_display_emoji');
         // とりあえず携帯用にSJISのみ対応
         if ($this->output_charset == 'SJIS') {
             $this->register_outputfilter('smarty_outputfilter_convert_utf82sjis');

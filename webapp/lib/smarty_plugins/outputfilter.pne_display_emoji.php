@@ -23,6 +23,18 @@ function smarty_outputfilter_pne_display_emoji($tpl_output, &$smarty)
 
         list ($list, $tpl_output) = _smarty_outputfilter_pne_display_emoji_replace($patterns, $tpl_output);
     }
+    else
+    {
+        $patterns = array(
+            //'/<input[^>]+>/is',
+            //'/<textarea.*?<\/textarea>/is',
+            //'/<option.*?<\/option>/is',
+            //'/<img[^>]+>/is',
+            //'/<head.*?<\/head>/is',
+        );
+
+        list ($list, $tpl_output) = _smarty_outputfilter_pne_display_emoji_replace($patterns, $tpl_output);
+    }
 
     // 絵文字変換
     $tpl_output = emoji_convert($tpl_output);

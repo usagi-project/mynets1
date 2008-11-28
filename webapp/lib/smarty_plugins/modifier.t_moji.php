@@ -25,7 +25,7 @@
 */
 function smarty_modifier_t_moji($string)
 {
-
+    return emoji_convert($string);
     $moji_pattern = '/&(?:amp;|)#x([0-9A-F][0-9A-F][0-9A-F][0-9A-F]);/i';
     $str = preg_replace_callback($moji_pattern, 'smarty_modifier_t_moji_callback', $string);
     $moji_pattern = '/\x1b\x24(\C\C)\x0f/';

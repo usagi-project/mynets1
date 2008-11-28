@@ -41,7 +41,7 @@
 ({if $anatani_c_commu_admin_confirm_list||$num_f_confirm_list||$num_message_not_is_read||$num_diary_not_is_read||$num_h_confirm_list||$anatani_c_commu_admin_confirm_list})
 <hr>
 ({/if})
-<marquee loop="infinity">({$oneword})</marquee>
+<marquee loop="infinity">({$oneword|t_body:'title'})</marquee>
 &em_pen;<a href="({t_url m=ktai a=page_h_one_word_write})&amp;({$tail})">({$smarty.const.QUICK_SERVICE_NAME}) -投稿する-</a>
 <div align="center">
 <a href="({t_url m=ktai a=page_h_message_box})&amp;({$tail})">&em_mail;ﾒｯｾｰｼﾞ箱</a>|
