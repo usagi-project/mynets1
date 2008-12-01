@@ -133,7 +133,7 @@ function oneword_comment(id_to, value) {
                     nextall(1);
                     nextfri(1);
                     value = value.escapeHTML();
-                    value = value.replace(/\[([ies]):([0-9]{1,3})\]/ig, '<img src="skin/default/img/emoji/$1/$1$2.gif">');
+                    value = value.replace(/\[([ies]):([0-9]{1,3})\]/ig, '<img src="./skin/default/img/emoji/$1/$1$2.gif">');
                     $('oneword').innerHTML = value;
                 }
             },

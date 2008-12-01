@@ -6,7 +6,7 @@ if(Ajax.InPlaceEditor != null) {
         var locExp = new RegExp(loc[0], "ig");
         //絵文字イメージタグを絵文字コードへ変換
         text = text.replace(locExp, "").replace(/\salt="[^>]+"/gi, "").replace(/\salt=[^\s]+/gi, "").replace(/\/>/gi, ">");
-        text = text.replace(/<img\ssrc="skin\/default\/img\/emoji\/([ies])\/[ies]([0-9]{1,3})\.gif">/gi, "[$1:$2]");
+        text = text.replace(/<img\ssrc="(\.\/)?skin\/default\/img\/emoji\/([ies])\/[ies]([0-9]{1,3})\.gif">/gi, "[$2:$3]");
         //<>＆エンティティを実物へ変換
         text = text.replace(/&lt;/gi, "<").replace(/&gt;/gi, ">").replace(/&amp;/gi, "&");
         return text;
@@ -51,9 +51,7 @@ function load(e) {
     //吹き出し本文をエスケープ
     title = title.escapeHTML();
     //エスケープされた絵文字イメージタグのみタグへ戻す
-    var loc = location.href.split('?');
-    var locExp = new RegExp(loc[0], "gi");
-    title = title.replace(locExp, "").replace(/&lt;img\ssrc="skin\/default\/img\/emoji\/([ies])\/([ies][0-9]{1,3})\.gif"\salt="[^\s]+"\s\/(&gt;|>)/gi, '<img src="skin/default/img/emoji/$1/$2.gif">');
+    title = title.replace(/&lt;img\ssrc="\.\/skin\/default\/img\/emoji\/([ies])\/([ies][0-9]{1,3})\.gif"\salt="[^\s]+"\s\/(&gt;|>)/gi, '<img src="skin/default/img/emoji/$1/$2.gif">');
     e.titles = title;
 
     //吹き出し本体作成

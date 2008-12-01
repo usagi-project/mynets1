@@ -56,7 +56,7 @@ class pc_do_oneword_edit extends OpenPNE_Action
     }
     
     function smarty_modifier_t_moji_callback($matches) {
-        $moji_file = "skin/default/img/emoji/{$matches[1]}/{$matches[1]}{$matches[2]}.gif";
+        $moji_file = "./skin/default/img/emoji/{$matches[1]}/{$matches[1]}{$matches[2]}.gif";
         if(is_readable($moji_file)) {
             return sprintf('<img src="%s" alt="絵文字">',$moji_file);
         } else {
