@@ -4,7 +4,7 @@
                 <ul>
                     ({foreach from=$diary_month item=item})
                     <li>
-                        <a href="({$item.url})" class="top">({$item.subject|t_body:'title'|t_truncate:"20"})</a>
+                        <a href="({$item.url})" class="top">({$item.subject|bbcode2del|t_truncate:"20"|t_body:'title'})</a>
                     </li>
                     ({/foreach})
                 </ul>
@@ -19,7 +19,7 @@
             <ul class="style7">
                 ({foreach from=$commu_list item=item})
                 <li>
-                    <a href="({$item.url})" class="top">({$item.info|bbcode2del|t_body:'title'|t_truncate:"20"})</a>
+                    <a href="({$item.url})" class="top">({$item.info|bbcode2del|t_truncate:"20"|t_body:'title'})</a>
                 </li>
                 ({/foreach})
             </ul>

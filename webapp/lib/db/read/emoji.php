@@ -1,49 +1,76 @@
 <?php
-/**
- * LICENSE
+/* ========================================================================
  *
- * This source file is subject to the new BSD license that is bundled
- * with this package in the file LICENSE.txt.
+ * @license This source file is subject to version 3.01 of the PHP license,
+ *              that is available at http://www.php.net/license/3_01.txt
+ *              If you did not receive a copy of the PHP license and are unable
+ *              to obtain it through the world-wide-web, please send a note to
+ *              license@php.net so we can mail you a copy immediately.
  *
- * @category
- * @package    Auth Class
+ * @category   Application of MyNETS
+ * @project    OpenPNE UsagiProject 2006-2007
+ * @package    emoji model
  * @author     KUNIHARU Tsujioka <kunitsuji@gmail.com>
- * @copyright  Copyright (c) 2008 KUNIHARU Tsujioka <kunitsuji@gmail.com>
- * @copyright  Copyright (c) 2006-2008 Usagi Project (URL:http://usagi.mynets.jp)
- * @license    New BSD License
+ * @author     UsagiProject <info@usagi-project.org>
+ * @copyright  2006-2007 UsagiProject <author member ad http://usagi-project.org/member.html>
+ * @version    MyNETS,v 1.2.1
+ * @chengelog  [2008/12/01]
+ * ========================================================================
  */
 
 /**
- * ŠG•¶šŠÖ˜A‚ÌŠÖ”‚ğİ’u
+ * çµµæ–‡å­—é–¢é€£ã®é–¢æ•°ã‚’è¨­ç½®
  *
  */
 
 /**
- * ŠG•¶š‚Ì”‚ğ”‚¦‚é
- * @param str •¶š—ñ
- * @return int ŠG•¶š‚Ì”
+ * çµµæ–‡å­—ã®æ•°ã‚’æ•°ãˆã‚‹
+ * @param str æ–‡å­—åˆ—
+ * @return int çµµæ–‡å­—ã®æ•°
  * @access public
  */
 if (! function_exists('PictLen'))
 {
     function PictLen($str)
     {
+        $moji_pattern = '/\[([ies]):([0-9]{1,3})\]/i';
+        $emoji_count  = preg_match_all($moji_pattern,$str,$emoji);
+
         $moji_pattern = '/&(?:amp;|)#x([0-9A-F][0-9A-F][0-9A-F][0-9A-F]);/i';
         $count = preg_match_all($moji_pattern,$str,$emoji);
         $moji_pattern = '/\x1b\x24(\C\C)\x0f/';
         $counts       = preg_match_all($moji_pattern,$str,$emojis);
-        return $count + $counts;
+        return (int)$emoji_count + (int)$count + (int)$counts;
     }
 }
 /**
- * ŠG•¶š‚ğæ‚èœ‚­
- * @param str •¶š—ñ
- * @return int ŠG•¶š‚Ì”
+ * çµµæ–‡å­—ã‚’å–ã‚Šé™¤ã
+ * @param str æ–‡å­—åˆ—
+ * @return str çµµæ–‡å­—ã‚’å–ã‚Šé™¤ã„ãŸæ–‡å­—åˆ—
  * @access public
  */
 if (! function_exists('PictDel'))
 {
     function PictDel($str)
+    {
+        $moji_pattern = '/\[([ies]):([0-9]{1,3})\]/i';
+        $str          = preg_replace($moji_pattern,'', $str);
+        $moji_pattern = '/&(?:amp;|)#x([0-9A-F][0-9A-F][0-9A-F][0-9A-F]);/i';
+        $str          = preg_replace($moji_pattern,'', $str);
+        $moji_pattern = '/\x1b\x24(\C\C)\x0f/';
+        $str          = preg_replace($moji_pattern, '', $str);
+        return $str;
+    }
+}
+/**
+ * æ—§ãƒ‘ã‚¿ãƒ¼ãƒ³ã®çµµæ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’å–ã‚Šé™¤ã
+ * @param str æ–‡å­—åˆ—
+ * @return str çµµæ–‡å­—ã‚’å–ã‚Šé™¤ã„ãŸæ–‡å­—åˆ—
+ * @access public
+ */
+if (! function_exists('old_PictDel'))
+{
+    function old_PictDel($str)
     {
         $moji_pattern = '/&(?:amp;|)#x([0-9A-F][0-9A-F][0-9A-F][0-9A-F]);/i';
         $str          = preg_replace($moji_pattern,'', $str);

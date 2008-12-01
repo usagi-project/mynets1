@@ -81,6 +81,8 @@ function smarty_modifier_t_truncate($string, $length = 80, $etc = '...',
 {
     if ($length == 0)
         return '';
+    //古い絵文字コードを取り除く
+    $string = old_PictDel($string);
     //絵文字の判定を取り入れる
     $emoji_count = PictLen($string);
 
