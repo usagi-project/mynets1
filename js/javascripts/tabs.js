@@ -128,12 +128,12 @@ function oneword_comment(id_to, value) {
             "method": "get",
             "parameters": "id_to=" + id_to + "&value=" + encodeURIComponent(value),
             onComplete: function() {
-                if(value.replace(/&(?:amp;|)#x([0-9A-F][0-9A-F][0-9A-F][0-9A-F]);/ig, 'e').length > 0 
-                && value.replace(/&(?:amp;|)#x([0-9A-F][0-9A-F][0-9A-F][0-9A-F]);/ig, 'e').length < 37) {
+                if(value.replace(/\[([ies]):([0-9]{1,3})\]/ig, 'e').length > 0 
+                && value.replace(/\[([ies]):([0-9]{1,3})\]/ig, 'e').length < 37) {
                     nextall(1);
                     nextfri(1);
                     value = value.escapeHTML();
-                    value = value.replace(/&(?:amp;|)#x([0-9A-F][0-9A-F][0-9A-F][0-9A-F]);/ig, '<img src="img/moji/x_$1.gif">');
+                    value = value.replace(/\[([ies]):([0-9]{1,3})\]/ig, '<img src="skin/default/img/emoji/$1/$1$2.gif">');
                     $('oneword').innerHTML = value;
                 }
             },

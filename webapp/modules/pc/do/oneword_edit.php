@@ -29,9 +29,10 @@ class pc_do_oneword_edit extends OpenPNE_Action
         $uid     = $GLOBALS['AUTH']->uid();
         $id_to = $requests['id_to'];
         $oneword = $requests['value'];
-        $moji_pattern = '/&(?:amp;|)#x([0-9A-F][0-9A-F][0-9A-F][0-9A-F]);/i';
+        $moji_pattern = '/\[([ies]):([0-9]{1,3})\]/i';
         $moji_num = preg_match_all($moji_pattern, $oneword, $out);
-        $count   = mb_strlen($oneword, mb_internal_encoding()) - $moji_num * 8 + $moji_num;
+        $moji_count = strlen(implode("", $out[0]));
+        $count = mb_strlen($oneword, mb_internal_encoding()) - $moji_count + $moji_num;
         if ($count > 36 || $count < 1) {
             header("HTTP/1.0 406 Not Acceptable");
             return false;
@@ -55,9 +56,9 @@ class pc_do_oneword_edit extends OpenPNE_Action
     }
     
     function smarty_modifier_t_moji_callback($matches) {
-        $moji_file = sprintf('/moji/x_%s.gif',strtolower($matches[1]));
-        if( is_readable("./img" . $moji_file) ) {
-            return sprintf('<img src="img%s" alt="絵文字">',$moji_file);
+        $moji_file = "skin/default/img/emoji/{$matches[1]}/{$matches[1]}{$matches[2]}.gif";
+        if(is_readable($moji_file)) {
+            return sprintf('<img src="%s" alt="絵文字">',$moji_file);
         } else {
             return $matches[0];
         }
