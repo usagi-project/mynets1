@@ -96,7 +96,7 @@
 
 <div class="padding_s">
 
-<a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$new_comment.c_diary_id})">({$new_comment.body|t_truncate:"36"|t_body:'title'|bbcode2del})</a> ({if $new_comment.nickname|t_body:'name'})(({$new_comment.nickname|t_body:'name'}))({/if})
+<a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$new_comment.c_diary_id})">({$new_comment.body|bbcode2del|t_truncate:"36"|t_body:'title'})</a> ({if $new_comment.nickname|t_body:'name'})(({$new_comment.nickname|t_body:'name'}))({/if})
 
 </div>
 
