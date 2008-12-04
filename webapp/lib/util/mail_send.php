@@ -18,6 +18,7 @@
  * @since      File available since Release 1.0.0 Nighty
  * @chengelog  [2007/02/17] Ver1.1.0Nighty package
  *             [2007-10-09] Ver1.1.1Nighty
+ *             [2008-09-16] Ver1.2.0 絵文字コードをメール送信時にカット
  * ========================================================================
  */
 
@@ -38,7 +39,20 @@ function t_send_email($address, $subject, $body, $is_receive_mail=true, $from=AD
     if (!$is_receive_mail || !db_common_is_mailaddress($address)) {
         return false;
     }
-
+    //2008-09-16 KUNIHARU Tsujioka メール送信時の絵文字の取り扱い変更
+    //絵文字コードが含まれる場合は削除する
+    $subject = PictDel($subject);
+    $body    = PictDel($body);
+    //2008-12-04 KUNIHARU Tsujioka 絵文字のみの本文や題名の場合の対処
+    if ( ! trim($subject))
+    {
+        $subject = '[絵文字]';
+    }
+    if ( ! trim($body))
+    {
+        $body    = '[絵文字]のみのため削除されています';
+    }
+    //////////////////////////////////////
     // 改行コード
     $cr = "\x0D";
     $lf = "\x0A";
