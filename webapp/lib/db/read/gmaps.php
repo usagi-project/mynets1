@@ -102,6 +102,7 @@ if (! function_exists('db_one_topic_commnet_4c_topic_comment_id'))
     }
 }
 
+//日記idと日記コメントidから、該当日記内での該当日記コメントの順番を取得
 if (! function_exists('db_diary_count_c_diary_commentself4c_diary_id'))
 {
     function db_diary_count_c_diary_commentself4c_diary_id($c_dairy_id,$c_diary_comment_id)
@@ -115,6 +116,7 @@ if (! function_exists('db_diary_count_c_diary_commentself4c_diary_id'))
     }
 }
 
+//トピックidから該当トピックの投稿数を取得
 if (! function_exists('db_commu_count_c_topic_comment4c_topic_id'))
 {
     function db_commu_count_c_topic_comment4c_topic_id($c_commu_topic_id)
@@ -127,6 +129,7 @@ if (! function_exists('db_commu_count_c_topic_comment4c_topic_id'))
     }
 }
 
+//トピックidとトピックコメントidから、該当トピック内での該当トピックコメントの順番を取得
 if (! function_exists('db_commu_count_c_topic_commentself4c_topic_id'))
 {
     function db_commu_count_c_topic_commentself4c_topic_id($c_commu_topic_id,$c_commu_topic_comment_id)
@@ -135,6 +138,20 @@ if (! function_exists('db_commu_count_c_topic_commentself4c_topic_id'))
         'SELECT count(*)' .
         ' FROM ' . MYNETS_PREFIX_NAME . "c_commu_topic_comment" .
         ' WHERE c_commu_topic_comment_id < ' . $c_commu_topic_comment_id .
+        ' AND c_commu_topic_id = ' . $c_commu_topic_id;
+        return db_get_one($sql);
+    }
+}
+
+//トピックidとトピックコメントnumberから、該当トピック内での該当トピックコメントの順番を取得
+if (! function_exists('db_commu_count_c_topic_commentself4c_topic_number'))
+{
+    function db_commu_count_c_topic_commentself4c_topic_number($c_commu_topic_id,$number)
+    {
+        $sql =
+        'SELECT count(*)' .
+        ' FROM ' . MYNETS_PREFIX_NAME . "c_commu_topic_comment" .
+        ' WHERE number < ' . $number .
         ' AND c_commu_topic_id = ' . $c_commu_topic_id;
         return db_get_one($sql);
     }

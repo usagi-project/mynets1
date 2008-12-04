@@ -41,6 +41,7 @@ function smarty_modifier_t_url2pne_callback($matches)
      *
      * 日記: m=pc&a=page_fh_diary&target_c_diary_id=6636
      * トピック: m=pc&a=page_c_topic_detail&target_c_commu_topic_id=7&comment_count=26
+     * トピック検索からのURL（#でナンバーを指定）: m=pc&a=page_c_topic_detail&target_c_commu_topic_id=1&page=1#2
      */
     //2008-10-21 #がついていて場所指定している可能性があるので、それを考慮
     $param = array();
@@ -67,7 +68,7 @@ function smarty_modifier_t_url2pne_callback($matches)
             $link_url = '?m=pc&a=page_fh_diary&target_c_diary_id='.$param['target_c_diary_id'];
             $mtype=1;
         } else if ( array_key_exists('target_c_commu_topic_id',$param) ) {
-            //        $param['a'] = page_c_event_detail or page_c_topic_detail
+            //$param['a'] = page_c_event_detail or page_c_topic_detail
             $link_url = '?m=pc&a=' . $param['a'] . '&target_c_commu_topic_id='.$param['target_c_commu_topic_id'];
             $mtype=2;
             //イベントがアクションで指定されている場合は、イベントとする。見つからない時にトピックになってしまうバグ対処
@@ -192,19 +193,38 @@ function smarty_modifier_t_url2pne_callback($matches)
     }
 
     /*
+     *  トピック・イベントでコメントナンバーが付いたリンクの場合は動的にページを計算してリンクを付ける
+     */
+    if($mtype==2 || $mtype==5 && $page_a) {
+        if(db_c_commu_topic_comment4c_commu_topic_id($param['target_c_commu_topic_id'], intval($page_a[1]))) {
+            $cnum = db_commu_count_c_topic_comment4c_topic_id($param['target_c_commu_topic_id']);
+            $cnum_self = db_commu_count_c_topic_commentself4c_topic_number($param['target_c_commu_topic_id'], intval($page_a[1]));
+            if($cnum_self != 0) {
+                if($mdevs == 1) {
+                    $link_url .= '&amp;page=' . strval(floor(($cnum-$cnum_self-1)/10)+1) . '#' . strval(intval($page_a[1]));
+                    $link_str .= ' - ' . strval(intval($page_a[1])) . '番目のコメント';
+                } else {
+                    $link_url .= '&amp;page=' . strval(floor(($cnum-$cnum_self-1)/5)+1);
+                    $ktai_number = strval($cnum - $cnum_self - 5*(floor(($cnum-$cnum_self-1)/5)));
+                    $link_str .= ' - ' . strval(intval($page_a[1])) . '番目のコメント';
+                }
+            }
+        } else {
+            $link_str .= ' - 該当するコメントはありません';
+        }
+    }
+
+    /*
      *  携帯電話の場合、セッションIDを付ける。
      */
     if ( $mdevs==2 ) {
         $link_url .= "&amp;".$GLOBALS['KTAI_URL_TAIL'];
+        if($ktai_number) {
+            $link_url .= "#" . $ktai_number;
+        }
     }
-    if ($page_a)
-    {
-        return '<a href="'.$link_url.'#'.$page_a[1].'" target="_blank">'.$link_str.'</a>';
-    }
-    else
-    {
-        return '<a href="'.$link_url.'" target="_blank">'.$link_str.'</a>';
-    }
+
+    return '<a href="'.$link_url.'" target="_blank">'.$link_str.'</a>';
 }
 
 ?>
