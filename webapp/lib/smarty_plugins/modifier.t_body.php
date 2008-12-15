@@ -80,6 +80,7 @@ function smarty_modifier_t_body($string,$type="")
         case 'title':
             $string = nl2br($string);
             require_once $cdir . '/modifier.t_url2pne.php'; $string = smarty_modifier_t_url2pne($string);
+            require_once $cdir . '/modifier.t_cmd2.php'; $string = smarty_modifier_t_cmd2($string);
             require_once $cdir . '/modifier.t_moji.php'; $string = smarty_modifier_t_moji($string);
             break;
         case 'admin_info':
