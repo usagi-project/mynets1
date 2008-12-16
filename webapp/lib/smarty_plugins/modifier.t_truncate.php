@@ -81,24 +81,29 @@ function smarty_modifier_t_truncate($string, $length = 80, $etc = '...',
 {
     if ($length == 0)
         return '';
-    //古い絵文字コードを取り除く
-    $string = old_PictDel($string);
-    //絵文字の判定を取り入れる
-    $emoji_count = PictLen($string);
 
     $from = array('&amp;', '&lt;', '&gt;', '&quot;', '&#039;');
     $to   = array('&', '<', '>', '"', "'");
     $string = str_replace($from, $to, $string);
 
-    $length = ($length - $emoji_count) + ($emoji_count * 8);
-    if (mb_strlen($string) > $length) {
+    //古い絵文字コードを取り除く
+    $string = old_PictDel($string);
+    //絵文字の判定を取り入れる
+    //$emoji_count = PictLen($string);
+    //20081216 絵文字のコードのバイト数を取得
+    $emoji_count = PictCount($string);
+    $emoji_tag   = PictLen($string);
+    //$str_count = (mb_strlen($string) - $emoji_count) + $emoji_tag;
+    $str_count = mb_strlen(PictDel($string)) + $emoji_tag;
+    //$length = ($length - $emoji_count) + ($emoji_count * 8);
+    if ($str_count > $length) {
         //$length -= strlen($etc);
         if (!$break_words)
             $string = preg_replace('/\s+?(\S+)?$/', '', substr($string, 0, $length+1));
 
         $string = mb_strimwidth($string, 0, $length);
 
-        $amppos = mb_strrpos($string,'&');//&が最後に出現する位置を取得（マルチバイト）
+        $amppos = mb_strrpos($string,'[');//&が最後に出現する位置を取得（マルチバイト）
         $emojinum = mb_strlen($string) - $amppos;//$stringの文字数から&が最後に出現する位置を引き&以降の文字数を取得（マルチバイト）
         if($emojinum < 8) {//もし$emojinumが7文字以下なら・・・
             $string = mb_substr($string, 0, $amppos) . $etc;//$stringを&が最後に出現する位置で切り詰める
