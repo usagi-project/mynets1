@@ -39,7 +39,7 @@ if ($task !== 'step4' && $task !== 'step5') {
 }
 
 $conn = @mysql_connect($db_server, $db_user, $db_pass);
-$dbs = @mysql_query('USE '.$db_name);
+$dbs = @mysql_query('USE `'.$db_name.'`');
 if ( ! $dbs) {
     //DBに接続ができない
     header("location: step4.php?act=error&set_language=ja");
