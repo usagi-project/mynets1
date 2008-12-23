@@ -80,8 +80,7 @@
 
 <div class="padding_s">
 
-<a href="({$c_review.url})" target="_blank"><img src="({$c_review.image_medium})"></a><img src="./skin/dummy.gif" style="width:1px;height:1px;" class="dummy">
-<a href="({$c_review.url})" target="_blank">詳細を見る</a>
+<a href="({$c_review.DetailPageURL})" target="_blank"><img src="({$c_review.MediumImage.URL})"><br>詳細を見る</a>
 
 </div>
 
@@ -103,7 +102,7 @@
 
 <div class="padding_s">
 
-({$c_review.title})
+({$c_review.ItemAttributes.Title})
 
 </div>
 
@@ -133,10 +132,16 @@
 
 <div class="padding_s">
 
-({$c_review.release_date})<br>
-({$c_review.manufacturer})<br>
-({$c_review.artist})({$c_review.author})<br>
-
+({$c_review.ItemAttributes.PublicationDate})<br>
+({$c_review.ItemAttributes.Manufacturer})<br>
+({if $c_review.artist})
+({$c_review.artist})
+<br>
+({/if})
+({if $c_review.author})
+({$c_review.author})
+<br>
+({/if})
 </div>
 
 </td>
@@ -291,8 +296,7 @@
 <div class="padding_s">
 
 <a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$review.c_member_id})">
-<img src="({t_img_url filename=$review.image_filename w=76 h=76 noimg=no_image_small})"></a><img src="./skin/dummy.gif" style="width:1px;height:1px;" class="dummy">
-<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$review.c_member_id})">({$review.nickname|t_body:'name'})</a>
+<img src="({t_img_url filename=$review.image_filename w=76 h=76 noimg=no_image_small})"><br>({$review.nickname|t_body:'name'})</a>
 
 </div>
 
@@ -482,6 +486,7 @@
 Powered by Amazon.co.jpアソシエイト
 
 </div>
+
 <!-- ******ここまで：レビュー　どこへ****** -->
 <!-- **************************************** -->
 
