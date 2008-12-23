@@ -42,27 +42,27 @@ class qrentry_page_qr_regist_confirm extends OpenPNE_Action
         $qr_obj = new QREntry();
 
         $ses = $requests['ses'];
-        //ses‚©‚çTable‚ÌID‚ğ’Šo‚·‚é
+        //sesã‹ã‚‰Tableã®IDã‚’æŠ½å‡ºã™ã‚‹
         $c_member_pre_id = $qr_obj->getID($ses);
         $c_commu_id      = $requests['c_commu_id'];
-        //2007/09/12 QR‚É‚æ‚éŒg‘Ñ“o˜^‚Å‚ÌÅIƒ[ƒ‹Šm”Fˆ—
+        //2007/09/12 QRã«ã‚ˆã‚‹æºå¸¯ç™»éŒ²ã§ã®æœ€çµ‚ãƒ¡ãƒ¼ãƒ«ç¢ºèªå‡¦ç†
         if (MAIL_ADDRESS_HASHED) {
             if (isset($c_commu_id)) {
-                $mail_address = "qrc".$c_commu_id."-{$c_member_pre_id}@".MAIL_SERVER_DOMAIN;
+                $mail_address = "qrc".$c_commu_id."-{$c_member_pre_id}";
             } else {
-                $mail_address = "qrm-{$c_member_pre_id}@".MAIL_SERVER_DOMAIN;
+                $mail_address = "qrm-{$c_member_pre_id}".;
             }
         } else {
             if (isset($c_commu_id)) {
-                $mail_address = "qrc".$c_commu_id."-{$c_member_pre_id}@".MAIL_SERVER_DOMAIN;
+                $mail_address = "qrc".$c_commu_id."-{$c_member_pre_id}".;
             } else {
-                $mail_address = "qrm-{$c_member_pre_id}@".MAIL_SERVER_DOMAIN;
+                $mail_address = "qrm-{$c_member_pre_id}".;
             }
         }
-        $mail_address = MAIL_ADDRESS_PREFIX . $mail_address;
         if($GLOBALS['__Framework']['ktai_carrier'] == 'au') {
-            $mail_address = urlencode($mail_address);
+            $mail_address_prefix = urlencode(MAIL_ADDRESS_PREFIX);
         }
+        $mail_address = $mail_address_prefix . $mail_address . '@' . MAIL_SERVER_DOMAIN;
         $this->set('c_member_pre_id', $c_member_pre_id);
         $this->set('ses', $ses);
         $this->set("mail_address", $mail_address);
