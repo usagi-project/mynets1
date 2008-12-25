@@ -30,7 +30,7 @@
 -->
 <p>確認してください。</p>
 <div style="text-align:left">
-    <p>今日の一言:({$one_word})</p>
+    <p>今日の一言:({$one_word|t_body:'title'})</p>
     <form method="post" action="./?m=ktai&amp;a=do_h_one_word_write">
     <input type="hidden" name="one_word" value="({$one_word})" />
     <br />
