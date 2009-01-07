@@ -20,10 +20,10 @@
 
 //2008-10-31 KUNIHARU Tsujioka update
 
-$lat = htmlspecialchars($_GET["lat"], ENT_QUOTES, 'Shift-JIS');
-$lon = htmlspecialchars($_GET["lon"], ENT_QUOTES, 'Shift-JIS');
-$zoom = htmlspecialchars($_GET["zoom"], ENT_QUOTES, 'Shift-JIS');
-$gkey = htmlspecialchars($_GET["gkey"], ENT_QUOTES, 'Shift-JIS');
+$lat = htmlspecialchars($_GET["lat"], ENT_QUOTES, 'Shift_JIS');
+$lon = htmlspecialchars($_GET["lon"], ENT_QUOTES, 'Shift_JIS');
+$zoom = htmlspecialchars($_GET["zoom"], ENT_QUOTES, 'Shift_JIS');
+$gkey = htmlspecialchars($_GET["gkey"], ENT_QUOTES, 'Shift_JIS');
 
 $zp = zconvert($_GET["zoom"]);
 
