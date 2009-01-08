@@ -7,7 +7,7 @@
 </div>
 
 <div class="package">
-<a href="({t_url m=pc a=page_h_review_list_product})&amp;c_review_id=({$c_review.c_review_id})"><img src="({$c_review.image_medium|t_url2x})" class="package_image"></a>
+<a href="({t_url m=pc a=page_h_review_list_product})&amp;c_review_id=({$c_review.c_review_id})"><img src="({$amazon_review.MediumImage.URL|t_url2x})" class="package_image"></a>
 </div>
 
 <div class="detail">

@@ -7,7 +7,7 @@
 <font size="2">({$c_review.title|mb_convert_kana:'ak':'UTF-8'})</font><br>
 
 <center>
-<img src="({$c_review.image_medium|t_url2x})"><br>
+<img src="({$amazon_review.MediumImage.URL|t_url2x})"><br>
 </center>
 
 <img src="({t_img_url_skin filename=satisfaction_level_`$satisfaction.level`})"> ({$satisfaction.average})点（({$satisfaction.review_count})人）<br>
