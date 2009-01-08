@@ -502,7 +502,7 @@
           <br>
           ({/if})
 
-          ({$item.body|bbcode2del|t_truncate:"120"|t_body:'title'})
+          ({$item.body|t_x2url|bbcode2del|t_truncate:"120"|t_body:'title'})
 
           </div>
      </td>

@@ -58,6 +58,10 @@ function cmd_review_main($param) {
 
         // レビュー情報
         $c_review = p_h_review_list_product_c_review4c_review_id($param['c_review_id']);
+        //2009-01-08 kuniharu tsujioka update
+        //レビューの画像をアマゾンから取得する
+        $amazon_review = p_h_review_write_product4asin($c_review['asin']);
+        $smarty->assign('amazon_review', $amazon_review);
 
         // 満足度取得
         $satisfaction = _cmd_review_list_product_satisfaction_level4c_review_id($param['c_review_id']);
