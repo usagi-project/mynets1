@@ -146,7 +146,7 @@
         </DIV>
         ({/if})
         ({*ませうさんBookさんの日記画像改造*})
-        ({$diary.body|bbcode2del|t_truncate:"120"|t_body:'diary'})
+        ({$diary.body|t_x2url|bbcode2del|t_truncate:"80"|t_body:'title'})
 
         </div>
 
