@@ -111,27 +111,30 @@ class Community_Search
         $data = array();
         //コメントを検索
         $sql = "SELECT  SQL_CALC_FOUND_ROWS "
-                    . "* "
+                    . "tc.* "
              . "FROM "
-                    . MYNETS_PREFIX_NAME . "c_commu_topic_comment ";
+                    . MYNETS_PREFIX_NAME . "c_commu_topic_comment as tc, "
+                    . MYNETS_PREFIX_NAME . "c_commu as c ";
 
         $tmp = array();
         foreach($this->keyword as $val)
         {
             if ($val)
             {
-                $tmp[] = " body LIKE '%".mysql_real_escape_string($val)."%' ";
+                $tmp[] = " tc.body LIKE '%".mysql_real_escape_string($val)."%' ";
             }
         }
-
+        //2009-01-10 kuniharu tsujioka update 非公開コミュのぶんを取り除く
+        $tmp[] = " c.public_flag <> 'auth_commu_member' ";
+        $tmp[] = " c.c_commu_id = tc.c_commu_id ";
         if(count($tmp) > 0)
         {
             // AND なり OR で連結してWHERE を作成
             $sql .= 'WHERE ' . implode($flag, $tmp);
         }
-
-        $sql .= "ORDER BY "
-                    . "r_datetime DESC";
+        $sql .= "GROUP BY tc.c_commu_topic_comment_id "
+              . "ORDER BY "
+                    . "tc.r_datetime DESC";
 
         $result  = db_get_all_limit($sql, ($this->page-1)*$this->pagesize, $this->pagesize);
         $numrows = db_get_one("SELECT FOUND_ROWS() ");
@@ -212,6 +215,8 @@ class Community_Search
                     . "( name LIKE ? "
                     . "OR "
                             . "info LIKE ? )"
+             //. "AND "
+             //       . "public_flag <> 'auth_commu_member' "
              . "ORDER BY "
                     . "r_datetime DESC ";
         foreach ($this->keyword as $value) {
