@@ -50,13 +50,13 @@ class qrentry_page_qr_regist_confirm extends OpenPNE_Action
             if (isset($c_commu_id)) {
                 $mail_address = "qrc".$c_commu_id."-{$c_member_pre_id}";
             } else {
-                $mail_address = "qrm-{$c_member_pre_id}".;
+                $mail_address = "qrm-{$c_member_pre_id}";
             }
         } else {
             if (isset($c_commu_id)) {
-                $mail_address = "qrc".$c_commu_id."-{$c_member_pre_id}".;
+                $mail_address = "qrc".$c_commu_id."-{$c_member_pre_id}";
             } else {
-                $mail_address = "qrm-{$c_member_pre_id}".;
+                $mail_address = "qrm-{$c_member_pre_id}";
             }
         }
         if($GLOBALS['__Framework']['ktai_carrier'] == 'au') {

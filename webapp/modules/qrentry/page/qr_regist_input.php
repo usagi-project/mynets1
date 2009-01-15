@@ -4,9 +4,9 @@
  *
  * @license This source file is subject to version 3.01 of the PHP license,
  *              that is available at http://www.php.net/license/3_01.txt
- *              If you did not receive a copy of the PHP license and are unable 
- *              to obtain it through the world-wide-web, please send a note to 
- *              license@php.net so we can mail you a copy immediately.  
+ *              If you did not receive a copy of the PHP license and are unable
+ *              to obtain it through the world-wide-web, please send a note to
+ *              license@php.net so we can mail you a copy immediately.
  *
  * @author     Kuniharu Tsujioka
  * @author     UsagiProject <info@usagi.mynets.jp>
@@ -15,7 +15,7 @@
  * @since      File available since Release 1.0.0 Nighty
  * @chengelog  [2007/02/17] Ver1.1.0Nighty package
  *             [2007/09/12]
- * ======================================================================== 
+ * ========================================================================
  */
 
 
@@ -67,7 +67,7 @@ class qrentry_page_qr_regist_input extends OpenPNE_Action
         $this->set('public_flags', $public_flags);
 
         $this->set('password_query_list', p_common_c_password_query4null());
-        //$this->set('profile_list', db_common_c_profile_list());
+        $this->set('profile_list', db_common_c_profile_list());
         $this->set('c_commu_id', $c_commu_id);
         $this->set($v);
         // 入力中の情報保持用セッション変数関係
