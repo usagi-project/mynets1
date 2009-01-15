@@ -125,12 +125,12 @@ class Community_Search
             }
         }
         //2009-01-10 kuniharu tsujioka update 非公開コミュのぶんを取り除く
-        $tmp[] = " c.public_flag <> 'auth_commu_member' ";
-        $tmp[] = " c.c_commu_id = tc.c_commu_id ";
+        $sql .= "WHERE c.public_flag <> 'auth_commu_member' "
+                    . "AND c.c_commu_id = tc.c_commu_id ";
         if(count($tmp) > 0)
         {
             // AND なり OR で連結してWHERE を作成
-            $sql .= 'WHERE ' . implode($flag, $tmp);
+            $sql .= 'AND (' . implode($flag, $tmp) . ') ';
         }
         $sql .= "GROUP BY tc.c_commu_topic_comment_id "
               . "ORDER BY "
