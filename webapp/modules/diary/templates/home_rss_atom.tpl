@@ -19,7 +19,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
       <published>({$key.r_datetime|date_format:"%Y-%m-%dT%H:%M:%S+09:00"})</published>
       <updated>({$key.r_datetime|date_format:"%Y-%m-%dT%H:%M:%S+09:00"})</updated>
       <author>
-        <name>({$key.c_member_id})</name>
+        <name>({$key.nickname})</name>
       </author>
       <content type="html"><![CDATA[
 ({if $key.image_filename_1})
