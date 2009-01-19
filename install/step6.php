@@ -64,11 +64,11 @@ if ($act == 'check') {
     if ($db_name == '') {
         $errmsg .= "MyNETSで利用するDB名が未入力です<br />";
     }
-    /*
-    if ($db_version == '') {
-        $errmsg .= "MySQLのバージョンが不明です<br />";
+
+    if (strpos($db_prefix, '-') !== FALSE) {
+        $errmsg .= "プレフィックスにハイフンが使われています。<br />";
     }
-    */
+
     if ($current_url == '') {
         $errmsg .= "URLが未入力です<br />";
     }
@@ -89,7 +89,7 @@ if ($act == 'check') {
     }
 }
 
-//インストール数サーバーのURLを自動取得
+//インストールするサーバーのURLを自動取得
 $current_url = "http://" . $_SERVER['HTTP_HOST'] . dirname(htmlspecialchars($_SERVER['PHP_SELF']));
 $current_url = preg_replace("/install$/", '', $current_url);
 
