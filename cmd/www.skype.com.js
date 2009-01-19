@@ -17,7 +17,7 @@
  */
 
 function url2cmd(url) {
-    if (!url.match(/^http:\/\/www\.skype\.com\/go\/joinpublicchat\?skypename=([a-zA-Z0-9_\-\.]+)&amp;topic=([a-zA-Z0-9@-~%]+)&amp;blob=([a-zA-Z0-9_\-]+)$/)) {
+    if (!url.match(/^http:\/\/www\.skype\.com\/go\/joinpublicchat\?skypename=([a-zA-Z0-9_\-\.]+)&amp;topic=([a-zA-Z0-9_\-\@-~%]+)&amp;blob=([a-zA-Z0-9_\-]+)$/)) {
         return;
     }
     var id_1 = RegExp.$1;
