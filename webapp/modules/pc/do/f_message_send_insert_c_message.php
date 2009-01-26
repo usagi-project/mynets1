@@ -44,10 +44,12 @@ class pc_do_f_message_send_insert_c_message extends OpenPNE_Action
         $tmpfile_1 = $requests['tmpfile_1'];
         $tmpfile_2 = $requests['tmpfile_2'];
         $tmpfile_3 = $requests['tmpfile_3'];
+        $captcha   = $requests['captcha'];
         // ----------
 
         $msg1 = "";
         $msg2 = "";
+        $msg3 = "";
 
         if (null == $subject) {
             $msg1 = "件名を入力してください";
@@ -55,8 +57,16 @@ class pc_do_f_message_send_insert_c_message extends OpenPNE_Action
         if (null == $body) {
             $msg2 = "メッセージを入力してください";
         }
+        //スパムメッセージ排除のためのキャプチャ認証を組み込み
+        //2009-01-26 KUNIHARU Tsujioka update
+        $msg = '';
+        if (empty($_SESSION['captcha_keystring']) || $_SESSION['captcha_keystring'] != $captcha)
+        {
+            unset($_SESSION['captcha_keystring']);
+            $msg3 = "確認キーワードが誤っています";
+        }
 
-        if ($msg1 || $msg2) {
+        if ($msg1 || $msg2 || $msg3) {
             $p = array(
                 'target_c_member_id' => $c_member_id_to,
                 'target_c_message_id' => $requests['target_c_message_id'],
@@ -65,6 +75,7 @@ class pc_do_f_message_send_insert_c_message extends OpenPNE_Action
                 'subject' => $requests['subject'],
                 'msg1' => $msg1,
                 'msg2' => $msg2,
+                'msg3' => $msg3,
             );
             openpne_redirect('pc', 'page_f_message_send', $p);
         }

@@ -273,6 +273,38 @@
 </tr>
 ({*********})
 <tr>
+({t_form m=pc a=do_f_message_send_insert_c_message})
+<td class="bg_01" align="center"><img src="./skin/dummy.gif" style="width:1px;height:1px;" class="dummy"></td>
+<td class="bg_05" align="left" valign="middle">
+
+<div class="padding_s">
+
+確認キーワード
+
+</div>
+
+</td>
+<td class="bg_01" align="center"><img src="./skin/dummy.gif" style="width:1px;height:1px;" class="dummy"></td>
+<td class="bg_02" align="left" valign="middle">
+
+<div class="padding_s">
+
+<img src="./cap.php?rand=({math equation="rand(0,9999)"})">
+<br>
+※上に表示されているキーワードをご記入下さい。
+<input  name="captcha" size="30">
+
+</div>
+
+</td>
+<td style="width:1px;" class="bg_01" align="center"><img src="./skin/dummy.gif" style="width:1px;height:1px;" class="dummy"></td>
+</tr>
+({*********})
+<tr>
+<td style="height:1px;" class="bg_01" colspan="5"><img src="./skin/dummy.gif" style="width:1px;height:1px;" class="dummy"></td>
+</tr>
+({*********})
+<tr>
 <td style="width:1px;" class="bg_01" align="center"><img src="./skin/dummy.gif" style="width:1px;height:1px;" class="dummy"></td>
 <td style="width:642px;" class="bg_03" align="left" valign="middle" colspan="3">
 
@@ -282,7 +314,7 @@
 <tr>
 <td style="width:50%;text-align:right;">
 
-({t_form m=pc a=do_f_message_send_insert_c_message})
+
 <input type="hidden" name="sessid" value="({$PHPSESSID})">
 <input type="hidden" name="c_member_id_to" value="({$target_member.c_member_id})">
 <input type="hidden" name="subject" value="({$form_val.subject})">

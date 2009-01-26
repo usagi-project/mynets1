@@ -32,6 +32,7 @@ class pc_page_f_message_send_confirm extends OpenPNE_Action
     {
         $_REQUEST['msg1'] = $errors['subject'];
         $_REQUEST['msg2'] = $errors['body'];
+        //$_REQUEST['msg3'] = $errors['captcha'];
         openpne_forward('pc', 'page', 'f_message_send', $errors);
         exit;
     }
@@ -46,7 +47,9 @@ class pc_page_f_message_send_confirm extends OpenPNE_Action
         $form_val['body'] = $requests['body'];
         $form_val['target_c_message_id'] = $requests['target_c_message_id'];
         $form_val['jyusin_c_message_id'] = $requests['jyusin_c_message_id'];
-        $save = $requests['save'];
+
+        $save    = $requests['save'];
+        //$captcha = $requests['captcha'];
         // ----------
         $sessid = session_id();
         t_image_clear_tmp($sessid);
@@ -62,6 +65,22 @@ class pc_page_f_message_send_confirm extends OpenPNE_Action
             '',
         );
 
+        //スパムメッセージ排除のためのキャプチャ認証を組み込み
+        //2009-01-26 KUNIHARU Tsujioka update
+        /*$msg = '';
+        if (empty($_SESSION['captcha_keystring']) || $_SESSION['captcha_keystring'] != $captcha)
+        {
+            unset($_SESSION['captcha_keystring']);
+            $msg = "確認キーワードが誤っています";
+        }
+        if ($msg)
+        {
+            $_REQUEST['msg'] = $msg;
+            openpne_forward('pc', 'page', "f_message_send", $_REQUEST['msg']);
+            exit;
+        }
+
+        */
         foreach ($upfiles as $key => $upfile) {
             if ($upfile['error'] !== UPLOAD_ERR_NO_FILE) {
                 if (empty($upfile)) continue;
