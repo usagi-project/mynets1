@@ -195,12 +195,15 @@ class QREntry
         db_friend_insert_c_friend($c_member_id_new, $result['c_member_id_invite']);     //OK
         //管理画面で指定したコミュニティに強制参加
         $c_commu_id_list = db_commu_regist_join_list();
+        if ($c_commu_id_new !== '')
+        {
+            if ( ! in_array($c_commu_id_new, $c_commu_id_list))
+            {
+                array_push($c_commu_id_list, $c_commu_id_new);
+            }
+        }
         foreach ($c_commu_id_list as $c_commu_id) {
             do_inc_join_c_commu($c_commu_id, $c_member_id_new);     //OK
-        }
-        //コミュニティID付きで渡ってきた場合の処理
-        if ($c_commu_id_new !== '') {
-            do_inc_join_c_commu($c_commu_id_new, $c_member_id_new);
         }
         // delete c_member_ktai_pre
         k_do_delete_c_member_ktai_pre($ktai_pre_id);
