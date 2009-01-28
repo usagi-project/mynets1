@@ -80,12 +80,17 @@ class pc_do_f_message_send_insert_c_message extends OpenPNE_Action
             );
             openpne_redirect('pc', 'page_f_message_send', $p);
         }
-        if (is_continual_entry($body, $u, $c_member_id_to, "5")) {
-            $p = array(
-                'target_c_message_id' => $requests['target_c_message_id'],
-                'msg' => "同じ人に同じ内容で連続投稿はできません"
-            );
-            openpne_redirect('pc', 'page_f_message_send', $p);
+        //下書き保存以外を処理
+        //2009-01-27 KUNIHARU Tsujioka update
+        if ($requests['target_c_message_id'] == $requests['jyusin_c_message_id'])
+        {
+            if (is_continual_entry($body, $u, $c_member_id_to, "5")) {
+                $p = array(
+                    'target_c_message_id' => $requests['target_c_message_id'],
+                    'msg' => "同じ人に同じ内容で連続投稿はできません"
+                );
+                openpne_redirect('pc', 'page_f_message_send', $p);
+            }
         }
 
         //--- 権限チェック
@@ -139,6 +144,9 @@ class pc_do_f_message_send_insert_c_message extends OpenPNE_Action
         $datacount = new Message_Count($u, $c_member_id_to);
         $datacount->addCount();
         //**************************************************
+        //2009-01-23 KUNIHARU Tsujioka update
+        //スクリプトによる連続投稿の対処
+        //session_regenerate_id();
 
         $p = array('msg' => 1);
         openpne_redirect('pc', 'page_h_reply_message', $p);
