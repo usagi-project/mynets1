@@ -40,6 +40,7 @@
 ({if $relation.friend})
 &em_pen;<a href="({t_url m=ktai a=page_f_intro_edit})&amp;target_c_member_id=({$target_c_member.c_member_id})&amp;({$tail})">紹介文を書く</a><br>
 ({/if})
+<a href="({t_url m=ktai a=page_f_one_word_list})&amp;target_c_member_id=({$target_c_member.c_member_id})&amp;({$tail})">({$target_c_member.nickname|t_body:'name'})さんの一言</a>
 <br>
 
 ({if $relation.friend==0})
