@@ -4,7 +4,7 @@
 ({$inc_ktai_header|smarty:nodefaults})
 
 <center><font color="orange"><a href="({t_url m=ktai a=page_f_home})&amp;target_c_member_id=({$target_diary_writer.c_member_id})&amp;({$tail})">({$target_diary_writer.nickname|t_body:'name'})さん</a>の日記</font></center>
-<marquee loop="infinity"><a href="({t_url m=ktai a=page_f_one_word_list})&amp;target_c_member_id=({$target_diary_writer.c_member_id})&amp;({$tail})">({$oneword})</a></marquee>
+<marquee loop="infinity"><a href="({t_url m=ktai a=page_f_one_word_list})&amp;target_c_member_id=({$target_diary_writer.c_member_id})&amp;({$tail})">({$oneword|t_body:'title'})</a></marquee>
 <hr>
 ({if $c_siteadmin})
 ({$c_siteadmin|t_body:'kadmin'})
