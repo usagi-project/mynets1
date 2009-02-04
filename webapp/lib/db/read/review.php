@@ -267,6 +267,11 @@ if (! function_exists('p_h_review_search_result4keyword_category'))
                 " ORDER BY r_datetime DESC";
             $p2 = array(intval($value['c_review_id']));
             $lst[$key]['body'] = db_get_one($sql, $p2);
+            //2009-02-04 KUNIHARU Tsujioka update
+            //サーチのデータにイメージをひっつける
+            $asin        = p_h_review_list_product_c_review4c_review_id($value['c_review_id']);
+            $amazon_data = p_h_review_write_product4asin($asin['asin']);
+            $lst[$key]['MediumImage']['URL'] = $amazon_data['MediumImage']['URL'];
         }
 
         $sql = "SELECT COUNT(DISTINCT " . MYNETS_PREFIX_NAME . "c_review.c_review_id)" . $from . $where;

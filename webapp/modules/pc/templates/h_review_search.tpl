@@ -279,7 +279,7 @@
 
 <div class="padding_s">
 
-<a href="({$item.url})" target="_blank"><img src="({$item.image_medium})"></a><img src="./skin/dummy.gif" style="width:1px;height:1px;" class="dummy">
+<a href="({$item.url})" target="_blank"><img src="({$item.MediumImage.URL})"></a><img src="./skin/dummy.gif" style="width:1px;height:1px;" class="dummy">
 <a href="({$item.url})" target="_blank">詳細を見る</a>
 
 </div>
