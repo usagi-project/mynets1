@@ -86,8 +86,11 @@ class pc_do_f_message_send_insert_c_message extends OpenPNE_Action
         {
             if (is_continual_entry($body, $u, $c_member_id_to, "5")) {
                 $p = array(
-                    'target_c_message_id' => $requests['target_c_message_id'],
-                    'msg' => "同じ人に同じ内容で連続投稿はできません"
+                    'target_c_message_id'   => $requests['target_c_message_id'],
+                    //2009-02-06 KUNIHARU Tsujioka update
+                    //送信先のIDも保持してリダイレクト
+                    'target_c_member_id' => $requests['c_member_id_to'],
+                    'msg'                   => "同じ人に同じ内容で連続投稿はできません"
                 );
                 openpne_redirect('pc', 'page_f_message_send', $p);
             }
