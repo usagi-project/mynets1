@@ -108,7 +108,7 @@ class qrentry_do_qr_insert_c_member extends OpenPNE_Action
         }
 
         //簡単ログインを判定
-        if ($_REQUEST['easy_access']) {
+        if ($_REQUEST['easy_access'] == '1') {
             $easy_access_id = OpenPNE_KtaiID::getID();
             if (!$easy_access_id) {
                 $errors[] = '携帯の個体識別番号を取得できませんでした<br>簡単ログインのチェックを外して登録してください。';
@@ -168,27 +168,6 @@ class qrentry_do_qr_insert_c_member extends OpenPNE_Action
                 $qrinsert->addMemberPre($prof, $ses);
             }
         }
-
-
-
-//print_r($prof);
-//exit;
-        // insert c_friend(紹介者)
-        //db_friend_insert_c_friend($c_member_id, $pre['c_member_id_invite']);
-
-        //管理画面で指定したコミュニティに強制参加
-        /*
-        $c_commu_id_list = db_commu_regist_join_list();
-        foreach ($c_commu_id_list as $c_commu_id) {
-            do_inc_join_c_commu($c_commu_id, $c_member_id);
-        }
-        */
-
-        // delete c_member_ktai_pre
-        //k_do_delete_c_member_ktai_pre($pre['c_member_ktai_pre_id']);
-
-        //db_ktai_update_easy_access_id($c_member_id, $easy_access_id) ;
-        //do_insert_c_member_mail_send($c_member_id, $prof['password'], $pre['ktai_address']);
 
         @session_destroy();
         $params = array('ses' => $ses, 'c_commu_id' => $c_commu_id);
