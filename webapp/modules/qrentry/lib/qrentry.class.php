@@ -26,7 +26,7 @@ class QREntry
             'is_receive_ktai_mail' => 1,
             'c_member_id_invite' => intval($profs['c_member_id_invite']),
             'password' => $profs['password'],
-            'easy_access_id' => $profs['easy_access_id'],
+            'easy_access_id' => strval($profs['easy_access_id']),
             'c_password_query_answer' =>$profs['password_query_answer'],
             'c_password_query_id' =>$profs['c_password_query_id'],
         );
@@ -37,6 +37,7 @@ class QREntry
             echo '</body></html>';
             exit;
         */
+
         if (db_insert(MYNETS_PREFIX_NAME . 'c_member_pre', $data)) {
             // insert c_member_profile
             //$this->addMemberProf($new_id, $profs);
