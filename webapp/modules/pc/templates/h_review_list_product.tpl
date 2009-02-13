@@ -312,7 +312,7 @@
 
 <div class="padding_s">
 
-({$review.body|t_body:'review'})
+({$review.body|bbcode2html|t_body:'review'})
 
 </div>
 
