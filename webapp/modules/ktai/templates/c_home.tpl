@@ -2,41 +2,41 @@
 <center><font color="orange">ｺﾐｭﾆﾃｨ：({$c_commu.name|t_body:'title'})</font></center>
 <hr>
 ({if $c_siteadmin})
-({$c_siteadmin|t_body:'kadmin'})
-<hr>
+    ({$c_siteadmin|t_body:'kadmin'})
+    <hr>
 ({/if})
 ({$c_commu.info|bbcode2html|t_replace_d|nl2br|t_body:'name'})<br>
 ({if $c_commu.image_filename})
-ｺﾐｭﾆﾃｨ画像：[<a href="({t_img_url filename=$c_commu.image_filename w=120 h=120 f=jpg})">小</a>/<a href="({t_img_url filename=$c_commu.image_filename w=360 h=360 f=jpg})">大</a>]<br>({/if})
+    ｺﾐｭﾆﾃｨ画像：[<a href="({t_img_url filename=$c_commu.image_filename w=120 h=120 f=jpg})">小</a>/<a href="({t_img_url filename=$c_commu.image_filename w=360 h=360 f=jpg})">大</a>]<br>({/if})
 ({if !$relation_c_member_and_c_commu.join && !$relation_c_member_and_c_commu.wait})
-<a href="({t_url m=ktai a=do_inc_join_c_commu})&amp;target_c_commu_id=({$c_commu.c_commu_id})&amp;({$tail})">このｺﾐｭﾆﾃｨに参加</a><br>
+    <a href="({t_url m=ktai a=do_inc_join_c_commu})&amp;target_c_commu_id=({$c_commu.c_commu_id})&amp;({$tail})">このｺﾐｭﾆﾃｨに参加</a><br>
 ({/if})
 <hr>
 ({if $is_c_commu_view})
-■トピックリスト<br>
-({foreach from=$new_topic_comment item=item})
-[({$item.r_datetime|t_date})]<a href="({t_url m=ktai a=page_c_bbs})&amp;target_c_commu_topic_id=({$item.c_commu_topic_id})&amp;({$tail})">({$item.name|t_body:'title'})</a>(({$item.count_comments|t_body:'title'}))<br>
-({foreachelse})
-トピックはありません<br>
-({/foreach})
-({if $new_topic_comment})
-→<a href="({t_url m=ktai a=page_c_topic_list})&amp;target_c_commu_id=({$c_commu.c_commu_id})&amp;({$tail})">もっと見る</a><br>
-({/if})
-<br>
-■イベントリスト<br>
-({foreach from=$new_topic_comment_event item=item})
-[({$item.r_datetime|t_date})]<a href="({t_url m=ktai a=page_c_bbs})&amp;target_c_commu_topic_id=({$item.c_commu_topic_id})&amp;({$tail})">({$item.name|t_body:'title'})</a>(({$item.count_comments}))<br>
-({foreachelse})
-イベントはありません<br>
-({/foreach})
-({if $new_topic_comment_event})
-→<a href="({t_url m=ktai a=page_c_event_list})&amp;target_c_commu_id=({$c_commu.c_commu_id})&amp;({$tail})">もっと見る</a><br>
-({/if})
-({if $relation_c_member_and_c_commu.join})
-<br>
-★<a href="({t_url m=ktai a=page_c_topic_add})&amp;target_c_commu_id=({$c_commu.c_commu_id})&amp;({$tail})">トピック作成</a><br>
-★<a href="({t_url m=ktai a=page_c_event_add})&amp;target_c_commu_id=({$c_commu.c_commu_id})&amp;({$tail})">イベント作成</a><br>
-({/if})
+    ■トピックリスト<br>
+    ({foreach from=$new_topic_comment item=item})
+    [({$item.r_datetime|t_date})]<a href="({t_url m=ktai a=page_c_bbs})&amp;target_c_commu_topic_id=({$item.c_commu_topic_id})&amp;({$tail})">({$item.name|t_body:'title'})</a>(({$item.count_comments|t_body:'title'}))<br>
+    ({foreachelse})
+    トピックはありません<br>
+    ({/foreach})
+    ({if $new_topic_comment})
+        →<a href="({t_url m=ktai a=page_c_topic_list})&amp;target_c_commu_id=({$c_commu.c_commu_id})&amp;({$tail})">もっと見る</a><br>
+    ({/if})
+    <br>
+    ■イベントリスト<br>
+    ({foreach from=$new_topic_comment_event item=item})
+    [({$item.r_datetime|t_date})]<a href="({t_url m=ktai a=page_c_bbs})&amp;target_c_commu_topic_id=({$item.c_commu_topic_id})&amp;({$tail})">({$item.name|t_body:'title'})</a>(({$item.count_comments}))<br>
+    ({foreachelse})
+    イベントはありません<br>
+    ({/foreach})
+    ({if $new_topic_comment_event})
+    →<a href="({t_url m=ktai a=page_c_event_list})&amp;target_c_commu_id=({$c_commu.c_commu_id})&amp;({$tail})">もっと見る</a><br>
+    ({/if})
+    ({if $relation_c_member_and_c_commu.join && $topic_admin == TRUE})
+    <br>
+    ★<a href="({t_url m=ktai a=page_c_topic_add})&amp;target_c_commu_id=({$c_commu.c_commu_id})&amp;({$tail})">トピック作成</a><br>
+    ★<a href="({t_url m=ktai a=page_c_event_add})&amp;target_c_commu_id=({$c_commu.c_commu_id})&amp;({$tail})">イベント作成</a><br>
+    ({/if})
 ({/if})
 <br>
 
