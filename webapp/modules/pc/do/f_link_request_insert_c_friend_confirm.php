@@ -4,9 +4,9 @@
  *
  * @license This source file is subject to version 3.01 of the PHP license,
  *              that is available at http://www.php.net/license/3_01.txt
- *              If you did not receive a copy of the PHP license and are unable 
- *              to obtain it through the world-wide-web, please send a note to 
- *              license@php.net so we can mail you a copy immediately.  
+ *              If you did not receive a copy of the PHP license and are unable
+ *              to obtain it through the world-wide-web, please send a note to
+ *              license@php.net so we can mail you a copy immediately.
  *
  * @category   Application of MyNETS
  * @project    OpenPNE UsagiProject 2006-2007
@@ -16,7 +16,7 @@
  * @version    MyNETS,v 1.0.0
  * @since      File available since Release 1.0.0 Nighty
  * @chengelog  [2007/02/17] Ver1.1.0Nighty package
- * ======================================================================== 
+ * ========================================================================
  */
 
 /**
@@ -38,8 +38,29 @@ class pc_do_f_link_request_insert_c_friend_confirm extends OpenPNE_Action
         // --- リクエスト変数
         $target_c_member_id = $requests['target_c_member_id'];
         $body = $requests['body'];
+
+        $captcha   = $requests['captcha'];
         // ----------
 
+        //2009-02-27 KUNIHARU Tsujioka update
+        //#197 フレンド申請時にキャプチャをつける
+        if (MYNETS_USE_MESSAGE_CAPTCHA)
+        {
+            $msg = '';
+            if (empty($_SESSION['captcha_keystring']) || $_SESSION['captcha_keystring'] != $captcha)
+            {
+                unset($_SESSION['captcha_keystring']);
+                $msg1 = "確認キーワードが誤っています";
+            }
+        }
+        if ($msg1) {
+            $p = array(
+                'target_c_member_id' => $target_c_member_id,
+                'body' => $body,
+                'msg1' => $msg1,
+            );
+            openpne_redirect('pc', 'page_f_link_request', $p);
+        }
         //--- 権限チェック
         //フレンドでない or フレンド承認中でない
 
