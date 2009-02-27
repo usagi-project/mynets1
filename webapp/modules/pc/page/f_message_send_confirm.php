@@ -84,7 +84,7 @@ class pc_page_f_message_send_confirm extends OpenPNE_Action
         //2009-02-27 KUNIHARU Tsujioka update #196
         //送信相手がフレンドの場合、キャプチャ認証を行わないようにする
         $target_is_friend = db_friend_is_friend($u, $form_val['target_c_member_id']);
-
+print_r($target_is_friend);
         foreach ($upfiles as $key => $upfile) {
             if ($upfile['error'] !== UPLOAD_ERR_NO_FILE) {
                 if (empty($upfile)) continue;
