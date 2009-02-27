@@ -59,11 +59,18 @@ class pc_do_f_message_send_insert_c_message extends OpenPNE_Action
         }
         //スパムメッセージ排除のためのキャプチャ認証を組み込み
         //2009-01-26 KUNIHARU Tsujioka update
-        $msg = '';
-        if (empty($_SESSION['captcha_keystring']) || $_SESSION['captcha_keystring'] != $captcha)
+
+        //2009-02-27 KUNIHARU Tsujioka update
+        //#196 送信相手がフレンドの場合、キャプチャ認証を行わないようにする
+        $target_is_friend = db_friend_is_friend($u, $c_member_id_to);
+        if (MYNETS_USE_MESSAGE_CAPTCHA && ! $target_is_friend)
         {
-            unset($_SESSION['captcha_keystring']);
-            $msg3 = "確認キーワードが誤っています";
+            $msg = '';
+            if (empty($_SESSION['captcha_keystring']) || $_SESSION['captcha_keystring'] != $captcha)
+            {
+                unset($_SESSION['captcha_keystring']);
+                $msg3 = "確認キーワードが誤っています";
+            }
         }
 
         if ($msg1 || $msg2 || $msg3) {
