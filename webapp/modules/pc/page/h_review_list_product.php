@@ -66,6 +66,9 @@ class pc_page_h_review_list_product extends OpenPNE_Action
         $c_review['asin'] = $asin['asin'];
         $c_review['category_disp'] = $asin['category_disp'];
         $c_review['c_review_category_id'] = $asin['c_review_category_id'];
+        //2009-03-11 KUNIHARU Tsujioka update
+        // fix #202
+        $c_review['c_review_id'] = $c_review_id;
         $this->set('c_review', $c_review);
 //print_r($asin);
 //exit;
