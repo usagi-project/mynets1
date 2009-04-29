@@ -52,7 +52,7 @@ class mail_sns
 
         // メンテナンスモード
         if (OPENPNE_UNDER_MAINTENANCE) {
-            $this->error_mail('現在メンテナンス中のため、メール投稿はおこなえま>せん。しばらく時間を空けて再度送信してください。');
+            $this->error_mail('現在メンテナンス中のため、メール投稿はおこなえません。しばらく時間を空けて再度送信してください。');
             m_debug_log('mail_sns::main() maintenance mode');
             return false;
         }
