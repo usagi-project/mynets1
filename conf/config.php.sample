@@ -613,7 +613,7 @@ define('IPHONE_IS_MOBILE', false);
 //キャッチオールが使えないサーバーの場合の
 //POPアカウントでの処理
 define('USE_POP_MAIL', false);
-define('POP_SERVER_DOMAIN', 'exsmple.com');
+define('POP_SERVER_DOMAIN', 'example.com');
 define('POP_SERVER_USER', 'pop username');
 define('POP_SERVER_PASS', 'pop password');
 
