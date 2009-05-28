@@ -179,7 +179,7 @@ if (! function_exists('db_bookmark_diary_list_with_pager'))
                     . MYNETS_PREFIX_NAME . 'c_member '
              . 'WHERE '
                     . MYNETS_PREFIX_NAME . 'c_diary.c_member_id IN ('.$ids.') '
-             . 'AND ((' . MYNETS_PREFIX_NAME . 'c_diary.public_flag = \'public\') '
+             . 'AND ((' . MYNETS_PREFIX_NAME . 'c_diary.public_flag in (\'public\',\'open\')) '
                     . 'OR (' . MYNETS_PREFIX_NAME . 'c_diary.public_flag = \'default\' '
                     . 'AND ' . MYNETS_PREFIX_NAME . 'c_member.public_flag_diary in (\'public\',\'open\'))) '
                     . 'AND ' . MYNETS_PREFIX_NAME . 'c_diary.c_member_id=' . MYNETS_PREFIX_NAME . 'c_member.c_member_id '
