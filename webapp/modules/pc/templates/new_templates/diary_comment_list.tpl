@@ -8,7 +8,7 @@
         <div style="padding:5px 10px 0 10px">
             <img src="({t_img_url_skin filename=icon_3})" style="margin-right:5px;" align="absmiddle">
             ({$item.r_datetime|t_date})…&nbsp;
-            <a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$item.c_diary_id})&amp;c_diary_comment_count=({$item.comment_count})">({$item.subject|t_body:'title'})</a>({if $item.public_flag == 'friend'})<img src="({t_img_url_skin filename=friend_icon f=gif})" align="absmiddle">({/if})&nbsp;
+            <a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$item.c_diary_id})&amp;c_diary_comment_count=({$item.comment_count})">({$item.subject|t_body:'title'|t_truncate:32:"…"})</a>({if $item.public_flag == 'friend'})<img src="({t_img_url_skin filename=friend_icon f=gif})" align="absmiddle">({/if})&nbsp;
         ({if $item.edit_flag})
             <img src="skin/default/img/comment.gif" align="absmiddle">
         ({/if})

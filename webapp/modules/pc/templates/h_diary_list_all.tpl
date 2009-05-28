@@ -339,7 +339,7 @@
 
 <div class="padding_s">
 
-<a href="({$item.link})" target="_blank">({$item.subject|t_body:'title'})</a> (({$item.c_member.nickname|t_body:'name'}))
+<a href="({$item.link})" target="_blank">({$item.subject|t_body:'title'|t_truncate:32:"…"})</a> (({$item.c_member.nickname|t_body:'name'}))
 
 </div>
 

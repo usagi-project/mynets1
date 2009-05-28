@@ -417,7 +417,7 @@
           <td style="width:458px;" class="bg_02" align="left" valign="middle">
                     <div style="padding:4px 3px;">
 
-                    ({$item.subject|t_body:'title'})
+                    ({$item.subject|t_body:'title'|t_truncate:32:"…"})
 
           </div>
           </td>
@@ -693,7 +693,7 @@
      <td style="width:459px;" class="bg_02" align="left" valign="middle">
           <div style="padding:4px 3px;">
 
-          <a href="({$item.link})" target="_blank">({$item.subject|t_body:'title'})</a>
+          <a href="({$item.link})" target="_blank">({$item.subject|t_body:'title'|t_truncate:32:"…"})</a>
 
           </div>
      </td>
