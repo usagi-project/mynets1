@@ -89,7 +89,7 @@
 <td style="width:453px;" class="bg_02">
 
 <div class="padding_s">
-<a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$item.c_diary_id})&amp;c_diary_comment_count=({$item.comment_count})">({$item.subject|t_body:'title'}) (コメント:({$item.comment_count})|閲覧:({$item.etsuran_count}))</a> (({$item.nickname|t_body:'name'}))({if $item.public_flag == 'friend'})<img src="({t_img_url_skin filename=friend_icon f=gif})" align="absmiddle">({/if})
+<a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$item.c_diary_id})&amp;c_diary_comment_count=({$item.comment_count})">({$item.subject|t_body:'title'|t_truncate:32:"…"}) (コメント:({$item.comment_count})|閲覧:({$item.etsuran_count}))</a> (({$item.nickname|t_body:'name'}))({if $item.public_flag == 'friend'})<img src="({t_img_url_skin filename=friend_icon f=gif})" align="absmiddle">({/if})
 ({if $item.image_filename_1 || $item.image_filename_2 || $item.image_filename_3})<img src="({t_img_url_skin filename=icon_camera})" class="icon">({/if})
 ({if $item.edit_flag})
 <img src="skin/default/img/comment.gif" align="absmiddle">
