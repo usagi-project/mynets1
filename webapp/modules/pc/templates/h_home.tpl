@@ -138,7 +138,7 @@
                     ({**お気に入り最新ブログ**})
                     <div id="dv9" style="display:none;">({if $bookmark_blog_list})({ext_include file="new_templates/bookmark_blog_list.tpl"})({/if})</div>
                     ({**自己情報一覧**})
-                    <div id="dv10" style="display:none;">({if $c_diary_list || $c_blog_list || $c_review_list})({ext_include file="new_templates/my_diary_etc_list.tpl"})({/if})</div>
+                    <div id="dv10" style="display:none;">({*if $c_diary_list || $c_blog_list || $c_review_list*})({ext_include file="new_templates/my_diary_etc_list.tpl"})({*/if*})</div>
                     ({**紹介文**})
                     <div id="dv11" style="display:none;">({if $c_friend_intro_list})({ext_include file="new_templates/myintro.tpl"})({/if})</div>
                 </div>
