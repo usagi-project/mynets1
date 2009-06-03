@@ -79,10 +79,10 @@
         <td style="width:230px" class="style2">({$member_data.pc_display})</td>
     </tr>
     <tr>
-        <th style="width:110px" class="style1"><strong>メッセージ送信回数</strong></th>
-        <td style="width:230px" class="style2">受信:({$member_data.message_to.count})回&nbsp;({if $member_data.message_to.count > 0})<a href="?m=({$module_name})&amp;a=page_({$hash_tbl->hash('view_message_data')})&amp;target_c_message_id=({$member_data.message_to.mid})">最新の送信メッセージ</a>({/if})</td>
         <th style="width:110px" class="style1"><strong>メッセージ受信回数</strong></th>
-        <td style="width:230px" class="style2">送信:({$member_data.message_from.count})回&nbsp;({if $member_data.message_from.count > 0})<a href="?m=({$module_name})&amp;a=page_({$hash_tbl->hash('view_message_data')})&amp;target_c_message_id=({$member_data.message_from.mid})">最新の受信メッセージ</a>({/if})</td>
+        <td style="width:230px" class="style2">受信:({$member_data.message_to.count})回&nbsp;({if $member_data.message_to.count > 0})<a href="?m=({$module_name})&amp;a=page_({$hash_tbl->hash('view_message_data')})&amp;target_c_message_id=({$member_data.message_to.mid})">最新の受信メッセージ</a>({/if})</td>
+        <th style="width:110px" class="style1"><strong>メッセージ送信回数</strong></th>
+        <td style="width:230px" class="style2">送信:({$member_data.message_from.count})回&nbsp;({if $member_data.message_from.count > 0})<a href="?m=({$module_name})&amp;a=page_({$hash_tbl->hash('view_message_data')})&amp;target_c_message_id=({$member_data.message_from.mid})">最新の送信メッセージ</a>({/if})</td>
     </tr>
     <tr>
         <th style="width:110px" class="style1"><strong>日記投稿回数</strong></th>
