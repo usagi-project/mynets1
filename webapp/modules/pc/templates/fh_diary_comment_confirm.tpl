@@ -72,7 +72,7 @@
 <td style="width:426px;" class="bg_02" align="left" valign="middle">
 <div class="padding_s">
 
-({$form_val.body|bbcode2html|t_replace_d|t_body:'diary'|t_geocode})
+({$form_val.body|bbcode2html|t_body:'diary'|t_geocode})
 
 </div>
 </td>

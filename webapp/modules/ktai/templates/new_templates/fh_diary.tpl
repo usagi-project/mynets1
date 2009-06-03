@@ -51,7 +51,7 @@
 <a href="#1"><font size="1" color="green">▼コメントへ</font></a>
 </div>
 <br>
-({$target_c_diary.body|bbcode2html|t_replace_d|t_body:'kdiary'})<br>
+({$target_c_diary.body|bbcode2html|t_body:'kdiary'})<br>
 <br>
 ({if $target_c_diary.image_filename_1})
 <img src="({t_img_url filename=$target_c_diary.image_filename_1 w=76 h=76 noimg=no_image_small})">
@@ -95,7 +95,7 @@
   <a href="({t_url m=ktai a=page_f_home})&amp;target_c_member_id=({$c_diary_comment_.c_member_id})&amp;({$tail})">({$c_diary_comment_.nickname|t_body:'name'})</a>({/if}) ({if $c_diary_comment_.c_member_id == $u || $target_diary_writer.c_member_id==$u})
   [<a href="({t_url m=ktai a=page_fh_diary_delete_c_diary_comment_confirm})&amp;target_c_diary_comment_id=({$c_diary_comment_.c_diary_comment_id})&amp;({$tail})&amp;target_c_diary_id=({$target_c_diary.c_diary_id})">削除</a>]
   ({/if})<br>
-  ({$c_diary_comment_.body|bbcode2html|t_replace_d|t_body:'kdiary'|default:"&nbsp;"})
+  ({$c_diary_comment_.body|bbcode2html|t_body:'kdiary'|default:"&nbsp;"})
   <br>
   ({if $c_diary_comment_.image_filename_1})
 <img src="({t_img_url filename=$c_diary_comment_.image_filename_1 w=76 h=76 noimg=no_image_small})">

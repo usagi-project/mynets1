@@ -43,7 +43,7 @@ function smarty_modifier_bbcode2html4pc($message,$allowWiki=TRUE,$allowUrl=TRUE,
         '/\[php\](<br\s*\/{0,1}>|[\r\n]*)?(.*?)\[\/php\](<br\s*\/{0,1}>|[\r\n]{0,2})?/esi'      => '"<div class=\"bb-php\" style=\"font-family:monospace\">".preg_replace(array(\'/^<br\s*\/?>/si\',\'/ /\',\'/\t/\',\'/<br&nbsp;\/>/si\',\'/:/\'),array("","&nbsp;","&nbsp;&nbsp;&nbsp;&nbsp;","<br />","&#58;"),"\\2")."</div>"',
         '/\[phpsrc\](<br\s*\/{0,1}>|[\r\n]*)?(.*?)\[\/phpsrc\](<br\s*\/{0,1}>|[\r\n]{0,2})?/esi'    => '"<div class=\"bb-php\" style=\"font-family:monospace\">".preg_replace(array(\'/^<br\s*\/?>/si\',\'/ /\',\'/\t/\',\'/<br&nbsp;\/>/si\',\'/:/\'),array("","&nbsp;","&nbsp;&nbsp;&nbsp;&nbsp;","<br />","&#58;"),"\\2")."</div>"',
     );
-    $message = preg_replace(array_keys($preg), array_values($preg), str_replace("'", "&rsquo;", str_replace("$", "_d_", $message)));
+    $message = preg_replace(array_keys($preg), array_values($preg), str_replace("'", "&rsquo;", $message));
 
     $preg = array(
         '/\[color=(#[a-fA-F0-9]{3,6}|[a-zA-Z ]*)\](.*?)\[\/color\]/si'  => "<span style=\"color:\\1\">\\2</span>",

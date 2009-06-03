@@ -176,7 +176,7 @@
 
 <div class="padding_s">
 
-({$form_val.body|bbcode2html|t_replace_d|t_body:'message'|t_geocode})
+({$form_val.body|bbcode2html|t_body:'message'|t_geocode})
 
 </div>
 
