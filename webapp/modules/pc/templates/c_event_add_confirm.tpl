@@ -188,7 +188,7 @@
 
 <div class="padding_s">
 
-({$event.body|t_body:'event'|t_geocode|bbcode2html|t_replace_d})
+({$event.body|t_body:'event'|t_geocode|bbcode2html})
 
 </div>
 

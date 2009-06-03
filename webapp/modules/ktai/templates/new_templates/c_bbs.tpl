@@ -13,7 +13,7 @@
 
 <a href="({t_url m=ktai a=page_f_home})&amp;target_c_member_id=({$c_commu_topic.c_member_id})&amp;({$tail})">({$c_commu_topic.nickname|t_body:'name'|default:"&nbsp;"})</a>
 <br>
-({$c_commu_topic.body|bbcode2html|t_replace_d|t_body:'kbbs'|default:"&nbsp;"})<br>
+({$c_commu_topic.body|bbcode2html|t_body:'kbbs'|default:"&nbsp;"})<br>
 ({if $c_commu_topic.image_filename1})<img src="({t_img_url filename=$c_commu_topic.image_filename1 w=120 h=120 f=jpg})"><br><a href="({t_img_url filename=$c_commu_topic.image_filename1 w=360 h=360 f=jpg})">大</a>]<br>({/if})
 ({if $c_commu_topic.image_filename2})画像：[<a href="({t_img_url filename=$c_commu_topic.image_filename2 w=120 h=120 f=jpg})">小</a>/<a href="({t_img_url filename=$c_commu_topic.image_filename2 w=360 h=360 f=jpg})">大</a>]<br>({/if})
 ({if $c_commu_topic.image_filename3})画像：[<a href="({t_img_url filename=$c_commu_topic.image_filename3 w=120 h=120 f=jpg})">小</a>/<a href="({t_img_url filename=$c_commu_topic.image_filename3 w=360 h=360 f=jpg})">大</a>]<br>({/if})
@@ -37,7 +37,7 @@
 ({$c_commu_topic.invite_period|date_format:"%Y年%m月%d日"})<br>
 ({/if})
 詳細：<br>
-({$c_commu_topic.body|bbcode2html|t_replace_d|t_body:'kbbs'|default:"&nbsp;"})<br>
+({$c_commu_topic.body|bbcode2html|t_body:'kbbs'|default:"&nbsp;"})<br>
 ({if $c_commu_topic.image_filename1})<img src="({t_img_url filename=$c_commu_topic.image_filename1 w=120 h=120 f=jpg})"><br><a href="({t_img_url filename=$c_commu_topic.image_filename1 w=360 h=360 f=jpg})">大</a>]<br>({/if})
 ({if $c_commu_topic.image_filename2})画像：[<a href="({t_img_url filename=$c_commu_topic.image_filename2 w=120 h=120 f=jpg})">小</a>/<a href="({t_img_url filename=$c_commu_topic.image_filename2 w=360 h=360 f=jpg})">大</a>]<br>({/if})
 ({if $c_commu_topic.image_filename3})画像：[<a href="({t_img_url filename=$c_commu_topic.image_filename3 w=120 h=120 f=jpg})">小</a>/<a href="({t_img_url filename=$c_commu_topic.image_filename3 w=360 h=360 f=jpg})">大</a>]<br>({/if})
@@ -67,7 +67,7 @@
 ({if $item.number != 0})
 ({$item.number}).({if $item.nickname})<a href="({t_url m=ktai a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})&amp;({$tail})">({$item.nickname|t_body:'name'})</a>({/if})
 <br>
-({$item.body|bbcode2html|t_replace_d|t_body:'kbbs'|default:"&nbsp;"})<br>
+({$item.body|bbcode2html|t_body:'kbbs'|default:"&nbsp;"})<br>
 ({if $item.image_filename1})画像：[<a href="({t_img_url filename=$item.image_filename1 w=120 h=120 f=jpg})">小</a>/<a href="({t_img_url filename=$item.image_filename1 w=360 h=360 f=jpg})">大</a>]<br>({/if})
 ({if $item.image_filename2})画像：[<a href="({t_img_url filename=$item.image_filename2 w=120 h=120 f=jpg})">小</a>/<a href="({t_img_url filename=$item.image_filename2 w=360 h=360 f=jpg})">大</a>]<br>({/if})
 ({if $item.image_filename3})画像：[<a href="({t_img_url filename=$item.image_filename3 w=120 h=120 f=jpg})">小</a>/<a href="({t_img_url filename=$item.image_filename3 w=360 h=360 f=jpg})">大</a>]<br>({/if})

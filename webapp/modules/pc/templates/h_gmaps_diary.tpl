@@ -54,7 +54,7 @@ img {
     </a>
 ({/if})
         <br>
-        ({$target_diary.body|bbcode2html|t_replace_d|t_body:'diary'|t_geocode})
+        ({$target_diary.body|bbcode2html|t_body:'diary'|t_geocode})
     </div>
 </div>
 </body>

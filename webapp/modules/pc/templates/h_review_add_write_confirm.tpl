@@ -70,7 +70,7 @@
 <td style="width:476px;" class="bg_02" align="left" valign="middle">
 <div style="padding:10px;">
 
-({$body|nl2br|bbcode2html|t_replace_d})
+({$body|nl2br|bbcode2html})
 
 </div>
 </td>

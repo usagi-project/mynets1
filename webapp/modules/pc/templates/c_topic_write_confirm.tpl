@@ -72,7 +72,7 @@
 
 <div class="padding_s">
 
-({$topic_write.body|bbcode2html|t_replace_d|t_body:'community'})
+({$topic_write.body|bbcode2html|t_body:'community'})
 
 </div>
 
