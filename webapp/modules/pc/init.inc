@@ -73,7 +73,7 @@ function init_pc_page(&$smarty)
         $smarty->assign('before_after', 'before');
     }
     // sideblock
-    // 表示内容を入れ替える場合は、h_home_right_side.tplの表示順番を入れ替えてください。
+    // 表示内容を入れ替える場合は、/webapp_ext/modules/pc/templates/h_home_right_side.tpl の表示順番を入れ替えてください。
     // 各項目を表示をするしないは、config.phpの最後にtrue,falseとして表示されていますので、
     // そちらを変更してください。
     if (defined('DISPLAY_SIDE_BLOCK') && DISPLAY_SIDE_BLOCK) {
