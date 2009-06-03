@@ -5,7 +5,6 @@
 <script type="text/javascript" src="js/javascripts/debug.js"> </script>
 <link href="js/themes/default.css" rel="stylesheet" type="text/css">
 <!-- Add this to have a specific theme-->
-<link href="js/themes/default.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="css/thickbox.css" type="text/css" media="screen" />
 <script type="text/javascript" src="js/javascripts/thickbox.js"></script>
 <script type="text/javascript">
