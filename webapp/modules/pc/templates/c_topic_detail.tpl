@@ -130,7 +130,7 @@
             ({/if})
             <br>
             ({/if})
-            ({$c_topic.body|bbcode2html|t_body:'community'|t_geocode})
+            ({$c_topic.body|bbcode2html|t_replace_d|t_body:'community'|t_geocode})
             </div>
         </td>
         <td style="width:1px;" class="bg_01" align="center"><img src="./skin/dummy.gif" style="width:1px;height:1px;" class="dummy"></td>
@@ -297,7 +297,7 @@
      <br>
      ({/if})
 
-     ({$item.body|bbcode2html|t_body:'community'|t_geocode})
+     ({$item.body|bbcode2html|t_replace_d|t_body:'community'|t_geocode})
 
 </div>
 </td>

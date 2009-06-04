@@ -130,7 +130,7 @@
 <td style="width:421px;" class="bg_02" align="left" valign="middle">
 <div class="padding_s">
 
-({$c_topic.body|bbcode2html|t_body:'community'|t_geocode})
+({$c_topic.body|bbcode2html|t_replace_d|t_body:'community'|t_geocode})
 
 </div>
 </td>

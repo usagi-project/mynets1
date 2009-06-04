@@ -334,7 +334,7 @@
 
 <div class="padding_s lh_120">
 
-({$c_topic.body|bbcode2html|t_body:'event'|t_geocode})
+({$c_topic.body|bbcode2html|t_replace_d|t_body:'event'|t_geocode})
 
 </div>
 
@@ -587,7 +587,7 @@
      <br>
      ({/if})
 
-     ({$item.body|bbcode2html|t_body:'event'|t_geocode})
+     ({$item.body|bbcode2html|t_replace_d|t_body:'event'|t_geocode})
 </div></td>
 </tr>
 ({*********})

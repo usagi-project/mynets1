@@ -433,7 +433,7 @@
                                     <span class="functions"><a href="({t_img_url filename=$target_diary.image_filename_3})" target="_blank"><img src="({t_img_url_skin filename=icon_window})" alt="別ウィンドウで開く（原寸）" title="別ウィンドウで開く（原寸）" /></a></span>
                                 ({/if})
                                 <div class="lh_120" id="DOM_fh_diary_body">
-                                ({$target_diary.body|bbcode2html|t_body:'diary'|t_geocode})
+                                ({$target_diary.body|bbcode2html|t_replace_d|t_body:'diary'|t_geocode})
                                 </div>
                                 </td>
 
@@ -605,7 +605,7 @@
                                     <br>
                                 ({/if})
 
-                                ({$item.body|t_geocode|bbcode2html|t_body:'diary'})
+                                ({$item.body|t_geocode|bbcode2html|t_replace_d|t_body:'diary'})
                                 </div>
                                 </td>
 

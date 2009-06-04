@@ -15,6 +15,6 @@
         <img src="({t_img_url filename=$target_diary_comment.image_filename_3 w=76 h=76})" style="padding:5px;">
     ({/if})
         <br>
-        ({$target_diary_comment.body|t_geocode|bbcode2html|t_body:'admin_info'})
+        ({$target_diary_comment.body|t_geocode|bbcode2html|t_replace_d|t_body:'admin_info'})
     </div>
 </div>

@@ -157,7 +157,7 @@
                     ({if $c_message.image_filename_1||$c_message.image_filename_2||$c_message.image_filename_3})
                       <br><br>
                     ({/if})
-                      ({$c_message.body|bbcode2html|t_body:'message'|t_geocode})
+                      ({$c_message.body|bbcode2html|t_replace_d|t_body:'message'|t_geocode})
                     </div>
                   </td>
                   <td style="width:1px;" class="bg_01"><img src="./skin/dummy.gif" style="width:1px;height:1px;" class="dummy">
