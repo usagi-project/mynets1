@@ -65,7 +65,7 @@
 <td style="width:481px;" class="bg_02" align="left" valign="middle">
 <div class="padding_s">
 
-({$event_write.body|t_body:'event'|bbcode2html})
+({$event_write.body|bbcode2html|t_body:'event'})
 
 </div>
 </td>
