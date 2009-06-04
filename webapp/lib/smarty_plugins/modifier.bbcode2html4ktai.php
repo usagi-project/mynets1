@@ -41,7 +41,7 @@ function smarty_modifier_bbcode2html4ktai($message,$allowWiki=TRUE,$allowUrl=TRU
         '/\[php\](<br\s*\/{0,1}>|[\r\n]*)?(.*?)\[\/php\](<br\s*\/{0,1}>|[\r\n]{0,2})?/esi'      => '"<pre>".preg_replace(array(\'/^<br\s*\/?>/si\',\'/ /\',\'/\t/\',\'/<br&nbsp;\/>/si\',\'/:/\'),array("","&nbsp;","&nbsp;&nbsp;&nbsp;&nbsp;","<br>","&#58;"),"\\2")."</pre>"',
         '/\[phpsrc\](<br\s*\/{0,1}>|[\r\n]*)?(.*?)\[\/phpsrc\](<br\s*\/{0,1}>|[\r\n]{0,2})?/esi'    => '"<pre>".preg_replace(array(\'/^<br\s*\/?>/si\',\'/ /\',\'/\t/\',\'/<br&nbsp;\/>/si\',\'/:/\'),array("","&nbsp;","&nbsp;&nbsp;&nbsp;&nbsp;","<br>","&#58;"),"\\2")."</pre>"',
     );
-    $message = preg_replace(array_keys($preg), array_values($preg), str_replace("'", "&rsquo;", str_replace("$", "_d_", $message)));
+    $message = preg_replace(array_keys($preg), array_values($preg), str_replace("'", "&rsquo;", str_replace("$", "&#36;", $message)));
 
     $preg = array(
         '/\[color=(#[a-fA-F0-9]{3,6}|[a-zA-Z ]*)\](.*?)\[\/color\]/si'  => "<font color=\"\\1\">\\2</font>",

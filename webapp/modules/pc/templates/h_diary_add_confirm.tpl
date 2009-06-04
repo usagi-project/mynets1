@@ -98,7 +98,7 @@
 <td class="bg_02" align="left" valign="middle" style="width:413px;">
 
 <div class="padding_s">
-({$form_val.body|bbcode2html|t_replace_d|t_body:'diary'})
+({$form_val.body|bbcode2html|t_body:'diary'})
 
 </div>
 

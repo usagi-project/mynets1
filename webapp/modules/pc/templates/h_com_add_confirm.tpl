@@ -189,7 +189,7 @@
 
 <div class="padding_s">
 
-({$form_val.body|t_body:'info'|t_geocode|bbcode2html|t_replace_d})
+({$form_val.body|t_body:'info'|t_geocode|bbcode2html})
 
 </div>
 

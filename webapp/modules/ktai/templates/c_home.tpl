@@ -5,7 +5,7 @@
 	({$c_siteadmin|t_body:'kadmin'})
 	<hr>
 ({/if})
-({$c_commu.info|bbcode2html|t_replace_d|nl2br|t_body:'name'})<br>
+({$c_commu.info|bbcode2html|nl2br|t_body:'name'})<br>
 ({if $c_commu.image_filename})
 	ｺﾐｭﾆﾃｨ画像：[<a href="({t_img_url filename=$c_commu.image_filename w=120 h=120 f=jpg})">小</a>/<a href="({t_img_url filename=$c_commu.image_filename w=360 h=360 f=jpg})">大</a>]<br>({/if})
 ({if !$relation_c_member_and_c_commu.join && !$relation_c_member_and_c_commu.wait})
