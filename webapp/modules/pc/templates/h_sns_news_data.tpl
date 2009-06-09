@@ -14,11 +14,11 @@
             </div>
             ({if $data.text != '' && $data.body == ''})
             <div>
-                ({$data.text})
+                ({$data.text|smarty:nodefaults})
             </div>
             ({elseif $data.body != ''})
             <div id="text({$key})" class="newscont">
-                ({$data.text})&nbsp;<a href="javascript:void(0);" onclick="$('text({$key})').innerHTML = $('body({$key})').innerHTML" class="exception">もっと詳しく</a>
+                ({$data.text|smarty:nodefaults})&nbsp;<a href="javascript:void(0);" onclick="$('text({$key})').innerHTML = $('body({$key})').innerHTML" class="exception">もっと詳しく</a>
             </div>
             ({/if})
         </div>
