@@ -32,11 +32,11 @@ class diary_page_detail extends OpenPNE_Action
             'day'   => $day,
         );
         //日記のカレンダー
-        $calendar       = db_common_public_diary_monthly_calendar($year, $month, $target_c_member_id, $u);
+        $calendar       = db_common_public_diary_monthly_calendar($year, $month, $target_member['c_member_id']);
         //最近の日記を取得
-        $list_set       = p_public_diary_list_diary_list4c_member_id($target_diary['c_member_id'], 7, 1);
-        $new_diary_list = db_diary_get_c_public_diary_list($target_c_member_id);
-        $date_list      = p_public_diary_list_date_list4c_member_id($target_c_member_id);
+        $list_set       = p_public_diary_list_diary_list4c_member_id($target_member['c_member_id'], 7, 1);
+        $new_diary_list = db_diary_get_c_public_diary_list($target_member['c_member_id']);
+        $date_list      = p_public_diary_list_date_list4c_member_id($target_member['c_member_id']);
 
 /////////////////////////
 //template set

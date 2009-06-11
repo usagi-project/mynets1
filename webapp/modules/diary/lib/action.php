@@ -130,12 +130,16 @@ function db_common_public_diary_monthly_calendar($year, $month, $c_member_id = n
     }
 
     // 最初に日記を書いた日
-    if (!$c_member_id){
-    $sql = "SELECT r_datetime FROM ".MYNETS_PREFIX_NAME."c_diary WHERE public_flag = 'open' ORDER BY r_datetime";
-    $first_datetime = db_get_one($sql);
-    }else{
-    $sql = "SELECT r_datetime FROM ".MYNETS_PREFIX_NAME."c_diary WHERE c_member_id = ? AND public_flag = 'open' ORDER BY r_datetime";
-    $first_datetime = db_get_one($sql, array(intval($c_member_id)));
+    if ( ! $c_member_id)
+    {
+        $sql = "SELECT r_datetime FROM ".MYNETS_PREFIX_NAME."c_diary WHERE public_flag = 'open' ORDER BY r_datetime";
+        $first_datetime = db_get_one($sql);
+    }
+    else
+    {
+        $sql = "SELECT r_datetime FROM ".MYNETS_PREFIX_NAME."c_diary WHERE c_member_id = ? AND public_flag = 'open' "
+             . "ORDER BY r_datetime";
+        $first_datetime = db_get_one($sql, array(intval($c_member_id)));
     }
 
     // 前の月、次の月
@@ -171,15 +175,19 @@ function db_common_public_diary_monthly_calendar($year, $month, $c_member_id = n
  */
 function p_public_diary_list_date_list4c_member_id($c_member_id = null)
 {
-    if(!$c_member_id){
-    $sql = "SELECT r_datetime FROM ".MYNETS_PREFIX_NAME."c_diary WHERE public_flag = 'open' ORDER BY r_datetime";
-    }else{
-    $sql = "SELECT r_datetime FROM ".MYNETS_PREFIX_NAME."c_diary" .
-        " WHERE c_member_id = ? AND public_flag = 'open'" .
-        " ORDER BY r_datetime";
-    $params = array(intval($c_member_id));
+    if( ! $c_member_id)
+    {
+        $sql = "SELECT r_datetime FROM ".MYNETS_PREFIX_NAME."c_diary WHERE public_flag = 'open' ORDER BY r_datetime";
     }
-    if (!$first_datetime = db_get_one($sql, $params)) {
+    else
+    {
+        $sql = "SELECT r_datetime FROM ".MYNETS_PREFIX_NAME."c_diary" .
+               " WHERE c_member_id = ? AND public_flag = 'open'" .
+               " ORDER BY r_datetime";
+        $params = array(intval($c_member_id));
+    }
+    if ( ! $first_datetime = db_get_one($sql, $params))
+    {
         return array();
     }
 
