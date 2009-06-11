@@ -62,44 +62,55 @@ class OpenPNE_RSS
         $trans_table['&apos;'] = "'";
 
         $result = array();
-        foreach ($feed->get_items() as $item) {
-            $title = $item->get_title();
-            $links = $item->get_links();
-            $description = $item->get_description();
-            $date = @$item->get_date('Y-m-d H:i:s');
+        $feed_item = $feed->get_items();
+        if ($feed_item)
+        {
+            foreach ($feed->get_items() as $item)
+            {
+                $title = $item->get_title();
+                $links = $item->get_links();
+                $description = $item->get_description();
+                $date = @$item->get_date('Y-m-d H:i:s');
 
-            if (!$title) {
-                $title = '';
-            }
+                if (!$title)
+                {
+                    $title = '';
+                }
 
-            if (!$description) {
-                $description = '';
-            }
+                if (!$description)
+                {
+                    $description = '';
+                }
 
-            if (!$links) {
-                $link = '';
-            } else {
-                $link = $links[0];
-            }
+                if (!$links)
+                {
+                    $link = '';
+                }
+                else
+                {
+                    $link = $links[0];
+                }
 
-            if (!$date) {
-                $date = '';
-            }
+                if (!$date)
+                {
+                    $date = '';
+                }
 
-            // エスケープされた文字列を元に戻す
+                // エスケープされた文字列を元に戻す
 //2007-12-14 shima3指摘＆が重複して処理される部分を対応
-            $title       = strtr($title      , $trans_table);
-            $description = strtr($description, $trans_table);
-            $link        = strtr($link       , $trans_table);
-            $link        = strtr($link       , $trans_table);
+                $title       = strtr($title      , $trans_table);
+                $description = strtr($description, $trans_table);
+                $link        = strtr($link       , $trans_table);
+                $link        = strtr($link       , $trans_table);
 
-            $f_item = array(
-                'title' => $this->convert_encoding($title),
-                'body'  => $this->convert_encoding($description),
-                'link'  => $link,
-                'date'  => $date,
-            );
-            $result[] = $f_item;
+                $f_item = array(
+                    'title' => $this->convert_encoding($title),
+                    'body'  => $this->convert_encoding($description),
+                    'link'  => $link,
+                    'date'  => $date,
+                );
+                $result[] = $f_item;
+            }
         }
         return $result;
     }
