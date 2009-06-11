@@ -42,7 +42,7 @@ class diary_page_list extends OpenPNE_Action
             $month = date('n');
             $this->set('all', 1);
 
-            $list_set = p_public_diary_list_diary_list4c_member_id($target_c_member_id, $page_size, $page, $u);
+            $list_set = p_public_diary_list_diary_list4c_member_id($target_c_member_id, $page_size, $page);
         }
 
         $this->set('target_diary_list', $list_set[0]);

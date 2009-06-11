@@ -37,7 +37,7 @@ class diary_page_home extends OpenPNE_Action
             $month = date('n');
             $this->set('all', 1);
 
-            $list_set = p_public_diary_list_diary_list4c_member_id($target_c_member_id, $page_size, $page, $u);
+            $list_set = p_public_diary_list_diary_list4c_member_id($target_c_member_id, $page_size, $page);
         }
 
         $this->set('target_diary_list', $list_set[0]);
@@ -57,7 +57,7 @@ class diary_page_home extends OpenPNE_Action
         $this->set('date_val', $date_val);
 
         //日記のカレンダー
-        $calendar = db_common_public_diary_monthly_calendar($year, $month, $target_c_member_id, $u);
+        $calendar = db_common_public_diary_monthly_calendar($year, $month, $target_c_member_id);
 
         $this->set('calendar', $calendar['days']);
         $this->set('ym', $calendar['ym']);
