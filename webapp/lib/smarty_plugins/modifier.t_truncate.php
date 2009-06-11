@@ -76,7 +76,7 @@ function smarty_modifier_t_truncate($string, $length = 80, $etc = '...',
     return htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
 }
 */
-function smarty_modifier_t_truncate($string, $length = 80, $etc = '...',
+function smarty_modifier_t_truncate($string, $length = 80, $etc = ' ...',
                                   $break_words = true)
 {
     if ($length == 0)
