@@ -252,7 +252,7 @@
 ({if $item.image_filename2})<a href="({t_img_url filename=$item.image_filename2})" class="thickbox" rel="gallery-plants({$item.c_commu_topic_id})" target="_blank"><img src="({t_img_url filename=$item.image_filename2 w=120 h=120})"></a>({/if})
 ({if $item.image_filename3})<a href="({t_img_url filename=$item.image_filename3})" class="thickbox" rel="gallery-plants({$item.c_commu_topic_id})" target="_blank"><img src="({t_img_url filename=$item.image_filename3 w=120 h=120})"></a>({/if})
 <br>
-({$item.body|t_truncate:160:"…"})
+({$item.body|bbcode2del|t_truncate:160:"…"})
 
 </div>
 
