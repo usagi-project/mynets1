@@ -86,7 +86,7 @@ function getNewUpdateTopic($size = 5, $event = 'topic')
             $wherecond .= " ct.event_flag = 1 ";
             //////////////////////////////////////////////////////
             //イベントの場合は過去日付を表示しないようにする
-            $date = date("Y-m-d H:i:s", strtotime("now"));
+            $date = date("Y-m-d", strtotime("now"));
             $wherecond .= "AND "
                             . "open_date >= '" . $date ."' ";
             $sql .= $wherecond . " ORDER BY "
