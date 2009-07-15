@@ -163,7 +163,7 @@ function getSiteNewReview($size = 5)
           . "GROUP BY "
                 . "crc.c_review_id "
           . "ORDER BY "
-                . "crc.r_datetime DESC";
+                . "MAX(crc.r_datetime) DESC";
 
     $result = db_get_all_limit($sql , 0, intval($size));
     return $result;
