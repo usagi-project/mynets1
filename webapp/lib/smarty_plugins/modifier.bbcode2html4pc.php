@@ -141,7 +141,7 @@ function smarty_modifier_bbcode2html4pc($message,$allowWiki=TRUE,$allowUrl=TRUE,
                     '/\[wiki\](.*?)\[\/wiki\]/si',
             );
             $message = preg_replace_callback($wktags1, "rep_singlequote", $message);
-            $preg['/\[wiki\](.*?)\[\/wiki\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"http\:\/\/www.wikipedia.org/search-redirect.php?language=ja&go=Go&search=\\1\" target=\"_blank\" title=\"Wikipediaで\\1を照会\">\\1<'+'/a>');</script><noscript>\\1</noscript>";
+            $preg['/\[wiki\](.*?)\[\/wiki\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"http\:\/\/ja.wikipedia.org/wiki/\\1\" target=\"_blank\" title=\"Wikipediaで\\1を照会\">\\1<'+'/a>');</script><noscript>\\1</noscript>";
 
             break;
         case FALSE:
