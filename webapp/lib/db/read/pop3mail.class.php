@@ -144,6 +144,8 @@ if (!function_exists('m_debug_log'))
         if (!MAIL_DEBUG_LOG) return;
 
         $log_path = OPENPNE_VAR_DIR . '/log/mail.log';
+        require_once OPENPNE_LIB_DIR . '/Log.php';
+
         $file =& Log::singleton('file', $log_path, 'MAIL');
 
         mb_convert_encoding($msg, 'JIS', 'auto');
