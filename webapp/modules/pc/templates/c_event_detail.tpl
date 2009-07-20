@@ -573,7 +573,7 @@
      <td class="border_01" style="width:526px; border-top:none;">
      <div class="padding_s"> <a name="({$item.number})"></a> <span class="c_08 b_b"> ({$item.number}):</span>&nbsp;<a href="({t_url m=pc a=page_f_home})&amp;target_c_member_id=({$item.c_member_id})">({$item.nickname|t_body:'name'})</a>&nbsp;
      ({if $c_member_id == $item.c_member_id || $c_member_id == $c_commu.c_member_id_admin}) <a href="({t_url m=pc a=page_c_event_write_delete_confirm})&amp;target_c_commu_topic_comment_id=({$item.c_commu_topic_comment_id})">削除</a> ({/if})
-&nbsp;&nbsp;<a href="#comment" onclick="javascript:document.getElementsByName('body').item(0).value += '>>({$item.number})&nbsp;({$item.nickname|replace:"&#039;":"’"})さん\n';"><img src="skin/default/img/write_pen01.gif" align="absmiddle" alt="レスをつける"></a> </div></td>
+&nbsp;&nbsp;<a href="#comment_entry" onclick="javascript:document.getElementsByName('body').item(0).value += '>>({$item.number})&nbsp;({$item.nickname|replace:"&#039;":"’"})さん\n';"><img src="skin/default/img/write_pen01.gif" align="absmiddle" alt="レスをつける"></a> </div></td>
 
      </tr>
      <tr>
