@@ -79,7 +79,8 @@ $GLOBALS['OpenPNE']['KTAI_DOMAINS'] = array(
     'dk.pdx.ne.jp',
     'wm.pdx.ne.jp',
     'emnet.ne.jp',
-    'i.softbank.ne.jp',     //20080714 iPhone用携帯アドレス追加
+    'i.softbank.jp',     //20080714 iPhone用携帯アドレス追加
+    					 //20090721 iPhone用アドレス記述ミスのため修正
 );
 
 // Smarty の設定
