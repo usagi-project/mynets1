@@ -624,7 +624,8 @@ function send_diary_comment_info_mail($c_diary_id, $c_member_id,$body)
         list($subject, $body) = $tpl;
     }
     //2008-08-07 ソフトバンクのiPhoneの場合を追加
-    elseif (strpos($ktai_address,'i.softbank.ne.jp') !== false) {
+    //2009-07-21 ドメイン記述ミスのため修正
+    elseif (strpos($ktai_address,'i.softbank.jp') !== false) {
         $tpl = fetch_mail_m_tpl("m_ktai_diary_comment_info", $params);
         if (!$tpl) {
             return false;
