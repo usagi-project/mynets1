@@ -136,8 +136,8 @@ if (! function_exists('p_h_review_add_search_result'))
             return null;
         }
 
-        include_once 'Services/AmazonECS4.php';
-        $amazon =& new Services_AmazonECS4(AMAZON_TOKEN, AMAZON_AFFID);
+        include_once 'OpenPNE/Amazon.php';
+        $amazon =& new OpenPNE_Amazon(AMAZON_ACCESS_KEY_ID, AMAZON_SECRET_ACCESS_KEY, AMAZON_AFFID);
         $amazon->setLocale(AMAZON_LOCALE);
         $amazon->setBaseUrl(AMAZON_BASEURL);
         /*
@@ -182,8 +182,8 @@ if (! function_exists('p_h_review_write_product4asin'))
 {
     function p_h_review_write_product4asin($asin)
     {
-        include_once 'Services/AmazonECS4.php';
-        $amazon =& new Services_AmazonECS4(AMAZON_TOKEN, AMAZON_AFFID);
+        include_once 'OpenPNE/Amazon.php';
+        $amazon =& new OpenPNE_Amazon(AMAZON_ACCESS_KEY_ID, AMAZON_SECRET_ACCESS_KEY, AMAZON_AFFID);
         $amazon->setLocale(AMAZON_LOCALE);
         $amazon->setBaseUrl(AMAZON_BASEURL);
         /*
