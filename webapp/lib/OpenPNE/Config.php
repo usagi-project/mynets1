@@ -174,10 +174,11 @@ class OpenPNE_Config
             'OPENPNE_SESSION_CHECK_URL' => false,
             'OPENPNE_INFO_URL' => 'http://usagi-project.org/PRESS/feed/',
             'DISPLAY_OPENPNE_INFO' => true,
+            'AMAZON_ACCESS_KEY_ID' => '',
+            'AMAZON_SECRET_ACCESS_KEY' => '',
         // 固定値
-            'AMAZON_TOKEN'   => '1WZYY1W9YF49AGM0RTG2',
             'AMAZON_LOCALE'  => 'jp',
-            'AMAZON_BASEURL' => 'http://webservices.amazon.co.jp/onca/xml?Service=AWSECommerceService',
+            'AMAZON_BASEURL' => 'http://ecs.amazonaws.jp/onca/xml',
             'CUSTUM_LOGIN_URL' => 0,
         );
 
