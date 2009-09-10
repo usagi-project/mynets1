@@ -180,7 +180,7 @@
 
                 <div class="padding_s">
 
-                ({$diary.r_datetime|date_format:"%m月%d日 %H:%M"})
+                ({$diary.r_datetime|date_format:"%Y年%m月%d日 %H:%M"})
                 ({if $diary.view_flag})
                 <img src="skin/default/img/new2.gif" align="absmiddle">
                 ({/if})

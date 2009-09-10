@@ -220,9 +220,8 @@
 <td style="width:110px;" class="bg_05" align="center" valign="middle" rowspan="5">
 
 <div class="padding_s">
-
+({$item.r_datetime|date_format:"%Y年"})<br>
 ({$item.r_datetime|date_format:"%m月%d日"})<br>({$item.r_datetime|date_format:"%H:%M"})
-
 </div>
 
 </td>
