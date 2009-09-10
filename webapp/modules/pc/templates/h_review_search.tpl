@@ -370,7 +370,7 @@
 
 <div class="padding_s">
 
-({$item.r_datetime|date_format:"%m月%d日 %H:%M"})
+({$item.r_datetime|date_format:"%Y%m月%d日 %H:%M"})
 </div>
 
 </td>
