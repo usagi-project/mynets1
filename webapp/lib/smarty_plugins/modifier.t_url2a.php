@@ -39,8 +39,6 @@ function smarty_modifier_t_url2a($string)
     $search = array('&quot;', '&#039;');
     $replace = array('"', "'");
     $string = str_replace($search, $replace, $string);
-    $urlpattern_tag = '/\[url=(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)\](.*?)\[\/url\]/si';
-    return preg_replace_callback($url_pattern_tag, 'smarty_modifier_t_url2a_callback_tag', $string);
 
     $url_pattern = '/https?:\/\/(?:[\w\-.,:;~^\/?@=+$%#!()*]|&amp;)+/';
     return preg_replace_callback($url_pattern, 'smarty_modifier_t_url2a_callback', $string);
@@ -51,8 +49,4 @@ function smarty_modifier_t_url2a_callback($matches)
     return pne_url2a($matches[0]);
 }
 
-function smarty_modifier_t_url2a_callback_tag($matchs)
-{
-         return '<a href="'.$matches[1].'" target="_blank">'.$matches[2].'</a>';
-}
 ?>
