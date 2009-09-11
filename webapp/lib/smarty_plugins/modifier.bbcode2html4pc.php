@@ -160,7 +160,17 @@ function smarty_modifier_bbcode2html4pc($message,$allowWiki=TRUE,$allowUrl=TRUE,
                 '/\[url=(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)\][^:\[]*https?[^:]*:\/\/(.*?)\[\/url\]/si',
                 '/\[url=(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)\](.*?)\[\/url\]/si'
             );
-
+            $test = array(
+          '/(?<!\\\\)\[url(?::\w+)?\]www\.(.*?)\[\/url(?::\w+)?\]/si'   => "http://www.\\1",
+          '/(?<!\\\\)\[url(?::\w+)?\](.*?)\[\/url(?::\w+)?\]/si'        => "\\1",
+          //'/(?<!\\\\)\[url(?::\w+)?=(https?)?(:\/\/|\.{0,2}\/)?\](.*?)\[\/url(?::\w+)?\]/si' =>
+          //"<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\4\" class=\"bb-url\">\\4<'+'/a>');</script><noscript>\\1'+'\\2\\3</noscript>",
+          '/\[url=(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)\](.*?)\[\/url\]/si' => "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\">\\4<'+'/a>');</script><noscript>\\1\\2\\3</noscript>",
+            );
+            //$message = preg_replace_callback($jstags1, "rep_singlequote", $message);
+            $message = preg_replace(array_keys($test), array_values($test), $message);
+            //$message = preg_replace_callback($jstags1, "rep_singlequote", $message);
+            /*
             $message = preg_replace_callback($jstags1, "rep_singlequote", $message);
 
             $preg['/\[url=(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)\](.*?)\[img\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\](.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\" class=\"bb-url\">\\4<img src=\"\\5'+'\\6\\7\" alt=\"\\5'+'\\6\\7\" class=\"bb-image\" width=\"".$imgWidth."\">\\8<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
@@ -168,6 +178,7 @@ function smarty_modifier_bbcode2html4pc($message,$allowWiki=TRUE,$allowUrl=TRUE,
             $preg['/\[url\](https?)?(:\/\/|\.{0,2}\/)([^\[]+?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\" class=\"bb-url\">\\1'+'\\2\\3<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
             $preg['/\[url=(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)\][^:\[]*https?[^:]*:\/\/(.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\">\\1'+'\\2\\3<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
             $preg['/\[url=(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)\](.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\">\\4<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
+            */
             /*
             $preg['/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[img\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\](.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\" class=\"bb-url\">\\4<img src=\"\\5'+'\\6\\7\" alt=\"\\5'+'\\6\\7\" class=\"bb-image\" width=\"".$imgWidth."\">\\8<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
             $preg['/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[img=(.*?)x(.*?)\](https?)?(:\/\/|\.{0,2}\/)(.+?)\[\/img\](.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\" class=\"bb-url\">\\4<img src=\"\\7'+'\\8\\9\" alt=\"\\7'+'\\8\\9\" class=\"bb-image\" width=\"\\5\" height=\"\\6\">\\{10}<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
@@ -175,6 +186,7 @@ function smarty_modifier_bbcode2html4pc($message,$allowWiki=TRUE,$allowUrl=TRUE,
             $preg['/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\][^:\[]*https?[^:]*:\/\/(.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\">\\1'+'\\2\\3<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
             $preg['/\[url=(?:&quot;|"|&#039;|\')?(https?)?(:\/\/|\.{0,2}\/)([^\]]+?)(?:&quot;|"|&#039;|\')?\](.*?)\[\/url\]/si'] = "<script type=\"text/javascript\">document.write('<a href=\"\\1'+'\\2\\3\" target=\"_blank\" title=\"\\1'+'\\2\\3\">\\4<'+'/a>');</script><noscript>\\1\\2\\3</noscript>";
             */
+            //$message = preg_replace(array_keys($preg), array_values($preg), $message);
             break;
         case FALSE:
         default:
@@ -219,8 +231,12 @@ function smarty_modifier_bbcode2html4pc($message,$allowWiki=TRUE,$allowUrl=TRUE,
 }
 
 function rep_singlequote($matches){
+    //print_r($matches);
+    //$msg = str_replace("&#039;", "", str_replace("&quot;", '', $matches[0]));
+    //print_r($matches[0]);
     $msg = h($matches[0]);
-    //$msg = str_replace("&amp;#039;", "", str_replace("&amp;quot;", "", $msg));
+
+    $msg = str_replace("&amp;", "&", $msg);
     return $msg;
 }
 

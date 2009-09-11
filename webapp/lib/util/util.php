@@ -503,6 +503,8 @@ function pne_check_diary_public_flag($c_diary_id, $c_member_id)
     return $allowed;
 }
 
+//2009-02-12 KUNIHARU Tsujioka update
+//タイトルが付いている場合の処理
 function pne_url2a($url, $target = '_blank')
 {
     $length = 60;
