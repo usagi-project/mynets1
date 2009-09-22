@@ -68,9 +68,9 @@ class pc_do_f_message_send_insert_c_message extends OpenPNE_Action
             $msg = '';
             if (empty($_SESSION['captcha_keystring']) || $_SESSION['captcha_keystring'] != $captcha)
             {
-                unset($_SESSION['captcha_keystring']);
                 $msg3 = "確認キーワードが誤っています";
             }
+            unset($_SESSION['captcha_keystring']);
         }
 
         if ($msg1 || $msg2 || $msg3) {
