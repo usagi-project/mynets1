@@ -49,9 +49,9 @@ class pc_do_f_link_request_insert_c_friend_confirm extends OpenPNE_Action
             $msg = '';
             if (empty($_SESSION['captcha_keystring']) || $_SESSION['captcha_keystring'] != $captcha)
             {
-                unset($_SESSION['captcha_keystring']);
                 $msg1 = "確認キーワードが誤っています";
             }
+            unset($_SESSION['captcha_keystring']);
         }
         if ($msg1) {
             $p = array(
