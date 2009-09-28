@@ -153,6 +153,9 @@ if (! function_exists('p_h_review_add_search_result'))
         $products = $amazon->ItemSearch($category, $options);
 
         if (PEAR::isError($products)) {
+            $error_code    = $products->getCode();
+            $error_message = $products->getMessage();
+            error_log('Amazon Product Advertising API Error: ' . $error_code . ': ' .  $error_message);
             return null;
         }
         if (empty($products['Request']['IsValid']) || $products['Request']['IsValid'] !== 'True') {
