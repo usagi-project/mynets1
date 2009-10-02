@@ -90,8 +90,10 @@ if ($act == 'check') {
 }
 
 //インストールするサーバーのURLを自動取得
-$current_url = "http://" . $_SERVER['HTTP_HOST'] . dirname(htmlspecialchars($_SERVER['PHP_SELF']));
-$current_url = preg_replace("/install$/", '', $current_url);
+if ($current_url == "") {
+    $current_url = "http://" . $_SERVER['HTTP_HOST'] . dirname(htmlspecialchars($_SERVER['PHP_SELF']));
+    $current_url = preg_replace("/install$/", '', $current_url);
+}
 
 //新規で作成できるかどうかをチェック
 $conn = mysql_connect($db_server, $db_user, $db_pass);
