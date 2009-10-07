@@ -70,8 +70,8 @@ var before_drag;
 var dummy;
 var hlng;
 var svicon = new GIcon();
-svicon.image = "http://maps.google.co.jp/intl/ja_jp/mapfiles/cb/man_arrow-0.png";
-svicon.transparent = "http://maps.google.com/intl/en_us/mapfiles/cb/man-pick.png";
+svicon.image = "http://maps.gstatic.com/intl/ja_jp/mapfiles/cb/man_arrow-0.png";
+svicon.transparent = "http://maps.gstatic.com/intl/ja_jp/mapfiles/cb/man-pick.png";
 svicon.iconSize = new GSize(49,52);
 svicon.iconAnchor = new GPoint(25,35);
 svicon.imageMap = [28,4, 28,35, 18,35, 18,4];
@@ -307,12 +307,10 @@ function loadMap() {
             $("mapsearch").style.display="block";
             $("viewwindow").style.display="block";
             if(svm != null) {
-                //IEでのエラー回避のためダミーエレメントを設置
                 if(svp != null) {
                     svp.remove();
                     svp = null;
                 }
-                makedummy();
             }
         }
     );
@@ -666,22 +664,14 @@ function svccallback(d) {
     }
     if(d.code == 200) {
         svm.setPoint(d.location.latlng);
-        maxdiv.innerHTML = '<div style="padding:5px;text-align:center"><img src="./skin/default/img/loading.gif"></div>';
+        maxdiv.innerHTML = '';
         svm.openInfoWindowHtml(maxdiv);
-        setTimeout(function(){svp = new GStreetviewPanorama(maxdiv,{latlng:d.location.latlng});addManEvent();checkchild();}, 500);
+        setTimeout(function(){svp = new GStreetviewPanorama(maxdiv,{latlng:d.location.latlng});addManEvent();}, 500);
     } else {
         svm.setPoint(before_drag);
-        maxdiv.innerHTML = '<div style="padding:5px;text-align:center"><img src="./skin/default/img/loading.gif"></div>';
+        maxdiv.innerHTML = '';
         svm.openInfoWindowHtml(maxdiv);
-        setTimeout(function(){svp = new GStreetviewPanorama(maxdiv,{latlng:before_drag});addManEvent();checkchild();}, 500);
-    }
-}
-
-function checkchild() {
-    if(maxdiv.childNodes[0].id != "") {
-        dummy = maxdiv.childNodes[0].id;
-    } else {
-        setTimeout(function(){checkchild();}, 10);
+        setTimeout(function(){svp = new GStreetviewPanorama(maxdiv,{latlng:before_drag});addManEvent();}, 500);
     }
 }
 
@@ -700,29 +690,6 @@ function svtextcallback(d) {
             existcv[c_viewnum] = 1;
         }
         hide_sv();
-    }
-}
-
-//IEでのエラー回避のためダミーエレメントを設置
-function makedummy() {
-    if(dummy != undefined && document.getElementById(dummy) == null) {
-        var panoflash = document.createElement('div');
-        panoflash.id = dummy;
-        panoflash.style.display = "none";
-        document.getElementsByTagName("body").item(0).appendChild(panoflash);
-        panoflash.SetReturnValue = function(){};
-    }
-    removedummy();
-}
-
-//ダミーエレメントを削除
-function removedummy() {
-    if(dummy != undefined) {
-        var panonumber = parseInt(dummy.replace("panoflash", "")) - 1;
-        var prevdummy = 'panoflash' + panonumber;
-        if(document.getElementById(prevdummy) != null) {
-            document.getElementsByTagName("body").item(0).removeChild(document.getElementById(prevdummy));
-        }
     }
 }
 
@@ -755,7 +722,7 @@ function addManEvent() {
                 var offset_lng = loc.latlng.lng() + xl_lng;
                 svm.setPoint(loc.latlng);
                 map.panTo(new GLatLng(offset_lat,offset_lng));
-                map.getInfoWindow().reposition(loc.latlng, new GSize(0,-35));
+                map.getInfoWindow().reset(loc.latlng, null, null, new GSize(0,-35));
             }
         }
     );
@@ -765,7 +732,7 @@ function addManEvent() {
         "yawchanged",
         function(yaw) {
             var dir = Math.round(yaw/22.5);
-            svicon.image = "http://maps.google.co.jp/intl/ja_jp/mapfiles/cb/man_arrow-" + dir + ".png";
+            svicon.image = "http://maps.gstatic.com/intl/ja_jp/mapfiles/cb/man_arrow-" + dir + ".png";
             if(svm != null) {
                 svm.setImage(svicon.image);
             }
@@ -781,7 +748,7 @@ function addDragEvent() {
         function() {
             map.closeInfoWindow();
             before_drag = svm.getPoint();
-            svicon.image = "http://maps.google.co.jp/intl/ja_jp/mapfiles/cb/man-0.png";
+            svicon.image = "http://maps.gstatic.com/intl/ja_jp/mapfiles/cb/man-0.png";
             if(svm != null) {
                 svm.setImage(svicon.image);
             }
@@ -792,12 +759,12 @@ function addDragEvent() {
         "drag",
         function() {
             if (!hlng || hlng < svm.getLatLng().lng()) {
-                svicon.image = "http://www.google.co.jp/intl/ja_jp/mapfiles/cb/man_fly_right.png";
+                svicon.image = "http://maps.gstatic.com/intl/ja_jp/mapfiles/cb/man_fly_right.png";
                 if(svm != null) {
                     svm.setImage(svicon.image);
                  }
             } else if (hlng > svm.getLatLng().lng()) {
-                svicon.image = "http://www.google.co.jp/intl/ja_jp/mapfiles/cb/man_fly_left.png";
+                svicon.image = "http://maps.gstatic.com/intl/ja_jp/mapfiles/cb/man_fly_left.png";
                 if(svm != null) {
                     svm.setImage(svicon.image);
                 }
@@ -809,7 +776,7 @@ function addDragEvent() {
         svm,
         "dragend",
         function() {
-            svicon.image = "http://maps.google.co.jp/intl/ja_jp/mapfiles/cb/man_arrow-0.png";
+            svicon.image = "http://maps.gstatic.com/intl/ja_jp/mapfiles/cb/man_arrow-0.png";
             if(svm != null) {
                 svm.setImage(svicon.image);
             }
