@@ -24,7 +24,7 @@ require_once './config.inc.php';
 
 header('Content-Type: text/javascript; charset=UTF-8');
 
- $html = "document.writeln('<script type=\"text/javascript\" charset=\"utf-8\" src=\"http://maps.google.co.jp/maps?file=api&amp;v=2.134&amp;key="
+ $html = "document.writeln('<script type=\"text/javascript\" charset=\"utf-8\" src=\"http://maps.google.co.jp/maps?file=api&amp;v=2.175&amp;key="
 . GOOGLE_MAPS_API_KEY
 . "\"></script>');";
 
