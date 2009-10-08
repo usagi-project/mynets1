@@ -90,10 +90,12 @@ function svcheckcallback(d) {
             "infowindowclose",
             function() {
                 if(svm != null) {
+                    //IEでのエラー回避のためダミーエレメントを設置
                     if(svp != null) {
                         svp.remove();
                         svp = null;
                     }
+                    makedummy();
                 }
             }
         );
@@ -105,18 +107,49 @@ function svcheckcallback(d) {
     }
 }
 
+//IEでのエラー回避のためダミーエレメントを設置
+function makedummy() {
+    if(dummy != undefined && document.getElementById(dummy) == null) {
+        var panoflash = document.createElement('div');
+        panoflash.id = dummy;
+        panoflash.style.display = "none";
+        document.getElementsByTagName("body").item(0).appendChild(panoflash);
+        panoflash.SetReturnValue = function(){};
+    }
+    removedummy();
+}
+
+//ダミーエレメントを削除
+function removedummy() {
+    if(dummy != undefined) {
+        var panonumber = parseInt(dummy.replace("panoflash", "")) - 1;
+        var prevdummy = 'panoflash' + panonumber;
+        if(document.getElementById(prevdummy) != null) {
+            document.getElementsByTagName("body").item(0).removeChild(document.getElementById(prevdummy));
+        }
+    }
+}
+
 //投稿位置情報に最も近い地点をインフォウィンドウへ表示・マンマーカーをプロット
 function svccallback(d) {
     if(d.code == 200) {
         svm.setPoint(d.location.latlng);
         maxdiv.innerHTML = '';
         svm.openInfoWindowHtml(maxdiv);
-        setTimeout(function(){svp = new GStreetviewPanorama(maxdiv,{latlng:d.location.latlng});addManEvent();}, 500);
+        setTimeout(function(){svp = new GStreetviewPanorama(maxdiv,{latlng:d.location.latlng});addManEvent();checkchild();}, 500);
     } else {
         svm.setPoint(before_drag);
         maxdiv.innerHTML = '';
         svm.openInfoWindowHtml(maxdiv);
-        setTimeout(function(){svp = new GStreetviewPanorama(maxdiv,{latlng:before_drag});addManEvent();}, 500);
+        setTimeout(function(){svp = new GStreetviewPanorama(maxdiv,{latlng:before_drag});addManEvent();checkchild();}, 500);
+    }
+}
+
+function checkchild() {
+    if(maxdiv.childNodes[0]) {
+        dummy = maxdiv.childNodes[0].id;
+    } else {
+        setTimeout(function(){checkchild();}, 10);
     }
 }
 

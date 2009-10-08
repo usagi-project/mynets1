@@ -307,10 +307,12 @@ function loadMap() {
             $("mapsearch").style.display="block";
             $("viewwindow").style.display="block";
             if(svm != null) {
+                //IEでのエラー回避のためダミーエレメントを設置
                 if(svp != null) {
                     svp.remove();
                     svp = null;
                 }
+                makedummy();
             }
         }
     );
@@ -666,12 +668,20 @@ function svccallback(d) {
         svm.setPoint(d.location.latlng);
         maxdiv.innerHTML = '';
         svm.openInfoWindowHtml(maxdiv);
-        setTimeout(function(){svp = new GStreetviewPanorama(maxdiv,{latlng:d.location.latlng});addManEvent();}, 500);
+        setTimeout(function(){svp = new GStreetviewPanorama(maxdiv,{latlng:d.location.latlng});addManEvent();checkchild();}, 500);
     } else {
         svm.setPoint(before_drag);
         maxdiv.innerHTML = '';
         svm.openInfoWindowHtml(maxdiv);
-        setTimeout(function(){svp = new GStreetviewPanorama(maxdiv,{latlng:before_drag});addManEvent();}, 500);
+        setTimeout(function(){svp = new GStreetviewPanorama(maxdiv,{latlng:before_drag});addManEvent();checkchild();}, 500);
+    }
+}
+
+function checkchild() {
+    if(maxdiv.childNodes[0]) {
+        dummy = maxdiv.childNodes[0].id;
+    } else {
+        setTimeout(function(){checkchild();}, 10);
     }
 }
 
@@ -690,6 +700,29 @@ function svtextcallback(d) {
             existcv[c_viewnum] = 1;
         }
         hide_sv();
+    }
+}
+
+//IEでのエラー回避のためダミーエレメントを設置
+function makedummy() {
+    if(dummy != undefined && document.getElementById(dummy) == null) {
+        var panoflash = document.createElement('div');
+        panoflash.id = dummy;
+        panoflash.style.display = "none";
+        document.getElementsByTagName("body").item(0).appendChild(panoflash);
+        panoflash.SetReturnValue = function(){};
+    }
+    removedummy();
+}
+
+//ダミーエレメントを削除
+function removedummy() {
+    if(dummy != undefined) {
+        var panonumber = parseInt(dummy.replace("panoflash", "")) - 1;
+        var prevdummy = 'panoflash' + panonumber;
+        if(document.getElementById(prevdummy) != null) {
+            document.getElementsByTagName("body").item(0).removeChild(document.getElementById(prevdummy));
+        }
     }
 }
 
