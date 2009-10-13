@@ -115,6 +115,32 @@ function smarty_modifier_t_url2pne_callback($matches)
         }
     }
 
+    // 2009-09-22 Add Start
+    /*
+     *  ログインIDを取得する。PCからアクセスの場合は、外部アクセスか否かも判断する。
+     */
+    $u = 0;
+    $ext_access = 0;
+    
+    if ($mdevs==1) { // pc
+        if (isset($GLOBALS['AUTH'])) {
+            $u = $GLOBALS['AUTH']->uid();
+        } else {
+            // 外部アクセス
+            $ext_access = 1;
+        }
+    } else { // KTAI
+        $u = $GLOBALS['KTAI_C_MEMBER_ID'];
+    }
+
+    /*
+     *  外部アクセスの場合、日記のURLを変更する。
+     */
+    if (($ext_access==1) && ($mtype==1)) {
+        $link_url = '?m=diary&a=page_detail&target_c_diary_id='.$param['target_c_diary_id'];
+    }
+    // 2009-09-22 Add End
+
     /*
      * mtype:     1:diary 2:bbs 3:f_home 4:commu_home 5:bbs 6:review
      * mdevs:     1:pc    2:KTAI
@@ -191,6 +217,94 @@ function smarty_modifier_t_url2pne_callback($matches)
             }
         }
     }
+
+    // 2009-09-22 Add Start
+    /*
+     *  日記へのリンク文字列をアクセス権限により編集する
+     */
+    $cannot_access_str = "【このページの公開は制限されています】";
+
+    if (($mtype==1) && (!empty($db_msg['subject']))) {
+        $target_uid   = $member['c_member_id'];
+        $public_flag  = $db_msg['public_flag'];
+        $diary_access = 0;
+
+        /*
+         *  日記の参照権限を確認する
+         */
+        // 外部アクセスの場合
+        if ($ext_access==1) {
+            // 外部公開日記のみアクセス可能
+            if ($public_flag == 'open') {
+                $diary_access = 2;
+            }
+        // ログインユーザの日記の場合
+        } else if ($target_uid == $u) {
+            $diary_access = 1;
+        // アクセスブロックされている場合
+        } else if (p_common_is_access_block($u, $target_uid)) {
+            $diary_access = 0;
+        // 
+        } else if (($public_flag == 'public')
+               || ($public_flag == 'open')
+               || ($public_flag == 'friend') && db_friend_is_friend($u, $target_uid)) {
+            $diary_access = 2;
+        } else {
+            $diary_access = 0;
+        }
+        // diary_access:     0: 参照不可  1: 自分の日記  2: 参照可能
+        // 自分の日記の場合、敬称を取る。
+        if ($diary_access == 1) {
+            $link_str = "【" . h($db_msg['subject']) . "】(" . h($member['nickname']) . "-" . $db_msg['r_datetime'] . ")";
+        // 参照可能な日記の場合、変更無し
+        } else if ($diary_access == 2) {
+            $link_str = "【" . h($db_msg['subject']) . "】(" . h($member['nickname']) . "さん-" . $db_msg['r_datetime'] . ")";
+        // 参照できない日記の場合
+        } else {
+            $link_str = $cannot_access_str;
+        }
+    }
+    
+    /*
+     *  トピックへのリンクの場合、トピック作成者の替わりにコミュ名を表示する
+     *  イベントへのリンクの場合、コミュ名を追加表示する
+     *  非公開コミュの場合、コミュメンバ以外は、表示を変更する
+     */
+    if (($mtype==2 || $mtype==5) && (!empty($db_msg['name']))) {
+        $commu_access = 0 ;
+        $link_str_commu = '';
+        $db_msg2 = _db_c_commu4c_commu_id($db_msg['c_commu_id']);
+
+        if (empty($db_msg2['name'])) {
+            $link_str_commu = "【該当するコミュニティはありません】"; // 念のため
+        } else {
+            $link_str_commu = "【" . h($db_msg2['name']) . "】コミュニティ";
+            
+            if ($db_msg2['public_flag'] == 'auth_commu_member') { // 非公開コミュニティ
+                if (($ext_access == 0) && (_db_is_c_commu_member($db_msg['c_commu_id'], $u))) {
+                    $commu_access = 1;
+                }
+            } else {
+                $commu_access = 1;
+            }
+        }
+        // commu_access:     0: 参照不可  1: 参照可能
+        if ($commu_access==1) {
+            // トピックへのリンク
+            if ($mtype==2 && ($db_msg['event_flag'] != 1)) {
+                // $link_str = "【" . h($db_msg['name']) . "】(" . h($member['nickname']) . "さん-" . $db_msg['r_datetime'] . ")";
+                $link_str = "【" . h($db_msg['name']) . "】(" . $link_str_commu . " " . $db_msg['r_datetime'] . ")";
+            // イベントへのリンク
+            } else {
+                // $link_str = "【" . h($db_msg['name']) . "】(開催日:" . $db_msg['open_date'] . " / 募集期間:" . $db_msg['invite_period'] . ")";
+                $link_str = "【" . h($db_msg['name']) . "】(" . $link_str_commu . " 開催日:" . $db_msg['open_date'] . " / 募集期間:" . $db_msg['invite_period'] . ")";
+            }
+        } else {
+                $link_str = $cannot_access_str;
+        }
+    }
+
+    // 2009-09-22 Add End
 
     /*
      *  トピック・イベントでコメントナンバーが付いたリンクの場合は動的にページを計算してリンクを付ける
