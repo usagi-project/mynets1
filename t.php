@@ -21,20 +21,33 @@
 
 
 $url = htmlspecialchars($_SERVER["QUERY_STRING"], ENT_QUOTES, 'Shift_JIS');
+$url_pattern = '/https?:\/\/(?:[\w\-.,:;~^\/?@=+$%#!()*]|&amp;)+/';
 
 header('Content-Type: text/html; charset=Shift_JIS');
 
-$html = "<html>\n"
-."<head>\n"
-."<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Shift_JIS\">"
-."</head>\n"
-."<body>ここからは外部のページを開きます。<br>サイトによっては正常に表示されない可能性があります。<br><br>"
-."<br>直接URLを開く場合は下をクリック<br><a href=\"".$url."\">".$url."</a><br>"
-."<br>モバイル用のページに変換して表示する(Google)<br>"
-."<a href=\"http://www.google.co.jp/gwt/n?u=".urlencode($url)."&_gwt_noimg=0\">".$url."</a><br>"
-."画像を非表示にする<br>"
-."<a href=\"http://www.google.co.jp/gwt/n?u=".urlencode($url)."&_gwt_noimg=1\">".$url."</a><br>"
-."<hr>"
-."</body></html>";
+if ( ! preg_match($url_pattern, $url))
+{
+    $html = "<html>\n"
+    ."<head>\n"
+    ."<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Shift_JIS\">"
+    ."</head>\n"
+    ."<body>URLを正しく認識することができませんでした。<br><br>"
+    ."</body></html>";
+}
+else
+{
+    $html = "<html>\n"
+    ."<head>\n"
+    ."<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Shift_JIS\">"
+    ."</head>\n"
+    ."<body>ここからは外部のページを開きます。<br>サイトによっては正常に表示されない可能性があります。<br><br>"
+    ."<br>直接URLを開く場合は下をクリック<br><a href=\"".urlencode($url)."\">".$url."</a><br>"
+    ."<br>モバイル用のページに変換して表示する(Google)<br>"
+    ."<a href=\"http://www.google.co.jp/gwt/n?u=".urlencode($url)."&_gwt_noimg=0\">".$url."</a><br>"
+    ."画像を非表示にする<br>"
+    ."<a href=\"http://www.google.co.jp/gwt/n?u=".urlencode($url)."&_gwt_noimg=1\">".$url."</a><br>"
+    ."<hr>"
+    ."</body></html>";
+}
 print($html);
 ?>
