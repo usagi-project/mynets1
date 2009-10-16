@@ -41,7 +41,7 @@ else
     ."<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Shift_JIS\">"
     ."</head>\n"
     ."<body>ここからは外部のページを開きます。<br>サイトによっては正常に表示されない可能性があります。<br><br>"
-    ."<br>直接URLを開く場合は下をクリック<br><a href=\"".urlencode($url)."\">".$url."</a><br>"
+    ."<br>直接URLを開く場合は下をクリック<br><a href=\"".$url."\">".$url."</a><br>"
     ."<br>モバイル用のページに変換して表示する(Google)<br>"
     ."<a href=\"http://www.google.co.jp/gwt/n?u=".urlencode($url)."&_gwt_noimg=0\">".$url."</a><br>"
     ."画像を非表示にする<br>"
