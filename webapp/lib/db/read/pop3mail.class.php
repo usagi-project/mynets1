@@ -62,7 +62,7 @@ class pop3mail
         for($i=1; $i<=$num; $i++) {
             $line     = $this->sendCommand("RETR $i"); //メッセージ取得
             $raw_mail = '';
-            while (!ereg("^\.\r\n", $line))
+            while ( ! preg_match("/^\.\r\n/", $line))
             {
                 $line      = fgets($this->sock, 512);
                 $raw_mail .= $line;

@@ -1,4 +1,4 @@
-<?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
  * CodeIgniter
  *
@@ -6,7 +6,7 @@
  *
  * @package		CodeIgniter
  * @author		ExpressionEngine Dev Team
- * @copyright	Copyright (c) 2006, EllisLab, Inc.
+ * @copyright	Copyright (c) 2008 - 2009, EllisLab, Inc.
  * @license		http://codeigniter.com/user_guide/license.html
  * @link		http://codeigniter.com
  * @since		Version 1.0
@@ -35,7 +35,7 @@
  * @access	public
  * @return	integer
  */	
-if (! function_exists('now'))
+if ( ! function_exists('now'))
 {
 	function now()
 	{
@@ -80,7 +80,7 @@ if (! function_exists('now'))
  * @param	integer
  * @return	integer
  */	
-if (! function_exists('mdate'))
+if ( ! function_exists('mdate'))
 {
 	function mdate($datestr = '', $time = '')
 	{
@@ -107,7 +107,7 @@ if (! function_exists('mdate'))
  * @param	integer	Unix timestamp
  * @return	string
  */	
-if (! function_exists('standard_date'))
+if ( ! function_exists('standard_date'))
 {
 	function standard_date($fmt = 'DATE_RFC822', $time = '')
 	{
@@ -145,7 +145,7 @@ if (! function_exists('standard_date'))
  * @param	integer	Unix timestamp
  * @return	integer
  */	
-if (! function_exists('timespan'))
+if ( ! function_exists('timespan'))
 {
 	function timespan($seconds = 1, $time = '')
 	{
@@ -262,7 +262,7 @@ if (! function_exists('timespan'))
  * @param	integer	a numeric year
  * @return	integer
  */	
-if (! function_exists('days_in_month'))
+if ( ! function_exists('days_in_month'))
 {
 	function days_in_month($month = 0, $year = '')
 	{
@@ -298,7 +298,7 @@ if (! function_exists('days_in_month'))
  * @param	integer Unix timestamp
  * @return	integer
  */	
-if (! function_exists('local_to_gmt'))
+if ( ! function_exists('local_to_gmt'))
 {
 	function local_to_gmt($time = '')
 	{
@@ -324,7 +324,7 @@ if (! function_exists('local_to_gmt'))
  * @param	bool	whether DST is active
  * @return	integer
  */	
-if (! function_exists('gmt_to_local'))
+if ( ! function_exists('gmt_to_local'))
 {
 	function gmt_to_local($time = '', $timezone = 'UTC', $dst = FALSE)
 	{			
@@ -353,7 +353,7 @@ if (! function_exists('gmt_to_local'))
  * @param	integer Unix timestamp
  * @return	integer
  */	
-if (! function_exists('mysql_to_unix'))
+if ( ! function_exists('mysql_to_unix'))
 {
 	function mysql_to_unix($time = '')
 	{
@@ -390,7 +390,7 @@ if (! function_exists('mysql_to_unix'))
  * @param	string	format: us or euro
  * @return	string
  */	
-if (! function_exists('unix_to_human'))
+if ( ! function_exists('unix_to_human'))
 {
 	function unix_to_human($time = '', $seconds = FALSE, $fmt = 'us')
 	{
@@ -430,7 +430,7 @@ if (! function_exists('unix_to_human'))
  * @param	string	format: us or euro
  * @return	integer
  */	
-if (! function_exists('human_to_unix'))
+if ( ! function_exists('human_to_unix'))
 {
 	function human_to_unix($datestr = '')
 	{
@@ -442,7 +442,7 @@ if (! function_exists('human_to_unix'))
 		$datestr = trim($datestr);
 		$datestr = preg_replace("/\040+/", "\040", $datestr);
 
-		if ( ! ereg("^[0-9]{2,4}\-[0-9]{1,2}\-[0-9]{1,2}\040[0-9]{1,2}:[0-9]{1,2}.*$", $datestr))
+		if ( ! preg_match('/^[0-9]{2,4}\-[0-9]{1,2}\-[0-9]{1,2}\s[0-9]{1,2}:[0-9]{1,2}(?::[0-9]{1,2})?(?:\s[AP]M)?$/i', $datestr))
 		{
 			return FALSE;
 		}
@@ -460,7 +460,7 @@ if (! function_exists('human_to_unix'))
 		$hour = (strlen($ex['0']) == 1) ? '0'.$ex['0'] : $ex['0'];
 		$min  = (strlen($ex['1']) == 1) ? '0'.$ex['1'] : $ex['1'];
 
-		if (isset($ex['2']) AND ereg("[0-9]{1,2}", $ex['2']))
+		if (isset($ex['2']) && preg_match('/[0-9]{1,2}/', $ex['2']))
 		{
 			$sec  = (strlen($ex['2']) == 1) ? '0'.$ex['2'] : $ex['2'];
 		}
@@ -501,7 +501,7 @@ if (! function_exists('human_to_unix'))
  * @param	string	menu name
  * @return	string
  */	
-if (! function_exists('timezone_menu'))
+if ( ! function_exists('timezone_menu'))
 {
 	function timezone_menu($default = 'UTC', $class = "", $name = 'timezones')
 	{
@@ -544,44 +544,54 @@ if (! function_exists('timezone_menu'))
  * @param	string	timezone
  * @return	string
  */	
-if (! function_exists('timezones'))
+if ( ! function_exists('timezones'))
 {
 	function timezones($tz = '')
 	{
 		// Note: Don't change the order of these even though
 		// some items appear to be in the wrong order
 		
-		$zones = array(
-						'UM12' => -12,
-						'UM11' => -11,
-						'UM10' => -10,
-						'UM9'  => -9,
-						'UM8'  => -8,
-						'UM7'  => -7,
-						'UM6'  => -6,
-						'UM5'  => -5,
-						'UM4'  => -4,
-						'UM25' => -2.5,
-						'UM3'  => -3,
-						'UM2'  => -2,
-						'UM1'  => -1,
-						'UTC'  => 0,
-						'UP1'  => +1,
-						'UP2'  => +2,
-						'UP3'  => +3,
-						'UP25' => +2.5,
-						'UP4'  => +4,
-						'UP35' => +3.5,
-						'UP5'  => +5,
-						'UP45' => +4.5,
-						'UP6'  => +6,
-						'UP7'  => +7,
-						'UP8'  => +8,
-						'UP9'  => +9,
-						'UP85' => +8.5,
-						'UP10' => +10,
-						'UP11' => +11,
-						'UP12' => +12
+		$zones = array( 
+						'UM12'		=> -12,
+						'UM11'		=> -11,
+						'UM10'		=> -10,
+						'UM95'		=> -9.5,
+						'UM9'		=> -9,
+						'UM8'		=> -8,
+						'UM7'		=> -7,
+						'UM6'		=> -6,
+						'UM5'		=> -5,
+						'UM45'		=> -4.5,
+						'UM4'		=> -4,
+						'UM35'		=> -3.5,
+						'UM3'		=> -3,
+						'UM2'		=> -2,
+						'UM1'		=> -1,
+						'UTC'		=> 0,
+						'UP1'		=> +1,
+						'UP2'		=> +2,
+						'UP3'		=> +3,
+						'UP35'		=> +3.5,
+						'UP4'		=> +4,
+						'UP45'		=> +4.5,
+						'UP5'		=> +5,
+						'UP55'		=> +5.5,
+						'UP575'		=> +5.75,
+						'UP6'		=> +6,
+						'UP65'		=> +6.5,
+						'UP7'		=> +7,
+						'UP8'		=> +8,
+						'UP875'		=> +8.75,
+						'UP9'		=> +9,
+						'UP95'		=> +9.5,
+						'UP10'		=> +10,
+						'UP105'		=> +10.5,
+						'UP11'		=> +11,
+						'UP115'		=> +11.5,
+						'UP12'		=> +12,
+						'UP1275'	=> +12.75,
+						'UP13'		=> +13,
+						'UP14'		=> +14
 					);
 				
 		if ($tz == '')
@@ -596,4 +606,6 @@ if (! function_exists('timezones'))
 	}
 }
 
-?>
+
+/* End of file date_helper.php */
+/* Location: ./system/helpers/date_helper.php */

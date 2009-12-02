@@ -108,8 +108,10 @@ function qr_code_create($data, $err_level, $size, $ver, $path, $image_path){
 
   /*  --- determine encode mode */
 
-  if (ereg("[^0-9]",$qrcode_data_string)){
-    if (ereg("[^0-9A-Z \$\*\%\+\-\.\/\:]",$qrcode_data_string)) {
+/*if (ereg("[^0-9]",$qrcode_data_string)){
+    if (ereg("[^0-9A-Z \$\*\%\+\-\.\/\:]",$qrcode_data_string)) {*/
+if (preg_match("/[^0-9]/",$qrcode_data_string)!=0){
+    if (preg_match("/[^0-9A-Z \$\*\%\+\.\/\:\-]/",$qrcode_data_string)!=0) {
 
      /*  --- 8bit byte mode */
 
