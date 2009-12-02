@@ -1,12 +1,12 @@
  <form name="login_form" method="post" action="step6.php" target="_parent">
  <input type="hidden" name="task" value="step5" />
- <input type="hidden" name="set_language" value="<?= $set_language ?>" />
- <input type="hidden" name="db_server" value="<?= $db_server ?>" />
- <input type="hidden" name="db_user" value="<?= $db_user ?>" />
- <input type="hidden" name="db_pass" value="<?= $db_pass ?>" />
- <input type="hidden" name="db_name" value="<?= $db_name ?>" />
- <!--<input type="hidden" name="db_version" value="<?= $db_version ?>" />-->
- <input type="hidden" name="image_max_size" value="<?= $image_max_size ?>" />
+ <input type="hidden" name="set_language" value="<?php echo  $set_language; ?>" />
+ <input type="hidden" name="db_server" value="<?php echo  $db_server; ?>" />
+ <input type="hidden" name="db_user" value="<?php echo  $db_user; ?>" />
+ <input type="hidden" name="db_pass" value="<?php echo  $db_pass; ?>" />
+ <input type="hidden" name="db_name" value="<?php echo  $db_name; ?>" />
+ <!--<input type="hidden" name="db_version" value="<?php echo  $db_version; ?>" />-->
+ <input type="hidden" name="image_max_size" value="<?php echo  $image_max_size; ?>" />
  <table cellspacing="2" cellpadding="1" style="margin: 20px;vertical-align:middle;width:480px">
      <tbody>
      <tr>
@@ -30,8 +30,8 @@
          <td style="text-align:right;width:120px">
          処理の選択:</td>
          <td style="text-align:left;width:360px">
-         <input name="update_check" type="radio" value="0"<?php if ($dbcheck) print " checked=\"checked\"" ?> />指定したDB（<?= $db_name ?>）にインストールする<br />
-         <!--<input name="update_check" type="radio" value="1"<?php if (!$dbcheck) print " checked=\"checked\"" ?> />新しく作成する
+         <input name="update_check" type="radio" value="0"<?php if ($dbcheck) print " checked=\"checked\""; ?> />指定したDB（<?php echo  $db_name; ?>）にインストールする<br />
+         <!--<input name="update_check" type="radio" value="1"<?php if (!$dbcheck) print " checked=\"checked\""; ?> />新しく作成する
          <input type="text" name="new_db" value="" style="width:200px;" /><br />-->
          <input name="update_check" type="radio" value="9" />インストール作業を中止し最初に戻る
 

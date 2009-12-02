@@ -8,7 +8,7 @@
     </tr>
     <tr>
         <td colspan="2" style="text-align:center;">
-        <p class="style2 fsxl">MyNETS<?= MYNETS_VERSION_NO ?>をインストールします</p></td>
+        <p class="style2 fsxl">MyNETS<?php echo  MYNETS_VERSION_NO; ?>をインストールします</p></td>
     </tr>
     <tr>
          <td style="text-align:right;width:120px">

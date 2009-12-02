@@ -1,6 +1,6 @@
  <form name="login_form" method="post" action="step3.php" target="_parent">
  <input type="hidden" name="task" value="step2" />
- <input type="hidden" name="set_language" value="<?= $set_language ?>" />
+ <input type="hidden" name="set_language" value="<?php echo  $set_language; ?>" />
  <table cellspacing="2" cellpadding="1" style="margin: 20px;vertical-align:middle;width:480px">
      <tbody>
      <tr>
@@ -9,7 +9,7 @@
      </tr>
      <tr>
          <td colspan="2" style="text-align:center;">
-         <?= $parm_err['config']['msg']; ?>
+         <?php echo  $parm_err['config']['msg']; ?>
          </td>
      </tr>
      <?php
@@ -28,7 +28,7 @@
      ?>
      <tr>
          <td style="text-align:center" colspan="2">configファイル
-         <?= $parm_err['dir']['msg']; ?>
+         <?php echo  $parm_err['dir']['msg']; ?>
          </td>
      </tr>
      <tr>
@@ -36,7 +36,7 @@
          <div class ="GREEN  fsxl"><br /><br />
          こちらのウィザードを利用してサーバー上で config.php ファイルを作成することができます。
          <br />しかし、この方法はすべての環境での動作を保障することができませんのでご了承ください。
-         <br />最も確実な方法は、config.php.sample を参考に手動でファイルを作成することです。 
+         <br />最も確実な方法は、config.php.sample を参考に手動でファイルを作成することです。
          <br />Usagi Project 公式ホームページを参考にしてください。<br /><br />
          </td>
      </tr>
@@ -64,7 +64,7 @@
      </tr>
      <?php
      }
-     
+
      }
      ?>
      </tbody>

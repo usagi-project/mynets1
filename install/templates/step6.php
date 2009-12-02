@@ -3,35 +3,35 @@
  ?>
  <form name="login_form" method="post" action="step7.php" target="_parent">
  <input type="hidden" name="task" value="step6" />
- <input type="hidden" name="set_language" value="<?= $set_language ?>" />
- <input type="hidden" name="db_server" value="<?= $db_server ?>" />
- <input type="hidden" name="db_user" value="<?= $db_user ?>" />
- <input type="hidden" name="db_pass" value="<?= $db_pass ?>" />
- <input type="hidden" name="db_name" value="<?= $db_name ?>" />
- <!--<input type="hidden" name="db_version" value="<?= $db_version ?>" />-->
- <input type="hidden" name="db_prefix" value="<?= $db_prefix ?>" />
- <input type="hidden" name="current_url" value="<?= $current_url ?>" />
- <input type="hidden" name="db_crypt_key" value="<?= $db_crypt_key ?>" />
- <input type="hidden" name="mail_domain" value="<?= $mail_domain ?>" />
- <input type="hidden" name="map_api_key" value="<?= $map_api_key ?>" />
- <input type="hidden" name="image_max_size" value="<?= $image_max_size ?>" />
+ <input type="hidden" name="set_language" value="<?php echo  $set_language; ?>" />
+ <input type="hidden" name="db_server" value="<?php echo  $db_server; ?>" />
+ <input type="hidden" name="db_user" value="<?php echo  $db_user; ?>" />
+ <input type="hidden" name="db_pass" value="<?php echo  $db_pass; ?>" />
+ <input type="hidden" name="db_name" value="<?php echo  $db_name; ?>" />
+ <!--<input type="hidden" name="db_version" value="<?php echo  $db_version; ?>" />-->
+ <input type="hidden" name="db_prefix" value="<?php echo  $db_prefix; ?>" />
+ <input type="hidden" name="current_url" value="<?php echo  $current_url; ?>" />
+ <input type="hidden" name="db_crypt_key" value="<?php echo  $db_crypt_key; ?>" />
+ <input type="hidden" name="mail_domain" value="<?php echo  $mail_domain; ?>" />
+ <input type="hidden" name="map_api_key" value="<?php echo  $map_api_key; ?>" />
+ <input type="hidden" name="image_max_size" value="<?php echo  $image_max_size; ?>" />
  <?php
  } else {
  ?>
  <form name="login_form" method="post" action="step6.php" target="_parent">
  <input type="hidden" name="act" value="check" />
  <input type="hidden" name="task" value="step6" />
- <input type="hidden" name="set_language" value="<?= $set_language ?>" />
- <input type="hidden" name="db_server" value="<?= $db_server ?>" />
- <input type="hidden" name="db_user" value="<?= $db_user ?>" />
- <input type="hidden" name="db_pass" value="<?= $db_pass ?>" />
- <input type="hidden" name="db_name" value="<?= $db_name ?>" />
- <!--<input type="hidden" name="db_version" value="<?= $db_version ?>" />-->
- <input type="hidden" name="image_max_size" value="<?= $image_max_size ?>" />
+ <input type="hidden" name="set_language" value="<?php echo  $set_language; ?>" />
+ <input type="hidden" name="db_server" value="<?php echo  $db_server; ?>" />
+ <input type="hidden" name="db_user" value="<?php echo  $db_user; ?>" />
+ <input type="hidden" name="db_pass" value="<?php echo  $db_pass; ?>" />
+ <input type="hidden" name="db_name" value="<?php echo  $db_name; ?>" />
+ <!--<input type="hidden" name="db_version" value="<?php echo  $db_version; ?>" />-->
+ <input type="hidden" name="image_max_size" value="<?php echo  $image_max_size; ?>" />
  <?php
  }
  ?>
- 
+
  <table cellspacing="2" cellpadding="1" style="margin: 20px;vertical-align:middle;width:480px">
      <tbody>
      <tr>
@@ -72,7 +72,7 @@
      </tr>
      <tr>
          <td colspan="2" style="text-align:center;">
-         <?= $set_language ?>
+         <?php echo  $set_language; ?>
      </tr>-->
      <tr>
          <td colspan="2" style="text-align:center;" class="c900 fsxl">
@@ -80,7 +80,7 @@
      </tr>
      <tr>
          <td colspan="2" style="text-align:center;" class=" fsxl">
-         <?= $db_prefix ?>
+         <?php echo  $db_prefix; ?>
      </tr>
      <tr>
          <td colspan="2" style="text-align:center;" class="c900 fsxl">
@@ -88,7 +88,7 @@
      </tr>
      <tr>
          <td colspan="2" style="text-align:center;" class=" fsxl">
-         <?= $current_url ?>
+         <?php echo  $current_url; ?>
          </td>
      </tr>
      <tr>
@@ -97,7 +97,7 @@
      </tr>
      <tr>
          <td colspan="2" style="text-align:center;" class=" fsxl">
-         <?= $db_crypt_key ?>
+         <?php echo  $db_crypt_key; ?>
          </td>
      </tr>
      <tr>
@@ -106,7 +106,7 @@
      </tr>
      <tr>
          <td colspan="2" style="text-align:center;" class=" fsxl">
-         <?= $mail_domain ?>
+         <?php echo  $mail_domain; ?>
          </td>
      </tr>
      <tr>
@@ -115,7 +115,7 @@
      </tr>
      <tr>
          <td colspan="2" style="text-align:center;" class=" fsxl">
-         <?= $map_api_key ?>
+         <?php echo  $map_api_key; ?>
          </td>
      </tr>
      <tr>
@@ -125,7 +125,7 @@
      </tr>
      <tr>
          <td colspan="2" style="text-align:center;" class="fsxl">
-         <?= $image_max_size ?>
+         <?php echo  $image_max_size; ?>
          </td>
      </tr>
      <tr>
@@ -141,7 +141,7 @@
      ?>
      <tr>
          <td colspan="2" style="text-align:center;">
-         <p class="c900"><?= $errmsg ?></p>
+         <p class="c900"><?php echo  $errmsg; ?></p>
          </td>
      </tr>
 
@@ -149,7 +149,7 @@
          <td style="text-align:right;width:120px">
          prefix:</td>
          <td style="text-align:left;">
-         <input type="text" name="db_prefix" value="<?= $db_prefix ?>" style="width:200px" class="textbox" />
+         <input type="text" name="db_prefix" value="<?php echo  $db_prefix; ?>" style="width:200px" class="textbox" />
      </tr>
      <tr>
          <td style="text-align:right;width:120px">
@@ -163,7 +163,7 @@
          <td style="text-align:right;width:120px">
          サイトのURL:</td>
          <td style="text-align:left;width:360px">
-         <input type="text" name="current_url" value="<?= $current_url ?>" style="width:200px" class="textbox" />
+         <input type="text" name="current_url" value="<?php echo  $current_url; ?>" style="width:200px" class="textbox" />
          </td>
      </tr>
      <tr>
@@ -177,7 +177,7 @@
          <td style="text-align:right;width:120px">
          DB暗号化キー:</td>
          <td style="text-align:left;width:360px">
-         <input type="text" name="db_crypt_key" value="<?= $db_crypt_key ?>" style="width:200px" class="textbox" />
+         <input type="text" name="db_crypt_key" value="<?php echo  $db_crypt_key; ?>" style="width:200px" class="textbox" />
          </td>
      </tr>
      <tr>
@@ -192,7 +192,7 @@
          <td style="text-align:right;width:120px">
          メールサーバドメイン名:</td>
          <td style="text-align:left;width:360px">
-         <input type="text" name="mail_domain" value="<?= $mail_domain ?>" style="width:200px" class="textbox" />
+         <input type="text" name="mail_domain" value="<?php echo  $mail_domain; ?>" style="width:200px" class="textbox" />
          </td>
      </tr>
      <tr>
@@ -200,14 +200,14 @@
          </td>
          <td>
          SNSでやりとりを行うメール送信の際のドメイン名です。<br />
-         例：mail.usagi.com 
+         例：mail.usagi.com
          </td>
      </tr>
      <tr>
          <td style="text-align:right;width:120px">
          Google Maps API key:</td>
          <td style="text-align:left;width:360px">
-         <input type="text" name="map_api_key" value="<?= $map_api_key ?>" style="width:320px" class="textbox" />
+         <input type="text" name="map_api_key" value="<?php echo  $map_api_key; ?>" style="width:320px" class="textbox" />
          </td>
      </tr>
      <tr>
