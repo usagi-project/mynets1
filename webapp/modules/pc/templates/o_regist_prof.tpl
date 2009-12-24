@@ -151,15 +151,15 @@
 <div class="padding_s">
 
 <select name="birth_month">
-<option value="">--
+<option value="">--</option>
 ({foreach from=$month_list item=item})
-<option value="({$item})"({if $profs.birth_month==$item}) selected="selected"({/if})>({$item})
+<option value="({$item})"({if $profs.birth_month==$item}) selected="selected"({/if})>({$item})</option>
 ({/foreach})
 </select>月
 <select name="birth_day">
-<option value="">--
+<option value="">--</option>
 ({foreach from=$day_list item=item})
-<option value="({$item})"({if $profs.birth_day==$item}) selected="selected"({/if})>({$item})
+<option value="({$item})"({if $profs.birth_day==$item}) selected="selected"({/if})>({$item})</option>
 ({/foreach})
 </select>日
 
