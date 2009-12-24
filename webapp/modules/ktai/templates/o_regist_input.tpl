@@ -28,20 +28,21 @@
 <select name="public_flag_birth_year">
     ({foreach from=$public_flags key=key item=item})
     <option value="({$key})"({if $ses_vars.prof.public_flag_birth_year == $key}) selected="selected"({/if})>({$item})
+    </option>
     ({/foreach})
 </select><br>
 
 <font color="red">*</font>誕生日<br>
 <select name="birth_month">
-    <option value=""({if !$ses_vars.prof.birth_month}) selected="selected"({/if})>--
+    <option value=""({if !$ses_vars.prof.birth_month}) selected="selected"({/if})>--</option>
     ({foreach from=$month_list item=item})
-    <option value="({$item})"({if $ses_vars.prof.birth_month==$item}) selected="selected"({/if})>({$item})
+    <option value="({$item})"({if $ses_vars.prof.birth_month==$item}) selected="selected"({/if})>({$item})</option>
     ({/foreach})
 </select>月<br>
 <select name="birth_day">
-    <option value=""({if !$ses_vars.prof.birth_day}) selected="selected"({/if})>--
+    <option value=""({if !$ses_vars.prof.birth_day}) selected="selected"({/if})>--</option>
     ({foreach from=$day_list item=item})
-    <option value="({$item})"({if $ses_vars.prof.birth_day==$item}) selected="selected"({/if})>({$item})
+    <option value="({$item})"({if $ses_vars.prof.birth_day==$item}) selected="selected"({/if})>({$item})</option>
     ({/foreach})
 </select>日<br>
 ({/capture})
@@ -82,9 +83,9 @@
         <textarea name="profile[({$profile.name})]">({$ses_vars.profile_list[$profile.name].value})</textarea>
     ({elseif $profile.form_type == 'select' || $profile.form_type == 'radio'})
         <select name="profile[({$profile.name})]">
-            <option value="">選択してください
+            <option value="">選択してください</option>
             ({foreach item=item from=$profile.options})
-            <option value="({$item.c_profile_option_id})"({if $ses_vars.profile_list[$profile.name].value == $item.value}) selected="selected"({/if})>({$item.value|default:"--"})
+            <option value="({$item.c_profile_option_id})"({if $ses_vars.profile_list[$profile.name].value == $item.value}) selected="selected"({/if})>({$item.value|default:"--"})</option>
             ({/foreach})
         </select>
     ({elseif $profile.form_type == 'checkbox'})
@@ -99,9 +100,9 @@
     <select name="public_flag[({$profile.name})]">
         ({foreach from=$public_flags key=key item=item})
         ({if !$ses_vars.profile_list[$profile.name].public_flag})
-        <option value="({$key})"({if $profile.public_flag_default==$key}) selected="selected"({/if})>({$item})
+        <option value="({$key})"({if $profile.public_flag_default==$key}) selected="selected"({/if})>({$item})</option>
         ({else})
-        <option value="({$key})"({if $ses_vars.profile_list[$profile.name].public_flag==$key}) selected="selected"({/if})>({$item})
+        <option value="({$key})"({if $ses_vars.profile_list[$profile.name].public_flag==$key}) selected="selected"({/if})>({$item})</option>
         ({/if})
         ({/foreach})
     </select>
@@ -132,9 +133,9 @@
 <br>
 <font color="red">*</font>秘密の質問<br>
 <select name="c_password_query_id">
-    <option value="0">選択してください
+    <option value="0">選択してください</option>
     ({foreach from=$password_query_list key=key item=item})
-    <option value="({$key})">({$item})
+    <option value="({$key})">({$item})</option>
     ({/foreach})
 </select><br>
 
