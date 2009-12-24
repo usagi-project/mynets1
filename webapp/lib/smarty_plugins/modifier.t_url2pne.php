@@ -67,8 +67,9 @@ function smarty_modifier_t_url2pne_callback($matches)
             $link_url = '?m=pc&a=page_fh_diary&target_c_diary_id='.$param['target_c_diary_id'];
             $mtype=1;
         } else if ( array_key_exists('target_c_commu_topic_id',$param) ) {
-            //        $param['a'] = page_c_event_detail or page_c_topic_detail
-            $link_url = '?m=pc&a=' . $param['a'] . '&target_c_commu_topic_id='.$param['target_c_commu_topic_id'];
+            //$param['a'] = page_c_event_detail or page_c_topic_detail page_c_topic_detail
+            //$link_url = '?m=pc&a=' . $param['a'] . '&target_c_commu_topic_id='.$param['target_c_commu_topic_id'];
+            $link_url = '?m=pc&a=page_c_topic_detail&target_c_commu_topic_id='.$param['target_c_commu_topic_id'];
             $mtype=2;
             //イベントがアクションで指定されている場合は、イベントとする。見つからない時にトピックになってしまうバグ対処
             if ($param['a'] == 'page_c_event_detail') {
