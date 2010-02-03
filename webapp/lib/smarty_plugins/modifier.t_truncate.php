@@ -76,41 +76,77 @@ function smarty_modifier_t_truncate($string, $length = 80, $etc = '...',
     return htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
 }
 */
-function smarty_modifier_t_truncate($string, $length = 80, $etc = ' ...',
-                                  $break_words = true)
+
+function smarty_modifier_t_truncate($string, $length = 80, $etc = '...')
 {
     if ($length == 0)
+    {
         return '';
+    }
 
-    $from = array('&amp;', '&lt;', '&gt;', '&quot;', '&#039;');
+    $from = array('&amp;', '&lt;', '&gt;', '&quot;', '&#039;', "\r\n", "\r", "\n");
     $to   = array('&', '<', '>', '"', "'");
     $string = str_replace($from, $to, $string);
 
-    //古い絵文字コードを取り除く
     $string = old_PictDel($string);
     //絵文字の判定を取り入れる
-    //$emoji_count = PictLen($string);
+
     //20081216 絵文字のコードのバイト数を取得
     $emoji_count = PictCount($string);
+    //含まれている絵文字の数
     $emoji_tag   = PictLen($string);
-    //$str_count = (mb_strlen($string) - $emoji_count) + $emoji_tag;
-    $str_count = mb_strlen(PictDel($string)) + $emoji_tag;
-    //$length = ($length - $emoji_count) + ($emoji_count * 8);
-    if ($str_count > $length) {
-        //$length -= strlen($etc);
-        if (!$break_words)
-            $string = preg_replace('/\s+?(\S+)?$/', '', substr($string, 0, $length+1));
+    //絵文字を１文字とした文字のかず
+    $str_count = mb_strlen(PictDel($string), 'UTF-8') + $emoji_tag;
+    //トータルの文字の数
+    $total_str_count = mb_strlen($string, 'UTF-8');
+    $tmp_string = $string;
 
-        $string = mb_strimwidth($string, 0, $length);
+    //文字が多い場合
+    if ($str_count > $length)
+    {
+        $emoji_pattern = '/\[[ies]:[0-9]{1,3}\]/';
+        if (preg_match_all($emoji_pattern, $tmp_string, $matches, PREG_SET_ORDER))
+        {
+            $new_str = preg_replace($emoji_pattern, '_/emoji/_', $tmp_string);
+            $str_arr = explode('_/emoji/_', $new_str);
+            $str_count = count($str_arr);
+            $res_str = '';
+            $i = 0;
+            //絵文字以外の切り出した文字列の文字をカウントする。
+            //文字数の制限をコントロール
 
-        $amppos = mb_strrpos($string,'[');//&が最後に出現する位置を取得（マルチバイト）
-        $emojinum = mb_strlen($string) - $amppos;//$stringの文字数から&が最後に出現する位置を引き&以降の文字数を取得（マルチバイト）
-        if($emojinum < 8) {//もし$emojinumが7文字以下なら・・・
-            $string = mb_substr($string, 0, $amppos) . $etc;//$stringを&が最後に出現する位置で切り詰める
-        } else {
-            $string .= $etc;
+            $new_len = $length;
+            foreach ($str_arr as $key => $value)
+            {
+                $res_str .= $value;
+                //文字数がオーバーしてる場合
+                if (mb_strlen($res_str, 'UTF-8') > $new_len)
+                {
+                    $res_str = mb_substr($res_str, 0, $new_len, 'UTF-8').$etc;
+                    break;
+                }
+
+                //絵文字ひとつ足してぴったりの場合
+                if (mb_strlen($res_str, 'UTF-8')+1 == $new_len)
+                {
+                    $res_str = $res_str . $matches[$key][0];
+                    break;
+                }
+
+                //絵文字を足してもまだ超えない場合。
+                //文字に絵文字を足して、次の文字を組み合わせる
+                //最初の絵文字のバイト数を上乗せする。
+                $new_len = $new_len + PictCount($matches[$key][0])-1;
+                //絵文字コードを追加する
+                $res_str .= $matches[$key][0];
+            }
+            return htmlspecialchars($res_str, ENT_QUOTES, 'UTF-8');
         }
+
+        //絵文字が無い場合
+        $res_str = mb_substr($string, 0, $length, 'UTF-8').$etc;
+        return htmlspecialchars($res_str, ENT_QUOTES, 'UTF-8');
     }
     return htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
 }
-?>
+

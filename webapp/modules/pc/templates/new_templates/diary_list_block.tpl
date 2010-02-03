@@ -64,7 +64,7 @@
         <td class="bg_02" align="left" valign="middle">
 
         <div class="padding_s">
-        <a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$diary.c_diary_id})&amp;c_diary_comment_count=({$diary.comment_count})">({$diary.subject|t_body:'title'|t_truncate:32:"…"})</a> (コメント:({$diary.comment_count}) | 閲覧:({$diary.etsuran_count}))
+        <a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$diary.c_diary_id})&amp;c_diary_comment_count=({$diary.comment_count})">({$diary.subject|t_truncate:32:"…"|t_body:'title'})</a> (コメント:({$diary.comment_count}) | 閲覧:({$diary.etsuran_count}))
         </div>
 
         </td>

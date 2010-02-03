@@ -175,7 +175,7 @@
                         <!-- ここから：主内容 -->
                         <div align="left" style="padding:3px;" class="bg_02 border_01">
                         ({foreach from=$new_diary_list item=item})
-                            <div><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$item.c_diary_id})"><img src="./skin/dummy.gif" style="width:14px;height:14px;" class="icon icon_3">({$item.subject|t_body:'title'|t_truncate:32:"…"})</a></div>
+                            <div><a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$item.c_diary_id})"><img src="./skin/dummy.gif" style="width:14px;height:14px;" class="icon icon_3">({$item.subject|t_truncate:32:"…"|t_body:'title'})</a></div>
 
                         ({/foreach})
                         </div>

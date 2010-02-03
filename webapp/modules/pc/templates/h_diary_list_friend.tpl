@@ -100,7 +100,7 @@
 <td style="width:453px;" class="bg_02" align="left" valign="middle">
 
 <div>
-({if $item.public_flag == 'friend'})<img src="({t_img_url_skin filename=friend_icon f=gif})" align="absmiddle">({/if})<a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$item.c_diary_id})&amp;c_diary_comment_count=({$item.comment_count})">({$item.subject|t_body:'title'|t_truncate:32:"…"})</a>(コメント:({$item.comment_count})|閲覧:({$item.etsuran_count})) (({$item.c_member.nickname|t_body:'name'}))({if $item.public_flag == 'friend'})<img src="({t_img_url_skin filename=friend_icon f=gif})" align="absmiddle">({/if})
+({if $item.public_flag == 'friend'})<img src="({t_img_url_skin filename=friend_icon f=gif})" align="absmiddle">({/if})<a href="({t_url m=pc a=page_fh_diary})&amp;target_c_diary_id=({$item.c_diary_id})&amp;c_diary_comment_count=({$item.comment_count})">({$item.subject|t_truncate:32:"…"|t_body:'title'})</a>(コメント:({$item.comment_count})|閲覧:({$item.etsuran_count})) (({$item.c_member.nickname|t_body:'name'}))({if $item.public_flag == 'friend'})<img src="({t_img_url_skin filename=friend_icon f=gif})" align="absmiddle">({/if})
 ({if $item.image_filename_1 || $item.image_filename_2 || $item.image_filename_3})<img src="({t_img_url_skin filename=icon_camera})" class="icon">({/if})
 ({if $item.view_flag})
 <img src="skin/default/img/new2.gif" align="absmiddle">
@@ -247,7 +247,7 @@
 
 <div class="padding_s">
 
-<a href="({$item.link})" target="_blank">({$item.subject|t_body:'title'|t_truncate:32:"…"})</a> (({$item.c_member.nickname|t_body:'name'}))
+<a href="({$item.link})" target="_blank">({$item.subject|t_truncate:32:"…"|t_body:'title'})</a> (({$item.c_member.nickname|t_body:'name'}))
 
 </div>
 
