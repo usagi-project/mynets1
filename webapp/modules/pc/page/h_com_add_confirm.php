@@ -53,7 +53,7 @@ class pc_page_h_com_add_confirm extends OpenPNE_Action
         if (p_c_com_add_is_commu4c_commu_name($name))
             $err_msg[] = "そのコミュニティはすでに存在します";
 
-        if ($upfile_obj['error'] !== UPLOAD_ERR_NO_FILE) {
+        if ($upfile_obj['error'] !== UPLOAD_ERR_NO_FILE && ! empty($upfile_obj)) {
             if (!($image = t_check_image($upfile_obj))) {
                 $err_msg[] = '画像は'.IMAGE_MAX_FILESIZE.'KB以内のGIF・JPEG・PNGにしてください';
             }
