@@ -137,7 +137,7 @@
 <a href="({t_url m=ktai a=page_fh_dengon})&amp;target_c_member_id_to=({$target_c_member.c_member_id})&amp;({$tail})">伝言板に書込みを残す</a><hr>
 <!--伝言板ココまで-->
 <div align="right"><a href="#top">↑ページ先頭へ</a></div>
-({if $relation.friend||$target_c_member.public_flag_diary=="public"})
+({if $relation.friend||$target_c_member.public_flag_diary=="public"||$target_c_member.public_flag_diary=="open"})
 <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="240" bgcolor="#006600">
   <tr>
     <td width="100%"><font color="#FFFFFF" size="1">[最新日記]</font></td>
