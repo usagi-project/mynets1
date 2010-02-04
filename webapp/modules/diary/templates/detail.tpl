@@ -435,7 +435,7 @@
 ({/if})
 
 <div class="lh_120" id="DOM_fh_diary_body">
-({$target_diary.body|t_body:'diary'})
+({$target_diary.body|t_body:'diary'|bbcode2html})
 </div>
 
 </div>

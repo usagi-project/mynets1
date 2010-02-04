@@ -425,7 +425,7 @@
 <br>
 ({/if})
 
-({$item.body|t_truncate:"120"|t_body:'diary'})
+({$item.body|bbcode2del|t_truncate:"120"|t_body:'diary'})
 
 </div>
 </td>
