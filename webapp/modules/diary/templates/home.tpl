@@ -423,7 +423,7 @@
 <br>
 ({/if})
 
-({$item.body|t_truncate:400:"…"|t_body:'diary'|bbcode2del})
+({$item.body|bbcode2del|t_truncate:400:"…"|t_body:'diary'})
 
 </div>
 </td>
