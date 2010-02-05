@@ -86,17 +86,17 @@ class pc_do_c_event_edit_update_c_commu_topic extends OpenPNE_Action
             }
         }
 
-        if ($upfile_obj1['error'] !== UPLOAD_ERR_NO_FILE) {
+        if ($upfile_obj1['error'] !== UPLOAD_ERR_NO_FILE && ! empty($upfile_obj1)) {
             if (!($image = t_check_image($upfile_obj1))) {
                 $err_msg[] = '画像1は'.IMAGE_MAX_FILESIZE.'KB以内のGIF・JPEG・PNGにしてください';
             }
         }
-        if ($upfile_obj2['error'] !== UPLOAD_ERR_NO_FILE) {
+        if ($upfile_obj2['error'] !== UPLOAD_ERR_NO_FILE && ! empty($upfile_obj2)) {
             if (!($image = t_check_image($upfile_obj2))) {
                 $err_msg[] = '画像2は'.IMAGE_MAX_FILESIZE.'KB以内のGIF・JPEG・PNGにしてください';
             }
         }
-        if ($upfile_obj3['error'] !== UPLOAD_ERR_NO_FILE) {
+        if ($upfile_obj3['error'] !== UPLOAD_ERR_NO_FILE && ! empty($upfile_obj3)) {
             if (!($image = t_check_image($upfile_obj3))) {
                 $err_msg[] = '画像3は'.IMAGE_MAX_FILESIZE.'KB以内のGIF・JPEG・PNGにしてください';
             }
