@@ -34,7 +34,7 @@
             ({else})
             ♪<a href="({t_url m=ktai a=page_f_message_send})&amp;target_c_member_id=({$target_c_member.c_member_id})&amp;({$tail})">メッセージ送信</a><br>
             ({/if})
-            ({if $relation.friend||$target_c_member.public_flag_diary=="public"||$target_c_member.public_flag_diary=="open"})
+            ({if $c_diary_list})
             &em_pen;<a href="({t_url m=ktai a=page_fh_diary_list})&amp;target_c_member_id=({$target_c_member.c_member_id})&amp;({$tail})">日記を読む</a><br>
             ({else})
             ◆日記は公開されていません<br>
@@ -137,7 +137,7 @@
 <a href="({t_url m=ktai a=page_fh_dengon})&amp;target_c_member_id_to=({$target_c_member.c_member_id})&amp;({$tail})">伝言板に書込みを残す</a><hr>
 <!--伝言板ココまで-->
 <div align="right"><a href="#top">↑ページ先頭へ</a></div>
-({if $relation.friend||$target_c_member.public_flag_diary=="public"||$target_c_member.public_flag_diary=="open"})
+({if $c_diary_list})
 <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="240" bgcolor="#006600">
   <tr>
     <td width="100%"><font color="#FFFFFF" size="1">[最新日記]</font></td>
