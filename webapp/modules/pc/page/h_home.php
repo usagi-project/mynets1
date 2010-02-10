@@ -191,7 +191,22 @@ class pc_page_h_home extends OpenPNE_Action
         }
         $this->set('c_diary_friend_list', $friend_diary);
         // フレンド最新blog
-        $this->set('c_rss_cache_list', p_h_diary_list_friend_c_rss_cache_list($u, 5));
+        $friend_blog = p_h_diary_list_friend_c_rss_cache_list($u, 5);
+        if ($friend_blog)
+        {
+            foreach ($friend_blog as $key=>$value)
+            {
+                if (mb_detect_encoding($value['subject']) == 'ASCII')
+                {
+                    //var_dump(mb_detect_encoding($value['subject']));
+                    //echo "<br />";
+                    $friend_blog[$key]['subject'] = mb_convert_encoding($value['subject'], 'UTF-8', 'HTML-ENTITIES');
+                    $friend_blog[$key]['body'] = mb_convert_encoding($value['body'], 'UTF-8', 'HTML-ENTITIES');
+                }
+            }
+        }
+
+        $this->set('c_rss_cache_list', $friend_blog);
         // 日記コメント記入履歴
 /////////////////////////////////////
 //2008-01-12 kunitsuji
@@ -216,7 +231,22 @@ class pc_page_h_home extends OpenPNE_Action
         // 日記
         $this->set('c_diary_list', db_diary_get_c_diary_list4c_member_id($u, 5));
         // 外部blog
-        $this->set('c_blog_list', p_h_home_h_blog_list_friend4c_member_id($u, 5, 1));
+        $my_blog = p_h_home_h_blog_list_friend4c_member_id($u, 5, 1);
+        if ($my_blog)
+        {
+            foreach ($my_blog as $key=>$value)
+            {
+                if (mb_detect_encoding($value['subject']) == 'ASCII')
+                {
+                    //var_dump(mb_detect_encoding($value['subject']));
+                    //echo "<br />";
+                    $my_blog[$key]['subject'] = mb_convert_encoding($value['subject'], 'UTF-8', 'HTML-ENTITIES');
+                    $my_blog[$key]['body'] = mb_convert_encoding($value['body'], 'UTF-8', 'HTML-ENTITIES');
+                }
+            }
+        }
+        //exit;
+        $this->set('c_blog_list', $my_blog);
         // レビュー
         $this->set('c_review_list', db_review_c_review_list4member($u, 5));
         //自分の情報を開いている
@@ -260,7 +290,21 @@ class pc_page_h_home extends OpenPNE_Action
             $this->set('bookmark_diary_list', db_bookmark_diary_list($u, 5));
 
             //お気に入りの最新ブログ
-            $this->set('bookmark_blog_list', db_bookmark_blog_list($u, 5));
+            $bookmark_blog = db_bookmark_blog_list($u, 5);
+            if ($bookmark_blog)
+            {
+                foreach ($bookmark_blog as $key=>$value)
+                {
+                    if (mb_detect_encoding($value['subject']) == 'ASCII')
+                    {
+                        //var_dump(mb_detect_encoding($value['subject']));
+                        //echo "<br />";
+                        $bookmark_blog[$key]['subject'] = mb_convert_encoding($value['subject'], 'UTF-8', 'HTML-ENTITIES');
+                        $bookmark_blog[$key]['body'] = mb_convert_encoding($value['body'], 'UTF-8', 'HTML-ENTITIES');
+                    }
+                }
+            }
+            $this->set('bookmark_blog_list', $bookmark_blog);
 
             //お気に入りのメンバ
             $bookmark_member_list = db_bookmark_member_list($u, 9);

@@ -62,7 +62,19 @@ class pc_page_h_bookmark_diary_blog_list extends OpenPNE_Action
         $this->set('pager', $pager);
         if ($page == 1) {
             //お気に入りの最新ブログ
-            $this->set('bookmark_blog_list', db_bookmark_blog_list($u, 10));
+            $rss_list = db_bookmark_blog_list($u, 10);
+            if ($rss_list)
+            {
+                foreach ($rss_list as $key=>$value)
+                {
+                    if (mb_detect_encoding($value['subject']) == 'ASCII')
+                    {
+                        $rss_list[$key]['subject'] = mb_convert_encoding($value['subject'], 'UTF-8', 'HTML-ENTITIES');
+                        $rss_list[$key]['body'] = mb_convert_encoding($value['body'], 'UTF-8', 'HTML-ENTITIES');
+                    }
+                }
+            }
+            $this->set('bookmark_blog_list', $rss_list);
         }
 
         return 'success';

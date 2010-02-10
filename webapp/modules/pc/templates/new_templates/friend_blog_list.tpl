@@ -8,7 +8,7 @@
         <div style="padding:5px 10px 0 10px">
             <img src="({t_img_url_skin filename=icon_1})" style="margin-right:5px;" align="absmiddle">
             ({$item.r_datetime|t_date})…&nbsp;<a href="({$item.link})" target="_blank">
-            ({$item.subject|default:"&nbsp;"})</a>(({$item.c_member.nickname|t_body:'name'|default:"&nbsp;"}))
+            ({$item.subject|t_body:'title'|default:"&nbsp;"})</a>(({$item.c_member.nickname|t_body:'name'|default:"&nbsp;"}))
         </div>
         ({/foreach})
         <div style="text-align:right;padding:5px;">

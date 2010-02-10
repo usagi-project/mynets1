@@ -89,7 +89,21 @@ class pc_page_f_home extends OpenPNE_Action
         }
         $this->set('target_c_member', $target_c_member);
 
-        $this->set('c_rss_cache_list', p_f_home_c_rss_cache_list4c_member_id($target_c_member_id, 5));
+        $friend_blog = p_f_home_c_rss_cache_list4c_member_id($target_c_member_id, 5);
+        if ($friend_blog)
+        {
+            foreach ($friend_blog as $key=>$value)
+            {
+                if (mb_detect_encoding($value['subject']) == 'ASCII')
+                {
+                    //var_dump(mb_detect_encoding($value['subject']));
+                    //echo "<br />";
+                    $friend_blog[$key]['subject'] = mb_convert_encoding($value['subject'], 'UTF-8', 'HTML-ENTITIES');
+                    $friend_blog[$key]['body'] = mb_convert_encoding($value['body'], 'UTF-8', 'HTML-ENTITIES');
+                }
+            }
+        }
+        $this->set('c_rss_cache_list', $friend_blog);
 
         $this->set('c_friend_comment_list', p_f_home_c_friend_comment4c_member_id($target_c_member_id));
         

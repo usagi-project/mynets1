@@ -104,7 +104,19 @@ class pc_page_h_diary_list_friend extends OpenPNE_Action
         if ($page == 1) {
             // rss_cache
             $limit = 20;
-            $this->set('c_rss_cache_list', p_h_diary_list_friend_c_rss_cache_list($u, $limit));
+            $rss_list = p_h_diary_list_friend_c_rss_cache_list($u, $limit);
+            if ($rss_list)
+            {
+                foreach ($rss_list as $key=>$value)
+                {
+                    if (mb_detect_encoding($value['subject']) == 'ASCII')
+                    {
+                        $rss_list[$key]['subject'] = mb_convert_encoding($value['subject'], 'UTF-8', 'HTML-ENTITIES');
+                        $rss_list[$key]['body'] = mb_convert_encoding($value['body'], 'UTF-8', 'HTML-ENTITIES');
+                    }
+                }
+            }
+            $this->set('c_rss_cache_list', $rss_list);
         }
 
         return 'success';
