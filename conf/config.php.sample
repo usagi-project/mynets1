@@ -434,7 +434,7 @@ define('ADMIN_INIT_CONFIG', true);
 // 管理画面にバージョン情報を表示するかどうか
 define('DISPLAY_VERSION', true);
 
-// 管理画面にOpenPNE更新情報(RSS)を表示するかどうか
+// 管理画面にMyNETS更新情報(RSS)を表示するかどうか
 define('DISPLAY_OPENPNE_INFO', true);
 
 // Usagi Project更新情報のURL設定
@@ -517,8 +517,9 @@ define('NEWS_CACHE_LIMIT',1800);
 // 以下はサンプルのURLです。使用する行の先頭の「//」（コメントアウト）を削除し、使用しない
 // 場合には、先頭に「//」を記述して下さい。
 $GLOBALS['NEWS_FEED_URL_LIST'] = array(
-    'GoogleNews-Popular' => 'http://news.google.com/news?hl=ja&ned=ja&ie=UTF-8&oe=UTF-8&output=atom&topic=po',
-//    'goo-Ranking' => 'http://ranking.goo.ne.jp/rss/index.rdf',
+		//ニュースを表示したい場合は、したのサンプルのようにRSSフィードのURLを記述してください。
+    //'GoogleNews-Popular' => 'http://news.google.com/news?hl=ja&ned=ja&ie=UTF-8&oe=UTF-8&output=atom&topic=po',
+		//'goo-Ranking' => 'http://ranking.goo.ne.jp/rss/index.rdf',
 );
 
 // ニュース記事のリンク要素から、元記事のURLを取り出す場合の
