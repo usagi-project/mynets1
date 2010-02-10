@@ -97,6 +97,20 @@ class pc_page_fh_diary_list extends OpenPNE_Action
 
         }
 
+        if ($rss_list)
+        {
+            foreach ($rss_list as $key=>$value)
+            {
+                if (mb_detect_encoding($value['subject']) == 'ASCII')
+                {
+                    //var_dump(mb_detect_encoding($value['subject']));
+                    //echo "<br />";
+                    $rss_list[$key]['subject'] = mb_convert_encoding($value['subject'], 'UTF-8', 'HTML-ENTITIES');
+                    $rss_list[$key]['body'] = mb_convert_encoding($value['body'], 'UTF-8', 'HTML-ENTITIES');
+                }
+            }
+        }
+
         $this->set('c_rss_cache_list', $rss_list);
 
         $this->set('target_diary_list', $list_set[0]);

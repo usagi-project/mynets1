@@ -76,7 +76,20 @@ class pc_page_h_diary_list_all extends OpenPNE_Action
         if (!$keyword) {
             // rss_cache
             $limit = 20;
-            $this->set('c_rss_cache_list', p_h_diary_list_all_c_rss_cache_list($limit));
+            $rss_list = p_h_diary_list_all_c_rss_cache_list($limit);
+            if ($rss_list)
+            {
+                foreach ($rss_list as $key=>$value)
+                {
+                    if (mb_detect_encoding($value['subject']) == 'ASCII')
+                    {
+                        $rss_list[$key]['subject'] = mb_convert_encoding($value['subject'], 'UTF-8', 'HTML-ENTITIES');
+                        $rss_list[$key]['body'] = mb_convert_encoding($value['body'], 'UTF-8', 'HTML-ENTITIES');
+                    }
+                }
+            }
+
+            $this->set('c_rss_cache_list', $rss_list);
         }
 
         $this->set('total_num',$total_num);
