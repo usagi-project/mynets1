@@ -24,11 +24,13 @@
  */
 
 require_once 'Services/Amazon.php';
-require_once 'PHP/Compat/Function/mhash.php';
+//require_once 'PHP/Compat/Function/mhash.php';
+//2010/02/10 PHP4対応変更 KUNIHARU Tsujioka
+require_once 'PHP/Compat/Function/hash_hmac.php';
 
 /**
  * OpenPNEでAmazonECSを利用するためのクラス
- * 
+ *
  * @package OpenPNE
  * @author Kousuke Ebihara <ebihara@tejimaya.com>
  */
@@ -40,18 +42,18 @@ class OpenPNE_Amazon extends Services_Amazon
      * @var array
      */
     var $_categoryToSearchIndex = array(
-        'books-jp' => 'Books', 
-        'books-us' => 'ForeignBooks', 
-        'music-jp' => 'Music', 
-        'classical-jp' => 'Classical', 
-        'dvd-jp' => 'DVD', 
-        'videogames-jp' => 'VideoGames', 
-        'software-jp' => 'Software', 
-        'electronics-jp' => 'Electronics', 
-        'kitchen-jp' => 'Kitchen', 
-        'toys-jp' => 'Toys', 
-        'sporting-goods-jp' => 'SportingGoods', 
-        'hpc-jp' => 'HealthPersonalCare', 
+        'books-jp' => 'Books',
+        'books-us' => 'ForeignBooks',
+        'music-jp' => 'Music',
+        'classical-jp' => 'Classical',
+        'dvd-jp' => 'DVD',
+        'videogames-jp' => 'VideoGames',
+        'software-jp' => 'Software',
+        'electronics-jp' => 'Electronics',
+        'kitchen-jp' => 'Kitchen',
+        'toys-jp' => 'Toys',
+        'sporting-goods-jp' => 'SportingGoods',
+        'hpc-jp' => 'HealthPersonalCare',
     );
 
     function ItemSearch($search_index, $options = array())
