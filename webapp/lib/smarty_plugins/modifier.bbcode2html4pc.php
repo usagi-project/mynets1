@@ -221,6 +221,8 @@ function smarty_modifier_bbcode2html4pc($message,$allowWiki=TRUE,$allowUrl=TRUE,
 function rep_singlequote($matches){
     $msg = h($matches[0]);
     //$msg = str_replace("&amp;#039;", "", str_replace("&amp;quot;", "", $msg));
+    //&を元に戻す
+    $msg = str_replace("&amp;", "&", $msg);
     return $msg;
 }
 
