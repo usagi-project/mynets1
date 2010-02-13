@@ -80,13 +80,13 @@ class pc_page_h_diary_edit_confirm extends OpenPNE_Action
         $tagsname_list = array_unique(explode(" ", rtrim($tagsname)));
         if (count($tagsname_list) > 5) {
             $_REQUEST['msg'] = 'タグの指定は5個以下にしてください';
-            openpne_forward('pc', 'page', 'h_diary_add');
+            openpne_forward('pc', 'page', 'h_diary_edit');
             exit;
         }
         foreach ($tagsname_list as $value) {
             if(mb_strwidth($value) > 20) {
                 $_REQUEST['msg'] = 'タグの文字数は半角36文字以内にしてください';
-                openpne_forward('pc', 'page', 'h_diary_add');
+                openpne_forward('pc', 'page', 'h_diary_edit');
                 exit;
             }
         }
