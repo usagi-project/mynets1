@@ -8,6 +8,10 @@
  * @access  public
  * @version 1.0
  */
+
+
+//20091202 PHP5.3対応のため、eregをpreg_matchに変更
+//KUNIHARU Tsujioka Usagi Project
 class Etag
 {
     /**
@@ -46,7 +50,7 @@ class Etag
         if (is_array($time)) {
             $this->upd_time = 0;
             foreach ($time as $t) {
-                if (ereg("^[0-9]{10}$", $t)) {
+                if (preg_match("/^[0-9]{10}$/", $t)) {
                     $tmp = $t;
                 } else {
                     $tmp = $this->parse_http_date($t);
@@ -59,7 +63,7 @@ class Etag
                 $this->upd_time = null;
 
         } elseif (strlen($time)) {
-            if (ereg("^[0-9]{10}$", $time)) {
+            if (preg_match("/^[0-9]{10}$/", $time)) {
                 $this->upd_time = $time;
             } else {
                 $tmp = $this->parse_http_date($time);

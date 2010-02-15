@@ -7,13 +7,13 @@
  }
  ?>
  <input type="hidden" name="task" value="step4" />
- <input type="hidden" name="db_server" value="<?=$db_server?>">
- <!--<input type="hidden" name="db_version" value="<?=$db_version?>">-->
- <input type="hidden" name="db_user" value="<?=$db_user?>">
- <input type="hidden" name="db_pass" value="<?=$db_pass?>">
- <input type="hidden" name="db_name" value="<?=$db_name?>">
- <input type="hidden" name="set_language" value="<?= $set_language ?>" />
- <input type="hidden" name="image_max_size" value="<?= $image_max_size ?>" />
+ <input type="hidden" name="db_server" value="<?php echo $db_server;?>">
+ <!--<input type="hidden" name="db_version" value="<?php echo $db_version;?>">-->
+ <input type="hidden" name="db_user" value="<?php echo $db_user;?>">
+ <input type="hidden" name="db_pass" value="<?php echo $db_pass;?>">
+ <input type="hidden" name="db_name" value="<?php echo $db_name;?>">
+ <input type="hidden" name="set_language" value="<?php echo  $set_language; ?>" />
+ <input type="hidden" name="image_max_size" value="<?php echo  $image_max_size; ?>" />
  <table cellspacing="2" cellpadding="1" style="margin: 20px;vertical-align:middle;width:480px">
      <tbody>
      <tr>
@@ -82,11 +82,11 @@
          <td style="text-align:left;width:360px;">
          <p class="GREEN fsxl">確認してください。<br /></p>
          <ul>
-             <li><?= $db_server ?></li>
-             <!--<li>MySQL Verion <?= $db_version ?></li>-->
-             <li><?= $db_user ?></li>
-             <li><?= $db_pass ?></li>
-             <li><?= $db_name ?></li>
+             <li><?php echo  $db_server; ?></li>
+             <!--<li>MySQL Verion <?php echo  $db_version; ?></li>-->
+             <li><?php echo  $db_user; ?></li>
+             <li><?php echo  $db_pass; ?></li>
+             <li><?php echo  $db_name; ?></li>
          </ul>
          <?php
          }

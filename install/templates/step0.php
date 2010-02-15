@@ -26,7 +26,7 @@
         ?>
         <form name="login_form" method="post" action="step1.php" target="_parent">
         <input type="hidden" name="task" value="step0" />
-        <input type="hidden" name="set_language" value="<?= $set_language ?>" />
+        <input type="hidden" name="set_language" value="<?php echo  $set_language; ?>" />
         <p class="GREEN fsxl">インストールできます。</p>
         <p class="style2">※インストーラーを中止する場合はブラウザを閉じて、手動で設定を行ってください。</p>
         <input type="button" value="次のステップへ" onclick="javascript:document.login_form.submit();" class="button" onmouseover="javascript:this.className='button_mo';" onmouseout="javascript:this.className='button';" style="width:100px;" />
@@ -42,7 +42,7 @@
         <br />
         <form name="check_form" method="post" action="step0.php" target="_parent">
         <input type="hidden" name="task" value="step0" />
-        <input type="hidden" name="set_language" value="<?= $set_language ?>" />
+        <input type="hidden" name="set_language" value="<?php echo  $set_language; ?>" />
         <span class="style2">エラーが検出されました。上記のファイルを正しくアップロードし直し、再度チェックして下さい。
         </span><br /><input type="submit" value="再実行" class="button" onmouseover="javascript:this.className='button_mo';" onmouseout="javascript:this.className='button';" style="width:100px;" />
         </form>

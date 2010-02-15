@@ -95,12 +95,24 @@ class OpenPNE_Validator
      */
     function addIniSetting($ini_path)
     {
-        if (!is_readable($ini_path) ||
-            !$rules = parse_ini_file($ini_path, true)) {
+        /**
+         * PHP5.3.0対応
+         * By Marijuana
+         */
+        if (version_compare(PHP_VERSION, '5.3', '>='))
+        {
+            $inistr = file_get_contents($ini_path);
+            $inistr = str_replace(array('[', ']'), array('["', '"]'), $inistr);
 
-            return false;
+            if ( ! $rules = parse_ini_string($inistr, TRUE))
+            {
+                return FALSE;
+            }
         }
-
+        elseif ( ! is_readable($ini_path) OR ! $rules = parse_ini_file($ini_path, TRUE))
+        {
+            return FALSE;
+        }
         $this->addRules($rules);
         return true;
     }

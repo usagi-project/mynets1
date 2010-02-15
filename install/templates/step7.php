@@ -1,16 +1,16 @@
  <form name="login_form" method="post" action="index2.php" target="_parent">
  <input type="hidden" name="task" value="step7" />
- <!--<input type="hidden" name="db_server" value="<?= $db_server ?>" />
- <input type="hidden" name="db_user" value="<?= $db_user ?>" />
- <input type="hidden" name="db_pass" value="<?= $db_pass ?>" />
- <input type="hidden" name="db_name" value="<?= $db_name ?>" />
- <input type="hidden" name="db_version" value="<?= $db_version ?>" />
- <input type="hidden" name="db_prefix" value="<?= $db_prefix ?>" />
- <input type="hidden" name="current_url" value="<?= $current_url ?>" />
- <input type="hidden" name="db_crypt_key" value="<?= $db_crypt_key ?>" />
- <input type="hidden" name="mail_domain" value="<?= $mail_domain ?>" />
- <input type="hidden" name="map_api_key" value="<?= $map_api_key ?>" />
- <input type="hidden" name="image_max_size" value="<?= $image_max_size ?>" />-->
+ <!--<input type="hidden" name="db_server" value="<?php echo  $db_server; ?>" />
+ <input type="hidden" name="db_user" value="<?php echo  $db_user; ?>" />
+ <input type="hidden" name="db_pass" value="<?php echo  $db_pass; ?>" />
+ <input type="hidden" name="db_name" value="<?php echo  $db_name; ?>" />
+ <input type="hidden" name="db_version" value="<?php echo  $db_version; ?>" />
+ <input type="hidden" name="db_prefix" value="<?php echo  $db_prefix ?>" />
+ <input type="hidden" name="current_url" value="<?php echo  $current_url; ?>" />
+ <input type="hidden" name="db_crypt_key" value="<?php echo  $db_crypt_key; ?>" />
+ <input type="hidden" name="mail_domain" value="<?php echo  $mail_domain; ?>" />
+ <input type="hidden" name="map_api_key" value="<?php echo  $map_api_key; ?>" />
+ <input type="hidden" name="image_max_size" value="<?php echo  $image_max_size; ?>" />-->
  <table cellspacing="2" cellpadding="1" style="margin: 20px;vertical-align:middle;width:480px">
      <tbody>
      <tr>
@@ -20,7 +20,7 @@
      <?php
      if ($install_sql_err !== false || $config_exists_err !== false){
      if ($install_sql_err !== false) {
-        
+
      ?>
      <tr>
          <td colspan="2" style="text-align:center;">
@@ -58,7 +58,7 @@
          <br />
          ID１で登録するメールアドレスとパスワードが必要です。<br />
      </tr>
-     
+
      <tr>
          <td colspan="2" style="text-align:center;padding-top:10px;">
          <input type="button" value="次へ" onclick="javascript:document.login_form.submit();" class="button" onmouseover="javascript:this.className='button_mo';" onmouseout="javascript:this.className='button';" style="width:100px;" />
