@@ -18,7 +18,7 @@
  * ========================================================================
  */
 
-error_reporting(E_ALL ^ E_NOTICE ^ E_DEPRECATED);
+error_reporting(E_ALL ^ E_NOTICE ^ 8192);
 ini_set('display_errors', true);
 
 //install configurationファイル

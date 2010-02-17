@@ -216,7 +216,7 @@ define('OPENPNE_MODULES_EXT_DIR', OPENPNE_WEBAPP_EXT_DIR . '/modules');
 // デバッグ、エラーハンドリング、ログ設定
 ///
 
-error_reporting(E_ALL ^ E_NOTICE);
+error_reporting(E_ALL ^ E_NOTICE ^ 8192);
 $GLOBALS['SMARTY'] = array();
 
 switch(OPENPNE_DEBUGGING) {
