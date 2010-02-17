@@ -4,9 +4,9 @@
  *
  * @license This source file is subject to version 3.01 of the PHP license,
  *              that is available at http://www.php.net/license/3_01.txt
- *              If you did not receive a copy of the PHP license and are unable 
- *              to obtain it through the world-wide-web, please send a note to 
- *              license@php.net so we can mail you a copy immediately.  
+ *              If you did not receive a copy of the PHP license and are unable
+ *              to obtain it through the world-wide-web, please send a note to
+ *              license@php.net so we can mail you a copy immediately.
  *
  * @category   Application of MyNETS
  * @project    OpenPNE UsagiProject 2006-2007
@@ -16,7 +16,7 @@
  * @version    MyNETS,v 1.0.0
  * @since      File available since Release 1.0.0 Nighty
  * @chengelog  [2007/04/14] Ver1.0.1Nighty package
- * ======================================================================== 
+ * ========================================================================
  */
 
 /**
@@ -85,8 +85,8 @@ class pc_page_h_diary_add_confirm extends OpenPNE_Action
             exit;
         }
         foreach ($tagsname_list as $value) {
-            if(mb_strwidth($value) > 20) {
-                $_REQUEST['msg'] = 'タグの文字数は半角36文字以内にしてください';
+            if(mb_strlen($value, 'UTF-8') > 20) {
+                $_REQUEST['msg'] = 'タグの文字数は20文字以内にしてください(半角全角ともに)';
                 openpne_forward('pc', 'page', 'h_diary_add');
                 exit;
             }

@@ -84,8 +84,8 @@ class pc_page_h_diary_edit_confirm extends OpenPNE_Action
             exit;
         }
         foreach ($tagsname_list as $value) {
-            if(mb_strwidth($value) > 20) {
-                $_REQUEST['msg'] = 'タグの文字数は半角36文字以内にしてください';
+            if(mb_strlen($value, 'UTF-8') > 20) {
+                $_REQUEST['msg'] = 'タグの文字数は20文字以内にしてください(半角全角ともに)';
                 openpne_forward('pc', 'page', 'h_diary_add');
                 exit;
             }
