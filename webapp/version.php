@@ -1,1 +1,1 @@
-<?php define('MyNETS_VERSION', '1.2.0.3'); ?>
+<?php define('MyNETS_VERSION', '1.2.0.4'); ?>
