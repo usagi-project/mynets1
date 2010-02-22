@@ -1,5 +1,6 @@
 MyNETS 1.2.1 で使用している外部ライブラリの一覧
 
+2010/02/22
 2008/10/31
 
 
@@ -135,6 +136,19 @@ PHP_Compat
   ダウンロード: 
 	変更の有無: 
 	  ファイル: 
+
+PHP_Compat_Hash.tgz
+	ライセンス: PHP_Compat と同じライセンス
+	バージョン: 
+	用途・機能: PHP4 での HMAC-SHA256 の計算(Amazon Product Advertising API で必要)
+			配布元: http://www.revulo.com/blog/20090811.html
+	ダウンロード: http://download.revulo.com/PHP/PHP_Compat_Hash.tgz
+	変更の有無: なし
+		ファイル: lib/include/PHP/Compat/Function/hash.php
+				lib/include/PHP/Compat/Function/hash_algos.php
+				lib/include/PHP/Compat/Function/hash_hmac.php
+				lib/include/PHP/Compat/Function/sha1.php
+				lib/include/PHP/Compat/Function/sha256.php
 
 Services_Amazon
 	ライセンス: New BSD
