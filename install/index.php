@@ -1,15 +1,18 @@
+<?php
+require_once '../webapp/version.php';
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>MyNETS 1.2.0 インストーラーについて</title>
+<title>MyNETS <?php echo MyNETS_VERSION;?> インストーラーについて</title>
 <link href="css/import.css" rel="stylesheet" type="text/css" media="screen,projection" />
 <script type="text/javascript" src="js/js.js"></script>
 </head>
 <body>
 <div id="wrap">
   <div id="head-install">
-    <h1>MyNETS 1.2.0 インストーラー</h1>
+    <h1>MyNETS <?php echo MyNETS_VERSION;?> インストーラー</h1>
     <div id="head-menu">
       <ul class="menu">
         <li><a href="http://usagi-project.org/">Usagi Project公式サイト</a></li>
@@ -21,12 +24,12 @@
   <div id="content">
     <div id="main-body">
       <div class="entry-box">
-        <div id="step0" class="entry-tag">さあ、あなたもSNSエンジン MyNETS Version 1.2.0をインストールしよう！</div>
-        <h2>MyNETS Version 1.2.0をインストールしよう！</h2>
+        <div id="step0" class="entry-tag">さあ、あなたもSNSエンジン MyNETS Version <?php echo MyNETS_VERSION;?> をインストールしよう！</div>
+        <h2>MyNETS Version <?php echo MyNETS_VERSION;?> をインストールしよう！</h2>
         <div class="entry-category">Step0</div>
         <div class="entry-body">
           <p>Usagi Projectへようこそ</p>
-          <p>Usagi ProjectのSNSエンジン「MyNETS Version 1.2.0」をインストールするためのツールがインストーラーです。このツールは新規でMyNETS Version 1.2.0を導入するするためのツールです。</p>
+          <p>Usagi ProjectのSNSエンジン「MyNETS Version <?php echo MyNETS_VERSION;?>」をインストールするためのツールがインストーラーです。このツールは新規でMyNETS Version <?php echo MyNETS_VERSION;?> を導入するするためのツールです。</p>
           <!--<p>すでにMyNETSを導入していて、バージョンアップする場合は「<a href="./versionup.html" title="バージョンアップツール" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'MyNETS 1.0.1や1.0.0をご利用の場合に使います。');return false">バージョンアップツール</a>」をご利用ください。</p>-->
           <!--<p>また、OpenPNE2.4.Xや2.6.xからのコンバートは「<a href="./upgrade.html" title="Usagiコンバータ" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'OpenPNE系SNSからMyNETSを導入するときに使います。');return false">Usagiコンバーター</a>」をお使いください。</p>-->
           <br />
@@ -39,12 +42,12 @@
         <h2>MyNETSをインストールするための事前準備</h2>
         <div class="entry-category">Step1</div>
         <div class="entry-body">
-          <p>インストーラーは、MyNETS 1.2.0を新規でサーバーに導入する方を対象としています。</p>
+          <p>インストーラーは、MyNETS <?php echo MyNETS_VERSION;?> を新規でサーバーに導入する方を対象としています。</p>
           <p>画面の指示に従ってインストール作業を行うことができます。</p>
           <br />
           <p>処理の流れは次のようになります。</p>
           <ul>
-            <li><a href="#" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'まずは公式サイトからMyNETS 1.2.0をDLして自分のマシンで展開しておきましょう。');return false">MyNETS 1.2.0 アプリケーションファイルの準備</a></li>
+            <li><a href="#" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'まずは公式サイトからMyNETS <?php echo MyNETS_VERSION;?> をDLして自分のマシンで展開しておきましょう。');return false">MyNETS <?php echo MyNETS_VERSION;?> アプリケーションファイルの準備</a></li>
             <li><a href="#" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'導入予定のサーバーの情報を準備しておいてください。どのようなURLでSNSサイトを動かすのか、などインストールのためには情報が必要になります。');return false">サーバー情報の準備</a></li>
             <li><a href="#" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'MyNETSでは、MySQL（データベースサーバー）を利用します。これが利用できないとMyNETSをお使いになることはできません。データベースを作成して、情報を準備しておいてください。');return false">データベースの事前準備</a></li>
             <li><a href="#" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'必要なディレクトリのパーミッションの調整（書き込み権限）が必要です。画面に従ってサーバーのディレクトリを調整しましょう。');return false">パーミッションのディレクトリの調整</a></li>
@@ -72,7 +75,7 @@
         <h2>ファイルの転送</h2>
         <div class="entry-category">Step2</div>
         <div class="entry-body">
-          <p>MyNETS 1.2.0のファイルをダウンロードし、FTPクライアントまたはSSH等でご利用になるサーバーへアップロードしてください。</p>
+          <p>MyNETS <?php echo MyNETS_VERSION;?> のファイルをダウンロードし、FTPクライアントまたはSSH等でご利用になるサーバーへアップロードしてください。</p>
           <p>※確実にすべてのファイルがアップロードできるようにしてください。（FTP転送の場合、転送ミスで一部ファイルが正常にアップロードできないことがあります。その場合動作上不具合が出る可能性がありますので、ご注意ください。</p>
           <p>ファイルが正常にアップロードできたかどうかを確認するためのツールを別途ご用意しています。</p>
           <p>スクリプトチェックツールを Usagi Project 公式サイト、またはソースフォージからダウンロードして、サーバーに転送します。</p>

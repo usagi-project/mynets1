@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="css/login.css" />
 <link rel="stylesheet" type="text/css" href="css/TextDecoration.css" />
-<title>MyNETS 1.2.0 Installer 0.2</title>
+<title>MyNETS <?php echo MyNETS_VERSION;?> Installer 0.2</title>
 </head>
 <body>
 <table border="0" width="100%" cellpadding="0" cellspacing="0">
@@ -15,7 +15,7 @@
             <tbody>
             <tr>
                 <td id="header-logo">
-                <a href="http://usagi.mynets.jp/" target="_blank" title="Usagi Project homepage"><img src="images/usagi.gif" border="0" align="absmiddle" /></a>
+                <a href="http://usagi-project.org/" target="_blank" title="Usagi Project homepage"><img src="images/usagi.gif" border="0" align="absmiddle" /></a>
                 </td>
             </tr>
             <tr>
