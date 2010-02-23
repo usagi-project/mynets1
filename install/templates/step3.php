@@ -34,7 +34,7 @@
          <td style="text-align:right;whitespace:nowrap;">
          <img src="images/h2_bg.gif" title="usagi" alt="icon"></td>
          <td>データベースの照合順序は「UTF-8」を指定してください。他では動作しません。<br />
-         この時点でわからない場合は、<a target="_balank" href="http://usagi.mynets.jp/">Usagi
+         この時点でわからない場合は、<a target="_balank" href="http://usagi-project.org/">Usagi
          Project 公式ホームページ</a>を参考にしてください。 <br />
          ※レンタルサーバの契約内容によりデータベースを作成できない場合は、下記情報をお問い合わせください。<br />
          MyNETSのインストールにはMySQLが必須となっています。</td>
