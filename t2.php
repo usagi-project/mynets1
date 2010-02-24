@@ -10,8 +10,8 @@
  * @category   Application of MyNETS
  * @project    OpenPNE UsagiProject 2006-2007
  * @package    MyNETS
- * @author     UsagiProject <info@usagi.mynets.jp>
- * @copyright  2006-2007 UsagiProject <author member ad http://usagi.mynets.jp/member.html>
+ * @author     UsagiProject <info@usagi-project.org>
+ * @copyright  2006-2007 UsagiProject <author member ad http://usagi-project.org/member.html>
  * @version    MyNETS,v 1.0.1
  * @since      File available since Release 1.0.1 Nighty
  * @chengelog  [2007/04/14] Ver1.0.1Nighty package
@@ -37,7 +37,7 @@ $mapimg = "http://maps.google.com/staticmap?center={$lat},{$lon}&amp;zoom={$zoom
 $eznavi = "http://walk.eznavi.jp/map/?datum=0&amp;unit=0&amp;lat=%2b{$ezlat}&amp;lon=%2b{$ezlon}&amp;fm=0";
 $glocal = "http://www.google.co.jp/m/search?output=chtml&amp;site=maps&amp;hl=ja&amp;q={$lat},{$lon}&amp;zp={$zp}";
 
-$string = "<div align='center'><img src='$mapimg'><br><a href='{$eznavi}'>eznavi‚ÅÚ‚µ‚­Œ©‚é</a><br><a href='{$glocal}'>Googleƒ}ƒbƒv‚ÅÚ‚µ‚­Œ©‚é</a><br><br>ƒRƒR‚©‚çæ‚ÍSNSŠO‚Æ‚È‚è‚Ü‚·B</div>";
+$string = "<div align='center'><img src='$mapimg'><br><a href='{$eznavi}'>eznaviï¿½ÅÚ‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</a><br><a href='{$glocal}'>Googleï¿½}ï¿½bï¿½vï¿½ÅÚ‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</a><br><br>ï¿½Rï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½SNSï¿½Oï¿½Æ‚È‚ï¿½Ü‚ï¿½ï¿½B</div>";
 
 header('Content-Type: text/html; charset=Shift_JIS');
 

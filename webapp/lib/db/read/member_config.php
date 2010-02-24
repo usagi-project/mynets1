@@ -12,7 +12,7 @@
 * @author shinji hyodo ＜shinji@hey-to.net＞
 * @copyright 2006-2007 USAGI Project
 * @license http://www.php.net/license/3_0.txt PHP License 3.0
-* @link http://usagi.mynets.jp/
+* @link http://usagi-project.org/
 * @since usagi 1.0.0Nighty
 
 */

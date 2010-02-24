@@ -9,8 +9,8 @@
  *              license@php.net so we can mail you a copy immediately.
  *
  * @author     Kuniharu Tsujioka
- * @author     UsagiProject <info@usagi.mynets.jp>
- * @copyright  2006-2007 UsagiProject <author member ad http://usagi.mynets.jp/member.html>
+ * @author     UsagiProject <info@usagi-project.org>
+ * @copyright  2006-2007 UsagiProject <author member ad http://usagi-project.org/member.html>
  * @version    MyNETS,v 1.0.0
  * @since      File available since Release 1.0.0 Nighty
  * @chengelog  [2007/02/17] Ver1.1.0Nighty package

@@ -10,8 +10,8 @@
  * @category   Application of MyNETS
  * @project    Usagi Project
  * @package    MyNETS
- * @author     Usagi Project <info@usagi.mynets.jp>
- * @copyright  2009 Usagi Project <author member ad http://usagi.mynets.jp/member.html>
+ * @author     Usagi Project <info@usagi-project.org>
+ * @copyright  2009 Usagi Project <author member ad http://usagi-project.org/member.html>
  * @version    MyNETS,v 1.2.1
  * @since      File available since Release 1.2.1 Nighty
  * @chengelog  [2009/08/11] import from OpenPNE 2.10.9 and require mhash

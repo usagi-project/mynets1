@@ -11,9 +11,9 @@
  * @project    OpenPNE UsagiProject 2006-2008
  * @package    MyNETS
  * @author     KUNIHARU Tsujioka <kunitsuji@gmail.com>
- * @author     UsagiProject <info@usagi.mynets.jp>
+ * @author     UsagiProject <info@usagi-project.org>
  * @copyright  KUNIHARU Tsujioka <kunitsuji@gmail.com>
- * @copyright  2006-2007 UsagiProject <author member ad http://usagi.mynets.jp/member.html>
+ * @copyright  2006-2007 UsagiProject <author member ad http://usagi-project.org/member.html>
  * @chengelog  [2008/07/07]
  * ========================================================================
  */

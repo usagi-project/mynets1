@@ -11,8 +11,8 @@
  * @category   Application of MyNETS
  * @project    OpenPNE UsagiProject 2006-2007
  * @package    MyNETS
- * @author     UsagiProject <info@usagi.mynets.jp>
- * @copyright  2006-2007 UsagiProject <author member ad http://usagi.mynets.jp/member.html>
+ * @author     UsagiProject <info@usagi-project.org>
+ * @copyright  2006-2007 UsagiProject <author member ad http://usagi-project.org/member.html>
  * @version    MyNETS,v 1.0.0
  * @since      File available since Release 1.0.0 Nighty
  * @chengelog  [2007/02/17] Ver1.1.0Nighty package
@@ -112,7 +112,7 @@ if (! function_exists('db_schedule_c_member_list4mail'))
     }
 }
 
-//KTAIÉJÉåÉìÉ_Å[
+//KTAIÔøΩJÔøΩÔøΩÔøΩÔøΩÔøΩ_ÔøΩ[
 if (! function_exists('p_h_calendar_c_schedule_list_count4date'))
 {
     function p_h_calendar_c_schedule_list_count4date($year, $month, $day, $c_member_id)

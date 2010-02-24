@@ -8,9 +8,9 @@
  *              license@php.net so we can mail you a copy immediately.
  *
  * @project    UsagiProject 2006-2007
- * @author     Tetsuji,Katsuki <info@usagi.mynets.jp>
- * @author     UsagiProject <info@usagi.mynets.jp>
- * @copyright  2006-2007 UsagiProject <author member ad http://usagi.mynets.jp/member.html>
+ * @author     Tetsuji,Katsuki <info@usagi-project.org>
+ * @author     UsagiProject <info@usagi-project.org>
+ * @copyright  2006-2007 UsagiProject <author member ad http://usagi-project.org/member.html>
  * @chengelog  [2007/09/10] Ver1.1.1Nighty package
  *             [2007/12/20] Add getSiteNewReview and getSiteNewCommunity.
  *                          Add max days and time parameters. by Naoya Shimada.

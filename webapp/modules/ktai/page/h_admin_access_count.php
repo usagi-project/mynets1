@@ -11,8 +11,8 @@
  * @category   Application of MyNETS
  * @project    OpenPNE UsagiProject 2006-2007
  * @package    MyNETS
- * @author     Kunitsuji UsagiProject <info@usagi.mynets.jp>
- * @copyright  2006-2007 UsagiProject <author member ad http://usagi.mynets.jp/member.html>
+ * @author     Kunitsuji UsagiProject <info@usagi-project.org>
+ * @copyright  2006-2007 UsagiProject <author member ad http://usagi-project.org/member.html>
  * @version    MyNETS,v 1.1.0
  * @since      File available since Release 1.0.0 Nighty
  * @chengelog  [2007/06/19] Ver1.1.0Nighty package

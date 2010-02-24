@@ -4,8 +4,8 @@
  * @category   Application of SNS
  * @project    OpenPNE UsagiProject 2006-2007
  * @package    MyNETS
- * @author     UsagiProject <info@usagi.mynets.jp>
- * @copyright  2006-2007 UsagiProject <author member ad http://usagi.mynets.jp/menber.html>
+ * @author     UsagiProject <info@usagi-project.org>
+ * @copyright  2006-2007 UsagiProject <author member ad http://usagi-project.org/menber.html>
  * @version    MyNETS,v 1.0.0 Nighty 2007/02/14
  * @since      File available since Release 1.0.0 Nighty
  *

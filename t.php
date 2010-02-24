@@ -10,12 +10,12 @@
  * @category   Application of MyNETS
  * @project    OpenPNE UsagiProject 2006-2007
  * @package    MyNETS
- * @author     UsagiProject <info@usagi.mynets.jp>
- * @copyright  2006-2007 UsagiProject <author member ad http://usagi.mynets.jp/member.html>
+ * @author     UsagiProject <info@usagi-project.org>
+ * @copyright  2006-2007 UsagiProject <author member ad http://usagi-project.org/member.html>
  * @version    MyNETS,v 1.0.1
  * @since      File available since Release 1.0.1 Nighty
  * @chengelog  [2007/04/14] Ver1.0.1Nighty package
- *             [2008/07/18] Google GWT ‘Î‰ž
+ *             [2008/07/18] Google GWT ï¿½Î‰ï¿½
  * ========================================================================
  */
 
@@ -31,7 +31,7 @@ if ( ! preg_match($url_pattern, $url))
     ."<head>\n"
     ."<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Shift_JIS\">"
     ."</head>\n"
-    ."<body>URL‚ð³‚µ‚­”FŽ¯‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B<br><br>"
+    ."<body>URLï¿½ð³‚ï¿½ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½ï¿½ï¿½é‚±ï¿½Æ‚ï¿½ï¿½Å‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½B<br><br>"
     ."</body></html>";
 }
 else
@@ -40,11 +40,11 @@ else
     ."<head>\n"
     ."<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Shift_JIS\">"
     ."</head>\n"
-    ."<body>‚±‚±‚©‚ç‚ÍŠO•”‚Ìƒy[ƒW‚ðŠJ‚«‚Ü‚·B<br>ƒTƒCƒg‚É‚æ‚Á‚Ä‚Í³í‚É•\Ž¦‚³‚ê‚È‚¢‰Â”\«‚ª‚ ‚è‚Ü‚·B<br><br>"
-    ."<br>’¼ÚURL‚ðŠJ‚­ê‡‚Í‰º‚ðƒNƒŠƒbƒN<br><a href=\"".$url."\">".$url."</a><br>"
-    ."<br>ƒ‚ƒoƒCƒ‹—p‚Ìƒy[ƒW‚É•ÏŠ·‚µ‚Ä•\Ž¦‚·‚é(Google)<br>"
+    ."<body>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÍŠOï¿½ï¿½ï¿½Ìƒyï¿½[ï¿½Wï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B<br>ï¿½Tï¿½Cï¿½gï¿½É‚ï¿½ï¿½ï¿½Ä‚Íï¿½ï¿½ï¿½É•\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Â”\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B<br><br>"
+    ."<br>ï¿½ï¿½ï¿½ï¿½URLï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½ê‡ï¿½Í‰ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½N<br><a href=\"".$url."\">".$url."</a><br>"
+    ."<br>ï¿½ï¿½ï¿½oï¿½Cï¿½ï¿½ï¿½pï¿½Ìƒyï¿½[ï¿½Wï¿½É•ÏŠï¿½ï¿½ï¿½ï¿½Ä•\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(Google)<br>"
     ."<a href=\"http://www.google.co.jp/gwt/n?u=".urlencode($url)."&_gwt_noimg=0\">".$url."</a><br>"
-    ."‰æ‘œ‚ð”ñ•\Ž¦‚É‚·‚é<br>"
+    ."ï¿½æ‘œï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½<br>"
     ."<a href=\"http://www.google.co.jp/gwt/n?u=".urlencode($url)."&_gwt_noimg=1\">".$url."</a><br>"
     ."<hr>"
     ."</body></html>";

@@ -8,10 +8,10 @@
  *              license@php.net so we can mail you a copy immediately.
  *
  * @project    UsagiProject 2006-2008
- * @author     Naoya Shimada <info@usagi.mynets.jp>
- * @author     UsagiProject <info@usagi.mynets.jp>
- * @copyright  Naoya Shimada <author member ad http://usagi.mynets.jp/member.html>
- * @copyright  2006-2008 UsagiProject <author member ad http://usagi.mynets.jp/member.html>
+ * @author     Naoya Shimada <info@usagi-project.org>
+ * @author     UsagiProject <info@usagi-project.org>
+ * @copyright  Naoya Shimada <author member ad http://usagi-project.org/member.html>
+ * @copyright  2006-2008 UsagiProject <author member ad http://usagi-project.org/member.html>
  * @chengelog  [2007/11/26] Ver1.1.1Nighty package
  *             [2008/07/26] Add cache merge mode.
  *             [2008/08/16] Add collection mode.

@@ -11,7 +11,7 @@ header('Pragma: no-cache');
 <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
 </head>
 <body>
-<center><font color="orange">GPSŒv‘ªI—¹</font></center><hr>
+<center><font color="orange">GPSï¿½vï¿½ï¿½ï¿½Iï¿½ï¿½</font></center><hr>
 <?php
 /* ========================================================================
  *
@@ -24,9 +24,9 @@ header('Pragma: no-cache');
  * @category   Application of MyNETS
  * @project    OpenPNE UsagiProject 2006-2007
  * @package    MyNETS
- * @author     UsagiProject <info@usagi.mynets.jp>
+ * @author     UsagiProject <info@usagi-project.org>
  * @authoe     Kazuo Ide [K&X inc.] UsagiProject
- * @copyright  2006-2007 UsagiProject <author member ad http://usagi.mynets.jp/member.html>
+ * @copyright  2006-2007 UsagiProject <author member ad http://usagi-project.org/member.html>
  * @version    MyNETS,v 1.0.0
  * @since      File available since Release 1.0.0 Nighty
  * @chengelog  [2007/02/17] Ver1.1.0Nighty package
@@ -53,13 +53,13 @@ $lo = explode('.',$lonn);
 $loo = floatval($lo[0]) + (floatval($lo[1])/60) + (floatval($lo[2]+$lo[3]/1000)/3600);
 $looo = str_replace(".",",",$loo);
 $mail = str_replace('+','%2B',$mail);
-echo "Œv‘ª‚ªI—¹‚µ‚Ü‚µ‚½<br>";
-echo "GPSŒë·ƒŒƒxƒ‹(SoftBank):{$smaj}i3‚ğ‚¨‚·‚·‚ß‚µ‚Ü‚·j<br>";
-echo "<div align='center'><a href='mailto:{$mail}?body=GPSŒë·ƒŒƒxƒ‹(SoftBank):{$smaj}%0D%0A&#60;cmd src=\"gmaps\" args=\"17,{$laaa},{$looo}\"&#62;'>‰º‹Lƒ}ƒbƒv‚Åƒ[ƒ‹ì¬</a><br>";
+echo "ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½<br>";
+echo "GPSï¿½ë·ï¿½ï¿½ï¿½xï¿½ï¿½(SoftBank):{$smaj}ï¿½i3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½ï¿½Ü‚ï¿½ï¿½j<br>";
+echo "<div align='center'><a href='mailto:{$mail}?body=GPSï¿½ë·ï¿½ï¿½ï¿½xï¿½ï¿½(SoftBank):{$smaj}%0D%0A&#60;cmd src=\"gmaps\" args=\"17,{$laaa},{$looo}\"&#62;'>ï¿½ï¿½ï¿½Lï¿½}ï¿½bï¿½vï¿½Åƒï¿½ï¿½[ï¿½ï¿½ï¿½ì¬</a><br>";
 echo "<img src='http://maps.google.com/staticmap?center={$laa},{$loo}&amp;zoom=17&amp;size=180x220&amp;markers={$laa},{$loo}&amp;maptype=mobile&amp;key=" .GOOGLE_MAPS_API_KEY. "'><br>";
-echo "<a href='../../kmaps.php?lat={$laa}&amp;lon={$loo}'>ü•Ó‚ğÚ‚µ‚­Œ©‚é</a></div>";
-echo "<br><a href='location:auto?url=".OPENPNE_URL."gmaps/gpssoftbank.php/{$ksid}/{$mail}'>ÄŒv‘ª</a><br>";
-echo "<a href='../../../?m=ktai&amp;a=page_h_home&amp;{$ksid}' accesskey='0'>0.Î°Ñ</a>";
+echo "<a href='../../kmaps.php?lat={$laa}&amp;lon={$loo}'>ï¿½ï¿½Ó‚ï¿½ï¿½Ú‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</a></div>";
+echo "<br><a href='location:auto?url=".OPENPNE_URL."gmaps/gpssoftbank.php/{$ksid}/{$mail}'>ï¿½ÄŒvï¿½ï¿½</a><br>";
+echo "<a href='../../../?m=ktai&amp;a=page_h_home&amp;{$ksid}' accesskey='0'>0.Î°ï¿½</a>";
 ?>
 </body>
 </html>

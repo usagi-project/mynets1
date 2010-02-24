@@ -12,7 +12,7 @@
  * @project    OpenPNE UsagiProject 2006-2007
  * @package    MyNETS
  * @author     shinji hyodot <shinji@hey-to.net>
- * @copyright  2006-2007 UsagiProject <author member ad http://usagi.mynets.jp/member.html>
+ * @copyright  2006-2007 UsagiProject <author member ad http://usagi-project.org/member.html>
  * @version    MyNETS,v 1.1.0
  * @since      File available since Release 1.1.0 Nighty
  * @chengelog  [2007/05/01] Ver1.1.0Nighty package

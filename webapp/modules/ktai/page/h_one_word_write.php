@@ -11,9 +11,9 @@
  * @project    UsagiProject 2006-2008
  * @package    [[パッケージ名またはスクリプト名]]
  * @author     KUNIHARU Tsujioka <author@example.com>
- * @author     UsagiProject <info@usagi.mynets.jp>
+ * @author     UsagiProject <info@usagi-project.org>
  * @copyright  KUNIHARU Tsujioka
- * @copyright  2006-2008 UsagiProject <author member ad  http://usagi.mynets.jp/member.html>
+ * @copyright  2006-2008 UsagiProject <author member ad  http://usagi-project.org/member.html>
  * @version
  * @chengelog
  * ========================================================================

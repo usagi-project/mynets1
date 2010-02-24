@@ -10,7 +10,7 @@
  * @package    Session Class
  * @author     KUNIHARU Tsujioka <kunitsuji@gmail.com>
  * @copyright  Copyright (c) 2008 KUNIHARU Tsujioka <kunitsuji@gmail.com>
- * @copyright  Copyright (c) 2006-2008 Usagi Project (URL:http://usagi.mynets.jp)
+ * @copyright  Copyright (c) 2006-2008 Usagi Project (URL:http://usagi-project.org)
  * @license    New BSD License
  */
 

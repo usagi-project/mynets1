@@ -10,7 +10,7 @@
  * @package    convert top controller
  * @author     KUNIHARU Tsujioka <kunitsuji@gmail.com>
  * @copyright  Copyright (c) 2008 KUNIHARU Tsujioka <kunitsuji@gmail.com>
- * @copyright  Copyright (c) 2006-2008 Usagi Project (URL:http://usagi.mynets.jp)
+ * @copyright  Copyright (c) 2006-2008 Usagi Project (URL:http://usagi-project.org)
  * @license    New BSD License
  */
 
@@ -24,12 +24,12 @@ class top extends Controller
     function index()
     {
         $this->load->helper('form');
-        //MyNETS‚Ìconfig.php‚ð“Ç‚Ýž‚ñ‚ÅDBî•ñ‚ðŽæ“¾‚·‚é
+        //MyNETSï¿½ï¿½config.phpï¿½ï¿½Ç‚Ýï¿½ï¿½ï¿½ï¿½DBï¿½ï¿½ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½
         $error_msg = "";
         if (! isset($GLOBALS['_OPENPNE_DSN_LIST']['main']['dsn']))
         {
-            //“Ç‚Ýž‚ÝƒGƒ‰[B‚Â‚Ü‚èƒRƒ“ƒo[ƒg‚Å‚«‚È‚¢
-            $error_msg = "config.php‚ª“Ç‚Ýž‚ß‚Ü‚¹‚ñB";
+            //ï¿½Ç‚Ýï¿½ï¿½ÝƒGï¿½ï¿½ï¿½[ï¿½Bï¿½Â‚Ü‚ï¿½Rï¿½ï¿½ï¿½oï¿½[ï¿½gï¿½Å‚ï¿½ï¿½È‚ï¿½
+            $error_msg = "config.phpï¿½ï¿½ï¿½Ç‚Ýï¿½ï¿½ß‚Ü‚ï¿½ï¿½ï¿½B";
             $vData = array(
                 'error_msg' => $error_msg,
                 'header'    => 'header/header.html',

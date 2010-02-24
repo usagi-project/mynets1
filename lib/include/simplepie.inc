@@ -21,7 +21,7 @@ http://simplepie.org/support/
 
 *****************************************************
 2006-2007 UsagiProject Updated
-  author member ad http://usagi.mynets.jp/member.html
+  author member ad http://usagi-project.org/member.html
 Updated: 02-23-2007
 Category:Application of MyNETS
 Version: MyNETS 1.0.0 02-23-2007

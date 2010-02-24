@@ -11,8 +11,8 @@
  * @category   Application of MyNETS
  * @project    OpenPNE UsagiProject 2006-2007
  * @package    MyNETS
- * @author     UsagiProject <info@usagi.mynets.jp>
- * @copyright  2006-2007 UsagiProject <author member ad http://usagi.mynets.jp/member.html>
+ * @author     UsagiProject <info@usagi-project.org>
+ * @copyright  2006-2007 UsagiProject <author member ad http://usagi-project.org/member.html>
  * @version    MyNETS,v 1.0.0
  * @since      File available since Release 1.0.0 Nighty
  * @chengelog  [2007/02/17] Ver1.1.0Nighty package
@@ -121,7 +121,7 @@ function t_img_url_gen($src,$dest,$w,$h)
                 0, 0, 0, 0, $w, $h, $s_width, $s_height);
    }
    
-   //GD‚Ìƒo[ƒWƒ‡ƒ“‚É‚æ‚Á‚ÄImageGIF‰æ‘œ‚ªg‚¦‚È‚¢ê‡‚ª‚ ‚é‚Ì‚Å‘Îˆ
+   //GDï¿½Ìƒoï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½ImageGIFï¿½æ‘œï¿½ï¿½ï¿½gï¿½ï¿½ï¿½È‚ï¿½ï¿½ê‡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Å‘Îï¿½
     if (function_exists("imagegif")) {
         return imagegif($oim,$dest);
     } else {

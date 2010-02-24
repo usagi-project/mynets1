@@ -10,9 +10,9 @@
  * @project    UsagiProject 2006-2008
  * @package    MyNETS
  * @author     KUNIHARU Tsujioka <kunitsuji@gmail.com>
- * @author     UsagiProject <info@usagi.mynets.jp>
- * @copyright  KUNIHARU Tsujioka <author member ad http://usagi.mynets.jp/member.html>
- * @copyright  2006-2008 UsagiProject <author member ad http://usagi.mynets.jp/member.html>
+ * @author     UsagiProject <info@usagi-project.org>
+ * @copyright  KUNIHARU Tsujioka <author member ad http://usagi-project.org/member.html>
+ * @copyright  2006-2008 UsagiProject <author member ad http://usagi-project.org/member.html>
  * @version    MyNETS v 1.2.0
  * @chengelog  [2008/07/29] Ver1.2.0Nighty package
  * ========================================================================

@@ -8,11 +8,11 @@
  *              license@php.net so we can mail you a copy immediately.
  *
  * @project    OpenPNE UsagiProject 2006-2007
- * @author     Kazuki <info@usagi.mynets.jp>
+ * @author     Kazuki <info@usagi-project.org>
  * @author     KUNIHARU Tsujioka <kunitsuji@gmail.com>
  * @author     Fesly Project <http://sourceforge.jp/projects/fesly>
- * @author     Usagi Project <info@usagi.mynets.jp>
- * @copyright  2006-2007 UsagiProject <author member ad http://usagi.mynets.jp/member.html>
+ * @author     Usagi Project <info@usagi-project.org>
+ * @copyright  2006-2007 UsagiProject <author member ad http://usagi-project.org/member.html>
  * @chengelog  [2008/08/02] Ver1.2.0Nighty package
  * ========================================================================
  */

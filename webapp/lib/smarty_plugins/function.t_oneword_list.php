@@ -10,10 +10,10 @@
  * @category   Application of MyNETS
  * @project    UsagiProject 2006-2007
  * @package    MyNETS
- * @author     Naoya Shimada <info@usagi.mynets.jp>
- * @author     UsagiProject <info@usagi.mynets.jp>
- * @copyright  Naoya Shimada <author member ad http://usagi.mynets.jp/member.html>
- * @copyright  2006-2007 UsagiProject <author member ad http://usagi.mynets.jp/member.html>
+ * @author     Naoya Shimada <info@usagi-project.org>
+ * @author     UsagiProject <info@usagi-project.org>
+ * @copyright  Naoya Shimada <author member ad http://usagi-project.org/member.html>
+ * @copyright  2006-2007 UsagiProject <author member ad http://usagi-project.org/member.html>
  * @version    MyNETS,v 1.1.1
  * @since      File available since Release 1.1.1 Nighty
  * @chengelog  [2007/11/26] Ver1.1.1Nighty package
