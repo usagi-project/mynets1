@@ -121,7 +121,7 @@ function t_img_url_gen($src,$dest,$w,$h)
                 0, 0, 0, 0, $w, $h, $s_width, $s_height);
    }
    
-   //GD�̃o�[�W�����ɂ����ImageGIF�摜���g���Ȃ��ꍇ������̂őΏ�
+    // GDのバージョンによってImageGIF画像が使えない場合があるので対処
     if (function_exists("imagegif")) {
         return imagegif($oim,$dest);
     } else {
