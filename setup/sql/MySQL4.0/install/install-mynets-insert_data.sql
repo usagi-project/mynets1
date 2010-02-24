@@ -198,7 +198,7 @@ INSERT INTO `c_review_category` VALUES (14,'Baby','ベビー＆マタニティ',
 INSERT INTO `c_review_category` VALUES (15,'Apparel','アパレル＆シューズ',15);
 -- --------------------------------------------------------
 
-INSERT INTO `c_siteadmin` VALUES (1,'inc_page_footer_before','<a href=\"?m=pc&amp;a=page_o_sns_kiyaku\" target=\"_blank\">利用規約</a> <a href=\"?m=pc&amp;a=page_o_sns_privacy\" target=\"_blank\">プライバシーポリシー</a> <a href=\"?m=pc&amp;a=page_o_sns_help\" target=\"_blank\">ヘルプ</a> <a href=\"http://usagi.mynets.jp/\" target=\"_blank\">Usagi Projectとは</a>',NOW());
+INSERT INTO `c_siteadmin` VALUES (1,'inc_page_footer_before','<a href=\"?m=pc&amp;a=page_o_sns_kiyaku\" target=\"_blank\">利用規約</a> <a href=\"?m=pc&amp;a=page_o_sns_privacy\" target=\"_blank\">プライバシーポリシー</a> <a href=\"?m=pc&amp;a=page_o_sns_help\" target=\"_blank\">ヘルプ</a> <a href=\"http://usagi-project.org/\" target=\"_blank\">Usagi Projectとは</a>',NOW());
 INSERT INTO `c_siteadmin` VALUES (2,'inc_page_footer_after','<a href=\"?m=pc&amp;a=page_o_sns_kiyaku\" target=\"_blank\">利用規約</a> <a href=\"?m=pc&amp;a=page_o_sns_privacy\" target=\"_blank\">プライバシーポリシー</a> <a href=\"?m=pc&amp;a=page_h_sns_help\" target=\"_top\">ヘルプ</a>',NOW());
 INSERT INTO `c_siteadmin` VALUES (3,'inc_custom_css','/**フォント色変更**/\n\n/*リンク関連*/\na:link    { color: #026CD1; }\na:visited { color: #004A95; }\na:hover   { color: #76AFE6; }\na:active  { color: #76AFE6; }\n\n/*コンテンツ見出しlv1*/\ntd.bg_06 span.b_b,\n.c_00 { color: #222222; }\n\n/*コンテンツ見出しlv2*/\n.c_01 { color: #444444; }\n\n/*強調文字暖色*/\n.c_02 { color: #D92C49; }\n\n/*強調文字寒色*/\n.c_03 { color: #2C65D9; }\n\n/*その他文字色*/\nbody { color: #000000; }',NOW());
 INSERT INTO `c_siteadmin` VALUES ('4', 'o_sns_help', '', NOW());
