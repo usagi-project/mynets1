@@ -34,7 +34,7 @@
          <td style="text-align:right;whitespace:nowrap;">
          <img src="images/h2_bg.gif" title="usagi" alt="icon"></td>
          <td>データベースの照合順序は「UTF-8」を指定してください。他では動作しません。<br />
-         この時点でわからない場合は、<a target="_balank" href="http://usagi-project.org/">Usagi
+         この時点でわからない場合は、<a target="_blank" href="http://usagi-project.org/">Usagi
          Project 公式ホームページ</a>を参考にしてください。 <br />
          ※レンタルサーバの契約内容によりデータベースを作成できない場合は、下記情報をお問い合わせください。<br />
          MyNETSのインストールにはMySQLが必須となっています。</td>
@@ -61,7 +61,7 @@
          <img src="images/h2_bg.gif" title="usagi" alt="icon"></td>
          <td style="text-align:left;width:360px;">
          <p class="style1 fsxl">何らかの理由でこのウィザードが機能しない場合でも心配いりません。データベースの設定のすべては別ファイルで行うことができます。<br />ローカルにて、config.php.sampleをテキストエディタで開き、必要情報を記載した上で、config.phpとリネームして保存後にサーバーへアップロードしてください。<!--　また、データベースの中身も別ファイルで用意されています。phpMyAdminなどを利用して、Usagiに必要なSQLを実行することができます。 --><br />
-         詳しい情報は、<a target="_balank" href="http://usagi-project.org/"><span class="style2">Usagi Project 公式ホームページ</span></a>を参考にしてください。</p>
+         詳しい情報は、<a target="_blank" href="http://usagi-project.org/"><span class="style2">Usagi Project 公式ホームページ</span></a>を参考にしてください。</p>
          </td>
      </tr>
      <tr>

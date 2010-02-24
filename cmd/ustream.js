@@ -20,5 +20,5 @@ document.write('<embed width="416" height="200" type="application/x-shockwave-fl
  + channel
  + '" pluginspage="http://www.adobe.com/go/getflashplayer" src="http://ustream.tv/IrcClient.swf"\><br><a href="http://ustream.tv/channel/'
  + channel
- + '" target="blank">■別ウィンドウで開く■</a>　←サインアップして、チャットを楽しみましょう！！');
+ + '" target="_blank">■別ウィンドウで開く■</a>　←サインアップして、チャットを楽しみましょう！！');
 }
