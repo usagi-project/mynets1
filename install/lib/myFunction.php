@@ -10,8 +10,8 @@
  * @category   Application of MyNETS
  * @project    OpenPNE UsagiProject 2006-2007
  * @package    MyNETS
- * @author     UsagiProject <info@usagi-project.org>
- * @copyright  2006-2007 UsagiProject <author member ad http://usagi-project.org/>
+ * @author     UsagiProject <info@usagi.mynets.jp>
+ * @copyright  2006-2007 UsagiProject <author member ad http://usagi.mynets.jp/>
  * @version    MyNETS,v 1.0.0
  * @since      File available since Release 1.0.0 Nighty
  * @chengelog  [2007/05/24] Ver1.1.0Nighty package
@@ -38,11 +38,10 @@ function cnv_formstr($array) {
 
 //config.phpを生成
 function config_generate(){
-    global $_POST;
-
+    $config_file = '../conf/config.php';
     $config_lines = file("config.php.sample");
 
-    $file = @fopen("../conf/config.php", "w");
+    $file = @fopen($config_file, "w");
     @flock($file, LOCK_EX);
 
     foreach ($config_lines as $line_num => $line) {
@@ -52,12 +51,14 @@ function config_generate(){
         $result = @fputs($file, $line);
     }
 
-    @flock($file, LOCK_UN);
     @fclose($file);
 
     //2008-10-21 KUNIHARU Tsujioka
     //chmod config.php > 777
-    chmod('../conf/config.php', 0777);
+    $fileowner = posix_getpwuid(fileowner($config_file));
+    if ($fileowner === 'nobody' || $fileowner === 'apache' ) {
+        chmod($config_file, 0777);
+    }
 
     if (empty($result)){
         error("Error: generating config.php",$_POST);
