@@ -8,10 +8,10 @@
  *              license@php.net so we can mail you a copy immediately.
  *
  * @category   Application of MyNETS
- * @project    OpenPNE UsagiProject 2006-2007
+ * @project    OpenPNE UsagiProject 2006-2010
  * @package    MyNETS
- * @author     UsagiProject <info@usagi.mynets.jp>
- * @copyright  2006-2007 UsagiProject <author member ad http://usagi.mynets.jp/>
+ * @author     UsagiProject <info@usagi-project.org>
+ * @copyright  2006-2010 UsagiProject <author member ad http://usagi-project.org/>
  * @version    MyNETS,v 1.0.0
  * @since      File available since Release 1.0.0 Nighty
  * @chengelog  [2007/05/24] Ver1.1.0Nighty package
