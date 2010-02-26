@@ -2,14 +2,10 @@
 
 # 2007/06/28  Kenji Suzuki
 # 2008/08/26  KUNIHARU Tsujioka path update
+# 2009/01/06  Kuniharu Tsujioka path update
 
-
-url_release="http://svn.usagi-project.org/svn2/public/tags/"
-url_test="http://svn.usagi-project.org/svn2/public/"
+url="http://svn.usagi-project.org/svn2/public/tags/"
 dir="Usagi"
-
-
-url="$url_release"
 
 if [ $# -eq 0 ]; then
     echo "Make MyNETS package"
@@ -30,8 +26,8 @@ package="MyNETS-$tag"
 
 
 if [ "$2" == "test" ]; then
-    url="$url_test"
-    tag="trunk"
+    url="http://svn.usagi-project.org/svn2/public/trunk/"
+    tag=""
     version="$version-test"
     package="$package-test"
 fi
@@ -55,14 +51,10 @@ fi
 
 
 echo "Making sql files for installer"
-cd $dir
-sh ../create-sql-for-installer.sh
+cd $dir/install
+sh create-sql-for-installer.sh
 
-echo "Removing install/scripts directory"
-rm -rf install/scripts
- 
 echo "Making md5 data file"
-cd install
 php check-file-get-md5.php
 
 echo "Checking CRLF"
