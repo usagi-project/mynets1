@@ -51,10 +51,11 @@ fi
 
 
 echo "Making sql files for installer"
-cd $dir/install
-sh create-sql-for-installer.sh
+cd $dir
+sh ../create-sql-for-installer.sh
 
 echo "Making md5 data file"
+cd install
 php check-file-get-md5.php
 
 echo "Checking CRLF"
