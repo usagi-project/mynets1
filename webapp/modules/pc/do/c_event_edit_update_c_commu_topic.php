@@ -41,6 +41,16 @@ class pc_do_c_event_edit_update_c_commu_topic extends OpenPNE_Action
         $upfile_obj3 = $_FILES['image_filename3'];
         $open_flag   = $requests['open_flag'];
 
+        // --- IE8 FORMタグ不正による表示崩れ対策 -- //
+        $cancel = $requests['cancel'];
+        if ($cancel)
+        {
+            $_REQUEST['target_c_commu_topic_id'] = $c_commu_topic_id;
+            $_REQUEST['body'] = '';
+            openpne_forward('pc', 'page', "c_event_detail");
+            exit;
+        }
+
         $event = p_c_event_add_confirm_event4request();
         if ($event['invite_period_year'].$event['invite_period_month'].$event['invite_period_day'] != '') {
             $invite_period = $event['invite_period_year']."-".$event['invite_period_month']."-".$event['invite_period_day'];
