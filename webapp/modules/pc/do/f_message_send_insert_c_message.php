@@ -39,12 +39,29 @@ class pc_do_f_message_send_insert_c_message extends OpenPNE_Action
 
         // --- リクエスト変数
         $c_member_id_to = $requests['c_member_id_to'];
-        $subject = $requests['subject'];
-        $body = $requests['body'];
-        $tmpfile_1 = $requests['tmpfile_1'];
-        $tmpfile_2 = $requests['tmpfile_2'];
-        $tmpfile_3 = $requests['tmpfile_3'];
-        $captcha   = $requests['captcha'];
+        $subject        = $requests['subject'];
+        $body           = $requests['body'];
+        $tmpfile_1      = $requests['tmpfile_1'];
+        $tmpfile_2      = $requests['tmpfile_2'];
+        $tmpfile_3      = $requests['tmpfile_3'];
+        $captcha        = $requests['captcha'];
+        // ----------
+        // IE8でのキャプチャ組み込み時の表示崩れを修正
+        // 20100401 KUNIHARU Tsujioka #271
+        $no             = $requests['no'];
+        if ($no)
+        {
+            $p = array(
+                'target_c_member_id' => $c_member_id_to,
+                'target_c_message_id' => $requests['target_c_message_id'],
+                'jyusin_c_message_id' => $requests['jyusin_c_message_id'],
+                'body' => $body,
+                'subject' => $subject,
+                'is_syusei' => '1',
+            );
+            openpne_redirect('pc', 'page_f_message_send', $p);
+        }
+        //print_r($no);exit;
         // ----------
 
         $msg1 = "";
