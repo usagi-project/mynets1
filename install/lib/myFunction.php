@@ -55,9 +55,11 @@ function config_generate(){
 
     //2008-10-21 KUNIHARU Tsujioka
     //chmod config.php > 777
-    $fileowner = posix_getpwuid(fileowner($config_file));
-    if ($fileowner === 'nobody' || $fileowner === 'apache' ) {
-        chmod($config_file, 0777);
+    if (substr(PHP_OS, 0, 3) !== 'WIN') { // Windowsにはposix_getpwuid()がない
+        $fileowner = posix_getpwuid(fileowner($config_file));
+        if ($fileowner === 'nobody' || $fileowner === 'apache' ) {
+            chmod($config_file, 0777);
+        }
     }
 
     if (empty($result)){
