@@ -26,17 +26,42 @@ if (! function_exists('getMessagaList2Member4Me'))
     function getMessagaList2Member4Me($c_member_id, $target_member_id, $page, $page_size = 10)
     {
         $sql = "SELECT * FROM " . MYNETS_PREFIX_NAME . "c_message";
-        $where = " (c_member_id_from = ? or c_member_id_to = ?)" .
-                " AND  (c_member_id_from = ? or c_member_id_to = ?)" .
-                " AND is_syoudaku = 0" ;
+
+// 2010/07/25 抽出条件修正（削除済み、未送信メッセージを除外）
+//        $where = " (c_member_id_from = ? or c_member_id_to = ?)" .
+//                " AND  (c_member_id_from = ? or c_member_id_to = ?)" .
+//                " AND is_syoudaku = 0" ;
+        $where = " (" .
+                 "   (" .
+                 "     c_member_id_from = ?" .
+                 "     AND c_member_id_to = ?" .
+                 "     AND is_deleted_from = 0" .
+                 "   ) OR (" .
+                 "     c_member_id_from = ?" .
+                 "     AND c_member_id_to = ?" .
+                 "     AND is_deleted_to = 0" .
+                 "   )" .
+                 " )" .
+                 " AND is_send = 1" .
+                 " AND is_syoudaku = 0" ;
+
         $sql .= " WHERE $where";
         $sql .= " ORDER BY r_datetime DESC";
+
+// 2010/07/25 抽出条件修正（削除済み、未送信メッセージを除外）
+//        $params = array(
+//                intval($c_member_id),
+//                intval($c_member_id),
+//                intval($target_member_id),
+//                intval($target_member_id)
+//                );
         $params = array(
                 intval($c_member_id),
-                intval($c_member_id),
                 intval($target_member_id),
-                intval($target_member_id)
+                intval($target_member_id),
+                intval($c_member_id)
                 );
+
         $c_message_list = db_get_all_page($sql, $page, $page_size, $params);
 
         $sql =  "SELECT COUNT(*) FROM " . MYNETS_PREFIX_NAME . "c_message WHERE $where";

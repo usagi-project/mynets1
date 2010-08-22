@@ -86,7 +86,17 @@ class pc_page_h_message extends OpenPNE_Action
          * 残りはページングで処理
          */
         $page_size = 5;
-        $list = getMessagaList2Member4Me($c_message['c_member_id_to'], $c_message['c_member_id_from'], $page, $page_size);
+
+        // 2010/07/25 呼び出しパラメータを正規化
+        //$list = getMessagaList2Member4Me($c_message['c_member_id_to'], $c_message['c_member_id_from'], $page, $page_size);
+        if ($c_message['c_member_id_from'] == $u) {
+            //自分が送信
+            $target_member_id = $c_message['c_member_id_to'];
+        } else {
+            //自分が受信
+            $target_member_id = $c_message['c_member_id_from'];
+        }
+        $list = getMessagaList2Member4Me($u, $target_member_id, $page, $page_size);
         
         $this->set('message_list', $list[0]);
         $this->set('is_prev', $list[1]);
