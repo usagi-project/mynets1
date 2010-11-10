@@ -61,6 +61,21 @@ if (CHECK_KTAI_UA && !isKtaiUserAgent()) {
     openpne_redirect('pc');
 }
 
+// 携帯キャリアのIPからの接続かどうかを判定する
+if (MOBILE_CARRIEAR_IP_CHECK === TRUE)
+{
+    require_once OPENPNE_WEBAPP_DIR .'/components/Mobileip.php';
+    $mobile_ip = new Mobileip();
+    if ( ! $mobile_ip->is_mobile())
+    {
+        $remote_addr = $_SERVER['REMOTE_ADDR'];
+        if ($remote_addr != MY_IP_ADDRESS)
+        {
+            openpne_redirect('pc');
+        }
+    }
+}
+
 // 文字コード変換
 function ktai_convert_encoding($arr)
 {
@@ -126,4 +141,34 @@ if (defined('USE_POP_MAIL') && USE_POP_MAIL)
     $mail = new pop3mail();
     $mail->getPopMail();
 }
+
+/*
+get_display_size();
+function get_display_size()
+{
+	//softbankのディスプレイサイズを取得
+	if ($GLOBALS['__Framework']['ktai_carrier'] == 'softbank')
+	{
+		$size = $_SERVER['HTTP_X_JPHONE_DISPLAY'];
+		if ($size)
+		{
+			$display_size = substr($size, 0, 3);
+			$font_size = 2;
+		}
+		else
+		{
+			$display_size = 240;
+			$font_size = 1;
+		}
+	}
+	else
+	{
+		$display_size = 240;
+		$font_size = 1;
+	}
+	define('DISPLAY_SIZE', $display_size);
+	define('FONT_SIZE', $font_size);
+	//return $display_size;
+}
+*/
 ?>

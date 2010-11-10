@@ -642,4 +642,9 @@ define('ENABLE_HOOKS', FALSE);
 
 //今日のひとこと・クイックコミュニケーションの名前
 define('QUICK_SERVICE_NAME', '一言メッセージをどうぞ！');
+
+//モバイルキャリアのIPアドレスかどうかをチェックする
+define('MOBILE_CARRIEAR_IP_CHECK', TRUE);
+//自分の接続IP　モバイルIPではない場合、通すためのIP
+define('MY_IP_ADDRESS', '127.0.0.1');
 ?>
