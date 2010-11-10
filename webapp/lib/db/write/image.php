@@ -59,7 +59,7 @@ if (! function_exists('db_image_delete_c_image'))
 
 if (! function_exists('_do_insert_c_image'))
 {
-    function _do_insert_c_image($filename, $filepath, $c_member_id)
+    function _do_insert_c_image($filename, $filepath, $c_member_id=0)
     {
         if (!is_readable($filepath)) return false;
 
