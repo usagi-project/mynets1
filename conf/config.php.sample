@@ -646,4 +646,10 @@ define('QUICK_SERVICE_NAME', '一言メッセージをどうぞ！');
 
 //2008-11-18 emoji
 define('PICTGRAM_CHANGE_CARRIER', FALSE);
+
+//モバイルキャリアのIPアドレスかどうかをチェックする
+define('MOBILE_CARRIEAR_IP_CHECK', TRUE);
+//自分の接続IP　モバイルIPではない場合、通すためのIP
+define('MY_IP_ADDRESS', '127.0.0.1');
+
 ?>
