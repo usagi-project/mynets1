@@ -115,16 +115,18 @@ if (! function_exists('db_common_delete_c_member'))
                 $data = array('c_member_id_admin' => 1);
                 $where = array('c_commu_id' => intval($c_commu['c_commu_id']));
                 db_update(MYNETS_PREFIX_NAME . 'c_commu', $data, $where);
-                $sql = 'SELECT count(*) FROM ' . MYNETS_PREFIX_NAME . 'c_commu_member WHERE c_commu_id = 1';
-                $is_member = db_get_one($sql);
+                //2010-09-23 Takeda ID1がメンバ追加されないことのバグフィックス
+                $sql = 'SELECT count(*) FROM ' . MYNETS_PREFIX_NAME . 'c_commu_member WHERE c_commu_id = ? AND c_member_id = 1';
+                $params = array(intval($c_commu['c_commu_id']));
+                $is_member = db_get_one($sql, $params);
                 if (! (bool)$is_member)
                 {
                     $data = array(
                             'c_member_id' => 1,
+                            'c_commu_id'  => intval($c_commu['c_commu_id']),
                             'r_datetime'  => db_now(),
                     );
-                    $where = array('c_commu_id' => intval($c_commu['c_commu_id']));
-                    db_insert(MYNETS_PREFIX_NAME . 'c_commu_member', $data, $where);
+                    db_insert(MYNETS_PREFIX_NAME . 'c_commu_member', $data);
                 }
             }
         }
