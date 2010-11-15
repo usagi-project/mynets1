@@ -26,7 +26,7 @@
         <div class="entry-category">Step0</div>
         <div class="entry-body">
           <p>Usagi Projectへようこそ</p>
-          <p>Usagi ProjectのSNSエンジン「MyNETS Version 1.2.0」をインストールするためのツールがインストーラーです。このツールは新規でMyNETS Version 1.2.0を導入するするためのツールです。</p>
+          <p>Usagi ProjectのSNSエンジン「MyNETS Version 1.2.0」をインストールするためのツールがインストーラーです。このツールは新規でMyNETS Version 1.2.0を導入するためのツールです。</p>
           <!--<p>すでにMyNETSを導入していて、バージョンアップする場合は「<a href="./versionup.html" title="バージョンアップツール" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'MyNETS 1.0.1や1.0.0をご利用の場合に使います。');return false">バージョンアップツール</a>」をご利用ください。</p>-->
           <!--<p>また、OpenPNE2.4.Xや2.6.xからのコンバートは「<a href="./upgrade.html" title="Usagiコンバータ" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'OpenPNE系SNSからMyNETSを導入するときに使います。');return false">Usagiコンバーター</a>」をお使いください。</p>-->
           <br />
