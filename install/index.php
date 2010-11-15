@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>MyNETS 1.2.0 インストーラーについて</title>
+<title>MyNETS <?php echo MyNETS_VERSION;?> インストーラーについて</title>
 <link href="css/import.css" rel="stylesheet" type="text/css" media="screen,projection" />
 <script type="text/javascript" src="js/js.js"></script>
 </head>
 <body>
 <div id="wrap">
   <div id="head-install">
-    <h1>MyNETS 1.2.0 インストーラー</h1>
+    <h1>MyNETS <?php echo MyNETS_VERSION;?> インストーラー</h1>
     <div id="head-menu">
       <ul class="menu">
         <li><a href="http://usagi-project.org/">Usagi Project公式サイト</a></li>
@@ -21,12 +21,12 @@
   <div id="content">
     <div id="main-body">
       <div class="entry-box">
-        <div id="step0" class="entry-tag">さあ、あなたもSNSエンジン MyNETS Version 1.2.0をインストールしよう！</div>
-        <h2>MyNETS Version 1.2.0をインストールしよう！</h2>
+        <div id="step0" class="entry-tag">さあ、あなたもSNSエンジン MyNETS Version <?php echo MyNETS_VERSION;?>をインストールしよう！</div>
+        <h2>MyNETS Version <?php echo MyNETS_VERSION;?>をインストールしよう！</h2>
         <div class="entry-category">Step0</div>
         <div class="entry-body">
           <p>Usagi Projectへようこそ</p>
-          <p>Usagi ProjectのSNSエンジン「MyNETS Version 1.2.0」をインストールするためのツールがインストーラーです。このツールは新規でMyNETS Version 1.2.0を導入するためのツールです。</p>
+          <p>Usagi ProjectのSNSエンジン「MyNETS Version <?php echo MyNETS_VERSION;?>」をインストールするためのツールがインストーラーです。このツールは新規でMyNETS Version <?php echo MyNETS_VERSION;?> を導入するためのツールです。</p>
           <!--<p>すでにMyNETSを導入していて、バージョンアップする場合は「<a href="./versionup.html" title="バージョンアップツール" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'MyNETS 1.0.1や1.0.0をご利用の場合に使います。');return false">バージョンアップツール</a>」をご利用ください。</p>-->
           <!--<p>また、OpenPNE2.4.Xや2.6.xからのコンバートは「<a href="./upgrade.html" title="Usagiコンバータ" onmouseout="hideTooltip()" onmouseover="showTooltip(event,'OpenPNE系SNSからMyNETSを導入するときに使います。');return false">Usagiコンバーター</a>」をお使いください。</p>-->
           <br />
@@ -39,7 +39,7 @@
         <h2>MyNETSをインストールするための事前準備</h2>
         <div class="entry-category">Step1</div>
         <div class="entry-body">
-          <p>インストーラーは、MyNETS 1.2.0を新規でサーバーに導入する方を対象としています。</p>
+          <p>インストーラーは、MyNETS <?php echo MyNETS_VERSION;?>を新規でサーバーに導入する方を対象としています。</p>
           <p>画面の指示に従ってインストール作業を行うことができます。</p>
           <br />
           <p>処理の流れは次のようになります。</p>
@@ -91,7 +91,7 @@
         <div class="entry-category">Step3</div>
         <div class="entry-body">
           <p>サーバーの管理画面等から「データベース」の作成を行ってください。多くのレンタルサーバーでは、MySQLを利用することができます。</p>
-          <p>MySQLを利用する場合は、通常の次の情報が必要となります。</p>
+          <p>MySQLを利用する場合は、通常、次の情報が必要となります。</p>
           <ul>
             <li>データベースを動かすサーバーの名前（DBサーバー名、またはDBホスト名）</li>
             <li>データベースへ接続するためのユーザー名</li>
@@ -99,15 +99,15 @@
             <li>作成したデータベースの名前</li>
           </ul>
           <p>WEBサーバーの中にMySQL（データベース）が入っている場合は、通常ホスト名は「localhost」となります。<br />
-          サクラインターネットやロリポップなどのレンタルサーバーなどの場合は「mysqlxx.db.sakura.ne.jp」などの専用のサーバーが用意されており、指定されたサーバーへ接続して利用する形になっています。
+          さくらインターネットやロリポップなどのレンタルサーバーなどの場合は「mysqlxx.db.sakura.ne.jp」などの専用のサーバーが用意されており、指定されたサーバーへ接続して利用する形になっています。
           </p>
           <br />
           <p class="center"><img src="images/sakura_01.jpg" alt="FFFTP画面" /></p>
-          <br />ここではサクラインターネットを例にご説明しています。それぞれのレンタルサーバーに合わせてごらんください<br />
+          <br />ここでは、さくらインターネットを例にご説明しています。それぞれのレンタルサーバーに合わせてごらんください<br />
           <p class="center"><img src="images/sakura_02.jpg" alt="FFFTP画面"  /></p>
           <p>通常レンタルサーバーをご利用の場合はユーザー名は「アカウント名」となります。専用サーバーなどの場合は「root」となることが多いでしょう。</p>
           <p>接続するパスワードは、WEBサーバーを契約したときにご自身で接続するためのパスワードを決めることが多いです。<br />プロバイダ等から指定されている場合は、その指定されたパスワードを必要とします。</p>
-          <p>MyNETSを動かすためのサーバー内のデータベースを作成する必要があります。あらかじめコントロールパネルなどからデータベースを作成しておいてください。<br />※テーブルは作成する必要がありません。また、レンタルサーバーでは1契約で1個のデータベースしか使えない場合があります。その場合はあらかじめ用意されたデータベースを使ってMyNETSをインストールします。</p>
+          <p>サーバー内にMyNETSを動かすためのデータベースを作成する必要があります。あらかじめコントロールパネルなどからデータベースを作成しておいてください。<br />※テーブルは作成する必要がありません。また、レンタルサーバーでは1契約で1個のデータベースしか使えない場合があります。その場合はあらかじめ用意されたデータベースを使ってMyNETSをインストールします。</p>
           <br />
           <!--<input type="checkbox" name="step3chk" value="1"  />　※確認ができたら、チェックを入れてください。-->
         </div>
@@ -177,7 +177,7 @@
       <div id="search-box">
         <h3>CHECK</h3>
         <ul class="link-list">
-          <li><a href="http://usagi.mynets.jp/SBBS/" target="_blank">サポート掲示板</a></li>
+          <li><a href="http://usagi-project.org/SBBS/" target="_blank">サポート掲示板</a></li>
 
         </ul>
       </div>
@@ -191,7 +191,7 @@
       <li><a href="#">ページTOP</a></li>
     </ul>
     <div id="copyright">
-      <p>COPYRIGHT Usagi Project All Rights reserved. 2007-2008</p>
+      <p>COPYRIGHT Usagi Project All Rights reserved. 2007-2010</p>
     </div>
   </div>
 </div>
