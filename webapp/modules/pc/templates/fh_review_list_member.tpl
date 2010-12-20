@@ -229,7 +229,7 @@
 
 <div class="padding_s">
 
-({$review.title})
+({$review.title|bbcode2del})
 
 </div>
 
@@ -293,7 +293,7 @@
 
 <div class="padding_s lh_120">
 
-({$review.body|t_body:'review'})
+({$review.body|bbcode2del|t_body:'review'})
 
 <div style="text-align:right;">
 
