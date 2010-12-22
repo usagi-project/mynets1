@@ -25,7 +25,7 @@ version=$1
 package="MyNETS-$tag"
 
 
-if [ "$2" == "test" ]; then
+if [ "$2" = "test" ]; then
     url="http://svn.usagi-project.org/svn2/public/trunk/"
     tag=""
     version="$version-test"
@@ -43,7 +43,7 @@ if [ $? -ne 0 ]; then
 fi
 
 
-if [ "$2" == "test" ]; then
+if [ "$2" = "test" ]; then
     echo "Update version in version.php: $version "
     sed "s/, '.*'/, '$version'/" $dir/webapp/version.php > version.php.$$
     mv version.php.$$ $dir/webapp/version.php
