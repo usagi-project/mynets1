@@ -34,7 +34,7 @@
     ({foreach from=$member_data.profile item=profile})
     <tr>
         <th style="width:110px" class="style1"><strong>({$profile.caption})</strong></th>
-        <td style="width:570px" class="style2" colspan="3">({$profile.value|default:"未登録"})</td>
+        <td style="width:570px" class="style2" colspan="3">({$profile.value|default:"未登録"|t_body:'profile'})</td>
         <!--<th style="width:110px" class="style1"><strong>&nbsp;</strong></th>
         <td style="width:230px" class="style2">&nbsp;</td>-->
     </tr>
