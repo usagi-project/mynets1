@@ -24,12 +24,12 @@ $lon = htmlspecialchars($_GET["lon"], ENT_QUOTES, 'Shift_JIS');
 header('Content-Type: text/html; charset=Shift_JIS');
 $glocal = "http://www.google.co.jp/m/search?output=chtml&amp;site=maps&amp;hl=ja&amp;q={$lat},{$lon}&amp;zp=III";
 $gtransit = "http://www.google.co.jp/transit?uipref=3&amp;hl=ja&amp;saddr={$lat},{$lon}&amp;output=mobile";
-$string = "<a href='{$glocal}'>Googleï¿½}ï¿½bï¿½vï¿½ÅŒï¿½ï¿½ï¿½</a><br><a href='{$gtransit}'>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½_ï¿½Æ‚ï¿½ï¿½ÄæŠ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</a>";;
+$string = "<a href='{$glocal}'>Googleƒ}ƒbƒv‚ÅŒ©‚é</a><br><a href='{$gtransit}'>‚±‚±‚ğo”­“_‚Æ‚µ‚ÄæŠ·ŒŸõ‚ğ‚·‚é</a>";;
 $html = "<html>\n"
 ."<head>\n"
 ."<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Shift_JIS\">"
 ."</head>\n"
-."<body><br><br>ï¿½Rï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½SNSï¿½Oï¿½Æ‚È‚ï¿½Ü‚ï¿½ï¿½B<br><br>" . $string . "\n"
+."<body><br><br>ƒRƒR‚©‚çæ‚ÍSNSŠO‚Æ‚È‚è‚Ü‚·B<br><br>" . $string . "\n"
 ."</body></html>";
 print($html);
 ?> 
