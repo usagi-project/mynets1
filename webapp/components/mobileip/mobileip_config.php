@@ -9,7 +9,7 @@ $config['mobileip_cache_dir'] = OPENPNE_VAR_DIR . '/mobile_ip/';
 
 // carrier URL
 $config['mobileip_carrier_url']['au'] = 'http://www.au.kddi.com/ezfactory/tec/spec/ezsava_ip.html';
-$config['mobileip_carrier_url']['docomo'] = 'http://www.nttdocomo.co.jp/service/imode/make/content/ip/';
+$config['mobileip_carrier_url']['docomo'] = 'http://www.nttdocomo.co.jp/service/developer/make/content/ip/index.html';
 $config['mobileip_carrier_url']['softbank'] = 'http://creation.mb.softbank.jp/web/web_ip.html';
 $config['mobileip_carrier_url']['willcom'] = 'http://www.willcom-inc.com/ja/service/contents_service/create/center_info/';
 $config['mobileip_carrier_url']['em'] = 'http://developer.emnet.ne.jp/ipaddress.html';
