@@ -38,19 +38,17 @@ class Mobileip
     //UAチェックを追加
     private $_mobile_get_id;
     private $_yahoo_remote_pc_ip;
+    
     function __construct()
     {
-
         //初期化
         //$this->CI =& get_instance();
         //$this->CI->load->helper('file');
         require_once OPENPNE_WEBAPP_DIR.'/components/mobileip/mobileip_config.php';
-
         require_once OPENPNE_WEBAPP_DIR.'/components/mobile_get_id.class.php';
         //$this->CI->load->config('mobileip_config');
 
         $this->_remote_ip = $_SERVER['REMOTE_ADDR'];
-
         $this->_mobile_get_id = new Usagi_Get_Mobile_Id();
 
         //Config値読み込み
@@ -60,12 +58,12 @@ class Mobileip
         $this->_carrier_name = $config['mobileip_carrier_name'];
 
         $this->_yahoo_remote_pc_ip = $config['yahoo_pc_remote_pc_ip'];
+
         //IPキャッシュ生成
         $this->_set_iplist();
 
         //IP判定
         $this->_judge_ip();
-
     }
 
     // public functions
@@ -134,7 +132,14 @@ class Mobileip
                 {
                     //なければ作る
                     $iptext = $this->_get_iplist_from_url($url);
-                    write_file($file, $iptext);
+                    if ($iptext !== FALSE)
+                    {
+                        write_file($file, $iptext);
+                    }
+                    else
+                    {
+                        // IPアドレスリストを取得できず
+                    }
                 }
             }
         }
@@ -143,37 +148,47 @@ class Mobileip
     function _get_iplist_from_url($_url)
     {
         $html = file_get_contents($_url);
+        if ($html === FALSE)
+        {
+            return FALSE;
+        }
+        
+        $iptext = '';
+        
         if (strpos($_url, 'au'))
         {
             $pattern = "/(\d{2,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}).+\n.+(\/\d{2})/";
             if (preg_match_all($pattern, $html, $matches))
             {
-                $iptext = "";
                 for ($i=0; $i<=count($matches[0])-1; $i++)
                 {
-                    $iptext .= $matches[1][$i] . $matches[2][$i] ."\n";
+                    $iptext .= $matches[1][$i] . $matches[2][$i] . "\n";
                 }
-
-                return $iptext;
             }
+            
         }
         else
         {
             $pattern = "/\d{2,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\/\d{2}/";
             if (preg_match_all($pattern, $html, $matches))
             {
-                $iptext = "";
                 for ($i=0; $i<=count($matches[0])-1; $i++)
                 {
-                    //ソフトバンクのPCからのIP大域をカット
-                    if (in_array($matches[0][$i], $this->_yahoo_remote_pc_ip) == FALSE)
+                    //ソフトバンクのPCからのIP帯域をカット
+                    if (in_array($matches[0][$i], $this->_yahoo_remote_pc_ip) === FALSE)
                     {
-                        $iptext .= $matches[0][$i] ."\n";
+                        $iptext .= $matches[0][$i] . "\n";
                     }
                 }
-
-                return $iptext;
             }
+        }
+        
+        if ($iptext === '')
+        {
+            return FALSE;
+        }
+        else {
+            return $iptext;
         }
     }
 
@@ -198,7 +213,6 @@ class Mobileip
 
         return $ipb;
     }
-
 
     //mobileのUAとマッチするかどうか
     function _match_mobile_ua()
